@@ -1,0 +1,12 @@
+B:\FindasoLib\FindasoLib.Share\bin\Release\net5.0\FindasoLib.Share.deps.json
+B:\FindasoLib\FindasoLib.Share\bin\Release\net5.0\FindasoLib.Share.dll
+B:\FindasoLib\FindasoLib.Share\bin\Release\net5.0\ref\FindasoLib.Share.dll
+B:\FindasoLib\FindasoLib.Share\bin\Release\net5.0\FindasoLib.Share.pdb
+B:\FindasoLib\FindasoLib.Share\obj\Release\net5.0\FindasoLib.Share.GeneratedMSBuildEditorConfig.editorconfig
+B:\FindasoLib\FindasoLib.Share\obj\Release\net5.0\FindasoLib.Share.AssemblyInfoInputs.cache
+B:\FindasoLib\FindasoLib.Share\obj\Release\net5.0\FindasoLib.Share.AssemblyInfo.cs
+B:\FindasoLib\FindasoLib.Share\obj\Release\net5.0\FindasoLib.Share.csproj.CoreCompileInputs.cache
+B:\FindasoLib\FindasoLib.Share\obj\Release\net5.0\FindasoLib.Share.dll
+B:\FindasoLib\FindasoLib.Share\obj\Release\net5.0\ref\FindasoLib.Share.dll
+B:\FindasoLib\FindasoLib.Share\obj\Release\net5.0\FindasoLib.Share.pdb
+B:\FindasoLib\FindasoLib.Share\obj\Release\net5.0\FindasoLib.Share.csproj.AssemblyReference.cache

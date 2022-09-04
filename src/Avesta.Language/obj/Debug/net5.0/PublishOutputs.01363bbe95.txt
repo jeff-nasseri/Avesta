@@ -1,0 +1,7 @@
+B:\Mohammady\BLOG\FindasoLib\FindasoLib.Dashboard\FindasoLib.Language.dll
+B:\Mohammady\BLOG\FindasoLib\FindasoLib.Dashboard\FindasoLib.Language.deps.json
+B:\Mohammady\BLOG\FindasoLib\FindasoLib.Dashboard\FindasoLib.Language.pdb
+B:\Mohammady\BLOG\FindasoLib\FindasoLib.Dashboard\FindasoLib.Global.dll
+B:\Mohammady\BLOG\FindasoLib\FindasoLib.Dashboard\FindasoLib.Storage.dll
+B:\Mohammady\BLOG\FindasoLib\FindasoLib.Dashboard\FindasoLib.Global.pdb
+B:\Mohammady\BLOG\FindasoLib\FindasoLib.Dashboard\FindasoLib.Storage.pdb

@@ -1,0 +1,5 @@
+B:\Mohammady\BLOG\FindasoLib\FindasoLib.Exception\obj\Debug\net5.0\FindasoLib.Exception.csproj.AssemblyReference.cache
+B:\Mohammady\BLOG\FindasoLib\FindasoLib.Exception\obj\Debug\net5.0\FindasoLib.Exception.GeneratedMSBuildEditorConfig.editorconfig
+B:\Mohammady\BLOG\FindasoLib\FindasoLib.Exception\obj\Debug\net5.0\FindasoLib.Exception.AssemblyInfoInputs.cache
+B:\Mohammady\BLOG\FindasoLib\FindasoLib.Exception\obj\Debug\net5.0\FindasoLib.Exception.AssemblyInfo.cs
+B:\Mohammady\BLOG\FindasoLib\FindasoLib.Exception\obj\Debug\net5.0\FindasoLib.Exception.csproj.CoreCompileInputs.cache

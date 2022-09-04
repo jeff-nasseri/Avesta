@@ -1,0 +1,796 @@
+{
+  "format": 1,
+  "restore": {
+    "B:\\Avesta\\Framework\\FindasoLib.MVC\\FindasoLib.MVC.csproj": {}
+  },
+  "projects": {
+    "B:\\Avesta\\Framework\\FindasoLib.Attribute\\FindasoLib.Attribute.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "B:\\Avesta\\Framework\\FindasoLib.Attribute\\FindasoLib.Attribute.csproj",
+        "projectName": "FindasoLib.Attribute",
+        "projectPath": "B:\\Avesta\\Framework\\FindasoLib.Attribute\\FindasoLib.Attribute.csproj",
+        "packagesPath": "C:\\Users\\aaa\\.nuget\\packages\\",
+        "outputPath": "B:\\Avesta\\Framework\\FindasoLib.Attribute\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\aaa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.devexpress.com/DFXTQmpMZvhM4dwnhdREFzPqioGvNb9RKY84xtr2GJWvn2KEHw/api": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "B:\\Avesta\\Framework\\FindasoLib.Language\\FindasoLib.Language.csproj": {
+                "projectPath": "B:\\Avesta\\Framework\\FindasoLib.Language\\FindasoLib.Language.csproj"
+              },
+              "B:\\Avesta\\Framework\\FindasoLib.Share\\FindasoLib.Share.csproj": {
+                "projectPath": "B:\\Avesta\\Framework\\FindasoLib.Share\\FindasoLib.Share.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Mvc.Core": {
+              "target": "Package",
+              "version": "[2.2.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "B:\\Avesta\\Framework\\FindasoLib.Exceptions\\FindasoLib.Exceptions.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "B:\\Avesta\\Framework\\FindasoLib.Exceptions\\FindasoLib.Exceptions.csproj",
+        "projectName": "FindasoLib.Exceptions",
+        "projectPath": "B:\\Avesta\\Framework\\FindasoLib.Exceptions\\FindasoLib.Exceptions.csproj",
+        "packagesPath": "C:\\Users\\aaa\\.nuget\\packages\\",
+        "outputPath": "B:\\Avesta\\Framework\\FindasoLib.Exceptions\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\aaa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.devexpress.com/DFXTQmpMZvhM4dwnhdREFzPqioGvNb9RKY84xtr2GJWvn2KEHw/api": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "B:\\Avesta\\Framework\\FindasoLib.Language\\FindasoLib.Language.csproj": {
+                "projectPath": "B:\\Avesta\\Framework\\FindasoLib.Language\\FindasoLib.Language.csproj"
+              },
+              "B:\\Avesta\\Framework\\FindasoLib.Logging\\FindasoLib.Logging.csproj": {
+                "projectPath": "B:\\Avesta\\Framework\\FindasoLib.Logging\\FindasoLib.Logging.csproj"
+              },
+              "B:\\Avesta\\Framework\\FindasoLib.Storage\\FindasoLib.Storage.csproj": {
+                "projectPath": "B:\\Avesta\\Framework\\FindasoLib.Storage\\FindasoLib.Storage.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "B:\\Avesta\\Framework\\FindasoLib.Global\\FindasoLib.Global.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "B:\\Avesta\\Framework\\FindasoLib.Global\\FindasoLib.Global.csproj",
+        "projectName": "FindasoLib.Global",
+        "projectPath": "B:\\Avesta\\Framework\\FindasoLib.Global\\FindasoLib.Global.csproj",
+        "packagesPath": "C:\\Users\\aaa\\.nuget\\packages\\",
+        "outputPath": "B:\\Avesta\\Framework\\FindasoLib.Global\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\aaa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.devexpress.com/DFXTQmpMZvhM4dwnhdREFzPqioGvNb9RKY84xtr2GJWvn2KEHw/api": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "B:\\Avesta\\Framework\\FindasoLib.Language\\FindasoLib.Language.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "B:\\Avesta\\Framework\\FindasoLib.Language\\FindasoLib.Language.csproj",
+        "projectName": "FindasoLib.Language",
+        "projectPath": "B:\\Avesta\\Framework\\FindasoLib.Language\\FindasoLib.Language.csproj",
+        "packagesPath": "C:\\Users\\aaa\\.nuget\\packages\\",
+        "outputPath": "B:\\Avesta\\Framework\\FindasoLib.Language\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\aaa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.devexpress.com/DFXTQmpMZvhM4dwnhdREFzPqioGvNb9RKY84xtr2GJWvn2KEHw/api": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "B:\\Avesta\\Framework\\FindasoLib.Global\\FindasoLib.Global.csproj": {
+                "projectPath": "B:\\Avesta\\Framework\\FindasoLib.Global\\FindasoLib.Global.csproj"
+              },
+              "B:\\Avesta\\Framework\\FindasoLib.Storage\\FindasoLib.Storage.csproj": {
+                "projectPath": "B:\\Avesta\\Framework\\FindasoLib.Storage\\FindasoLib.Storage.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "B:\\Avesta\\Framework\\FindasoLib.Logging\\FindasoLib.Logging.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "B:\\Avesta\\Framework\\FindasoLib.Logging\\FindasoLib.Logging.csproj",
+        "projectName": "FindasoLib.Logging",
+        "projectPath": "B:\\Avesta\\Framework\\FindasoLib.Logging\\FindasoLib.Logging.csproj",
+        "packagesPath": "C:\\Users\\aaa\\.nuget\\packages\\",
+        "outputPath": "B:\\Avesta\\Framework\\FindasoLib.Logging\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\aaa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.devexpress.com/DFXTQmpMZvhM4dwnhdREFzPqioGvNb9RKY84xtr2GJWvn2KEHw/api": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "B:\\Avesta\\Framework\\FindasoLib.Share\\FindasoLib.Share.csproj": {
+                "projectPath": "B:\\Avesta\\Framework\\FindasoLib.Share\\FindasoLib.Share.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "B:\\Avesta\\Framework\\FindasoLib.Model\\FindasoLib.Model.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "B:\\Avesta\\Framework\\FindasoLib.Model\\FindasoLib.Model.csproj",
+        "projectName": "FindasoLib.Model",
+        "projectPath": "B:\\Avesta\\Framework\\FindasoLib.Model\\FindasoLib.Model.csproj",
+        "packagesPath": "C:\\Users\\aaa\\.nuget\\packages\\",
+        "outputPath": "B:\\Avesta\\Framework\\FindasoLib.Model\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\aaa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.devexpress.com/DFXTQmpMZvhM4dwnhdREFzPqioGvNb9RKY84xtr2GJWvn2KEHw/api": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "B:\\Avesta\\Framework\\FindasoLib.Attribute\\FindasoLib.Attribute.csproj": {
+                "projectPath": "B:\\Avesta\\Framework\\FindasoLib.Attribute\\FindasoLib.Attribute.csproj"
+              },
+              "B:\\Avesta\\Framework\\FindasoLib.Share\\FindasoLib.Share.csproj": {
+                "projectPath": "B:\\Avesta\\Framework\\FindasoLib.Share\\FindasoLib.Share.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "B:\\Avesta\\Framework\\FindasoLib.MVC\\FindasoLib.MVC.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "B:\\Avesta\\Framework\\FindasoLib.MVC\\FindasoLib.MVC.csproj",
+        "projectName": "FindasoLib.MVC",
+        "projectPath": "B:\\Avesta\\Framework\\FindasoLib.MVC\\FindasoLib.MVC.csproj",
+        "packagesPath": "C:\\Users\\aaa\\.nuget\\packages\\",
+        "outputPath": "B:\\Avesta\\Framework\\FindasoLib.MVC\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\aaa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.devexpress.com/DFXTQmpMZvhM4dwnhdREFzPqioGvNb9RKY84xtr2GJWvn2KEHw/api": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "B:\\Avesta\\Framework\\FindasoLib.Services\\FindasoLib.Services.csproj": {
+                "projectPath": "B:\\Avesta\\Framework\\FindasoLib.Services\\FindasoLib.Services.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "B:\\Avesta\\Framework\\FindasoLib.Repository\\FindasoLib.Repository.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "B:\\Avesta\\Framework\\FindasoLib.Repository\\FindasoLib.Repository.csproj",
+        "projectName": "FindasoLib.Repository",
+        "projectPath": "B:\\Avesta\\Framework\\FindasoLib.Repository\\FindasoLib.Repository.csproj",
+        "packagesPath": "C:\\Users\\aaa\\.nuget\\packages\\",
+        "outputPath": "B:\\Avesta\\Framework\\FindasoLib.Repository\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\aaa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.devexpress.com/DFXTQmpMZvhM4dwnhdREFzPqioGvNb9RKY84xtr2GJWvn2KEHw/api": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "B:\\Avesta\\Framework\\FindasoLib.Exceptions\\FindasoLib.Exceptions.csproj": {
+                "projectPath": "B:\\Avesta\\Framework\\FindasoLib.Exceptions\\FindasoLib.Exceptions.csproj"
+              },
+              "B:\\Avesta\\Framework\\FindasoLib.Model\\FindasoLib.Model.csproj": {
+                "projectPath": "B:\\Avesta\\Framework\\FindasoLib.Model\\FindasoLib.Model.csproj"
+              },
+              "B:\\Avesta\\Framework\\FindasoLib.Share\\FindasoLib.Share.csproj": {
+                "projectPath": "B:\\Avesta\\Framework\\FindasoLib.Share\\FindasoLib.Share.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.9, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "B:\\Avesta\\Framework\\FindasoLib.Services\\FindasoLib.Services.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "B:\\Avesta\\Framework\\FindasoLib.Services\\FindasoLib.Services.csproj",
+        "projectName": "FindasoLib.Services",
+        "projectPath": "B:\\Avesta\\Framework\\FindasoLib.Services\\FindasoLib.Services.csproj",
+        "packagesPath": "C:\\Users\\aaa\\.nuget\\packages\\",
+        "outputPath": "B:\\Avesta\\Framework\\FindasoLib.Services\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\aaa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.devexpress.com/DFXTQmpMZvhM4dwnhdREFzPqioGvNb9RKY84xtr2GJWvn2KEHw/api": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "B:\\Avesta\\Framework\\FindasoLib.Attribute\\FindasoLib.Attribute.csproj": {
+                "projectPath": "B:\\Avesta\\Framework\\FindasoLib.Attribute\\FindasoLib.Attribute.csproj"
+              },
+              "B:\\Avesta\\Framework\\FindasoLib.Exceptions\\FindasoLib.Exceptions.csproj": {
+                "projectPath": "B:\\Avesta\\Framework\\FindasoLib.Exceptions\\FindasoLib.Exceptions.csproj"
+              },
+              "B:\\Avesta\\Framework\\FindasoLib.Model\\FindasoLib.Model.csproj": {
+                "projectPath": "B:\\Avesta\\Framework\\FindasoLib.Model\\FindasoLib.Model.csproj"
+              },
+              "B:\\Avesta\\Framework\\FindasoLib.Repository\\FindasoLib.Repository.csproj": {
+                "projectPath": "B:\\Avesta\\Framework\\FindasoLib.Repository\\FindasoLib.Repository.csproj"
+              },
+              "B:\\Avesta\\Framework\\FindasoLib.Share\\FindasoLib.Share.csproj": {
+                "projectPath": "B:\\Avesta\\Framework\\FindasoLib.Share\\FindasoLib.Share.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[11.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Binder": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "B:\\Avesta\\Framework\\FindasoLib.Share\\FindasoLib.Share.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "B:\\Avesta\\Framework\\FindasoLib.Share\\FindasoLib.Share.csproj",
+        "projectName": "FindasoLib.Share",
+        "projectPath": "B:\\Avesta\\Framework\\FindasoLib.Share\\FindasoLib.Share.csproj",
+        "packagesPath": "C:\\Users\\aaa\\.nuget\\packages\\",
+        "outputPath": "B:\\Avesta\\Framework\\FindasoLib.Share\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\aaa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.devexpress.com/DFXTQmpMZvhM4dwnhdREFzPqioGvNb9RKY84xtr2GJWvn2KEHw/api": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[11.0.1, )"
+            },
+            "MD.PersianDateTime.Standard": {
+              "target": "Package",
+              "version": "[2.3.0, )"
+            },
+            "Microsoft.AspNetCore.Components": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.AspNetCore.Diagnostics": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Http": {
+              "target": "Package",
+              "version": "[2.2.2, )"
+            },
+            "Microsoft.AspNetCore.Identity": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc.ViewFeatures": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "RestSharp": {
+              "target": "Package",
+              "version": "[106.15.0, )"
+            },
+            "morelinq": {
+              "target": "Package",
+              "version": "[3.3.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "B:\\Avesta\\Framework\\FindasoLib.Storage\\FindasoLib.Storage.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "B:\\Avesta\\Framework\\FindasoLib.Storage\\FindasoLib.Storage.csproj",
+        "projectName": "FindasoLib.Storage",
+        "projectPath": "B:\\Avesta\\Framework\\FindasoLib.Storage\\FindasoLib.Storage.csproj",
+        "packagesPath": "C:\\Users\\aaa\\.nuget\\packages\\",
+        "outputPath": "B:\\Avesta\\Framework\\FindasoLib.Storage\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\aaa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.devexpress.com/DFXTQmpMZvhM4dwnhdREFzPqioGvNb9RKY84xtr2GJWvn2KEHw/api": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

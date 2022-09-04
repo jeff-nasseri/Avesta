@@ -1,0 +1,17 @@
+B:\Mohammady\BLOG\FindasoLib\FindasoLib.Language\bin\Release\net5.0\FindasoLib.Language.deps.json
+B:\Mohammady\BLOG\FindasoLib\FindasoLib.Language\bin\Release\net5.0\FindasoLib.Language.dll
+B:\Mohammady\BLOG\FindasoLib\FindasoLib.Language\bin\Release\net5.0\ref\FindasoLib.Language.dll
+B:\Mohammady\BLOG\FindasoLib\FindasoLib.Language\bin\Release\net5.0\FindasoLib.Language.pdb
+B:\Mohammady\BLOG\FindasoLib\FindasoLib.Language\bin\Release\net5.0\FindasoLib.Global.dll
+B:\Mohammady\BLOG\FindasoLib\FindasoLib.Language\bin\Release\net5.0\FindasoLib.Storage.dll
+B:\Mohammady\BLOG\FindasoLib\FindasoLib.Language\bin\Release\net5.0\FindasoLib.Global.pdb
+B:\Mohammady\BLOG\FindasoLib\FindasoLib.Language\bin\Release\net5.0\FindasoLib.Storage.pdb
+B:\Mohammady\BLOG\FindasoLib\FindasoLib.Language\obj\Release\net5.0\FindasoLib.Language.csproj.AssemblyReference.cache
+B:\Mohammady\BLOG\FindasoLib\FindasoLib.Language\obj\Release\net5.0\FindasoLib.Language.GeneratedMSBuildEditorConfig.editorconfig
+B:\Mohammady\BLOG\FindasoLib\FindasoLib.Language\obj\Release\net5.0\FindasoLib.Language.AssemblyInfoInputs.cache
+B:\Mohammady\BLOG\FindasoLib\FindasoLib.Language\obj\Release\net5.0\FindasoLib.Language.AssemblyInfo.cs
+B:\Mohammady\BLOG\FindasoLib\FindasoLib.Language\obj\Release\net5.0\FindasoLib.Language.csproj.CoreCompileInputs.cache
+B:\Mohammady\BLOG\FindasoLib\FindasoLib.Language\obj\Release\net5.0\FindasoLib.Language.csproj.CopyComplete
+B:\Mohammady\BLOG\FindasoLib\FindasoLib.Language\obj\Release\net5.0\FindasoLib.Language.dll
+B:\Mohammady\BLOG\FindasoLib\FindasoLib.Language\obj\Release\net5.0\ref\FindasoLib.Language.dll
+B:\Mohammady\BLOG\FindasoLib\FindasoLib.Language\obj\Release\net5.0\FindasoLib.Language.pdb

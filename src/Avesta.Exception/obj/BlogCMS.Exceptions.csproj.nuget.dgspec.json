@@ -1,0 +1,264 @@
+{
+  "format": 1,
+  "restore": {
+    "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Exception\\FindasoLib.Exceptions.csproj": {}
+  },
+  "projects": {
+    "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Exception\\FindasoLib.Exceptions.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Exception\\FindasoLib.Exceptions.csproj",
+        "projectName": "FindasoLib.Exceptions",
+        "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Exception\\FindasoLib.Exceptions.csproj",
+        "packagesPath": "C:\\Users\\aaa\\.nuget\\packages\\",
+        "outputPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Exception\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\aaa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Language\\FindasoLib.Language.csproj": {
+                "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Language\\FindasoLib.Language.csproj"
+              },
+              "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Storage\\FindasoLib.Storage.csproj": {
+                "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Storage\\FindasoLib.Storage.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.406\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Language\\FindasoLib.Language.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Language\\FindasoLib.Language.csproj",
+        "projectName": "FindasoLib.Language",
+        "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Language\\FindasoLib.Language.csproj",
+        "packagesPath": "C:\\Users\\aaa\\.nuget\\packages\\",
+        "outputPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Language\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\aaa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Share\\FindasoLib.Share.csproj": {
+                "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Share\\FindasoLib.Share.csproj"
+              },
+              "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Storage\\FindasoLib.Storage.csproj": {
+                "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Storage\\FindasoLib.Storage.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.406\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Share\\FindasoLib.Share.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Share\\FindasoLib.Share.csproj",
+        "projectName": "FindasoLib.Share",
+        "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Share\\FindasoLib.Share.csproj",
+        "packagesPath": "C:\\Users\\aaa\\.nuget\\packages\\",
+        "outputPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Share\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\aaa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[11.0.1, )"
+            },
+            "Microsoft.AspNetCore.Components": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.AspNetCore.Diagnostics": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Http": {
+              "target": "Package",
+              "version": "[2.2.2, )"
+            },
+            "Microsoft.AspNetCore.Identity": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.406\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Storage\\FindasoLib.Storage.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Storage\\FindasoLib.Storage.csproj",
+        "projectName": "FindasoLib.Storage",
+        "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Storage\\FindasoLib.Storage.csproj",
+        "packagesPath": "C:\\Users\\aaa\\.nuget\\packages\\",
+        "outputPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Storage\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\aaa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.406\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

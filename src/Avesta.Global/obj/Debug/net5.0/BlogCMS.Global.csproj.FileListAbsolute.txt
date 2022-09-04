@@ -1,0 +1,11 @@
+B:\Mohammady\BLOG\FindasoLib\FindasoLib.Global\bin\Debug\net5.0\FindasoLib.Global.deps.json
+B:\Mohammady\BLOG\FindasoLib\FindasoLib.Global\bin\Debug\net5.0\FindasoLib.Global.dll
+B:\Mohammady\BLOG\FindasoLib\FindasoLib.Global\bin\Debug\net5.0\ref\FindasoLib.Global.dll
+B:\Mohammady\BLOG\FindasoLib\FindasoLib.Global\bin\Debug\net5.0\FindasoLib.Global.pdb
+B:\Mohammady\BLOG\FindasoLib\FindasoLib.Global\obj\Debug\net5.0\FindasoLib.Global.GeneratedMSBuildEditorConfig.editorconfig
+B:\Mohammady\BLOG\FindasoLib\FindasoLib.Global\obj\Debug\net5.0\FindasoLib.Global.AssemblyInfoInputs.cache
+B:\Mohammady\BLOG\FindasoLib\FindasoLib.Global\obj\Debug\net5.0\FindasoLib.Global.AssemblyInfo.cs
+B:\Mohammady\BLOG\FindasoLib\FindasoLib.Global\obj\Debug\net5.0\FindasoLib.Global.csproj.CoreCompileInputs.cache
+B:\Mohammady\BLOG\FindasoLib\FindasoLib.Global\obj\Debug\net5.0\FindasoLib.Global.dll
+B:\Mohammady\BLOG\FindasoLib\FindasoLib.Global\obj\Debug\net5.0\ref\FindasoLib.Global.dll
+B:\Mohammady\BLOG\FindasoLib\FindasoLib.Global\obj\Debug\net5.0\FindasoLib.Global.pdb

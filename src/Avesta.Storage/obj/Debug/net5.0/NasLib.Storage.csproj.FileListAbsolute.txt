@@ -1,0 +1,12 @@
+B:\FindasoLib\FindasoLib.Storage\bin\Debug\net5.0\FindasoLib.Storage.deps.json
+B:\FindasoLib\FindasoLib.Storage\bin\Debug\net5.0\FindasoLib.Storage.dll
+B:\FindasoLib\FindasoLib.Storage\bin\Debug\net5.0\ref\FindasoLib.Storage.dll
+B:\FindasoLib\FindasoLib.Storage\bin\Debug\net5.0\FindasoLib.Storage.pdb
+B:\FindasoLib\FindasoLib.Storage\obj\Debug\net5.0\FindasoLib.Storage.GeneratedMSBuildEditorConfig.editorconfig
+B:\FindasoLib\FindasoLib.Storage\obj\Debug\net5.0\FindasoLib.Storage.AssemblyInfoInputs.cache
+B:\FindasoLib\FindasoLib.Storage\obj\Debug\net5.0\FindasoLib.Storage.AssemblyInfo.cs
+B:\FindasoLib\FindasoLib.Storage\obj\Debug\net5.0\FindasoLib.Storage.csproj.CoreCompileInputs.cache
+B:\FindasoLib\FindasoLib.Storage\obj\Debug\net5.0\FindasoLib.Storage.dll
+B:\FindasoLib\FindasoLib.Storage\obj\Debug\net5.0\ref\FindasoLib.Storage.dll
+B:\FindasoLib\FindasoLib.Storage\obj\Debug\net5.0\FindasoLib.Storage.pdb
+B:\FindasoLib\FindasoLib.Storage\obj\Debug\net5.0\FindasoLib.Storage.csproj.AssemblyReference.cache

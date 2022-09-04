@@ -1,0 +1,73 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "FindasoLib.Attribute/1.0.0": {
+        "dependencies": {
+          "FindasoLib.Language": "1.0.0"
+        },
+        "runtime": {
+          "FindasoLib.Attribute.dll": {}
+        }
+      },
+      "FindasoLib.Global/1.0.0": {
+        "dependencies": {
+          "FindasoLib.Model": "1.0.0"
+        },
+        "runtime": {
+          "FindasoLib.Global.dll": {}
+        }
+      },
+      "FindasoLib.Language/1.0.0": {
+        "dependencies": {
+          "FindasoLib.Global": "1.0.0",
+          "FindasoLib.Storage": "1.0.0"
+        },
+        "runtime": {
+          "FindasoLib.Language.dll": {}
+        }
+      },
+      "FindasoLib.Model/1.0.0": {
+        "runtime": {
+          "FindasoLib.Model.dll": {}
+        }
+      },
+      "FindasoLib.Storage/1.0.0": {
+        "runtime": {
+          "FindasoLib.Storage.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "FindasoLib.Attribute/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "FindasoLib.Global/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "FindasoLib.Language/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "FindasoLib.Model/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "FindasoLib.Storage/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

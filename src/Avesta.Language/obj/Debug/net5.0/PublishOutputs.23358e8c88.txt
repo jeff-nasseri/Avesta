@@ -1,0 +1,7 @@
+B:\Mohammady\BLOG\FindasoLib\FindasoLib.Language\bin\Debug\net5.0\publish\FindasoLib.Language.dll
+B:\Mohammady\BLOG\FindasoLib\FindasoLib.Language\bin\Debug\net5.0\publish\FindasoLib.Language.deps.json
+B:\Mohammady\BLOG\FindasoLib\FindasoLib.Language\bin\Debug\net5.0\publish\FindasoLib.Language.pdb
+B:\Mohammady\BLOG\FindasoLib\FindasoLib.Language\bin\Debug\net5.0\publish\FindasoLib.Global.dll
+B:\Mohammady\BLOG\FindasoLib\FindasoLib.Language\bin\Debug\net5.0\publish\FindasoLib.Storage.dll
+B:\Mohammady\BLOG\FindasoLib\FindasoLib.Language\bin\Debug\net5.0\publish\FindasoLib.Global.pdb
+B:\Mohammady\BLOG\FindasoLib\FindasoLib.Language\bin\Debug\net5.0\publish\FindasoLib.Storage.pdb

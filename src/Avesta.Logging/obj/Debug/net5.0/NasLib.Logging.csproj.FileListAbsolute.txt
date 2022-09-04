@@ -1,0 +1,15 @@
+B:\FindasoLib\FindasoLib.Logging\bin\Debug\net5.0\FindasoLib.Logging.deps.json
+B:\FindasoLib\FindasoLib.Logging\bin\Debug\net5.0\FindasoLib.Logging.dll
+B:\FindasoLib\FindasoLib.Logging\bin\Debug\net5.0\ref\FindasoLib.Logging.dll
+B:\FindasoLib\FindasoLib.Logging\bin\Debug\net5.0\FindasoLib.Logging.pdb
+B:\FindasoLib\FindasoLib.Logging\bin\Debug\net5.0\FindasoLib.Share.dll
+B:\FindasoLib\FindasoLib.Logging\bin\Debug\net5.0\FindasoLib.Share.pdb
+B:\FindasoLib\FindasoLib.Logging\obj\Debug\net5.0\FindasoLib.Logging.csproj.AssemblyReference.cache
+B:\FindasoLib\FindasoLib.Logging\obj\Debug\net5.0\FindasoLib.Logging.GeneratedMSBuildEditorConfig.editorconfig
+B:\FindasoLib\FindasoLib.Logging\obj\Debug\net5.0\FindasoLib.Logging.AssemblyInfoInputs.cache
+B:\FindasoLib\FindasoLib.Logging\obj\Debug\net5.0\FindasoLib.Logging.AssemblyInfo.cs
+B:\FindasoLib\FindasoLib.Logging\obj\Debug\net5.0\FindasoLib.Logging.csproj.CoreCompileInputs.cache
+B:\FindasoLib\FindasoLib.Logging\obj\Debug\net5.0\FindasoLib.Logging.csproj.CopyComplete
+B:\FindasoLib\FindasoLib.Logging\obj\Debug\net5.0\FindasoLib.Logging.dll
+B:\FindasoLib\FindasoLib.Logging\obj\Debug\net5.0\ref\FindasoLib.Logging.dll
+B:\FindasoLib\FindasoLib.Logging\obj\Debug\net5.0\FindasoLib.Logging.pdb

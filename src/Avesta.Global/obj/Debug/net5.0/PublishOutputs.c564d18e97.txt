@@ -1,0 +1,3 @@
+B:\Mohammady\BLOG\FindasoLib\build\Release\FindasoLib.Dashboard\FindasoLib.Global.dll
+B:\Mohammady\BLOG\FindasoLib\build\Release\FindasoLib.Dashboard\FindasoLib.Global.deps.json
+B:\Mohammady\BLOG\FindasoLib\build\Release\FindasoLib.Dashboard\FindasoLib.Global.pdb

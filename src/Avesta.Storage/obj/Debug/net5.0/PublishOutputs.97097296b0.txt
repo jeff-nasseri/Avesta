@@ -1,0 +1,3 @@
+B:\Mohammady\BLOG\FindasoLib\build\WEB\Release\FindasoLib.Storage.dll
+B:\Mohammady\BLOG\FindasoLib\build\WEB\Release\FindasoLib.Storage.deps.json
+B:\Mohammady\BLOG\FindasoLib\build\WEB\Release\FindasoLib.Storage.pdb

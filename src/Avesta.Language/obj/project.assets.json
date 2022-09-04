@@ -1,0 +1,115 @@
+{
+  "version": 3,
+  "targets": {
+    "net6.0": {
+      "Avesta.Global/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Avesta.Global.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Avesta.Global.dll": {}
+        }
+      },
+      "Avesta.Storage/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Avesta.Storage.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Avesta.Storage.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Avesta.Global/1.0.0": {
+      "type": "project",
+      "path": "../Avesta.Global/Avesta.Global.csproj",
+      "msbuildProject": "../Avesta.Global/Avesta.Global.csproj"
+    },
+    "Avesta.Storage/1.0.0": {
+      "type": "project",
+      "path": "../Avesta.Storage/Avesta.Storage.csproj",
+      "msbuildProject": "../Avesta.Storage/Avesta.Storage.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net6.0": [
+      "Avesta.Global >= 1.0.0",
+      "Avesta.Storage >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\aaa\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "B:\\Avesta\\Framework\\src\\Avesta.Language\\Avesta.Language.csproj",
+      "projectName": "Avesta.Language",
+      "projectPath": "B:\\Avesta\\Framework\\src\\Avesta.Language\\Avesta.Language.csproj",
+      "packagesPath": "C:\\Users\\aaa\\.nuget\\packages\\",
+      "outputPath": "B:\\Avesta\\Framework\\src\\Avesta.Language\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\aaa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net6.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {},
+        "https://nuget.devexpress.com/DFXTQmpMZvhM4dwnhdREFzPqioGvNb9RKY84xtr2GJWvn2KEHw/api": {}
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "projectReferences": {
+            "B:\\Avesta\\Framework\\src\\Avesta.Global\\Avesta.Global.csproj": {
+              "projectPath": "B:\\Avesta\\Framework\\src\\Avesta.Global\\Avesta.Global.csproj"
+            },
+            "B:\\Avesta\\Framework\\src\\Avesta.Storage\\Avesta.Storage.csproj": {
+              "projectPath": "B:\\Avesta\\Framework\\src\\Avesta.Storage\\Avesta.Storage.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net6.0": {
+        "targetAlias": "net6.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
