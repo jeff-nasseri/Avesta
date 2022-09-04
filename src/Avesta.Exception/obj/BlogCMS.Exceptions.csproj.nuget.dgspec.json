@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Exception\\FindasoLib.Exceptions.csproj": {}
+    "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Exception\\Avesta.Exceptions.csproj": {}
   },
   "projects": {
-    "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Exception\\FindasoLib.Exceptions.csproj": {
+    "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Exception\\Avesta.Exceptions.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Exception\\FindasoLib.Exceptions.csproj",
-        "projectName": "FindasoLib.Exceptions",
-        "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Exception\\FindasoLib.Exceptions.csproj",
+        "projectUniqueName": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Exception\\Avesta.Exceptions.csproj",
+        "projectName": "Avesta.Exceptions",
+        "projectPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Exception\\Avesta.Exceptions.csproj",
         "packagesPath": "C:\\Users\\aaa\\.nuget\\packages\\",
-        "outputPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Exception\\obj\\",
+        "outputPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Exception\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\aaa\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,11 +28,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Language\\FindasoLib.Language.csproj": {
-                "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Language\\FindasoLib.Language.csproj"
+              "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Language\\Avesta.Language.csproj": {
+                "projectPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Language\\Avesta.Language.csproj"
               },
-              "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Storage\\FindasoLib.Storage.csproj": {
-                "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Storage\\FindasoLib.Storage.csproj"
+              "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Storage\\Avesta.Storage.csproj": {
+                "projectPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Storage\\Avesta.Storage.csproj"
               }
             }
           }
@@ -65,14 +65,14 @@
         }
       }
     },
-    "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Language\\FindasoLib.Language.csproj": {
+    "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Language\\Avesta.Language.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Language\\FindasoLib.Language.csproj",
-        "projectName": "FindasoLib.Language",
-        "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Language\\FindasoLib.Language.csproj",
+        "projectUniqueName": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Language\\Avesta.Language.csproj",
+        "projectName": "Avesta.Language",
+        "projectPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Language\\Avesta.Language.csproj",
         "packagesPath": "C:\\Users\\aaa\\.nuget\\packages\\",
-        "outputPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Language\\obj\\",
+        "outputPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Language\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\aaa\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -89,11 +89,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Share\\FindasoLib.Share.csproj": {
-                "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Share\\FindasoLib.Share.csproj"
+              "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Share\\Avesta.Share.csproj": {
+                "projectPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Share\\Avesta.Share.csproj"
               },
-              "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Storage\\FindasoLib.Storage.csproj": {
-                "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Storage\\FindasoLib.Storage.csproj"
+              "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Storage\\Avesta.Storage.csproj": {
+                "projectPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Storage\\Avesta.Storage.csproj"
               }
             }
           }
@@ -126,14 +126,14 @@
         }
       }
     },
-    "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Share\\FindasoLib.Share.csproj": {
+    "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Share\\Avesta.Share.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Share\\FindasoLib.Share.csproj",
-        "projectName": "FindasoLib.Share",
-        "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Share\\FindasoLib.Share.csproj",
+        "projectUniqueName": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Share\\Avesta.Share.csproj",
+        "projectName": "Avesta.Share",
+        "projectPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Share\\Avesta.Share.csproj",
         "packagesPath": "C:\\Users\\aaa\\.nuget\\packages\\",
-        "outputPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Share\\obj\\",
+        "outputPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Share\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\aaa\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -206,14 +206,14 @@
         }
       }
     },
-    "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Storage\\FindasoLib.Storage.csproj": {
+    "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Storage\\Avesta.Storage.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Storage\\FindasoLib.Storage.csproj",
-        "projectName": "FindasoLib.Storage",
-        "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Storage\\FindasoLib.Storage.csproj",
+        "projectUniqueName": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Storage\\Avesta.Storage.csproj",
+        "projectName": "Avesta.Storage",
+        "projectPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Storage\\Avesta.Storage.csproj",
         "packagesPath": "C:\\Users\\aaa\\.nuget\\packages\\",
-        "outputPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Storage\\obj\\",
+        "outputPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Storage\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\aaa\\AppData\\Roaming\\NuGet\\NuGet.Config",

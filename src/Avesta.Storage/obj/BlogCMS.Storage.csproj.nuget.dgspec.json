@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Storage\\FindasoLib.Storage.csproj": {}
+    "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Storage\\Avesta.Storage.csproj": {}
   },
   "projects": {
-    "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Storage\\FindasoLib.Storage.csproj": {
+    "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Storage\\Avesta.Storage.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Storage\\FindasoLib.Storage.csproj",
-        "projectName": "FindasoLib.Storage",
-        "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Storage\\FindasoLib.Storage.csproj",
+        "projectUniqueName": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Storage\\Avesta.Storage.csproj",
+        "projectName": "Avesta.Storage",
+        "projectPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Storage\\Avesta.Storage.csproj",
         "packagesPath": "C:\\Users\\aaa\\.nuget\\packages\\",
-        "outputPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Storage\\obj\\",
+        "outputPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Storage\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

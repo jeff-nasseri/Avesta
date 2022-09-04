@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "B:\\FindasoLib\\FindasoLib.Logging\\FindasoLib.Logging.csproj": {}
+    "B:\\Avesta\\Avesta.Logging\\Avesta.Logging.csproj": {}
   },
   "projects": {
-    "B:\\FindasoLib\\FindasoLib.Logging\\FindasoLib.Logging.csproj": {
+    "B:\\Avesta\\Avesta.Logging\\Avesta.Logging.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "B:\\FindasoLib\\FindasoLib.Logging\\FindasoLib.Logging.csproj",
-        "projectName": "FindasoLib.Logging",
-        "projectPath": "B:\\FindasoLib\\FindasoLib.Logging\\FindasoLib.Logging.csproj",
+        "projectUniqueName": "B:\\Avesta\\Avesta.Logging\\Avesta.Logging.csproj",
+        "projectName": "Avesta.Logging",
+        "projectPath": "B:\\Avesta\\Avesta.Logging\\Avesta.Logging.csproj",
         "packagesPath": "C:\\Users\\aaa\\.nuget\\packages\\",
-        "outputPath": "B:\\FindasoLib\\FindasoLib.Logging\\obj\\",
+        "outputPath": "B:\\Avesta\\Avesta.Logging\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -32,8 +32,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "B:\\FindasoLib\\FindasoLib.Share\\FindasoLib.Share.csproj": {
-                "projectPath": "B:\\FindasoLib\\FindasoLib.Share\\FindasoLib.Share.csproj"
+              "B:\\Avesta\\Avesta.Share\\Avesta.Share.csproj": {
+                "projectPath": "B:\\Avesta\\Avesta.Share\\Avesta.Share.csproj"
               }
             }
           }
@@ -66,14 +66,14 @@
         }
       }
     },
-    "B:\\FindasoLib\\FindasoLib.Share\\FindasoLib.Share.csproj": {
+    "B:\\Avesta\\Avesta.Share\\Avesta.Share.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "B:\\FindasoLib\\FindasoLib.Share\\FindasoLib.Share.csproj",
-        "projectName": "FindasoLib.Share",
-        "projectPath": "B:\\FindasoLib\\FindasoLib.Share\\FindasoLib.Share.csproj",
+        "projectUniqueName": "B:\\Avesta\\Avesta.Share\\Avesta.Share.csproj",
+        "projectName": "Avesta.Share",
+        "projectPath": "B:\\Avesta\\Avesta.Share\\Avesta.Share.csproj",
         "packagesPath": "C:\\Users\\aaa\\.nuget\\packages\\",
-        "outputPath": "B:\\FindasoLib\\FindasoLib.Share\\obj\\",
+        "outputPath": "B:\\Avesta\\Avesta.Share\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

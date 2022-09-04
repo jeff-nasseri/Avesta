@@ -1,3 +1,3 @@
-B:\Mohammady\BLOG\FindasoLib\build\bin\Debug\OutPut\Release\FindasoLib.Dashboard\FindasoLib.Storage.dll
-B:\Mohammady\BLOG\FindasoLib\build\bin\Debug\OutPut\Release\FindasoLib.Dashboard\FindasoLib.Storage.deps.json
-B:\Mohammady\BLOG\FindasoLib\build\bin\Debug\OutPut\Release\FindasoLib.Dashboard\FindasoLib.Storage.pdb
+B:\Mohammady\BLOG\Avesta\build\bin\Debug\OutPut\Release\Avesta.Dashboard\Avesta.Storage.dll
+B:\Mohammady\BLOG\Avesta\build\bin\Debug\OutPut\Release\Avesta.Dashboard\Avesta.Storage.deps.json
+B:\Mohammady\BLOG\Avesta\build\bin\Debug\OutPut\Release\Avesta.Dashboard\Avesta.Storage.pdb

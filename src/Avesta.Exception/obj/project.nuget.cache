@@ -2,7 +2,7 @@
   "version": 2,
   "dgSpecHash": "9TpoYwlwemF4zw71ZmvjWxlDcs98zWFD+P2IzE9E3idvHee/HhDC8Yk/QbMKvcaTbLYCBl00+w5s/TQuECpTJQ==",
   "success": true,
-  "projectFilePath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Exception\\FindasoLib.Exceptions.csproj",
+  "projectFilePath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Exception\\Avesta.Exceptions.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\aaa\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\aaa\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",

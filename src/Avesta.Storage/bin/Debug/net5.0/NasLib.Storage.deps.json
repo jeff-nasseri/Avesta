@@ -6,15 +6,15 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v5.0": {
-      "FindasoLib.Storage/1.0.0": {
+      "Avesta.Storage/1.0.0": {
         "runtime": {
-          "FindasoLib.Storage.dll": {}
+          "Avesta.Storage.dll": {}
         }
       }
     }
   },
   "libraries": {
-    "FindasoLib.Storage/1.0.0": {
+    "Avesta.Storage/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

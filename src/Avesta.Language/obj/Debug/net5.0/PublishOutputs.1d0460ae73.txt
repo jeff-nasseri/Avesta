@@ -1,7 +1,7 @@
-B:\Mohammady\BLOG\FindasoLib\build\bin\Debug\OutPut\Release\FindasoLib.Dashboard\FindasoLib.Language.dll
-B:\Mohammady\BLOG\FindasoLib\build\bin\Debug\OutPut\Release\FindasoLib.Dashboard\FindasoLib.Language.deps.json
-B:\Mohammady\BLOG\FindasoLib\build\bin\Debug\OutPut\Release\FindasoLib.Dashboard\FindasoLib.Language.pdb
-B:\Mohammady\BLOG\FindasoLib\build\bin\Debug\OutPut\Release\FindasoLib.Dashboard\FindasoLib.Global.dll
-B:\Mohammady\BLOG\FindasoLib\build\bin\Debug\OutPut\Release\FindasoLib.Dashboard\FindasoLib.Storage.dll
-B:\Mohammady\BLOG\FindasoLib\build\bin\Debug\OutPut\Release\FindasoLib.Dashboard\FindasoLib.Global.pdb
-B:\Mohammady\BLOG\FindasoLib\build\bin\Debug\OutPut\Release\FindasoLib.Dashboard\FindasoLib.Storage.pdb
+B:\Mohammady\BLOG\Avesta\build\bin\Debug\OutPut\Release\Avesta.Dashboard\Avesta.Language.dll
+B:\Mohammady\BLOG\Avesta\build\bin\Debug\OutPut\Release\Avesta.Dashboard\Avesta.Language.deps.json
+B:\Mohammady\BLOG\Avesta\build\bin\Debug\OutPut\Release\Avesta.Dashboard\Avesta.Language.pdb
+B:\Mohammady\BLOG\Avesta\build\bin\Debug\OutPut\Release\Avesta.Dashboard\Avesta.Global.dll
+B:\Mohammady\BLOG\Avesta\build\bin\Debug\OutPut\Release\Avesta.Dashboard\Avesta.Storage.dll
+B:\Mohammady\BLOG\Avesta\build\bin\Debug\OutPut\Release\Avesta.Dashboard\Avesta.Global.pdb
+B:\Mohammady\BLOG\Avesta\build\bin\Debug\OutPut\Release\Avesta.Dashboard\Avesta.Storage.pdb

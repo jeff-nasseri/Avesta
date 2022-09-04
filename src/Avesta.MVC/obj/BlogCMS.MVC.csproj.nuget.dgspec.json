@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.MVC\\FindasoLib.MVC.csproj": {}
+    "B:\\Mohammady\\BLOG\\Avesta\\Avesta.MVC\\Avesta.MVC.csproj": {}
   },
   "projects": {
-    "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Attribute\\FindasoLib.Attribute.csproj": {
+    "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Attribute\\Avesta.Attribute.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Attribute\\FindasoLib.Attribute.csproj",
-        "projectName": "FindasoLib.Attribute",
-        "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Attribute\\FindasoLib.Attribute.csproj",
+        "projectUniqueName": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Attribute\\Avesta.Attribute.csproj",
+        "projectName": "Avesta.Attribute",
+        "projectPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Attribute\\Avesta.Attribute.csproj",
         "packagesPath": "C:\\Users\\aaa\\.nuget\\packages\\",
-        "outputPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Attribute\\obj\\",
+        "outputPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Attribute\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -31,11 +31,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Language\\FindasoLib.Language.csproj": {
-                "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Language\\FindasoLib.Language.csproj"
+              "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Language\\Avesta.Language.csproj": {
+                "projectPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Language\\Avesta.Language.csproj"
               },
-              "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Share\\FindasoLib.Share.csproj": {
-                "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Share\\FindasoLib.Share.csproj"
+              "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Share\\Avesta.Share.csproj": {
+                "projectPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Share\\Avesta.Share.csproj"
               }
             }
           }
@@ -74,14 +74,14 @@
         }
       }
     },
-    "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Data\\FindasoLib.Data.csproj": {
+    "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Data\\Avesta.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Data\\FindasoLib.Data.csproj",
-        "projectName": "FindasoLib.Data",
-        "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Data\\FindasoLib.Data.csproj",
+        "projectUniqueName": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Data\\Avesta.Data.csproj",
+        "projectName": "Avesta.Data",
+        "projectPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Data\\Avesta.Data.csproj",
         "packagesPath": "C:\\Users\\aaa\\.nuget\\packages\\",
-        "outputPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Data\\obj\\",
+        "outputPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -101,14 +101,14 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Exceptions\\FindasoLib.Exceptions.csproj": {
-                "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Exceptions\\FindasoLib.Exceptions.csproj"
+              "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Exceptions\\Avesta.Exceptions.csproj": {
+                "projectPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Exceptions\\Avesta.Exceptions.csproj"
               },
-              "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Model\\FindasoLib.Model.csproj": {
-                "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Model\\FindasoLib.Model.csproj"
+              "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Model\\Avesta.Model.csproj": {
+                "projectPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Model\\Avesta.Model.csproj"
               },
-              "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Share\\FindasoLib.Share.csproj": {
-                "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Share\\FindasoLib.Share.csproj"
+              "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Share\\Avesta.Share.csproj": {
+                "projectPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Share\\Avesta.Share.csproj"
               }
             }
           }
@@ -169,14 +169,14 @@
         }
       }
     },
-    "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Exceptions\\FindasoLib.Exceptions.csproj": {
+    "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Exceptions\\Avesta.Exceptions.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Exceptions\\FindasoLib.Exceptions.csproj",
-        "projectName": "FindasoLib.Exceptions",
-        "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Exceptions\\FindasoLib.Exceptions.csproj",
+        "projectUniqueName": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Exceptions\\Avesta.Exceptions.csproj",
+        "projectName": "Avesta.Exceptions",
+        "projectPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Exceptions\\Avesta.Exceptions.csproj",
         "packagesPath": "C:\\Users\\aaa\\.nuget\\packages\\",
-        "outputPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Exceptions\\obj\\",
+        "outputPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Exceptions\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -196,14 +196,14 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Language\\FindasoLib.Language.csproj": {
-                "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Language\\FindasoLib.Language.csproj"
+              "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Language\\Avesta.Language.csproj": {
+                "projectPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Language\\Avesta.Language.csproj"
               },
-              "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Logging\\FindasoLib.Logging.csproj": {
-                "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Logging\\FindasoLib.Logging.csproj"
+              "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Logging\\Avesta.Logging.csproj": {
+                "projectPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Logging\\Avesta.Logging.csproj"
               },
-              "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Storage\\FindasoLib.Storage.csproj": {
-                "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Storage\\FindasoLib.Storage.csproj"
+              "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Storage\\Avesta.Storage.csproj": {
+                "projectPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Storage\\Avesta.Storage.csproj"
               }
             }
           }
@@ -236,14 +236,14 @@
         }
       }
     },
-    "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Global\\FindasoLib.Global.csproj": {
+    "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Global\\Avesta.Global.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Global\\FindasoLib.Global.csproj",
-        "projectName": "FindasoLib.Global",
-        "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Global\\FindasoLib.Global.csproj",
+        "projectUniqueName": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Global\\Avesta.Global.csproj",
+        "projectName": "Avesta.Global",
+        "projectPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Global\\Avesta.Global.csproj",
         "packagesPath": "C:\\Users\\aaa\\.nuget\\packages\\",
-        "outputPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Global\\obj\\",
+        "outputPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Global\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -293,14 +293,14 @@
         }
       }
     },
-    "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Language\\FindasoLib.Language.csproj": {
+    "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Language\\Avesta.Language.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Language\\FindasoLib.Language.csproj",
-        "projectName": "FindasoLib.Language",
-        "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Language\\FindasoLib.Language.csproj",
+        "projectUniqueName": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Language\\Avesta.Language.csproj",
+        "projectName": "Avesta.Language",
+        "projectPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Language\\Avesta.Language.csproj",
         "packagesPath": "C:\\Users\\aaa\\.nuget\\packages\\",
-        "outputPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Language\\obj\\",
+        "outputPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Language\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -320,11 +320,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Global\\FindasoLib.Global.csproj": {
-                "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Global\\FindasoLib.Global.csproj"
+              "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Global\\Avesta.Global.csproj": {
+                "projectPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Global\\Avesta.Global.csproj"
               },
-              "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Storage\\FindasoLib.Storage.csproj": {
-                "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Storage\\FindasoLib.Storage.csproj"
+              "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Storage\\Avesta.Storage.csproj": {
+                "projectPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Storage\\Avesta.Storage.csproj"
               }
             }
           }
@@ -357,14 +357,14 @@
         }
       }
     },
-    "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Logging\\FindasoLib.Logging.csproj": {
+    "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Logging\\Avesta.Logging.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Logging\\FindasoLib.Logging.csproj",
-        "projectName": "FindasoLib.Logging",
-        "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Logging\\FindasoLib.Logging.csproj",
+        "projectUniqueName": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Logging\\Avesta.Logging.csproj",
+        "projectName": "Avesta.Logging",
+        "projectPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Logging\\Avesta.Logging.csproj",
         "packagesPath": "C:\\Users\\aaa\\.nuget\\packages\\",
-        "outputPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Logging\\obj\\",
+        "outputPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Logging\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -384,8 +384,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Share\\FindasoLib.Share.csproj": {
-                "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Share\\FindasoLib.Share.csproj"
+              "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Share\\Avesta.Share.csproj": {
+                "projectPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Share\\Avesta.Share.csproj"
               }
             }
           }
@@ -418,14 +418,14 @@
         }
       }
     },
-    "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Model\\FindasoLib.Model.csproj": {
+    "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Model\\Avesta.Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Model\\FindasoLib.Model.csproj",
-        "projectName": "FindasoLib.Model",
-        "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Model\\FindasoLib.Model.csproj",
+        "projectUniqueName": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Model\\Avesta.Model.csproj",
+        "projectName": "Avesta.Model",
+        "projectPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Model\\Avesta.Model.csproj",
         "packagesPath": "C:\\Users\\aaa\\.nuget\\packages\\",
-        "outputPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Model\\obj\\",
+        "outputPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Model\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -445,11 +445,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Attribute\\FindasoLib.Attribute.csproj": {
-                "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Attribute\\FindasoLib.Attribute.csproj"
+              "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Attribute\\Avesta.Attribute.csproj": {
+                "projectPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Attribute\\Avesta.Attribute.csproj"
               },
-              "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Share\\FindasoLib.Share.csproj": {
-                "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Share\\FindasoLib.Share.csproj"
+              "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Share\\Avesta.Share.csproj": {
+                "projectPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Share\\Avesta.Share.csproj"
               }
             }
           }
@@ -488,14 +488,14 @@
         }
       }
     },
-    "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.MVC\\FindasoLib.MVC.csproj": {
+    "B:\\Mohammady\\BLOG\\Avesta\\Avesta.MVC\\Avesta.MVC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.MVC\\FindasoLib.MVC.csproj",
-        "projectName": "FindasoLib.MVC",
-        "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.MVC\\FindasoLib.MVC.csproj",
+        "projectUniqueName": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.MVC\\Avesta.MVC.csproj",
+        "projectName": "Avesta.MVC",
+        "projectPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.MVC\\Avesta.MVC.csproj",
         "packagesPath": "C:\\Users\\aaa\\.nuget\\packages\\",
-        "outputPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.MVC\\obj\\",
+        "outputPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.MVC\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -515,11 +515,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Data\\FindasoLib.Data.csproj": {
-                "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Data\\FindasoLib.Data.csproj"
+              "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Data\\Avesta.Data.csproj": {
+                "projectPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Data\\Avesta.Data.csproj"
               },
-              "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Services\\FindasoLib.Services.csproj": {
-                "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Services\\FindasoLib.Services.csproj"
+              "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Services\\Avesta.Services.csproj": {
+                "projectPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Services\\Avesta.Services.csproj"
               }
             }
           }
@@ -552,14 +552,14 @@
         }
       }
     },
-    "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Repository\\FindasoLib.Repository.csproj": {
+    "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Repository\\Avesta.Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Repository\\FindasoLib.Repository.csproj",
-        "projectName": "FindasoLib.Repository",
-        "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Repository\\FindasoLib.Repository.csproj",
+        "projectUniqueName": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Repository\\Avesta.Repository.csproj",
+        "projectName": "Avesta.Repository",
+        "projectPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Repository\\Avesta.Repository.csproj",
         "packagesPath": "C:\\Users\\aaa\\.nuget\\packages\\",
-        "outputPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Repository\\obj\\",
+        "outputPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Repository\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -579,14 +579,14 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Exceptions\\FindasoLib.Exceptions.csproj": {
-                "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Exceptions\\FindasoLib.Exceptions.csproj"
+              "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Exceptions\\Avesta.Exceptions.csproj": {
+                "projectPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Exceptions\\Avesta.Exceptions.csproj"
               },
-              "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Model\\FindasoLib.Model.csproj": {
-                "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Model\\FindasoLib.Model.csproj"
+              "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Model\\Avesta.Model.csproj": {
+                "projectPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Model\\Avesta.Model.csproj"
               },
-              "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Share\\FindasoLib.Share.csproj": {
-                "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Share\\FindasoLib.Share.csproj"
+              "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Share\\Avesta.Share.csproj": {
+                "projectPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Share\\Avesta.Share.csproj"
               }
             }
           }
@@ -629,14 +629,14 @@
         }
       }
     },
-    "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Services\\FindasoLib.Services.csproj": {
+    "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Services\\Avesta.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Services\\FindasoLib.Services.csproj",
-        "projectName": "FindasoLib.Services",
-        "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Services\\FindasoLib.Services.csproj",
+        "projectUniqueName": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Services\\Avesta.Services.csproj",
+        "projectName": "Avesta.Services",
+        "projectPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Services\\Avesta.Services.csproj",
         "packagesPath": "C:\\Users\\aaa\\.nuget\\packages\\",
-        "outputPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Services\\obj\\",
+        "outputPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Services\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -656,23 +656,23 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Attribute\\FindasoLib.Attribute.csproj": {
-                "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Attribute\\FindasoLib.Attribute.csproj"
+              "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Attribute\\Avesta.Attribute.csproj": {
+                "projectPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Attribute\\Avesta.Attribute.csproj"
               },
-              "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Data\\FindasoLib.Data.csproj": {
-                "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Data\\FindasoLib.Data.csproj"
+              "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Data\\Avesta.Data.csproj": {
+                "projectPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Data\\Avesta.Data.csproj"
               },
-              "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Exceptions\\FindasoLib.Exceptions.csproj": {
-                "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Exceptions\\FindasoLib.Exceptions.csproj"
+              "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Exceptions\\Avesta.Exceptions.csproj": {
+                "projectPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Exceptions\\Avesta.Exceptions.csproj"
               },
-              "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Model\\FindasoLib.Model.csproj": {
-                "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Model\\FindasoLib.Model.csproj"
+              "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Model\\Avesta.Model.csproj": {
+                "projectPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Model\\Avesta.Model.csproj"
               },
-              "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Repository\\FindasoLib.Repository.csproj": {
-                "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Repository\\FindasoLib.Repository.csproj"
+              "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Repository\\Avesta.Repository.csproj": {
+                "projectPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Repository\\Avesta.Repository.csproj"
               },
-              "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Share\\FindasoLib.Share.csproj": {
-                "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Share\\FindasoLib.Share.csproj"
+              "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Share\\Avesta.Share.csproj": {
+                "projectPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Share\\Avesta.Share.csproj"
               }
             }
           }
@@ -715,14 +715,14 @@
         }
       }
     },
-    "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Share\\FindasoLib.Share.csproj": {
+    "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Share\\Avesta.Share.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Share\\FindasoLib.Share.csproj",
-        "projectName": "FindasoLib.Share",
-        "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Share\\FindasoLib.Share.csproj",
+        "projectUniqueName": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Share\\Avesta.Share.csproj",
+        "projectName": "Avesta.Share",
+        "projectPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Share\\Avesta.Share.csproj",
         "packagesPath": "C:\\Users\\aaa\\.nuget\\packages\\",
-        "outputPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Share\\obj\\",
+        "outputPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Share\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -810,14 +810,14 @@
         }
       }
     },
-    "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Storage\\FindasoLib.Storage.csproj": {
+    "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Storage\\Avesta.Storage.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Storage\\FindasoLib.Storage.csproj",
-        "projectName": "FindasoLib.Storage",
-        "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Storage\\FindasoLib.Storage.csproj",
+        "projectUniqueName": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Storage\\Avesta.Storage.csproj",
+        "projectName": "Avesta.Storage",
+        "projectPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Storage\\Avesta.Storage.csproj",
         "packagesPath": "C:\\Users\\aaa\\.nuget\\packages\\",
-        "outputPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Storage\\obj\\",
+        "outputPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Storage\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

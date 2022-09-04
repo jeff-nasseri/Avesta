@@ -689,21 +689,21 @@
           "lib/netstandard2.0/System.Text.Encodings.Web.dll": {}
         }
       },
-      "FindasoLib.Language/1.0.0": {
+      "Avesta.Language/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
-          "FindasoLib.Share": "1.0.0",
-          "FindasoLib.Storage": "1.0.0"
+          "Avesta.Share": "1.0.0",
+          "Avesta.Storage": "1.0.0"
         },
         "compile": {
-          "bin/placeholder/FindasoLib.Language.dll": {}
+          "bin/placeholder/Avesta.Language.dll": {}
         },
         "runtime": {
-          "bin/placeholder/FindasoLib.Language.dll": {}
+          "bin/placeholder/Avesta.Language.dll": {}
         }
       },
-      "FindasoLib.Share/1.0.0": {
+      "Avesta.Share/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
@@ -715,20 +715,20 @@
           "Newtonsoft.Json": "13.0.1"
         },
         "compile": {
-          "bin/placeholder/FindasoLib.Share.dll": {}
+          "bin/placeholder/Avesta.Share.dll": {}
         },
         "runtime": {
-          "bin/placeholder/FindasoLib.Share.dll": {}
+          "bin/placeholder/Avesta.Share.dll": {}
         }
       },
-      "FindasoLib.Storage/1.0.0": {
+      "Avesta.Storage/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "compile": {
-          "bin/placeholder/FindasoLib.Storage.dll": {}
+          "bin/placeholder/Avesta.Storage.dll": {}
         },
         "runtime": {
-          "bin/placeholder/FindasoLib.Storage.dll": {}
+          "bin/placeholder/Avesta.Storage.dll": {}
         }
       }
     }
@@ -1853,26 +1853,26 @@
         "version.txt"
       ]
     },
-    "FindasoLib.Language/1.0.0": {
+    "Avesta.Language/1.0.0": {
       "type": "project",
-      "path": "../FindasoLib.Language/FindasoLib.Language.csproj",
-      "msbuildProject": "../FindasoLib.Language/FindasoLib.Language.csproj"
+      "path": "../Avesta.Language/Avesta.Language.csproj",
+      "msbuildProject": "../Avesta.Language/Avesta.Language.csproj"
     },
-    "FindasoLib.Share/1.0.0": {
+    "Avesta.Share/1.0.0": {
       "type": "project",
-      "path": "../FindasoLib.Share/FindasoLib.Share.csproj",
-      "msbuildProject": "../FindasoLib.Share/FindasoLib.Share.csproj"
+      "path": "../Avesta.Share/Avesta.Share.csproj",
+      "msbuildProject": "../Avesta.Share/Avesta.Share.csproj"
     },
-    "FindasoLib.Storage/1.0.0": {
+    "Avesta.Storage/1.0.0": {
       "type": "project",
-      "path": "../FindasoLib.Storage/FindasoLib.Storage.csproj",
-      "msbuildProject": "../FindasoLib.Storage/FindasoLib.Storage.csproj"
+      "path": "../Avesta.Storage/Avesta.Storage.csproj",
+      "msbuildProject": "../Avesta.Storage/Avesta.Storage.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
-      "FindasoLib.Language >= 1.0.0",
-      "FindasoLib.Storage >= 1.0.0"
+      "Avesta.Language >= 1.0.0",
+      "Avesta.Storage >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -1881,11 +1881,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Exception\\FindasoLib.Exceptions.csproj",
-      "projectName": "FindasoLib.Exceptions",
-      "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Exception\\FindasoLib.Exceptions.csproj",
+      "projectUniqueName": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Exception\\Avesta.Exceptions.csproj",
+      "projectName": "Avesta.Exceptions",
+      "projectPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Exception\\Avesta.Exceptions.csproj",
       "packagesPath": "C:\\Users\\aaa\\.nuget\\packages\\",
-      "outputPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Exception\\obj\\",
+      "outputPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Exception\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\aaa\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1902,11 +1902,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Language\\FindasoLib.Language.csproj": {
-              "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Language\\FindasoLib.Language.csproj"
+            "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Language\\Avesta.Language.csproj": {
+              "projectPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Language\\Avesta.Language.csproj"
             },
-            "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Storage\\FindasoLib.Storage.csproj": {
-              "projectPath": "B:\\Mohammady\\BLOG\\FindasoLib\\FindasoLib.Storage\\FindasoLib.Storage.csproj"
+            "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Storage\\Avesta.Storage.csproj": {
+              "projectPath": "B:\\Mohammady\\BLOG\\Avesta\\Avesta.Storage\\Avesta.Storage.csproj"
             }
           }
         }

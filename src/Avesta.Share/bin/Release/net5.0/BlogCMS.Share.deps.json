@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v5.0": {
-      "FindasoLib.Share/1.0.0": {
+      "Avesta.Share/1.0.0": {
         "dependencies": {
           "AutoMapper": "11.0.1",
           "Microsoft.AspNetCore.Components": "5.0.0",
@@ -19,7 +19,7 @@
           "morelinq": "3.3.2"
         },
         "runtime": {
-          "FindasoLib.Share.dll": {}
+          "Avesta.Share.dll": {}
         }
       },
       "AutoMapper/11.0.1": {
@@ -1456,7 +1456,7 @@
     }
   },
   "libraries": {
-    "FindasoLib.Share/1.0.0": {
+    "Avesta.Share/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

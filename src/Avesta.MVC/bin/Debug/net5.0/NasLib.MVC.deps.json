@@ -6,12 +6,12 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v5.0": {
-      "FindasoLib.MVC/1.0.0": {
+      "Avesta.MVC/1.0.0": {
         "dependencies": {
-          "FindasoLib.Services": "1.0.0"
+          "Avesta.Services": "1.0.0"
         },
         "runtime": {
-          "FindasoLib.MVC.dll": {}
+          "Avesta.MVC.dll": {}
         }
       },
       "AutoMapper/11.0.1": {
@@ -1562,85 +1562,85 @@
           "System.Xml.ReaderWriter": "4.3.0"
         }
       },
-      "FindasoLib.Attribute/1.0.0": {
+      "Avesta.Attribute/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Mvc.Core": "2.2.5",
-          "FindasoLib.Language": "1.0.0",
-          "FindasoLib.Share": "1.0.0"
+          "Avesta.Language": "1.0.0",
+          "Avesta.Share": "1.0.0"
         },
         "runtime": {
-          "FindasoLib.Attribute.dll": {}
+          "Avesta.Attribute.dll": {}
         }
       },
-      "FindasoLib.Exceptions/1.0.0": {
+      "Avesta.Exceptions/1.0.0": {
         "dependencies": {
-          "FindasoLib.Language": "1.0.0",
-          "FindasoLib.Logging": "1.0.0",
-          "FindasoLib.Storage": "1.0.0"
+          "Avesta.Language": "1.0.0",
+          "Avesta.Logging": "1.0.0",
+          "Avesta.Storage": "1.0.0"
         },
         "runtime": {
-          "FindasoLib.Exceptions.dll": {}
+          "Avesta.Exceptions.dll": {}
         }
       },
-      "FindasoLib.Global/1.0.0": {
+      "Avesta.Global/1.0.0": {
         "runtime": {
-          "FindasoLib.Global.dll": {}
+          "Avesta.Global.dll": {}
         }
       },
-      "FindasoLib.Language/1.0.0": {
+      "Avesta.Language/1.0.0": {
         "dependencies": {
-          "FindasoLib.Global": "1.0.0",
-          "FindasoLib.Storage": "1.0.0"
+          "Avesta.Global": "1.0.0",
+          "Avesta.Storage": "1.0.0"
         },
         "runtime": {
-          "FindasoLib.Language.dll": {}
+          "Avesta.Language.dll": {}
         }
       },
-      "FindasoLib.Logging/1.0.0": {
+      "Avesta.Logging/1.0.0": {
         "dependencies": {
-          "FindasoLib.Share": "1.0.0"
+          "Avesta.Share": "1.0.0"
         },
         "runtime": {
-          "FindasoLib.Logging.dll": {}
+          "Avesta.Logging.dll": {}
         }
       },
-      "FindasoLib.Model/1.0.0": {
+      "Avesta.Model/1.0.0": {
         "dependencies": {
-          "FindasoLib.Attribute": "1.0.0",
-          "FindasoLib.Share": "1.0.0",
+          "Avesta.Attribute": "1.0.0",
+          "Avesta.Share": "1.0.0",
           "Newtonsoft.Json": "13.0.1"
         },
         "runtime": {
-          "FindasoLib.Model.dll": {}
+          "Avesta.Model.dll": {}
         }
       },
-      "FindasoLib.Repository/1.0.0": {
+      "Avesta.Repository/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "5.0.0",
           "Microsoft.EntityFrameworkCore": "5.0.9",
-          "FindasoLib.Exceptions": "1.0.0",
-          "FindasoLib.Model": "1.0.0",
-          "FindasoLib.Share": "1.0.0"
+          "Avesta.Exceptions": "1.0.0",
+          "Avesta.Model": "1.0.0",
+          "Avesta.Share": "1.0.0"
         },
         "runtime": {
-          "FindasoLib.Repository.dll": {}
+          "Avesta.Repository.dll": {}
         }
       },
-      "FindasoLib.Services/1.0.0": {
+      "Avesta.Services/1.0.0": {
         "dependencies": {
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "11.0.0",
           "Microsoft.Extensions.Configuration.Binder": "5.0.0",
-          "FindasoLib.Attribute": "1.0.0",
-          "FindasoLib.Exceptions": "1.0.0",
-          "FindasoLib.Model": "1.0.0",
-          "FindasoLib.Repository": "1.0.0",
-          "FindasoLib.Share": "1.0.0"
+          "Avesta.Attribute": "1.0.0",
+          "Avesta.Exceptions": "1.0.0",
+          "Avesta.Model": "1.0.0",
+          "Avesta.Repository": "1.0.0",
+          "Avesta.Share": "1.0.0"
         },
         "runtime": {
-          "FindasoLib.Services.dll": {}
+          "Avesta.Services.dll": {}
         }
       },
-      "FindasoLib.Share/1.0.0": {
+      "Avesta.Share/1.0.0": {
         "dependencies": {
           "AutoMapper": "11.0.1",
           "MD.PersianDateTime.Standard": "2.3.0",
@@ -1654,18 +1654,18 @@
           "morelinq": "3.3.2"
         },
         "runtime": {
-          "FindasoLib.Share.dll": {}
+          "Avesta.Share.dll": {}
         }
       },
-      "FindasoLib.Storage/1.0.0": {
+      "Avesta.Storage/1.0.0": {
         "runtime": {
-          "FindasoLib.Storage.dll": {}
+          "Avesta.Storage.dll": {}
         }
       }
     }
   },
   "libraries": {
-    "FindasoLib.MVC/1.0.0": {
+    "Avesta.MVC/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -2755,52 +2755,52 @@
       "path": "system.xml.xdocument/4.3.0",
       "hashPath": "system.xml.xdocument.4.3.0.nupkg.sha512"
     },
-    "FindasoLib.Attribute/1.0.0": {
+    "Avesta.Attribute/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "FindasoLib.Exceptions/1.0.0": {
+    "Avesta.Exceptions/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "FindasoLib.Global/1.0.0": {
+    "Avesta.Global/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "FindasoLib.Language/1.0.0": {
+    "Avesta.Language/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "FindasoLib.Logging/1.0.0": {
+    "Avesta.Logging/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "FindasoLib.Model/1.0.0": {
+    "Avesta.Model/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "FindasoLib.Repository/1.0.0": {
+    "Avesta.Repository/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "FindasoLib.Services/1.0.0": {
+    "Avesta.Services/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "FindasoLib.Share/1.0.0": {
+    "Avesta.Share/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "FindasoLib.Storage/1.0.0": {
+    "Avesta.Storage/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

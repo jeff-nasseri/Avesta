@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <AssemblyName>Avesta.Exceptions</AssemblyName>
+    <RootNamespace>Avesta.Exceptions</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Avesta.Language\Avesta.Language.csproj" />
+    <ProjectReference Include="..\Avesta.Logging\Avesta.Logging.csproj" />
+    <ProjectReference Include="..\Avesta.Storage\Avesta.Storage.csproj" />
+  </ItemGroup>
+
+</Project>
