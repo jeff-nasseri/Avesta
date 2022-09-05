@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="6.4.4" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Avesta.Global\Avesta.Global.csproj" />
     <ProjectReference Include="..\Avesta.Storage\Avesta.Storage.csproj" />
   </ItemGroup>

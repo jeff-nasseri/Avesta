@@ -13,6 +13,9 @@ namespace Avesta.Model.Route
         public bool ShowAble { get; set; } = false;
         public FeaturesNeedAuthorizedAccess FeaturesNeedAuthorizedAccess { get; set; }
     }
+
+
+
     public class PageRouteModel
     {
         public EndPointModel Controller { get; set; }

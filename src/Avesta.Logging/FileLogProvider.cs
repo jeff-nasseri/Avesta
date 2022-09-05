@@ -33,7 +33,7 @@ namespace Avesta.Logging
         {
             base.Dispose();
             WriterContext?.Flush();
-            WriterContext?.Dispose();
+            WriterContext?.Dispose();   
             Stream?.Dispose();
             WriterContext = null;
             Stream = null;
