@@ -18,13 +18,9 @@ namespace Avesta.Language.Globalization
             service.AddSingleton<TLangProvider>();
             service.AddSingleton<TContext>();
 
-            WordContext context;
-            LangContextProvider provider;
-
-            //await context.OnCreate(provider);
-
             return service;
         }
     }
+
 
 }
