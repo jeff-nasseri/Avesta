@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "msp6SoUOjGxLKENdw52focM/DVg5kNiZoDp/zUbhtIy1lquihhgK5oSvAztd6sn3b9QrCp9ohwqI/CSfGEngdw==",
+  "dgSpecHash": "+X0eGx8QM1GlESp3BmryyM0c1+IpCemNyy+4/i1R1o53FmpMlCwUhK0tIC0X9duGO9JdY19iipt0DR8TuRjnEw==",
   "success": true,
   "projectFilePath": "B:\\Avesta\\Framework\\src\\Avesta.Language\\Avesta.Language.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\aaa\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\aaa\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\aaa\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\aaa\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\aaa\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\aaa\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",

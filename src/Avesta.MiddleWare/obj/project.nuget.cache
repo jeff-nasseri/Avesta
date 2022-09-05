@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "/6xo1T7CQ8lhtetLZjN8SEbyyT7pRoN05j+WAUlCZkaMqnVXWl77GPojXOngCRUvTqwVsmEzWLUyqMC9OztG8A==",
+  "dgSpecHash": "rOiYwMGCuJx53t6OuH+XPfI5B6M05hnoa30TAHR08cM9UBAShLMrzfnHIfWes2TBXX7/jrKNBx8CwSdOi6aMOg==",
   "success": true,
   "projectFilePath": "B:\\Avesta\\Framework\\src\\Avesta.MiddleWare\\Avesta.MiddleWare.csproj",
   "expectedPackageFiles": [
@@ -47,7 +47,7 @@
     "C:\\Users\\aaa\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\2.2.0\\microsoft.extensions.configuration.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\aaa\\.nuget\\packages\\microsoft.extensions.configuration.binder\\2.2.0\\microsoft.extensions.configuration.binder.2.2.0.nupkg.sha512",
     "C:\\Users\\aaa\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\2.2.0\\microsoft.extensions.dependencyinjection.2.2.0.nupkg.sha512",
-    "C:\\Users\\aaa\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\5.0.0\\microsoft.extensions.dependencyinjection.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\aaa\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\aaa\\.nuget\\packages\\microsoft.extensions.dependencymodel\\2.1.0\\microsoft.extensions.dependencymodel.2.1.0.nupkg.sha512",
     "C:\\Users\\aaa\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\2.2.0\\microsoft.extensions.fileproviders.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\aaa\\.nuget\\packages\\microsoft.extensions.fileproviders.physical\\2.2.0\\microsoft.extensions.fileproviders.physical.2.2.0.nupkg.sha512",

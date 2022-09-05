@@ -29,3 +29,5 @@ B:\Avesta\Framework\src\Avesta.Services\obj\Debug\net6.0\Avesta.Services.dll
 B:\Avesta\Framework\src\Avesta.Services\obj\Debug\net6.0\refint\Avesta.Services.dll
 B:\Avesta\Framework\src\Avesta.Services\obj\Debug\net6.0\Avesta.Services.pdb
 B:\Avesta\Framework\src\Avesta.Services\obj\Debug\net6.0\ref\Avesta.Services.dll
+B:\Avesta\Framework\src\Avesta.Services\bin\Debug\net6.0\Avesta.Services.runtimeconfig.json
+B:\Avesta\Framework\src\Avesta.Services\obj\Debug\net6.0\Avesta.Services.genruntimeconfig.cache
