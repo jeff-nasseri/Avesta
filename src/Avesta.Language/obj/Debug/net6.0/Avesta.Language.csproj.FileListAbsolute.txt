@@ -1,4 +1,5 @@
 B:\Avesta\Framework\src\Avesta.Language\bin\Debug\net6.0\Avesta.Language.deps.json
+B:\Avesta\Framework\src\Avesta.Language\bin\Debug\net6.0\Avesta.Language.runtimeconfig.json
 B:\Avesta\Framework\src\Avesta.Language\bin\Debug\net6.0\Avesta.Language.dll
 B:\Avesta\Framework\src\Avesta.Language\bin\Debug\net6.0\Avesta.Language.pdb
 B:\Avesta\Framework\src\Avesta.Language\bin\Debug\net6.0\Avesta.Global.dll
@@ -14,6 +15,5 @@ B:\Avesta\Framework\src\Avesta.Language\obj\Debug\net6.0\Avesta.Language.csproj.
 B:\Avesta\Framework\src\Avesta.Language\obj\Debug\net6.0\Avesta.Language.dll
 B:\Avesta\Framework\src\Avesta.Language\obj\Debug\net6.0\refint\Avesta.Language.dll
 B:\Avesta\Framework\src\Avesta.Language\obj\Debug\net6.0\Avesta.Language.pdb
-B:\Avesta\Framework\src\Avesta.Language\obj\Debug\net6.0\ref\Avesta.Language.dll
-B:\Avesta\Framework\src\Avesta.Language\bin\Debug\net6.0\Avesta.Language.runtimeconfig.json
 B:\Avesta\Framework\src\Avesta.Language\obj\Debug\net6.0\Avesta.Language.genruntimeconfig.cache
+B:\Avesta\Framework\src\Avesta.Language\obj\Debug\net6.0\ref\Avesta.Language.dll

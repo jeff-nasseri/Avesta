@@ -1,17 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Avesta.Language.Globalization
 {
 
-    public class WordList
+    public class GlobalWord
     {
         public IEnumerable<Word> Words { get; set; } = new List<Word>();
 
-        public WordList(params Word[] data)
+        public GlobalWord(params Word[] data)
         {
             foreach (var item in data)
             {
@@ -21,7 +19,7 @@ namespace Avesta.Language.Globalization
     }
 
 
-    public enum ContentType
+    public enum AnnotationContentType
     {
         Required,
         Display,
@@ -36,7 +34,7 @@ namespace Avesta.Language.Globalization
 
 
 
-    public class Globalization
+    public abstract class Globalization
     {
     }
     public class Word : Globalization, IComparable<Word>
@@ -45,7 +43,7 @@ namespace Avesta.Language.Globalization
         {
             Guid = System.Guid.NewGuid().ToString();
         }
-        public Word(string content, LanguageShortName language, ContentType contentType) : this()
+        public Word(string content, LanguageShortName language, AnnotationContentType contentType) : this()
         {
             Content = content;
             Language = language;
@@ -56,7 +54,7 @@ namespace Avesta.Language.Globalization
 
         public string Content { get; set; }
         public LanguageShortName Language { get; set; }
-        public ContentType ContentType { get; set; }
+        public AnnotationContentType ContentType { get; set; }
 
 
         public int CompareTo(Word other)

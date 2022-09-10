@@ -1,4 +1,10 @@
+B:\Avesta\Framework\src\Avesta.MVC\obj\Debug\net6.0\Avesta.MVC.csproj.AssemblyReference.cache
+B:\Avesta\Framework\src\Avesta.MVC\obj\Debug\net6.0\Avesta.MVC.GeneratedMSBuildEditorConfig.editorconfig
+B:\Avesta\Framework\src\Avesta.MVC\obj\Debug\net6.0\Avesta.MVC.AssemblyInfoInputs.cache
+B:\Avesta\Framework\src\Avesta.MVC\obj\Debug\net6.0\Avesta.MVC.AssemblyInfo.cs
+B:\Avesta\Framework\src\Avesta.MVC\obj\Debug\net6.0\Avesta.MVC.csproj.CoreCompileInputs.cache
 B:\Avesta\Framework\src\Avesta.MVC\bin\Debug\net6.0\Avesta.MVC.deps.json
+B:\Avesta\Framework\src\Avesta.MVC\bin\Debug\net6.0\Avesta.MVC.runtimeconfig.json
 B:\Avesta\Framework\src\Avesta.MVC\bin\Debug\net6.0\Avesta.MVC.dll
 B:\Avesta\Framework\src\Avesta.MVC\bin\Debug\net6.0\Avesta.MVC.pdb
 B:\Avesta\Framework\src\Avesta.MVC\bin\Debug\net6.0\Avesta.Attribute.dll
@@ -21,15 +27,9 @@ B:\Avesta\Framework\src\Avesta.MVC\bin\Debug\net6.0\Avesta.Model.pdb
 B:\Avesta\Framework\src\Avesta.MVC\bin\Debug\net6.0\Avesta.Repository.pdb
 B:\Avesta\Framework\src\Avesta.MVC\bin\Debug\net6.0\Avesta.Share.pdb
 B:\Avesta\Framework\src\Avesta.MVC\bin\Debug\net6.0\Avesta.Storage.pdb
-B:\Avesta\Framework\src\Avesta.MVC\obj\Debug\net6.0\Avesta.MVC.csproj.AssemblyReference.cache
-B:\Avesta\Framework\src\Avesta.MVC\obj\Debug\net6.0\Avesta.MVC.GeneratedMSBuildEditorConfig.editorconfig
-B:\Avesta\Framework\src\Avesta.MVC\obj\Debug\net6.0\Avesta.MVC.AssemblyInfoInputs.cache
-B:\Avesta\Framework\src\Avesta.MVC\obj\Debug\net6.0\Avesta.MVC.AssemblyInfo.cs
-B:\Avesta\Framework\src\Avesta.MVC\obj\Debug\net6.0\Avesta.MVC.csproj.CoreCompileInputs.cache
 B:\Avesta\Framework\src\Avesta.MVC\obj\Debug\net6.0\Avesta.MVC.csproj.CopyComplete
 B:\Avesta\Framework\src\Avesta.MVC\obj\Debug\net6.0\Avesta.MVC.dll
 B:\Avesta\Framework\src\Avesta.MVC\obj\Debug\net6.0\refint\Avesta.MVC.dll
 B:\Avesta\Framework\src\Avesta.MVC\obj\Debug\net6.0\Avesta.MVC.pdb
-B:\Avesta\Framework\src\Avesta.MVC\obj\Debug\net6.0\ref\Avesta.MVC.dll
-B:\Avesta\Framework\src\Avesta.MVC\bin\Debug\net6.0\Avesta.MVC.runtimeconfig.json
 B:\Avesta\Framework\src\Avesta.MVC\obj\Debug\net6.0\Avesta.MVC.genruntimeconfig.cache
+B:\Avesta\Framework\src\Avesta.MVC\obj\Debug\net6.0\ref\Avesta.MVC.dll

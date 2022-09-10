@@ -1,4 +1,10 @@
+B:\Avesta\Framework\src\Avesta.Repository\obj\Debug\net6.0\Avesta.Repository.csproj.AssemblyReference.cache
+B:\Avesta\Framework\src\Avesta.Repository\obj\Debug\net6.0\Avesta.Repository.GeneratedMSBuildEditorConfig.editorconfig
+B:\Avesta\Framework\src\Avesta.Repository\obj\Debug\net6.0\Avesta.Repository.AssemblyInfoInputs.cache
+B:\Avesta\Framework\src\Avesta.Repository\obj\Debug\net6.0\Avesta.Repository.AssemblyInfo.cs
+B:\Avesta\Framework\src\Avesta.Repository\obj\Debug\net6.0\Avesta.Repository.csproj.CoreCompileInputs.cache
 B:\Avesta\Framework\src\Avesta.Repository\bin\Debug\net6.0\Avesta.Repository.deps.json
+B:\Avesta\Framework\src\Avesta.Repository\bin\Debug\net6.0\Avesta.Repository.runtimeconfig.json
 B:\Avesta\Framework\src\Avesta.Repository\bin\Debug\net6.0\Avesta.Repository.dll
 B:\Avesta\Framework\src\Avesta.Repository\bin\Debug\net6.0\Avesta.Repository.pdb
 B:\Avesta\Framework\src\Avesta.Repository\bin\Debug\net6.0\Avesta.Attribute.dll
@@ -17,15 +23,9 @@ B:\Avesta\Framework\src\Avesta.Repository\bin\Debug\net6.0\Avesta.Global.pdb
 B:\Avesta\Framework\src\Avesta.Repository\bin\Debug\net6.0\Avesta.Language.pdb
 B:\Avesta\Framework\src\Avesta.Repository\bin\Debug\net6.0\Avesta.Logging.pdb
 B:\Avesta\Framework\src\Avesta.Repository\bin\Debug\net6.0\Avesta.Storage.pdb
-B:\Avesta\Framework\src\Avesta.Repository\obj\Debug\net6.0\Avesta.Repository.csproj.AssemblyReference.cache
-B:\Avesta\Framework\src\Avesta.Repository\obj\Debug\net6.0\Avesta.Repository.GeneratedMSBuildEditorConfig.editorconfig
-B:\Avesta\Framework\src\Avesta.Repository\obj\Debug\net6.0\Avesta.Repository.AssemblyInfoInputs.cache
-B:\Avesta\Framework\src\Avesta.Repository\obj\Debug\net6.0\Avesta.Repository.AssemblyInfo.cs
-B:\Avesta\Framework\src\Avesta.Repository\obj\Debug\net6.0\Avesta.Repository.csproj.CoreCompileInputs.cache
 B:\Avesta\Framework\src\Avesta.Repository\obj\Debug\net6.0\Avesta.Repository.csproj.CopyComplete
 B:\Avesta\Framework\src\Avesta.Repository\obj\Debug\net6.0\Avesta.Repository.dll
 B:\Avesta\Framework\src\Avesta.Repository\obj\Debug\net6.0\refint\Avesta.Repository.dll
 B:\Avesta\Framework\src\Avesta.Repository\obj\Debug\net6.0\Avesta.Repository.pdb
-B:\Avesta\Framework\src\Avesta.Repository\obj\Debug\net6.0\ref\Avesta.Repository.dll
-B:\Avesta\Framework\src\Avesta.Repository\bin\Debug\net6.0\Avesta.Repository.runtimeconfig.json
 B:\Avesta\Framework\src\Avesta.Repository\obj\Debug\net6.0\Avesta.Repository.genruntimeconfig.cache
+B:\Avesta\Framework\src\Avesta.Repository\obj\Debug\net6.0\ref\Avesta.Repository.dll

@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Avesta.Language.Globalization
@@ -65,6 +64,12 @@ namespace Avesta.Language.Globalization
             var data = JsonConvert.DeserializeObject<IEnumerable<Word>>(txt);
             var result = data.SingleOrDefault(w => w.Guid == id);
             return result;
+        }
+
+
+        public async override Task<string> ReadText(GlobalWord globalWord, LanguageShortName lang)
+        {
+            throw new NotImplementedException();
         }
     }
 

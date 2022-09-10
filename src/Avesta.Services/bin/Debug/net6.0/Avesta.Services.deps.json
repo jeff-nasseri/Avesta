@@ -1761,6 +1761,7 @@
           "Avesta.Global": "1.0.0",
           "Avesta.Storage": "1.0.0",
           "EntityFramework": "6.4.4",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
           "Newtonsoft.Json": "13.0.1"
         },
         "runtime": {
