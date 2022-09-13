@@ -36,6 +36,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avesta.Services", "src\Aves
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avesta.Repository", "src\Avesta.Repository\Avesta.Repository.csproj", "{7421EF0C-C940-4FCC-B41E-737E64B30E69}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test", "test\test.csproj", "{95CB8D66-C95A-4603-A113-316D999E95E3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -90,6 +92,10 @@ Global
 		{7421EF0C-C940-4FCC-B41E-737E64B30E69}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7421EF0C-C940-4FCC-B41E-737E64B30E69}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7421EF0C-C940-4FCC-B41E-737E64B30E69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95CB8D66-C95A-4603-A113-316D999E95E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95CB8D66-C95A-4603-A113-316D999E95E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95CB8D66-C95A-4603-A113-316D999E95E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95CB8D66-C95A-4603-A113-316D999E95E3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

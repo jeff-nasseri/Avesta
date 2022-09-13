@@ -12,11 +12,14 @@ namespace Avesta.Language.Globalization
             _provider = provider;
         }
 
+
+
         /// <summary>
         /// Create a file or any context for writing language data on it
         /// </summary>
         public async virtual Task OnCreate()
         {
+            //get all global word of TWordContext by reflection
         }
 
 
@@ -25,6 +28,7 @@ namespace Avesta.Language.Globalization
         /// </summary>
         public async virtual Task OnInitialize()
         {
+            //fill content of all word in Twordcontext global words
         }
 
 
