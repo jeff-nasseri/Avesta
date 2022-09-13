@@ -8,10 +8,15 @@ namespace Avesta.Language.Globalization.Model
 {
     public class GlobalWord
     {
+        #region [-Properties-]
         public IEnumerable<Word> Words { get; set; } = new List<Word>();
         public string Comment { get; set; }
         public virtual string Key { get; set; }
+        #endregion
 
+
+
+        #region [-Constructor-]
         public GlobalWord(string comment, string key, params Word[] data) : this(key, comment)
         {
             foreach (var item in data)
@@ -28,6 +33,7 @@ namespace Avesta.Language.Globalization.Model
         public GlobalWord()
         {
         }
+        #endregion
     }
 
 }

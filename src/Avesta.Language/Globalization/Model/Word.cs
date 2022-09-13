@@ -10,6 +10,8 @@ namespace Avesta.Language.Globalization.Model
 {
     public class Word : Globalization, IComparable<Word>
     {
+
+        #region [-Constructor-]
         public Word()
         {
             Guid = System.Guid.NewGuid().ToString();
@@ -19,21 +21,32 @@ namespace Avesta.Language.Globalization.Model
             Language = language;
             ContentType = contentType;
         }
+        #endregion
 
-        public virtual string Guid { get; private set; }
 
 
-        public string Content { get; private set; }
+        #region [-Properties-]
+        string Content { get; set; }
         public virtual void OnSetContent(string content) => Content = content;
-
+        public virtual string Guid { get; private set; }
         public LanguageShortName Language { get; private set; }
         public AnnotationContentType ContentType { get; private set; }
+        #endregion
 
+
+
+
+        #region [-Methods-]
+        public override string ToString()
+        {
+            return Content;
+        }
 
         public int CompareTo(Word other)
         {
             throw new NotImplementedException();
         }
+        #endregion
     }
 
 }

@@ -46,12 +46,24 @@ namespace Avesta.Language.Globalization.Provider
         }
         public async override Task<string> ReadText(GlobalWord globalWord, LanguageShortName lang)
         {
-            throw new NotImplementedException();
+            var result = await Read(globalWord.Key, lang);
+            return result.ToString();
         }
-        public async override Task<Word> Read(string id, LanguageShortName lang)
+
+        public async override Task<Word> Read(string key, LanguageShortName lang)
         {
+            //open the file 
+            //read each line 
+            //try to parse each line
+            //try to save each line in related data
+            //try to transalte each line to related data
+            //try to set content of translation of each data to related word
+            //return word
+
+
             throw new NotImplementedException();
         }
+
         #endregion
 
 
@@ -71,9 +83,12 @@ namespace Avesta.Language.Globalization.Provider
         #region [-Internal Methods-]
         string GetFilePath(LanguageShortName lang)
         {
-            var path = Path.Combine(_dir, lang.ToString(), $".{_suffix}");
+            var fileName = GetFileName(lang);
+            var path = Path.Combine(_dir, fileName);
             return path;
         }
+
+        string GetFileName(LanguageShortName lang) => Path.Combine(lang.ToString(), ".", _suffix);
 
         static string GetLineFormatOf(GlobalWord globalWord) => $"{globalWord.Key}=\t\t\t{(string.IsNullOrEmpty(globalWord.Comment) ? "#" + globalWord.Comment : string.Empty)}";
 
