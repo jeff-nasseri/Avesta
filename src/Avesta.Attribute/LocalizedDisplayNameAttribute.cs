@@ -1,12 +1,7 @@
-﻿using Avesta.Globalization.Language;
-using Avesta.Language;
-using Avesta.Language.Globalization;
-using System;
-using System.Collections.Generic;
+﻿using Avesta.Language.Globalization.Enum;
+using Avesta.Language.Globalization.Model;
+using Avesta.Language.Globalization.Provider;
 using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Avesta.Attribute
