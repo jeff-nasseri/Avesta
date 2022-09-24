@@ -1,5 +1,9 @@
-﻿using Avesta.Language.Globalization.Provider;
+﻿using Avesta.Language.Globalization.Model;
+using Avesta.Language.Globalization.Provider;
+using System;
 using System.Data;
+using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace Avesta.Language.Globalization
@@ -19,7 +23,12 @@ namespace Avesta.Language.Globalization
         /// </summary>
         public async virtual Task OnCreate()
         {
-            //get all global word of TWordContext by reflection
+            var globalWords = this.GetType().GetFields().ToList().Select(c=>c.GetValue(this) as GlobalWord).ToList();
+            foreach (var globalWord in globalWords)
+            {
+                await _provider.Write(globalWord);
+            }
+            await OnSaveChange();
         }
 
 
@@ -32,7 +41,16 @@ namespace Avesta.Language.Globalization
         }
 
 
+        /// <summary>
+        /// Save context
+        /// </summary>
+        public async virtual Task OnSaveChange()
+        {
+            await _provider.Save();
+        }
+
 
     }
+
 
 }

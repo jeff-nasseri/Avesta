@@ -19,11 +19,21 @@ namespace Avesta.Language.Globalization.Provider
         #endregion
 
 
+        #region [-Properties-]
+        protected Stream Stream { get; private set; }
+        protected StreamWriter Writer { get; private set; }
+        protected StreamReader Reader { get; private set; }
+        #endregion
+
+
         #region [-Constructor-]
-        public LangFileProvider(string dir = ".")
+        public LangFileProvider(string dir = ".") : this()
         {
             _dir = dir;
             _suffix = "lang";
+        }
+        public LangFileProvider()
+        {
         }
         #endregion
 
@@ -88,9 +98,9 @@ namespace Avesta.Language.Globalization.Provider
             return path;
         }
 
-        string GetFileName(LanguageShortName lang) => Path.Combine(lang.ToString(), ".", _suffix);
+        string GetFileName(LanguageShortName lang) => $"{lang}.{_suffix}";
 
-        static string GetLineFormatOf(GlobalWord globalWord) => $"{globalWord.Key}=\t\t\t{(string.IsNullOrEmpty(globalWord.Comment) ? "#" + globalWord.Comment : string.Empty)}";
+        static string GetLineFormatOf(GlobalWord globalWord) => $"{globalWord.Key}=\t\t\t{(!string.IsNullOrEmpty(globalWord.Comment) ? "#" + globalWord.Comment : string.Empty)}";
 
         #endregion
 

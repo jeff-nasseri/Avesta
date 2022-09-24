@@ -25,7 +25,7 @@ B:\Avesta\Framework\src\Avesta.Repository\bin\Debug\net6.0\Avesta.Logging.pdb
 B:\Avesta\Framework\src\Avesta.Repository\bin\Debug\net6.0\Avesta.Storage.pdb
 B:\Avesta\Framework\src\Avesta.Repository\obj\Debug\net6.0\Avesta.Repository.csproj.CopyComplete
 B:\Avesta\Framework\src\Avesta.Repository\obj\Debug\net6.0\Avesta.Repository.dll
-B:\Avesta\Framework\src\Avesta.Repository\obj\Debug\net6.0\refint\Avesta.Repository.dll
 B:\Avesta\Framework\src\Avesta.Repository\obj\Debug\net6.0\Avesta.Repository.pdb
 B:\Avesta\Framework\src\Avesta.Repository\obj\Debug\net6.0\Avesta.Repository.genruntimeconfig.cache
 B:\Avesta\Framework\src\Avesta.Repository\obj\Debug\net6.0\ref\Avesta.Repository.dll
+B:\Avesta\Framework\src\Avesta.Repository\obj\Debug\net6.0\refint\Avesta.Repository.dll

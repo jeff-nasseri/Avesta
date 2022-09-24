@@ -12,8 +12,8 @@ namespace Avesta.Language.Globalization.Extension
             service.AddSingleton<TLangProvider>();
             service.AddSingleton<TWordContext>();
 
-            //TWordContext.OnConfiguration()
-            //TWordContext.OnInitialize()
+            //var myService = service.servi.BuildServiceProvider().GetService<AvestaApplicationWordContext>();
+            //var result = myService.OnCreate();
 
             return service;
         }

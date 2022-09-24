@@ -9,7 +9,7 @@ namespace Avesta.Language.Globalization.Model
     public class GlobalWord
     {
         #region [-Properties-]
-        public IEnumerable<Word> Words { get; set; } = new List<Word>();
+        public IList<Word> Words { get; set; } = new List<Word>();
         public string Comment { get; set; }
         public virtual string Key { get; set; }
         #endregion
@@ -17,14 +17,14 @@ namespace Avesta.Language.Globalization.Model
 
 
         #region [-Constructor-]
-        public GlobalWord(string comment, string key, params Word[] data) : this(key, comment)
+        public GlobalWord(string key, string comment, params Word[] data) : this(key, comment)
         {
             foreach (var item in data)
             {
-                Words.Append(item);
+                Words.Add(item);
             }
         }
-        public GlobalWord(string comment, string key)
+        public GlobalWord(string key, string comment)
         {
             Key = key;
             Comment = comment;

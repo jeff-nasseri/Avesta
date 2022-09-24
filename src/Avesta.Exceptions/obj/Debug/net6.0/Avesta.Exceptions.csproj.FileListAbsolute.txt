@@ -19,7 +19,7 @@ B:\Avesta\Framework\src\Avesta.Exceptions\obj\Debug\net6.0\Avesta.Exceptions.Ass
 B:\Avesta\Framework\src\Avesta.Exceptions\obj\Debug\net6.0\Avesta.Exceptions.csproj.CoreCompileInputs.cache
 B:\Avesta\Framework\src\Avesta.Exceptions\obj\Debug\net6.0\Avesta.Exceptions.csproj.CopyComplete
 B:\Avesta\Framework\src\Avesta.Exceptions\obj\Debug\net6.0\Avesta.Exceptions.dll
-B:\Avesta\Framework\src\Avesta.Exceptions\obj\Debug\net6.0\refint\Avesta.Exceptions.dll
 B:\Avesta\Framework\src\Avesta.Exceptions\obj\Debug\net6.0\Avesta.Exceptions.pdb
 B:\Avesta\Framework\src\Avesta.Exceptions\obj\Debug\net6.0\Avesta.Exceptions.genruntimeconfig.cache
 B:\Avesta\Framework\src\Avesta.Exceptions\obj\Debug\net6.0\ref\Avesta.Exceptions.dll
+B:\Avesta\Framework\src\Avesta.Exceptions\obj\Debug\net6.0\refint\Avesta.Exceptions.dll
