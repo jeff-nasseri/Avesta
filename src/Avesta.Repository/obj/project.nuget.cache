@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "1fwYSEibtmK2jR5m3gsov8GBSjiruWppYVmN5UHm2nYp72TVy8b6MRTPxOjLCKwfagAuiAvAzHapgMCj4LyxIw==",
+  "dgSpecHash": "omPTrXnmxCLuSHpoBYO28LRAklmy8pUoizzXwMMODXSXlMcXYiRhxf6HlF2hTAAXfK/oKz86qBNgcLDKHfZpJA==",
   "success": true,
   "projectFilePath": "B:\\Avesta\\Framework\\src\\Avesta.Repository\\Avesta.Repository.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\aaa\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
+    "C:\\Users\\aaa\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "C:\\Users\\aaa\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\aaa\\.nuget\\packages\\md.persiandatetime.standard\\2.3.0\\md.persiandatetime.standard.2.3.0.nupkg.sha512",
     "C:\\Users\\aaa\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.2.0\\microsoft.aspnetcore.antiforgery.2.2.0.nupkg.sha512",

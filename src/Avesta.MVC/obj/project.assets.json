@@ -3015,6 +3015,7 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "AutoMapper": "11.0.1",
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "11.0.0",
           "MD.PersianDateTime.Standard": "2.3.0",
           "Microsoft.AspNetCore.Components": "5.0.0",
           "Microsoft.AspNetCore.Diagnostics": "2.2.0",

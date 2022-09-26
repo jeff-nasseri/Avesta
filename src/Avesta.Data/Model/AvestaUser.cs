@@ -24,6 +24,16 @@ namespace Avesta.Data.Model
         public virtual string LastName { get; set; }
         public virtual string FullName { get => $"{FirstName} {LastName}"; }
 
+
+
+
+        #region [-JWT-]
+        public virtual string RefreshToken { get; set; }
+
+        #endregion
+
     }
+
+
 
 }
