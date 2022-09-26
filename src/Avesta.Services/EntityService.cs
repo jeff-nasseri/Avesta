@@ -8,10 +8,10 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using Avesta.Model.Data;
 using Avesta.Repository.Entity;
 using Avesta.Storage.Constant;
 using Microsoft.AspNetCore.Identity;
+using Avesta.Data.Model;
 
 namespace Avesta.Services
 {
@@ -149,7 +149,7 @@ namespace Avesta.Services
         }
         public virtual async Task Delete(TModel model)
         {
-            await _repository.Delete(model);
+            await _repository.DeleteAsync(model);
         }
 
 

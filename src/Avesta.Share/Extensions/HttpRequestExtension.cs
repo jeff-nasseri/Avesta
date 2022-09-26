@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Avesta.Share.Extensions
 {
-    public static class HttpRequestExtensions
+    public static class HttpRequestExtension
     {
         private const string RequestedWithHeader = "X-Requested-With";
         private const string XmlHttpRequest = "XMLHttpRequest";

@@ -55,7 +55,6 @@ namespace Avesta.Repository.Entity
         Task DeleteAsync(TEntity entity);
         Task DeleteAsyncById(object id);
         Task DeleteRangeAsync(IEnumerable<TEntity> entities);
-        Task Delete(object entity);
         Task DeleteWithAllChildren(string id);
         Task SoftDelete(string id, bool exceptionRaseIfNotExist);
         #endregion

@@ -1,8 +1,3 @@
-B:\Avesta\Framework\src\Avesta.MiddleWare\obj\Debug\net6.0\Avesta.MiddleWare.csproj.AssemblyReference.cache
-B:\Avesta\Framework\src\Avesta.MiddleWare\obj\Debug\net6.0\Avesta.MiddleWare.GeneratedMSBuildEditorConfig.editorconfig
-B:\Avesta\Framework\src\Avesta.MiddleWare\obj\Debug\net6.0\Avesta.MiddleWare.AssemblyInfoInputs.cache
-B:\Avesta\Framework\src\Avesta.MiddleWare\obj\Debug\net6.0\Avesta.MiddleWare.AssemblyInfo.cs
-B:\Avesta\Framework\src\Avesta.MiddleWare\obj\Debug\net6.0\Avesta.MiddleWare.csproj.CoreCompileInputs.cache
 B:\Avesta\Framework\src\Avesta.MiddleWare\bin\Debug\net6.0\Avesta.MiddleWare.deps.json
 B:\Avesta\Framework\src\Avesta.MiddleWare\bin\Debug\net6.0\Avesta.MiddleWare.runtimeconfig.json
 B:\Avesta\Framework\src\Avesta.MiddleWare\bin\Debug\net6.0\Avesta.MiddleWare.dll
@@ -23,9 +18,14 @@ B:\Avesta\Framework\src\Avesta.MiddleWare\bin\Debug\net6.0\Avesta.Attribute.pdb
 B:\Avesta\Framework\src\Avesta.MiddleWare\bin\Debug\net6.0\Avesta.Global.pdb
 B:\Avesta\Framework\src\Avesta.MiddleWare\bin\Debug\net6.0\Avesta.Language.pdb
 B:\Avesta\Framework\src\Avesta.MiddleWare\bin\Debug\net6.0\Avesta.Logging.pdb
+B:\Avesta\Framework\src\Avesta.MiddleWare\obj\Debug\net6.0\Avesta.MiddleWare.csproj.AssemblyReference.cache
+B:\Avesta\Framework\src\Avesta.MiddleWare\obj\Debug\net6.0\Avesta.MiddleWare.GeneratedMSBuildEditorConfig.editorconfig
+B:\Avesta\Framework\src\Avesta.MiddleWare\obj\Debug\net6.0\Avesta.MiddleWare.AssemblyInfoInputs.cache
+B:\Avesta\Framework\src\Avesta.MiddleWare\obj\Debug\net6.0\Avesta.MiddleWare.AssemblyInfo.cs
+B:\Avesta\Framework\src\Avesta.MiddleWare\obj\Debug\net6.0\Avesta.MiddleWare.csproj.CoreCompileInputs.cache
 B:\Avesta\Framework\src\Avesta.MiddleWare\obj\Debug\net6.0\Avesta.MiddleWare.csproj.CopyComplete
 B:\Avesta\Framework\src\Avesta.MiddleWare\obj\Debug\net6.0\Avesta.MiddleWare.dll
+B:\Avesta\Framework\src\Avesta.MiddleWare\obj\Debug\net6.0\refint\Avesta.MiddleWare.dll
 B:\Avesta\Framework\src\Avesta.MiddleWare\obj\Debug\net6.0\Avesta.MiddleWare.pdb
 B:\Avesta\Framework\src\Avesta.MiddleWare\obj\Debug\net6.0\Avesta.MiddleWare.genruntimeconfig.cache
 B:\Avesta\Framework\src\Avesta.MiddleWare\obj\Debug\net6.0\ref\Avesta.MiddleWare.dll
-B:\Avesta\Framework\src\Avesta.MiddleWare\obj\Debug\net6.0\refint\Avesta.MiddleWare.dll

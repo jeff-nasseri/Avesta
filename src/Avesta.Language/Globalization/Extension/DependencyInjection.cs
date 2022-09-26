@@ -1,5 +1,9 @@
 ﻿using Avesta.Language.Globalization.Provider;
 using Microsoft.Extensions.DependencyInjection;
+using Avesta.Language.Globalization;
+using Avesta.Language.Globalization.Enum;
+using Avesta.Language.Globalization.Extension;
+using Avesta.Language.Globalization.Model;
 
 namespace Avesta.Language.Globalization.Extension
 {
@@ -11,9 +15,6 @@ namespace Avesta.Language.Globalization.Extension
         {
             service.AddSingleton<TLangProvider>();
             service.AddSingleton<TWordContext>();
-
-            //var myService = service.servi.BuildServiceProvider().GetService<AvestaApplicationWordContext>();
-            //var result = myService.OnCreate();
 
             return service;
         }

@@ -76,6 +76,71 @@
         }
       }
     },
+    "B:\\Avesta\\Framework\\src\\Avesta.Data\\Avesta.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "B:\\Avesta\\Framework\\src\\Avesta.Data\\Avesta.Data.csproj",
+        "projectName": "Avesta.Data",
+        "projectPath": "B:\\Avesta\\Framework\\src\\Avesta.Data\\Avesta.Data.csproj",
+        "packagesPath": "C:\\Users\\aaa\\.nuget\\packages\\",
+        "outputPath": "B:\\Avesta\\Framework\\src\\Avesta.Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\aaa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.devexpress.com/DFXTQmpMZvhM4dwnhdREFzPqioGvNb9RKY84xtr2GJWvn2KEHw/api": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.9, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "B:\\Avesta\\Framework\\src\\Avesta.Exceptions\\Avesta.Exceptions.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -447,6 +512,9 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
+              "B:\\Avesta\\Framework\\src\\Avesta.Data\\Avesta.Data.csproj": {
+                "projectPath": "B:\\Avesta\\Framework\\src\\Avesta.Data\\Avesta.Data.csproj"
+              },
               "B:\\Avesta\\Framework\\src\\Avesta.Exceptions\\Avesta.Exceptions.csproj": {
                 "projectPath": "B:\\Avesta\\Framework\\src\\Avesta.Exceptions\\Avesta.Exceptions.csproj"
               },
@@ -455,6 +523,9 @@
               },
               "B:\\Avesta\\Framework\\src\\Avesta.Share\\Avesta.Share.csproj": {
                 "projectPath": "B:\\Avesta\\Framework\\src\\Avesta.Share\\Avesta.Share.csproj"
+              },
+              "B:\\Findaso\\PMS\\PMS.Data\\PMS.Data.csproj": {
+                "projectPath": "B:\\Findaso\\PMS\\PMS.Data\\PMS.Data.csproj"
               }
             }
           }
@@ -471,11 +542,11 @@
           "dependencies": {
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.0, )"
+              "version": "[6.0.9, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.9, )"
+              "version": "[6.0.9, )"
             }
           },
           "imports": [
@@ -560,7 +631,7 @@
             },
             "Microsoft.Extensions.Configuration.Binder": {
               "target": "Package",
-              "version": "[5.0.0, )"
+              "version": "[6.0.0, )"
             }
           },
           "imports": [
@@ -712,6 +783,69 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "B:\\Findaso\\PMS\\PMS.Data\\PMS.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "B:\\Findaso\\PMS\\PMS.Data\\PMS.Data.csproj",
+        "projectName": "PMS.Data",
+        "projectPath": "B:\\Findaso\\PMS\\PMS.Data\\PMS.Data.csproj",
+        "packagesPath": "C:\\Users\\aaa\\.nuget\\packages\\",
+        "outputPath": "B:\\Findaso\\PMS\\PMS.Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\aaa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.devexpress.com/DFXTQmpMZvhM4dwnhdREFzPqioGvNb9RKY84xtr2GJWvn2KEHw/api": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "B:\\Avesta\\Framework\\src\\Avesta.Data\\Avesta.Data.csproj": {
+                "projectPath": "B:\\Avesta\\Framework\\src\\Avesta.Data\\Avesta.Data.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

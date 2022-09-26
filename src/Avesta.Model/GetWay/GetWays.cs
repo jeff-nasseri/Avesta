@@ -12,6 +12,7 @@ namespace Avesta.Model.GetWay
         Mellat = 2,
         Saman = 3,
         PayIr = 4,
-        Zibal = 5
+        Zibal = 5,
+        PayPal = 6,
     }
 }

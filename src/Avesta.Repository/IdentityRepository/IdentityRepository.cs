@@ -12,12 +12,13 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 using Avesta.Model.Identity;
+using Avesta.Data.Model;
 
 namespace Avesta.Repository.Identity
 {
 
     public class IdentityRepository<TUser, TRole> : IIdentityRepository<TUser, TRole>
-        where TUser : IdentityUser
+        where TUser : AvestaUser
         where TRole : IdentityRole
     {
         readonly UserManager<TUser> _userManager;

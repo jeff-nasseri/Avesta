@@ -1,7 +1,7 @@
-﻿using Avesta.Exceptions.Entity;
+﻿using Avesta.Data.Model;
+using Avesta.Exceptions.Entity;
 using Avesta.Exceptions.Reflection;
 using Avesta.Model;
-using Avesta.Model.Data;
 using Avesta.Share.Extensions;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -13,14 +13,16 @@ using System.Threading.Tasks;
 namespace Avesta.Repository.Entity
 {
 
-    public class EntityRepository<TEntity, TContext> : BaseRepository<TContext>, IRepository<TEntity>, IDisposable where TEntity : BaseEntity
+    public class EntityRepository<TEntity, TContext, T> : IRepository<TEntity>, IDisposable 
+        where T : class
+        where TEntity : BaseEntity<T>
         where TContext : DbContext
     {
         //effect lock for all queries in repository
         const bool IsLockReaderActive = true;
 
         readonly TContext _context;
-        public EntityRepository(TContext context) : base(context)
+        public EntityRepository(TContext context)
         {
             _context = context;
         }
@@ -419,6 +421,7 @@ namespace Avesta.Repository.Entity
             }
             return query;
         }
+
         #endregion
 
 

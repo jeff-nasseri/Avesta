@@ -42,6 +42,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{CEEDA754-433
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestENV", "src\TestENV\TestENV.csproj", "{CF18E91C-4181-41CC-A9B8-1225A48C86BA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avesta.Data", "src\Avesta.Data\Avesta.Data.csproj", "{CA1E4794-F35C-40A1-9205-ADC90E5A5D58}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -104,6 +106,10 @@ Global
 		{CF18E91C-4181-41CC-A9B8-1225A48C86BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF18E91C-4181-41CC-A9B8-1225A48C86BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF18E91C-4181-41CC-A9B8-1225A48C86BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA1E4794-F35C-40A1-9205-ADC90E5A5D58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA1E4794-F35C-40A1-9205-ADC90E5A5D58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA1E4794-F35C-40A1-9205-ADC90E5A5D58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA1E4794-F35C-40A1-9205-ADC90E5A5D58}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -113,5 +119,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{CF18E91C-4181-41CC-A9B8-1225A48C86BA} = {CEEDA754-4330-4A25-912C-D726EA74B817}
+		{CA1E4794-F35C-40A1-9205-ADC90E5A5D58} = {CEEDA754-4330-4A25-912C-D726EA74B817}
 	EndGlobalSection
 EndGlobal

@@ -1,6 +1,5 @@
 ﻿
 using Avesta.Model;
-using Avesta.Model.Data;
 using Avesta.Services;
 using Avesta.Share.MVC;
 using Microsoft.AspNetCore.Mvc;
@@ -15,6 +14,7 @@ using Avesta.Exceptions;
 using Avesta.Storage.Constant;
 using SystemException = Avesta.Exceptions.SystemException;
 using Avesta.Language;
+using Avesta.Data.Model;
 
 namespace Avesta.MVC
 {

@@ -1,12 +1,12 @@
 B:\Avesta\Framework\src\Avesta.Storage\bin\Debug\net6.0\Avesta.Storage.deps.json
 B:\Avesta\Framework\src\Avesta.Storage\bin\Debug\net6.0\Avesta.Storage.dll
 B:\Avesta\Framework\src\Avesta.Storage\bin\Debug\net6.0\Avesta.Storage.pdb
+B:\Avesta\Framework\src\Avesta.Storage\obj\Debug\net6.0\Avesta.Storage.csproj.AssemblyReference.cache
 B:\Avesta\Framework\src\Avesta.Storage\obj\Debug\net6.0\Avesta.Storage.GeneratedMSBuildEditorConfig.editorconfig
 B:\Avesta\Framework\src\Avesta.Storage\obj\Debug\net6.0\Avesta.Storage.AssemblyInfoInputs.cache
 B:\Avesta\Framework\src\Avesta.Storage\obj\Debug\net6.0\Avesta.Storage.AssemblyInfo.cs
 B:\Avesta\Framework\src\Avesta.Storage\obj\Debug\net6.0\Avesta.Storage.csproj.CoreCompileInputs.cache
 B:\Avesta\Framework\src\Avesta.Storage\obj\Debug\net6.0\Avesta.Storage.dll
+B:\Avesta\Framework\src\Avesta.Storage\obj\Debug\net6.0\refint\Avesta.Storage.dll
 B:\Avesta\Framework\src\Avesta.Storage\obj\Debug\net6.0\Avesta.Storage.pdb
 B:\Avesta\Framework\src\Avesta.Storage\obj\Debug\net6.0\ref\Avesta.Storage.dll
-B:\Avesta\Framework\src\Avesta.Storage\obj\Debug\net6.0\Avesta.Storage.csproj.AssemblyReference.cache
-B:\Avesta\Framework\src\Avesta.Storage\obj\Debug\net6.0\refint\Avesta.Storage.dll
