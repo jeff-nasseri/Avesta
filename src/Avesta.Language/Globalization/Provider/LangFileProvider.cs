@@ -10,6 +10,20 @@ using System.Threading.Tasks;
 
 namespace Avesta.Language.Globalization.Provider
 {
+    //set correect name
+    public enum x
+    {
+        Append = 1,
+        Ovveride = 2,
+        None = 3
+    }
+
+    public class WordContextOption
+    {
+        public x ContextWritingType { get; set; }
+    }
+
+
     public class LangFileProvider : LangContextProvider
     {
 
