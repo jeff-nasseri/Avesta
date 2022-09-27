@@ -8,6 +8,6 @@ namespace Avesta.Model.Identity
 {
     public class LoginModelBase : IdentityModel
     {
-        public bool RememberMe { get; set; } = true;
+        public virtual bool RememberMe { get; set; } = true;
     }
 }

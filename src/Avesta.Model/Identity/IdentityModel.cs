@@ -11,10 +11,10 @@ namespace Avesta.Model.Identity
 {
     public class IdentityModel
     {
-        public string ID { get; set; }
+        public virtual string ID { get; set; }
         public virtual string Password { get; set; }
-        public string Email { get; set; }
-        public string Username => Email;
+        public virtual string Email { get; set; }
+        public virtual string Username => Email;
     }
     public class LockOutCycle
     {
