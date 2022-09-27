@@ -1,12 +1,22 @@
-﻿using Avesta.Model;
+﻿using Avesta.Data.Model;
+using Avesta.Exceptions.Entity;
+using Avesta.Exceptions.Reflection;
+using Avesta.Model;
+using Avesta.Share.Extensions;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace Avesta.Repository.Entity
 {
+
+
+
+
+
     public interface IRepository<TEntity>
     {
         #region get entity
