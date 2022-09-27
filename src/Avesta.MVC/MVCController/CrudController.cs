@@ -16,7 +16,7 @@ using SystemException = Avesta.Exceptions.SystemException;
 using Avesta.Language;
 using Avesta.Data.Model;
 
-namespace Avesta.MVC
+namespace Avesta.MVC.MVCController
 {
     public interface ICrudController<TCreateViewModel, TEditViewModel> where TCreateViewModel : BaseModel
   where TEditViewModel : BaseModel
@@ -60,7 +60,7 @@ namespace Avesta.MVC
                 {
                     await _crudService.CreateNew(viewModel);
                     TempData[ExceptionKeys.SuccessKey] = Lang.T(PublicMessageKey.SuccessMessage);
-                    return await base.BaseRedirectToAction(nameof(GetAll), redirect);
+                    return await BaseRedirectToAction(nameof(GetAll), redirect);
                 }
                 catch (SystemException exception)
                 {
@@ -98,7 +98,7 @@ namespace Avesta.MVC
                 {
                     await _crudService.EditEntity(viewModel);
                     TempData[ExceptionKeys.SuccessKey] = Lang.T(PublicMessageKey.SuccessMessage);
-                    return await base.BaseRedirectToAction(nameof(GetAll), redirect);
+                    return await BaseRedirectToAction(nameof(GetAll), redirect);
                 }
                 catch (SystemException exception)
                 {
@@ -121,23 +121,23 @@ namespace Avesta.MVC
         public virtual async Task<IActionResult> GetAll()
         {
             await Task.CompletedTask;
-            return RedirectToAction(CrudEndPointController.Paginate, new { page = 1 });
+            return RedirectToAction(BaseController.Paginate, new { page = 1 });
         }
 
 
 
 
-        [Route(CrudEndPointController.Search)]
+        [Route(BaseController.Search)]
         public async Task<IActionResult> Search(string keyword)
         {
             return await base.Search(keyword);
         }
 
 
-        [Route(CrudEndPointController.Paginate)]
+        [Route(BaseController.Paginate)]
         public virtual async Task<IActionResult> Paginate(int page, string keyword = null)
         {
-            return await base.Paginate(page, nameof(GetAll), keyword);
+            return await Paginate(page, nameof(GetAll), keyword);
         }
 
 

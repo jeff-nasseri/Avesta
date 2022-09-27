@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CrudEndPointController = Avesta.Storage.Constant.EndPoints.CrudController;
 
-namespace Avesta.MVC
+namespace Avesta.MVC.API
 {
     public interface ICrudAPIController<TViewModel, TCreateViewModel, TEditViewModel>
         where TCreateViewModel : TViewModel
@@ -68,7 +68,7 @@ namespace Avesta.MVC
         }
 
 
-        
+
 
 
 

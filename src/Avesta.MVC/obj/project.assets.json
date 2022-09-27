@@ -2991,6 +2991,22 @@
           "bin/placeholder/Avesta.Repository.dll": {}
         }
       },
+      "Avesta.Seed/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Avesta.Data": "1.0.0",
+          "Avesta.Exceptions": "1.0.0",
+          "Avesta.Repository": "1.0.0",
+          "Avesta.Share": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Avesta.Seed.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Avesta.Seed.dll": {}
+        }
+      },
       "Avesta.Services/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -8474,6 +8490,11 @@
       "path": "../Avesta.Repository/Avesta.Repository.csproj",
       "msbuildProject": "../Avesta.Repository/Avesta.Repository.csproj"
     },
+    "Avesta.Seed/1.0.0": {
+      "type": "project",
+      "path": "../Avesta.Seed/Avesta.Seed.csproj",
+      "msbuildProject": "../Avesta.Seed/Avesta.Seed.csproj"
+    },
     "Avesta.Services/1.0.0": {
       "type": "project",
       "path": "../Avesta.Services/Avesta.Services.csproj",
@@ -8497,6 +8518,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Avesta.Seed >= 1.0.0",
       "Avesta.Services >= 1.0.0"
     ]
   },
@@ -8532,6 +8554,9 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
+            "B:\\Avesta\\Framework\\src\\Avesta.Seed\\Avesta.Seed.csproj": {
+              "projectPath": "B:\\Avesta\\Framework\\src\\Avesta.Seed\\Avesta.Seed.csproj"
+            },
             "B:\\Avesta\\Framework\\src\\Avesta.Services\\Avesta.Services.csproj": {
               "projectPath": "B:\\Avesta\\Framework\\src\\Avesta.Services\\Avesta.Services.csproj"
             }

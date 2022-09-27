@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Avesta.MVC
+namespace Avesta.MVC.API
 {
     class IdentityCrudAPIController<TUser, TViewModel, TEditViewModel, TCreateViewModel> : ControllerBase
         where TCreateViewModel : TViewModel
