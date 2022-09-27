@@ -13,7 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using DbContext = Microsoft.EntityFrameworkCore.DbContext;
 using EntityState = Microsoft.EntityFrameworkCore.EntityState;
 
-namespace Avesta.Repository.EntityRepository
+namespace Avesta.Repository.EntityRepositoryRepository
 {
     public abstract class BaseRepository<TContext, TIdType> : IDisposable
         where TIdType : class

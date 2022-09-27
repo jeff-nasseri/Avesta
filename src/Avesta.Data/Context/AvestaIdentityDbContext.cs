@@ -1,23 +1,18 @@
-﻿using Avesta.Data.Model;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.Emit;
-using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 
 namespace Avesta.Data.Context
 {
-
-
-    public class AvestaDbContext : DbContext
+    public class AvestaIdentityDbContext<TAvestaUser> : IdentityDbContext<TAvestaUser> where TAvestaUser : IdentityUser
     {
-        public AvestaDbContext(DbContextOptions options)
-            : base(options)
+        public AvestaIdentityDbContext(DbContextOptions options)
+          : base(options)
         {
 
         }
@@ -29,8 +24,6 @@ namespace Avesta.Data.Context
             base.OnModelCreating(modelBuilder);
 
         }
+
     }
-
-
-
 }

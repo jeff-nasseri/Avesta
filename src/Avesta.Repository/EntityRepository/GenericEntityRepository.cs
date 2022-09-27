@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Avesta.Repository.EntityRepository
+namespace Avesta.Repository.EntityRepositoryRepository
 {
 
     public class EntityRepository<TContext> : BaseRepository<TContext, string>

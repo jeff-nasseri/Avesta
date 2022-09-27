@@ -8,7 +8,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using Avesta.Repository.Entity;
+using Avesta.Repository.EntityRepository;
 using Avesta.Storage.Constant;
 using Microsoft.AspNetCore.Identity;
 using Avesta.Data.Model;

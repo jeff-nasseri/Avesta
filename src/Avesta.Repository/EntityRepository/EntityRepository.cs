@@ -2,7 +2,7 @@
 using Avesta.Exceptions.Entity;
 using Avesta.Exceptions.Reflection;
 using Avesta.Model;
-using Avesta.Repository.EntityRepository;
+using Avesta.Repository.EntityRepositoryRepository;
 using Avesta.Share.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
@@ -13,7 +13,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace Avesta.Repository.Entity
+namespace Avesta.Repository.EntityRepositoryRepository
 {
 
     public class EntityRepository<TEntity, TContext, TIdType> : BaseRepository<TContext, TIdType>, IRepository<TEntity>

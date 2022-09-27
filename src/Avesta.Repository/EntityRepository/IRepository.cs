@@ -10,7 +10,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace Avesta.Repository.Entity
+namespace Avesta.Repository.EntityRepository
 {
 
 
