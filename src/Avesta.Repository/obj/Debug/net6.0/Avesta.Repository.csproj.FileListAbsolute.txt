@@ -12,7 +12,7 @@ B:\Avesta\Framework\src\Avesta.Repository\bin\Debug\net6.0\Avesta.Model.dll
 B:\Avesta\Framework\src\Avesta.Repository\bin\Debug\net6.0\Avesta.Share.dll
 B:\Avesta\Framework\src\Avesta.Repository\bin\Debug\net6.0\Avesta.Storage.dll
 B:\Avesta\Framework\src\Avesta.Repository\bin\Debug\net6.0\PMS.Data.dll
-B:\Avesta\Framework\src\Avesta.Repository\bin\Debug\net6.0\PMS.Data.pdb
+B:\Avesta\Framework\src\Avesta.Repository\bin\Debug\net6.0\PMS.Share.dll
 B:\Avesta\Framework\src\Avesta.Repository\bin\Debug\net6.0\Avesta.Data.pdb
 B:\Avesta\Framework\src\Avesta.Repository\bin\Debug\net6.0\Avesta.Exceptions.pdb
 B:\Avesta\Framework\src\Avesta.Repository\bin\Debug\net6.0\Avesta.Model.pdb
@@ -22,6 +22,8 @@ B:\Avesta\Framework\src\Avesta.Repository\bin\Debug\net6.0\Avesta.Global.pdb
 B:\Avesta\Framework\src\Avesta.Repository\bin\Debug\net6.0\Avesta.Language.pdb
 B:\Avesta\Framework\src\Avesta.Repository\bin\Debug\net6.0\Avesta.Logging.pdb
 B:\Avesta\Framework\src\Avesta.Repository\bin\Debug\net6.0\Avesta.Storage.pdb
+B:\Avesta\Framework\src\Avesta.Repository\bin\Debug\net6.0\PMS.Data.pdb
+B:\Avesta\Framework\src\Avesta.Repository\bin\Debug\net6.0\PMS.Share.pdb
 B:\Avesta\Framework\src\Avesta.Repository\obj\Debug\net6.0\Avesta.Repository.csproj.AssemblyReference.cache
 B:\Avesta\Framework\src\Avesta.Repository\obj\Debug\net6.0\Avesta.Repository.GeneratedMSBuildEditorConfig.editorconfig
 B:\Avesta\Framework\src\Avesta.Repository\obj\Debug\net6.0\Avesta.Repository.AssemblyInfoInputs.cache
@@ -33,5 +35,3 @@ B:\Avesta\Framework\src\Avesta.Repository\obj\Debug\net6.0\refint\Avesta.Reposit
 B:\Avesta\Framework\src\Avesta.Repository\obj\Debug\net6.0\Avesta.Repository.pdb
 B:\Avesta\Framework\src\Avesta.Repository\obj\Debug\net6.0\Avesta.Repository.genruntimeconfig.cache
 B:\Avesta\Framework\src\Avesta.Repository\obj\Debug\net6.0\ref\Avesta.Repository.dll
-B:\Avesta\Framework\src\Avesta.Repository\bin\Debug\net6.0\PMS.Share.dll
-B:\Avesta\Framework\src\Avesta.Repository\bin\Debug\net6.0\PMS.Share.pdb

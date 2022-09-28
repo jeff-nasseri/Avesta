@@ -30,8 +30,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avesta.Model", "src\Avesta.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avesta.MiddleWare", "src\Avesta.MiddleWare\Avesta.MiddleWare.csproj", "{88896146-FBBA-4EF1-8495-166E6208A109}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avesta.MVC", "src\Avesta.MVC\Avesta.MVC.csproj", "{9C928868-CE77-41C5-B0C3-682E35E1A4BF}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avesta.Services", "src\Avesta.Services\Avesta.Services.csproj", "{4F1F390D-43E5-45BF-88E9-DD39FB903A7B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avesta.Repository", "src\Avesta.Repository\Avesta.Repository.csproj", "{7421EF0C-C940-4FCC-B41E-737E64B30E69}"
@@ -40,15 +38,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "test", "test\test.csproj", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{CEEDA754-4330-4A25-912C-D726EA74B817}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestENV", "src\TestENV\TestENV.csproj", "{CF18E91C-4181-41CC-A9B8-1225A48C86BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestENV", "src\TestENV\TestENV.csproj", "{CF18E91C-4181-41CC-A9B8-1225A48C86BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avesta.Data", "src\Avesta.Data\Avesta.Data.csproj", "{CA1E4794-F35C-40A1-9205-ADC90E5A5D58}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avesta.Data", "src\Avesta.Data\Avesta.Data.csproj", "{CA1E4794-F35C-40A1-9205-ADC90E5A5D58}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avesta.Auth", "src\Avesta.Auth\Avesta.Auth.csproj", "{E9D09C16-0632-427C-8E3C-5EF9EDBB53C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avesta.Auth", "src\Avesta.Auth\Avesta.Auth.csproj", "{E9D09C16-0632-427C-8E3C-5EF9EDBB53C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avesta.Seed", "src\Avesta.Seed\Avesta.Seed.csproj", "{442CC85B-138F-4146-B7C8-71561BB04145}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avesta.Seed", "src\Avesta.Seed\Avesta.Seed.csproj", "{442CC85B-138F-4146-B7C8-71561BB04145}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avesta.Mapper", "src\Avesta.Mapper\Avesta.Mapper.csproj", "{7C8D201A-C9B2-41FC-9160-54D7C0EFA586}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avesta.Mapper", "src\Avesta.Mapper\Avesta.Mapper.csproj", "{7C8D201A-C9B2-41FC-9160-54D7C0EFA586}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avesta.Controller", "src\Avesta.Controller\Avesta.Controller.csproj", "{C6FE87AD-1C27-4D5F-A064-86F5148ECF15}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -92,10 +92,6 @@ Global
 		{88896146-FBBA-4EF1-8495-166E6208A109}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88896146-FBBA-4EF1-8495-166E6208A109}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88896146-FBBA-4EF1-8495-166E6208A109}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9C928868-CE77-41C5-B0C3-682E35E1A4BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9C928868-CE77-41C5-B0C3-682E35E1A4BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9C928868-CE77-41C5-B0C3-682E35E1A4BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9C928868-CE77-41C5-B0C3-682E35E1A4BF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4F1F390D-43E5-45BF-88E9-DD39FB903A7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4F1F390D-43E5-45BF-88E9-DD39FB903A7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F1F390D-43E5-45BF-88E9-DD39FB903A7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -128,12 +124,13 @@ Global
 		{7C8D201A-C9B2-41FC-9160-54D7C0EFA586}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C8D201A-C9B2-41FC-9160-54D7C0EFA586}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C8D201A-C9B2-41FC-9160-54D7C0EFA586}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6FE87AD-1C27-4D5F-A064-86F5148ECF15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6FE87AD-1C27-4D5F-A064-86F5148ECF15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6FE87AD-1C27-4D5F-A064-86F5148ECF15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6FE87AD-1C27-4D5F-A064-86F5148ECF15}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {C62A6BB7-70CB-4A3D-8A23-934D5EA5B7EC}
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{CF18E91C-4181-41CC-A9B8-1225A48C86BA} = {CEEDA754-4330-4A25-912C-D726EA74B817}
@@ -141,5 +138,8 @@ Global
 		{E9D09C16-0632-427C-8E3C-5EF9EDBB53C0} = {CEEDA754-4330-4A25-912C-D726EA74B817}
 		{442CC85B-138F-4146-B7C8-71561BB04145} = {CEEDA754-4330-4A25-912C-D726EA74B817}
 		{7C8D201A-C9B2-41FC-9160-54D7C0EFA586} = {CEEDA754-4330-4A25-912C-D726EA74B817}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C62A6BB7-70CB-4A3D-8A23-934D5EA5B7EC}
 	EndGlobalSection
 EndGlobal
