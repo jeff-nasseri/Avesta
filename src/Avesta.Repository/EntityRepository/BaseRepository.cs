@@ -328,24 +328,24 @@ namespace Avesta.Repository.EntityRepositoryRepository
             var result = await table.Where(search).ToListAsync();
             return result;
         }
-        public async Task<IEnumerable<TEntity>> GetAllByParentInfo<TEntity>(ParentInfo info)
+        public async Task<IEnumerable<TEntity>> GetAllByParentInfo<TEntity>(PropertyInfo info)
             where TEntity : BaseEntity<TIdType>
         {
             await Task.CompletedTask;
 
             //typeof(TEntity).GetProperty(info.ParentIdFieldNameInChildClass) == null
-            if (!typeof(TEntity).EnSureHasProperty(info.ParentIdFieldNameInChildClass))
-                throw new CanNotFoundPropertyWithCurrentNameInCurrentType($"property : {info.ParentIdFieldNameInChildClass}, type name : {typeof(TEntity)}");
+            if (!typeof(TEntity).EnSureHasProperty(info.PropertyName))
+                throw new CanNotFoundPropertyWithCurrentNameInCurrentType($"property : {info.PropertyName}, type name : {typeof(TEntity)}");
 
 
             Func<TEntity, bool> func = (entity) =>
             {
-                var parentIdInfo = entity.GetType().EnsureGetProperty(info.ParentIdFieldNameInChildClass);
+                var parentIdInfo = entity.GetType().EnsureGetProperty(info.PropertyName);
                 if (parentIdInfo == null)
                     return false;
 
                 var parentIdValue = parentIdInfo.GetValue(entity).ToString();
-                if (parentIdValue == info.ParentId)
+                if (parentIdValue == info.PropertyValue)
                     return true;
 
                 return false;

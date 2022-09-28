@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Avesta.Model.API;
 
 namespace Avesta.Controller
 {
@@ -85,6 +86,14 @@ namespace Avesta.Controller
             await Task.CompletedTask;
             const int _1 = 1;
             return RedirectToAction(Storage.Constant.BaseController.Paginate, new { page = _1, keyword = keyword });
+        }
+
+
+        public IActionResult Ok(object data)
+        {
+            var response = new ResponseModel().Success(data);
+
+            return base.Ok(response);
         }
 
     }

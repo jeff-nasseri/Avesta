@@ -181,7 +181,7 @@ namespace Avesta.Repository.EntityRepositoryRepository
         {
             return await base.WhereByInclude<TEntity>(navigationPropertyPath, search);
         }
-        public async Task<IEnumerable<TEntity>> GetAllByParentInfo(ParentInfo info)
+        public async Task<IEnumerable<TEntity>> GetAllByParentInfo(PropertyInfo info)
         {
             return await base.GetAllByParentInfo<TEntity>(info);
         }

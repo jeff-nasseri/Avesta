@@ -1,6 +1,7 @@
 using Avesta.Exceptions;
 using Avesta.Exceptions.Entity;
 using Avesta.Model;
+using Avesta.Model.API;
 using Avesta.Storage.Constant;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
@@ -70,7 +71,15 @@ namespace Avesta.MiddleWare
                         Stack = data.Error.StackTrace
                     };
                 }
-                var json = JsonConvert.SerializeObject(error);
+                var response = new ResponseModel
+                {
+                    Data = error,
+                    Message = error.Message,
+                    Status = 500,
+                    Successfull = false
+                };
+
+                var json = JsonConvert.SerializeObject(response);
                 await context.Response.WriteAsync(json);
             });
         });

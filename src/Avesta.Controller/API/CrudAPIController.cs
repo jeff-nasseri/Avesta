@@ -60,7 +60,7 @@ namespace Avesta.Controller.API
 
         [HttpPost]
         [Route(CrudEndPointController.GetAllByParentId)]
-        public async Task<IEnumerable<TViewModel>> GetAllByParentInfo(ParentInfo parent)
+        public async Task<IEnumerable<TViewModel>> GetAllByParentInfo(PropertyInfo parent)
         {
             var result = await _crudService.GetAllByParentInfo(parent);
             return result;

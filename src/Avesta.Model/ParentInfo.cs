@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Avesta.Model
 {
-    public class ParentInfo
+    public class PropertyInfo
     {
-        public string ParentId { get; set; }
-        public string ParentIdFieldNameInChildClass { get; set; }
+        public string PropertyValue { get; set; }
+        public string PropertyName { get; set; }
     }
 }

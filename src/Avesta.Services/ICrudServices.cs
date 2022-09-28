@@ -33,7 +33,7 @@ namespace Avesta.Services
         Task<IEnumerable<TViewModel>> GetAllEntitiesAsViewModel();
         Task<IEnumerable<TModel>> GetAllEntities(string navigationProperties);
         Task CreateNew(TCreateViewModel viewModel);
-        Task<IEnumerable<TViewModel>> GetAllByParentInfo(ParentInfo info);
+        Task<IEnumerable<TViewModel>> GetAllByParentInfo(PropertyInfo info);
         Task CreateNew(TModel model);
         Task<TEditViewModel> GetEntityAsViewModel(string id, bool exceptionRaseIfNotExist = false);
         Task<TModel> GetEntity(string id, bool exceptionRaseIfNotExist);
@@ -43,6 +43,8 @@ namespace Avesta.Services
         Task SoftDelete(string id, bool exceptionRaseIfNotExist = true);
         Task<IEnumerable<TModel>> GetLastN(int n);
         Task<IEnumerable<TModel>> Where(string navigationProperties, Expression<Func<TModel, bool>> where);
+        Task<IEnumerable<TViewModel>> WhereAsViewModel(string navigationProperties, Expression<Func<TModel, bool>> where);
+        Task<IEnumerable<TViewModel>> WhereAsViewModel(Expression<Func<TModel, bool>> where);
         Task<IEnumerable<TModel>> Where(Expression<Func<TModel, bool>> where);
         Task<IEnumerable<TModel>> GetLastN<TKey>(int n, Expression<Func<TModel, TKey>> orderBy) where TKey : class;
         Task<IEnumerable<TModel>> GetLastN(int n, Expression<Func<TModel, bool>> filter);

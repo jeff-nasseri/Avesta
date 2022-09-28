@@ -73,7 +73,7 @@ namespace Avesta.Repository.EntityRepository
 
         #region where
         Task<IEnumerable<TEntity>> WhereByInclude(string navigationPropertyPath, Expression<Func<TEntity, bool>> search);
-        Task<IEnumerable<TEntity>> GetAllByParentInfo(ParentInfo info);
+        Task<IEnumerable<TEntity>> GetAllByParentInfo(PropertyInfo info);
         #endregion
 
 

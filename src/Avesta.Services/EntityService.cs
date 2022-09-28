@@ -60,6 +60,19 @@ namespace Avesta.Services
             return result;
         }
 
+
+        public virtual async Task<IEnumerable<TViewModel>> WhereAsViewModel(string navigationPropertyPath, Expression<Func<TModel, bool>> exp)
+        {
+            var entites = await _repository.WhereByInclude(navigationPropertyPath, exp);
+            var result = entites.Select(e => _mapper.Map<TViewModel>(e)).ToList();
+            return result;
+        }
+        public virtual async Task<IEnumerable<TViewModel>> WhereAsViewModel(Expression<Func<TModel, bool>> exp)
+        {
+            var entites = await _repository.GetAllAsync(exp);
+            var result = entites.Select(e => _mapper.Map<TViewModel>(e)).ToList();
+            return result;
+        }
         public virtual async Task<IEnumerable<TViewModel>> GetAllAsViewModel()
         {
             var entites = await _repository.GetAllAsync();
@@ -79,7 +92,7 @@ namespace Avesta.Services
             await _repository.InsertAsync(entity);
         }
 
-        public virtual async Task<IEnumerable<TViewModel>> GetAllByParentInfo(ParentInfo info)
+        public virtual async Task<IEnumerable<TViewModel>> GetAllByParentInfo(PropertyInfo info)
         {
             var entities = await _repository.GetAllByParentInfo(info);
             var result = entities.Select(e => _mapper.Map<TViewModel>(e)).ToList();
@@ -211,6 +224,7 @@ namespace Avesta.Services
             var result = await base.GetAll(navigationProperties, exp: where);
             return result;
         }
+
 
         public async Task<IEnumerable<TModel>> GetLastN<TKey>(int n, Expression<Func<TModel, TKey>> orderBy) where TKey : class
         {
