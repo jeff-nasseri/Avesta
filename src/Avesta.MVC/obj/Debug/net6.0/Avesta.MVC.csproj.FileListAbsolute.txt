@@ -37,3 +37,7 @@ B:\Avesta\Framework\src\Avesta.MVC\obj\Debug\net6.0\refint\Avesta.MVC.dll
 B:\Avesta\Framework\src\Avesta.MVC\obj\Debug\net6.0\Avesta.MVC.pdb
 B:\Avesta\Framework\src\Avesta.MVC\obj\Debug\net6.0\Avesta.MVC.genruntimeconfig.cache
 B:\Avesta\Framework\src\Avesta.MVC\obj\Debug\net6.0\ref\Avesta.MVC.dll
+B:\Avesta\Framework\src\Avesta.MVC\bin\Debug\net6.0\Avesta.Seed.dll
+B:\Avesta\Framework\src\Avesta.MVC\bin\Debug\net6.0\Avesta.Seed.pdb
+B:\Avesta\Framework\src\Avesta.MVC\bin\Debug\net6.0\PMS.Share.dll
+B:\Avesta\Framework\src\Avesta.MVC\bin\Debug\net6.0\PMS.Share.pdb

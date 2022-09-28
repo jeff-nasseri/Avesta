@@ -11,7 +11,7 @@ namespace Avesta.Model.Identity
 {
     public class IdentityModel
     {
-        public virtual string ID { get; set; }
+        public virtual string? ID { get; set; }
         public virtual string Password { get; set; }
         public virtual string Email { get; set; }
         public virtual string Username => Email;

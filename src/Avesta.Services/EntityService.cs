@@ -182,7 +182,7 @@ namespace Avesta.Services
 
 
     public class EntityService<TModel, TViewModel, TEditViewModel, TCreateViewModel> : EntityService<TModel, TViewModel>
-      , ICrudServices<TModel, TViewModel, TEditViewModel, TCreateViewModel>
+      , ICrudService<TModel, TViewModel, TEditViewModel, TCreateViewModel>
       where TModel : BaseEntity
       where TViewModel : BaseModel
       where TEditViewModel : TViewModel

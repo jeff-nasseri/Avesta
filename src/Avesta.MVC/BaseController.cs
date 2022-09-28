@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 namespace Avesta.Share.MVC
 {
 
+
+
     public interface IBaseController
     {
 

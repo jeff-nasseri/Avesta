@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Avesta.Services
 {
-    public interface ICrudServices<TModel, TViewModel, TEditViewModel, TCreateViewModel> : IBaseService<TModel>, IBaseCrudService<TModel, TViewModel, TEditViewModel, TCreateViewModel>
+    public interface ICrudService<TModel, TViewModel, TEditViewModel, TCreateViewModel> : IBaseService<TModel>, IBaseCrudService<TModel, TViewModel, TEditViewModel, TCreateViewModel>
         where TModel : BaseEntity
         where TViewModel : BaseModel
         where TEditViewModel : TViewModel

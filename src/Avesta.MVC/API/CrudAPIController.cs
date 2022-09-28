@@ -32,8 +32,8 @@ namespace Avesta.MVC.API
         where TModel : BaseEntity
     {
 
-        readonly ICrudServices<TModel, TViewModel, TEditViewModel, TCreateViewModel> _crudService;
-        public CrudAPIController(ICrudServices<TModel, TViewModel, TEditViewModel, TCreateViewModel> crudService)
+        readonly ICrudService<TModel, TViewModel, TEditViewModel, TCreateViewModel> _crudService;
+        public CrudAPIController(ICrudService<TModel, TViewModel, TEditViewModel, TCreateViewModel> crudService)
         {
             _crudService = crudService;
         }

@@ -24,7 +24,7 @@ namespace Avesta.Auth
         {
 
             #region [-Register JWTAuth-]
-            service.AddSingleton<IJWTAuthenticationService, JWTAuthenticationService<TAvestaUser, TRole>>();
+            service.AddScoped<IJWTAuthenticationService, JWTAuthenticationService<TAvestaUser, TRole>>();
             service.AddScoped<IIdentityRepository<TAvestaUser, TRole>, IdentityRepository<TAvestaUser, TRole>>();
             var option = new AvestaAuthenticationOption();
             setupActionForAvestaAuth(option);
@@ -33,12 +33,12 @@ namespace Avesta.Auth
 
 
             #region [-Register HttpAuth-]
-            service.AddSingleton<IHttpAuthService<TAvestaUser>, HttpAuthService<TAvestaUser, TRole>>();
+            service.AddScoped<IHttpAuthService<TAvestaUser>, HttpAuthService<TAvestaUser, TRole>>();
             #endregion
 
 
             #region [-Register Authentication-]
-            service.AddSingleton<IAuthenticationService<TAvestaUser>, AuthenticationService<TAvestaUser, TRole>>();
+            service.AddScoped<IAuthenticationService<TAvestaUser>, AuthenticationService<TAvestaUser, TRole>>();
             #endregion
 
 

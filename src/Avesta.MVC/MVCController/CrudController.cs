@@ -37,8 +37,8 @@ namespace Avesta.MVC.MVCController
         where TEditViewModel : TViewModel
         where TCreateViewModel : TViewModel
     {
-        readonly ICrudServices<TModel, TViewModel, TEditViewModel, TCreateViewModel> _crudService;
-        public CrudController(ICrudServices<TModel, TViewModel, TEditViewModel, TCreateViewModel> crudService) : base(crudService)
+        readonly ICrudService<TModel, TViewModel, TEditViewModel, TCreateViewModel> _crudService;
+        public CrudController(ICrudService<TModel, TViewModel, TEditViewModel, TCreateViewModel> crudService) : base(crudService)
         {
             _crudService = crudService;
         }

@@ -3,6 +3,7 @@ using Avesta.Data.Model;
 using Avesta.Repository.EntityRepository;
 using Avesta.Repository.EntityRepositoryRepository;
 using Avesta.Repository.Identity;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace Avesta.Seed.Entity.Service
 
 
     public class EntitySeedService<TContext> : IEntitySeedService
-        where TContext : AvestaDbContext
+        where TContext : DbContext
     {
         readonly EntityRepository<TContext> _entityRepository;
         public EntitySeedService(EntityRepository<TContext> entityRepository)

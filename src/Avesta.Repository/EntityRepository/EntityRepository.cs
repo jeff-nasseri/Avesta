@@ -2,6 +2,7 @@
 using Avesta.Exceptions.Entity;
 using Avesta.Exceptions.Reflection;
 using Avesta.Model;
+using Avesta.Repository.EntityRepository;
 using Avesta.Repository.EntityRepositoryRepository;
 using Avesta.Share.Extensions;
 using Microsoft.EntityFrameworkCore;

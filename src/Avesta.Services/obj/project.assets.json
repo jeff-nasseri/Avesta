@@ -3028,13 +3028,24 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Avesta.Data": "1.0.0"
+          "Avesta.Data": "1.0.0",
+          "PMS.Share": "1.0.0"
         },
         "compile": {
           "bin/placeholder/PMS.Data.dll": {}
         },
         "runtime": {
           "bin/placeholder/PMS.Data.dll": {}
+        }
+      },
+      "PMS.Share/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/PMS.Share.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PMS.Share.dll": {}
         }
       }
     }
@@ -8469,6 +8480,11 @@
       "type": "project",
       "path": "../../../../Findaso/PMS/PMS.Data/PMS.Data.csproj",
       "msbuildProject": "../../../../Findaso/PMS/PMS.Data/PMS.Data.csproj"
+    },
+    "PMS.Share/1.0.0": {
+      "type": "project",
+      "path": "../../../../Findaso/PMS/PMS.Share/PMS.Share.csproj",
+      "msbuildProject": "../../../../Findaso/PMS/PMS.Share/PMS.Share.csproj"
     }
   },
   "projectFileDependencyGroups": {

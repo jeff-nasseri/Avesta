@@ -19,6 +19,9 @@ namespace Avesta.Data.Model
         public DateTime ModifiedDate { get; set; }
         public DateTime? DeleteDate { get; set; }
         public DateTime? DateOfBirth { get; set; }
+        public DateTime? VerifiedDate { get; set; }
+        public string? ProfileImageUrl { get; set; }
+        public string? Address { get; set; }
 
         public virtual string FirstName { get; set; }
         public virtual string LastName { get; set; }
