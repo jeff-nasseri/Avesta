@@ -1,3 +1,8 @@
+B:\Avesta\Framework\src\Avesta.Services\obj\Debug\net6.0\Avesta.Services.csproj.AssemblyReference.cache
+B:\Avesta\Framework\src\Avesta.Services\obj\Debug\net6.0\Avesta.Services.GeneratedMSBuildEditorConfig.editorconfig
+B:\Avesta\Framework\src\Avesta.Services\obj\Debug\net6.0\Avesta.Services.AssemblyInfoInputs.cache
+B:\Avesta\Framework\src\Avesta.Services\obj\Debug\net6.0\Avesta.Services.AssemblyInfo.cs
+B:\Avesta\Framework\src\Avesta.Services\obj\Debug\net6.0\Avesta.Services.csproj.CoreCompileInputs.cache
 B:\Avesta\Framework\src\Avesta.Services\bin\Debug\net6.0\Avesta.Services.deps.json
 B:\Avesta\Framework\src\Avesta.Services\bin\Debug\net6.0\Avesta.Services.runtimeconfig.json
 B:\Avesta\Framework\src\Avesta.Services\bin\Debug\net6.0\Avesta.Services.dll
@@ -12,8 +17,6 @@ B:\Avesta\Framework\src\Avesta.Services\bin\Debug\net6.0\Avesta.Model.dll
 B:\Avesta\Framework\src\Avesta.Services\bin\Debug\net6.0\Avesta.Repository.dll
 B:\Avesta\Framework\src\Avesta.Services\bin\Debug\net6.0\Avesta.Share.dll
 B:\Avesta\Framework\src\Avesta.Services\bin\Debug\net6.0\Avesta.Storage.dll
-B:\Avesta\Framework\src\Avesta.Services\bin\Debug\net6.0\PMS.Data.dll
-B:\Avesta\Framework\src\Avesta.Services\bin\Debug\net6.0\PMS.Share.dll
 B:\Avesta\Framework\src\Avesta.Services\bin\Debug\net6.0\Avesta.Attribute.pdb
 B:\Avesta\Framework\src\Avesta.Services\bin\Debug\net6.0\Avesta.Exceptions.pdb
 B:\Avesta\Framework\src\Avesta.Services\bin\Debug\net6.0\Avesta.Model.pdb
@@ -24,13 +27,6 @@ B:\Avesta\Framework\src\Avesta.Services\bin\Debug\net6.0\Avesta.Global.pdb
 B:\Avesta\Framework\src\Avesta.Services\bin\Debug\net6.0\Avesta.Language.pdb
 B:\Avesta\Framework\src\Avesta.Services\bin\Debug\net6.0\Avesta.Logging.pdb
 B:\Avesta\Framework\src\Avesta.Services\bin\Debug\net6.0\Avesta.Storage.pdb
-B:\Avesta\Framework\src\Avesta.Services\bin\Debug\net6.0\PMS.Data.pdb
-B:\Avesta\Framework\src\Avesta.Services\bin\Debug\net6.0\PMS.Share.pdb
-B:\Avesta\Framework\src\Avesta.Services\obj\Debug\net6.0\Avesta.Services.csproj.AssemblyReference.cache
-B:\Avesta\Framework\src\Avesta.Services\obj\Debug\net6.0\Avesta.Services.GeneratedMSBuildEditorConfig.editorconfig
-B:\Avesta\Framework\src\Avesta.Services\obj\Debug\net6.0\Avesta.Services.AssemblyInfoInputs.cache
-B:\Avesta\Framework\src\Avesta.Services\obj\Debug\net6.0\Avesta.Services.AssemblyInfo.cs
-B:\Avesta\Framework\src\Avesta.Services\obj\Debug\net6.0\Avesta.Services.csproj.CoreCompileInputs.cache
 B:\Avesta\Framework\src\Avesta.Services\obj\Debug\net6.0\Avesta.Services.csproj.CopyComplete
 B:\Avesta\Framework\src\Avesta.Services\obj\Debug\net6.0\Avesta.Services.dll
 B:\Avesta\Framework\src\Avesta.Services\obj\Debug\net6.0\refint\Avesta.Services.dll

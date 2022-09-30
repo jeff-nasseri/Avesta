@@ -19,7 +19,7 @@ B:\Avesta\Framework\src\Avesta.Model\obj\Debug\net6.0\Avesta.Model.AssemblyInfo.
 B:\Avesta\Framework\src\Avesta.Model\obj\Debug\net6.0\Avesta.Model.csproj.CoreCompileInputs.cache
 B:\Avesta\Framework\src\Avesta.Model\obj\Debug\net6.0\Avesta.Model.csproj.CopyComplete
 B:\Avesta\Framework\src\Avesta.Model\obj\Debug\net6.0\Avesta.Model.dll
-B:\Avesta\Framework\src\Avesta.Model\obj\Debug\net6.0\refint\Avesta.Model.dll
+B:\Avesta\Framework\src\Avesta.Model\obj\Debug\net6.0\ref\Avesta.Model.dll
 B:\Avesta\Framework\src\Avesta.Model\obj\Debug\net6.0\Avesta.Model.pdb
 B:\Avesta\Framework\src\Avesta.Model\obj\Debug\net6.0\Avesta.Model.genruntimeconfig.cache
-B:\Avesta\Framework\src\Avesta.Model\obj\Debug\net6.0\ref\Avesta.Model.dll
+B:\Avesta\Framework\src\Avesta.Model\obj\Debug\net6.0\refint\Avesta.Model.dll

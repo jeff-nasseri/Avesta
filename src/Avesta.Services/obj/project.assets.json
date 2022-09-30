@@ -2981,8 +2981,7 @@
           "Avesta.Model": "1.0.0",
           "Avesta.Share": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.9",
-          "Microsoft.EntityFrameworkCore": "6.0.9",
-          "PMS.Data": "1.0.0"
+          "Microsoft.EntityFrameworkCore": "6.0.9"
         },
         "compile": {
           "bin/placeholder/Avesta.Repository.dll": {}
@@ -3022,30 +3021,6 @@
         },
         "runtime": {
           "bin/placeholder/Avesta.Storage.dll": {}
-        }
-      },
-      "PMS.Data/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Avesta.Data": "1.0.0",
-          "PMS.Share": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/PMS.Data.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/PMS.Data.dll": {}
-        }
-      },
-      "PMS.Share/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "compile": {
-          "bin/placeholder/PMS.Share.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/PMS.Share.dll": {}
         }
       }
     }
@@ -8475,16 +8450,6 @@
       "type": "project",
       "path": "../Avesta.Storage/Avesta.Storage.csproj",
       "msbuildProject": "../Avesta.Storage/Avesta.Storage.csproj"
-    },
-    "PMS.Data/1.0.0": {
-      "type": "project",
-      "path": "../../../../Findaso/PMS/PMS.Data/PMS.Data.csproj",
-      "msbuildProject": "../../../../Findaso/PMS/PMS.Data/PMS.Data.csproj"
-    },
-    "PMS.Share/1.0.0": {
-      "type": "project",
-      "path": "../../../../Findaso/PMS/PMS.Share/PMS.Share.csproj",
-      "msbuildProject": "../../../../Findaso/PMS/PMS.Share/PMS.Share.csproj"
     }
   },
   "projectFileDependencyGroups": {

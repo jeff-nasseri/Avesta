@@ -6,13 +6,19 @@ using System.Threading.Tasks;
 
 namespace Avesta.Model
 {
-    public class BaseModel
+    public class BaseModel : Model
     {
         /// <summary>
         /// id of current used model
         /// id for variour view model or model can be null
         /// </summary>
         public virtual string? ID { get; set; }
+    }
+
+
+
+    public abstract class Model
+    {
     }
   
     

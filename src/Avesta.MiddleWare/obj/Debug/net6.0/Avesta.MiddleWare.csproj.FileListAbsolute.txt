@@ -25,7 +25,7 @@ B:\Avesta\Framework\src\Avesta.MiddleWare\obj\Debug\net6.0\Avesta.MiddleWare.Ass
 B:\Avesta\Framework\src\Avesta.MiddleWare\obj\Debug\net6.0\Avesta.MiddleWare.csproj.CoreCompileInputs.cache
 B:\Avesta\Framework\src\Avesta.MiddleWare\obj\Debug\net6.0\Avesta.MiddleWare.csproj.CopyComplete
 B:\Avesta\Framework\src\Avesta.MiddleWare\obj\Debug\net6.0\Avesta.MiddleWare.dll
-B:\Avesta\Framework\src\Avesta.MiddleWare\obj\Debug\net6.0\refint\Avesta.MiddleWare.dll
+B:\Avesta\Framework\src\Avesta.MiddleWare\obj\Debug\net6.0\ref\Avesta.MiddleWare.dll
 B:\Avesta\Framework\src\Avesta.MiddleWare\obj\Debug\net6.0\Avesta.MiddleWare.pdb
 B:\Avesta\Framework\src\Avesta.MiddleWare\obj\Debug\net6.0\Avesta.MiddleWare.genruntimeconfig.cache
-B:\Avesta\Framework\src\Avesta.MiddleWare\obj\Debug\net6.0\ref\Avesta.MiddleWare.dll
+B:\Avesta\Framework\src\Avesta.MiddleWare\obj\Debug\net6.0\refint\Avesta.MiddleWare.dll

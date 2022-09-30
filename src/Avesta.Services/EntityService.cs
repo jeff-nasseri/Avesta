@@ -282,7 +282,7 @@ namespace Avesta.Services
         public virtual async Task<IEnumerable<TModel>> GetAllEntities()
         {
             var result = await base.GetAll();
-            return result.OrderByDescending(e => e.CreateDate).ToList();
+            return result.OrderByDescending(e => e.CreatedDate).ToList();
         }
 
         public virtual async Task<IEnumerable<TModel>> GetAllEntitiesIncludeAllChildren()
@@ -302,7 +302,7 @@ namespace Avesta.Services
         public virtual async Task<IEnumerable<TModel>> GetAllEntities(string navigationProperties)
         {
             var result = await base.GetAll(navigationProperties);
-            return result.OrderByDescending(e => e.CreateDate).ToList();
+            return result.OrderByDescending(e => e.CreatedDate).ToList();
         }
 
         public virtual async Task<TEditViewModel> GetEntityAsViewModel(string id, bool exceptionRaseIfNotExist)

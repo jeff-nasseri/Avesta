@@ -14,6 +14,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Avesta.Exceptions\Avesta.Exceptions.csproj" />
     <ProjectReference Include="..\Avesta.Repository\Avesta.Repository.csproj" />
+    <ProjectReference Include="..\Avesta.Services\Avesta.Services.csproj" />
     <ProjectReference Include="..\Avesta.Share\Avesta.Share.csproj" />
   </ItemGroup>
 

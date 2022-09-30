@@ -24,7 +24,7 @@ namespace Avesta.Controller.API
     }
 
 
-    public class CrudAPIController<TModel, TViewModel, TEditViewModel, TCreateViewModel> : ControllerBase
+    public class CrudAPIController<TModel, TViewModel, TEditViewModel, TCreateViewModel> : BaseController<TModel>
         where TCreateViewModel : TViewModel
         where TEditViewModel : TViewModel
         where TViewModel : BaseModel
@@ -33,6 +33,7 @@ namespace Avesta.Controller.API
 
         readonly ICrudService<TModel, TViewModel, TEditViewModel, TCreateViewModel> _crudService;
         public CrudAPIController(ICrudService<TModel, TViewModel, TEditViewModel, TCreateViewModel> crudService)
+            : base(crudService)
         {
             _crudService = crudService;
         }
@@ -40,19 +41,19 @@ namespace Avesta.Controller.API
 
         [HttpGet]
         [Route(CrudEndPointController.GetAllWithChildren)]
-        public async Task<IEnumerable<TModel>> GetAllWithChildren()
+        public async Task<IActionResult> GetAllWithChildren()
         {
             var result = await _crudService.GetAllEntitiesWithAllChildren();
-            return result;
+            return Ok(result);
         }
 
 
         [HttpGet]
         [Route(CrudEndPointController.GetWithChildren)]
-        public async Task<TModel> GetWithChildren(string id)
+        public async Task<IActionResult> GetWithChildren(string id)
         {
             var result = await _crudService.GetEntityWithAllChildren(id);
-            return result;
+            return Ok(result);
         }
 
 
@@ -60,10 +61,10 @@ namespace Avesta.Controller.API
 
         [HttpPost]
         [Route(CrudEndPointController.GetAllByParentId)]
-        public async Task<IEnumerable<TViewModel>> GetAllByParentInfo(PropertyInfo parent)
+        public async Task<IActionResult> GetAllByParentInfo(PropertyInfo parent)
         {
             var result = await _crudService.GetAllByParentInfo(parent);
-            return result;
+            return Ok(result);
         }
 
 
@@ -73,63 +74,63 @@ namespace Avesta.Controller.API
 
         [HttpPost]
         [Route(CrudEndPointController.Create)]
-        public async Task<TCreateViewModel> Create(TCreateViewModel viewModel)
+        public async Task<IActionResult> Create(TCreateViewModel viewModel)
         {
             await _crudService.CreateNew(viewModel);
-            return viewModel;
+            return Ok(viewModel);
         }
 
         [HttpDelete]
         [Route(CrudEndPointController.Delete)]
-        public async Task<TViewModel> Delete(string id)
+        public async Task<IActionResult> Delete(string id)
         {
             var viewModel = await _crudService.GetEntityAsViewModel(id, exceptionRaseIfNotExist: true);
             await _crudService.Delete(id);
-            return viewModel;
+            return Ok(viewModel);
         }
 
 
         [HttpDelete]
         [Route(CrudEndPointController.SoftDelete)]
-        public async Task<TViewModel> SoftDelete(string id)
+        public async Task<IActionResult> SoftDelete(string id)
         {
             var viewModel = await _crudService.GetEntityAsViewModel(id, exceptionRaseIfNotExist: true);
             await _crudService.SoftDelete(id);
-            return viewModel;
+            return Ok(viewModel);
         }
 
 
         [HttpPost]
         [Route(CrudEndPointController.Edit)]
-        public async Task<TEditViewModel> Edit(TEditViewModel viewModel)
+        public async Task<IActionResult> Edit(TEditViewModel viewModel)
         {
             await _crudService.EditEntity(viewModel);
-            return viewModel;
+            return Ok(viewModel);
         }
 
         [HttpGet]
         [Route(CrudEndPointController.GetAll)]
-        public async Task<IEnumerable<TViewModel>> GetAll()
+        public async Task<IActionResult> GetAll()
         {
             var result = await _crudService.GetAllEntitiesAsViewModel();
-            return result;
+            return Ok(result);
         }
 
         [HttpGet]
         [Route(CrudEndPointController.GetAsViewModel)]
-        public async Task<TViewModel> GetAsViewModel(string id)
+        public async Task<IActionResult> GetAsViewModel(string id)
         {
             var result = await _crudService.GetEntityAsViewModel(id, exceptionRaseIfNotExist: true);
-            return result;
+            return Ok(result);
         }
 
 
         [HttpGet]
         [Route(CrudEndPointController.Get)]
-        public async Task<TModel> Get(string id)
+        public async Task<IActionResult> Get(string id)
         {
             var result = await _crudService.GetEntity(id, exceptionRaseIfNotExist: true);
-            return result;
+            return Ok(result);
         }
 
     }

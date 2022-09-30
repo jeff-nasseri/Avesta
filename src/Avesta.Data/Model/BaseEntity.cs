@@ -20,8 +20,8 @@ namespace Avesta.Data.Model
     {
         public BaseEntity()
         {
-            CreateDate = DateTime.Now;
-            ModifiedDate = CreateDate;
+            CreatedDate = DateTime.Now;
+            ModifiedDate = CreatedDate;
         }
 
         [Key]
@@ -33,7 +33,7 @@ namespace Avesta.Data.Model
 
 
         public DateTime? ModifiedDate { get; set; }
-        public DateTime CreateDate { get; set; }
-        public DateTime? DeleteDate { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public DateTime? DeletedDate { get; set; }
     }
 }

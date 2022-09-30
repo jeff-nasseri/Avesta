@@ -7,6 +7,6 @@ B:\Avesta\Framework\src\Avesta.Global\obj\Debug\net6.0\Avesta.Global.AssemblyInf
 B:\Avesta\Framework\src\Avesta.Global\obj\Debug\net6.0\Avesta.Global.AssemblyInfo.cs
 B:\Avesta\Framework\src\Avesta.Global\obj\Debug\net6.0\Avesta.Global.csproj.CoreCompileInputs.cache
 B:\Avesta\Framework\src\Avesta.Global\obj\Debug\net6.0\Avesta.Global.dll
-B:\Avesta\Framework\src\Avesta.Global\obj\Debug\net6.0\refint\Avesta.Global.dll
-B:\Avesta\Framework\src\Avesta.Global\obj\Debug\net6.0\Avesta.Global.pdb
 B:\Avesta\Framework\src\Avesta.Global\obj\Debug\net6.0\ref\Avesta.Global.dll
+B:\Avesta\Framework\src\Avesta.Global\obj\Debug\net6.0\Avesta.Global.pdb
+B:\Avesta\Framework\src\Avesta.Global\obj\Debug\net6.0\refint\Avesta.Global.dll

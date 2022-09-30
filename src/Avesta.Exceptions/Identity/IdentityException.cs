@@ -11,7 +11,7 @@ namespace Avesta.Exceptions.Identity
 
     public class IdentityException : SystemException
     {
-        public IdentityException(string msg, int? code) : base(msg, code ?? ExceptionConstant.IdentityException)
+        public IdentityException(string msg, int code = ExceptionConstant.IdentityException) : base(msg, code)
         {
         }
     }

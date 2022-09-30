@@ -3,6 +3,7 @@ using Avesta.Auth.Authentication.Service;
 using Avesta.Auth.HTTP.Service;
 using Avesta.Auth.JWT.Model;
 using Avesta.Auth.JWT.Service;
+using Avesta.Auth.User.Service;
 using Avesta.Data.Context;
 using Avesta.Data.Model;
 using Avesta.Repository.Identity;
@@ -45,6 +46,13 @@ namespace Avesta.Auth
             #region [-Configure AutoMapper-]
             service.ConfigureMapperForAuthentication<TAvestaUser>();
             #endregion
+
+
+
+            #region [-Register User-]
+            service.AddScoped<IUserService<TAvestaUser>, UserService<TAvestaUser, TRole>>();
+            #endregion
+
 
 
             return service;

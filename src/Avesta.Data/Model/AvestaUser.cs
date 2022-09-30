@@ -23,15 +23,15 @@ namespace Avesta.Data.Model
         public string? ProfileImageUrl { get; set; }
         public string? Address { get; set; }
 
-        public virtual string FirstName { get; set; }
-        public virtual string LastName { get; set; }
-        public virtual string FullName { get => $"{FirstName} {LastName}"; }
+        public virtual string? FirstName { get; set; }
+        public virtual string? LastName { get; set; }
+        public virtual string? FullName { get => $"{FirstName} {LastName}"; }
 
 
 
 
         #region [-JWT-]
-        public virtual string RefreshToken { get; set; }
+        public virtual string? RefreshToken { get; set; }
 
         #endregion
 

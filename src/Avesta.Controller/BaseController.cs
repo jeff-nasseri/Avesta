@@ -29,7 +29,7 @@ namespace Avesta.Controller
             _baseService = baseService;
         }
 
-
+        [ApiExplorerSettings(IgnoreApi = true)]
         public async Task<RedirectResult> BaseRedirect(string action, string controller, string redirectURL = "")
         {
             await Task.CompletedTask;
@@ -39,6 +39,7 @@ namespace Avesta.Controller
             }
             return Redirect(redirectURL);
         }
+        [ApiExplorerSettings(IgnoreApi = true)]
         public async Task<RedirectResult> BaseRedirect(string defaultRedirect, string redirectURL = "")
         {
             await Task.CompletedTask;
@@ -48,6 +49,7 @@ namespace Avesta.Controller
             }
             return Redirect(redirectURL);
         }
+        [ApiExplorerSettings(IgnoreApi = true)]
         public async Task<IActionResult> BaseRedirectToAction(string defaultAction, string redirect = "")
         {
             await Task.CompletedTask;
@@ -60,6 +62,7 @@ namespace Avesta.Controller
         }
 
 
+        [ApiExplorerSettings(IgnoreApi = true)]
         public async Task<IActionResult> Paginate(int page, string viewName, string keyword = null)
         {
             var tuple = await _baseService.Paginate(page, searchKeyWord: keyword);
@@ -68,6 +71,7 @@ namespace Avesta.Controller
             return View(viewName, entities);
         }
 
+        [ApiExplorerSettings(IgnoreApi = true)]
         public async Task<IActionResult> Search(string contoller, string keyword)
         {
             //make standard
@@ -78,6 +82,7 @@ namespace Avesta.Controller
             return Redirect($"{contoller}/{Storage.Constant.BaseController.Paginate}/{_1}/{keyword}");
         }
 
+        [ApiExplorerSettings(IgnoreApi = true)]
         public async Task<IActionResult> Search(string keyword, object _ = null)
         {
             //make standard
@@ -89,10 +94,10 @@ namespace Avesta.Controller
         }
 
 
-        public IActionResult Ok(object data)
+        [ApiExplorerSettings(IgnoreApi = true)]
+        public override OkObjectResult Ok(object data)
         {
             var response = new ResponseModel().Success(data);
-
             return base.Ok(response);
         }
 

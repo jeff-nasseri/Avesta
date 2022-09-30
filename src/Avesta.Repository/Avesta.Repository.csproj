@@ -10,7 +10,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Findaso\PMS\PMS.Data\PMS.Data.csproj" />
     <ProjectReference Include="..\Avesta.Data\Avesta.Data.csproj" />
     <ProjectReference Include="..\Avesta.Exceptions\Avesta.Exceptions.csproj" />
     <ProjectReference Include="..\Avesta.Model\Avesta.Model.csproj" />
