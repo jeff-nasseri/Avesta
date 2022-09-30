@@ -1,4 +1,5 @@
-﻿using Avesta.Data.Model;
+﻿using AutoMapper;
+using Avesta.Data.Model;
 using Avesta.Model;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -41,8 +42,8 @@ namespace Avesta.Mapper
 
 
         public static IServiceCollection ConfigureMapper<TModel, TViewModel>(this IServiceCollection services)
-            where TModel : BaseEntity
-            where TViewModel : BaseModel
+            where TModel : class
+            where TViewModel : class
         {
             services.AddAutoMapper(config =>
             {
@@ -55,6 +56,15 @@ namespace Avesta.Mapper
             });
 
 
+
+            return services;
+        }
+
+
+
+        public static IServiceCollection ConfigureMapper(this IServiceCollection services, Action<IMapperConfigurationExpression> configure)
+        {
+            services.AddAutoMapper(configure);
 
             return services;
         }

@@ -17,8 +17,8 @@ namespace Avesta.Services
 {
 
     public class EntityService<TModel, TViewModel>
-        where TModel : BaseEntity 
-        where TViewModel : BaseModel 
+        where TModel : BaseEntity
+        where TViewModel : BaseModel
     {
         readonly IRepository<TModel> _repository;
         readonly IMapper _mapper;
@@ -67,6 +67,12 @@ namespace Avesta.Services
             var result = entites.Select(e => _mapper.Map<TViewModel>(e)).ToList();
             return result;
         }
+        public virtual async Task<IEnumerable<GViewModel>> WhereAsViewModel<GViewModel>(string navigationPropertyPath, Expression<Func<TModel, bool>> exp)
+        {
+            var entites = await _repository.WhereByInclude(navigationPropertyPath, exp);
+            var result = entites.Select(e => _mapper.Map<GViewModel>(e)).ToList();
+            return result;
+        }
         public virtual async Task<IEnumerable<TViewModel>> WhereAsViewModel(Expression<Func<TModel, bool>> exp)
         {
             var entites = await _repository.GetAllAsync(exp);
@@ -91,6 +97,14 @@ namespace Avesta.Services
             var entity = _mapper.Map<TModel>(viewModel);
             await _repository.InsertAsync(entity);
         }
+
+
+        public virtual async Task CreateRange(IEnumerable<TViewModel> viewModels)
+        {
+            var entities = viewModels.Select(item => _mapper.Map<TModel>(item)).ToList();
+            await _repository.InsertRange(entities);
+        }
+
 
         public virtual async Task<IEnumerable<TViewModel>> GetAllByParentInfo(PropertyInfo info)
         {
@@ -224,6 +238,8 @@ namespace Avesta.Services
             var result = await base.GetAll(navigationProperties, exp: where);
             return result;
         }
+
+
 
 
         public async Task<IEnumerable<TModel>> GetLastN<TKey>(int n, Expression<Func<TModel, TKey>> orderBy) where TKey : class

@@ -8001,11 +8001,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "B:\\Avesta\\Framework\\src\\Avesta.Model\\Avesta.Model.csproj",
+      "projectUniqueName": "B:\\Findaso\\Avesta_Alireza\\src\\Avesta.Model\\Avesta.Model.csproj",
       "projectName": "Avesta.Model",
-      "projectPath": "B:\\Avesta\\Framework\\src\\Avesta.Model\\Avesta.Model.csproj",
+      "projectPath": "B:\\Findaso\\Avesta_Alireza\\src\\Avesta.Model\\Avesta.Model.csproj",
       "packagesPath": "C:\\Users\\aaa\\.nuget\\packages\\",
-      "outputPath": "B:\\Avesta\\Framework\\src\\Avesta.Model\\obj\\",
+      "outputPath": "B:\\Findaso\\Avesta_Alireza\\src\\Avesta.Model\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -8026,11 +8026,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "B:\\Avesta\\Framework\\src\\Avesta.Attribute\\Avesta.Attribute.csproj": {
-              "projectPath": "B:\\Avesta\\Framework\\src\\Avesta.Attribute\\Avesta.Attribute.csproj"
+            "B:\\Findaso\\Avesta_Alireza\\src\\Avesta.Attribute\\Avesta.Attribute.csproj": {
+              "projectPath": "B:\\Findaso\\Avesta_Alireza\\src\\Avesta.Attribute\\Avesta.Attribute.csproj"
             },
-            "B:\\Avesta\\Framework\\src\\Avesta.Share\\Avesta.Share.csproj": {
-              "projectPath": "B:\\Avesta\\Framework\\src\\Avesta.Share\\Avesta.Share.csproj"
+            "B:\\Findaso\\Avesta_Alireza\\src\\Avesta.Share\\Avesta.Share.csproj": {
+              "projectPath": "B:\\Findaso\\Avesta_Alireza\\src\\Avesta.Share\\Avesta.Share.csproj"
             }
           }
         }

@@ -6,10 +6,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Avesta.Data.Model;
 
 namespace Avesta.Data.Context
 {
-    public class AvestaIdentityDbContext<TAvestaUser> : IdentityDbContext<TAvestaUser> where TAvestaUser : IdentityUser
+    public class AvestaIdentityDbContext<TAvestaUser> : IdentityDbContext<TAvestaUser> where TAvestaUser : AvestaUser
     {
         public AvestaIdentityDbContext(DbContextOptions options)
           : base(options)

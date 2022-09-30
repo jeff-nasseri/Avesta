@@ -1,5 +1,6 @@
 ﻿using Avesta.Data.Model;
 using Avesta.Model;
+using Avesta.Repository.EntityRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,6 +34,7 @@ namespace Avesta.Services
         Task<IEnumerable<TViewModel>> GetAllEntitiesAsViewModel();
         Task<IEnumerable<TModel>> GetAllEntities(string navigationProperties);
         Task CreateNew(TCreateViewModel viewModel);
+        Task CreateRange(IEnumerable<TViewModel> viewModels);
         Task<IEnumerable<TViewModel>> GetAllByParentInfo(PropertyInfo info);
         Task CreateNew(TModel model);
         Task<TEditViewModel> GetEntityAsViewModel(string id, bool exceptionRaseIfNotExist = false);

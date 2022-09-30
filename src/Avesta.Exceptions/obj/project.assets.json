@@ -7999,11 +7999,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "B:\\Avesta\\Framework\\src\\Avesta.Exceptions\\Avesta.Exceptions.csproj",
+      "projectUniqueName": "B:\\Findaso\\Avesta_Alireza\\src\\Avesta.Exceptions\\Avesta.Exceptions.csproj",
       "projectName": "Avesta.Exceptions",
-      "projectPath": "B:\\Avesta\\Framework\\src\\Avesta.Exceptions\\Avesta.Exceptions.csproj",
+      "projectPath": "B:\\Findaso\\Avesta_Alireza\\src\\Avesta.Exceptions\\Avesta.Exceptions.csproj",
       "packagesPath": "C:\\Users\\aaa\\.nuget\\packages\\",
-      "outputPath": "B:\\Avesta\\Framework\\src\\Avesta.Exceptions\\obj\\",
+      "outputPath": "B:\\Findaso\\Avesta_Alireza\\src\\Avesta.Exceptions\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -8024,14 +8024,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "B:\\Avesta\\Framework\\src\\Avesta.Language\\Avesta.Language.csproj": {
-              "projectPath": "B:\\Avesta\\Framework\\src\\Avesta.Language\\Avesta.Language.csproj"
+            "B:\\Findaso\\Avesta_Alireza\\src\\Avesta.Language\\Avesta.Language.csproj": {
+              "projectPath": "B:\\Findaso\\Avesta_Alireza\\src\\Avesta.Language\\Avesta.Language.csproj"
             },
-            "B:\\Avesta\\Framework\\src\\Avesta.Logging\\Avesta.Logging.csproj": {
-              "projectPath": "B:\\Avesta\\Framework\\src\\Avesta.Logging\\Avesta.Logging.csproj"
+            "B:\\Findaso\\Avesta_Alireza\\src\\Avesta.Logging\\Avesta.Logging.csproj": {
+              "projectPath": "B:\\Findaso\\Avesta_Alireza\\src\\Avesta.Logging\\Avesta.Logging.csproj"
             },
-            "B:\\Avesta\\Framework\\src\\Avesta.Storage\\Avesta.Storage.csproj": {
-              "projectPath": "B:\\Avesta\\Framework\\src\\Avesta.Storage\\Avesta.Storage.csproj"
+            "B:\\Findaso\\Avesta_Alireza\\src\\Avesta.Storage\\Avesta.Storage.csproj": {
+              "projectPath": "B:\\Findaso\\Avesta_Alireza\\src\\Avesta.Storage\\Avesta.Storage.csproj"
             }
           }
         }

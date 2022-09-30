@@ -7292,11 +7292,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "B:\\Avesta\\Framework\\src\\Avesta.Logging\\Avesta.Logging.csproj",
+      "projectUniqueName": "B:\\Findaso\\Avesta_Alireza\\src\\Avesta.Logging\\Avesta.Logging.csproj",
       "projectName": "Avesta.Logging",
-      "projectPath": "B:\\Avesta\\Framework\\src\\Avesta.Logging\\Avesta.Logging.csproj",
+      "projectPath": "B:\\Findaso\\Avesta_Alireza\\src\\Avesta.Logging\\Avesta.Logging.csproj",
       "packagesPath": "C:\\Users\\aaa\\.nuget\\packages\\",
-      "outputPath": "B:\\Avesta\\Framework\\src\\Avesta.Logging\\obj\\",
+      "outputPath": "B:\\Findaso\\Avesta_Alireza\\src\\Avesta.Logging\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -7317,8 +7317,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "B:\\Avesta\\Framework\\src\\Avesta.Share\\Avesta.Share.csproj": {
-              "projectPath": "B:\\Avesta\\Framework\\src\\Avesta.Share\\Avesta.Share.csproj"
+            "B:\\Findaso\\Avesta_Alireza\\src\\Avesta.Share\\Avesta.Share.csproj": {
+              "projectPath": "B:\\Findaso\\Avesta_Alireza\\src\\Avesta.Share\\Avesta.Share.csproj"
             }
           }
         }

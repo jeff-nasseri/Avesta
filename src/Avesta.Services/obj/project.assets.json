@@ -8470,11 +8470,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "B:\\Avesta\\Framework\\src\\Avesta.Services\\Avesta.Services.csproj",
+      "projectUniqueName": "B:\\Findaso\\Avesta_Alireza\\src\\Avesta.Services\\Avesta.Services.csproj",
       "projectName": "Avesta.Services",
-      "projectPath": "B:\\Avesta\\Framework\\src\\Avesta.Services\\Avesta.Services.csproj",
+      "projectPath": "B:\\Findaso\\Avesta_Alireza\\src\\Avesta.Services\\Avesta.Services.csproj",
       "packagesPath": "C:\\Users\\aaa\\.nuget\\packages\\",
-      "outputPath": "B:\\Avesta\\Framework\\src\\Avesta.Services\\obj\\",
+      "outputPath": "B:\\Findaso\\Avesta_Alireza\\src\\Avesta.Services\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -8495,20 +8495,20 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "B:\\Avesta\\Framework\\src\\Avesta.Attribute\\Avesta.Attribute.csproj": {
-              "projectPath": "B:\\Avesta\\Framework\\src\\Avesta.Attribute\\Avesta.Attribute.csproj"
+            "B:\\Findaso\\Avesta_Alireza\\src\\Avesta.Attribute\\Avesta.Attribute.csproj": {
+              "projectPath": "B:\\Findaso\\Avesta_Alireza\\src\\Avesta.Attribute\\Avesta.Attribute.csproj"
             },
-            "B:\\Avesta\\Framework\\src\\Avesta.Exceptions\\Avesta.Exceptions.csproj": {
-              "projectPath": "B:\\Avesta\\Framework\\src\\Avesta.Exceptions\\Avesta.Exceptions.csproj"
+            "B:\\Findaso\\Avesta_Alireza\\src\\Avesta.Exceptions\\Avesta.Exceptions.csproj": {
+              "projectPath": "B:\\Findaso\\Avesta_Alireza\\src\\Avesta.Exceptions\\Avesta.Exceptions.csproj"
             },
-            "B:\\Avesta\\Framework\\src\\Avesta.Model\\Avesta.Model.csproj": {
-              "projectPath": "B:\\Avesta\\Framework\\src\\Avesta.Model\\Avesta.Model.csproj"
+            "B:\\Findaso\\Avesta_Alireza\\src\\Avesta.Model\\Avesta.Model.csproj": {
+              "projectPath": "B:\\Findaso\\Avesta_Alireza\\src\\Avesta.Model\\Avesta.Model.csproj"
             },
-            "B:\\Avesta\\Framework\\src\\Avesta.Repository\\Avesta.Repository.csproj": {
-              "projectPath": "B:\\Avesta\\Framework\\src\\Avesta.Repository\\Avesta.Repository.csproj"
+            "B:\\Findaso\\Avesta_Alireza\\src\\Avesta.Repository\\Avesta.Repository.csproj": {
+              "projectPath": "B:\\Findaso\\Avesta_Alireza\\src\\Avesta.Repository\\Avesta.Repository.csproj"
             },
-            "B:\\Avesta\\Framework\\src\\Avesta.Share\\Avesta.Share.csproj": {
-              "projectPath": "B:\\Avesta\\Framework\\src\\Avesta.Share\\Avesta.Share.csproj"
+            "B:\\Findaso\\Avesta_Alireza\\src\\Avesta.Share\\Avesta.Share.csproj": {
+              "projectPath": "B:\\Findaso\\Avesta_Alireza\\src\\Avesta.Share\\Avesta.Share.csproj"
             }
           }
         }
