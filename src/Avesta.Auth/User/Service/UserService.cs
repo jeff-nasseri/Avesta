@@ -15,6 +15,7 @@ namespace Avesta.Auth.User.Service
         where TAvestaUser : AvestaUser
     {
         Task<TAvestaUser> GetUserByEmail(string email, bool exceptionIfNotExist = false);
+        Task<TAvestaUser> GetUserById(string id, bool exceptionIfNotExist = false);
     }
 
 
@@ -33,6 +34,13 @@ namespace Avesta.Auth.User.Service
         {
             var user = await _identityRepository.GetUserByEmail(email);
             _ = exceptionIfNotExist ? (user == null ? throw new UserNotFoundException(email) : user) : user;
+            return user;
+        }
+
+        public async Task<TAestaUser> GetUserById(string id, bool exceptionIfNotExist = false)
+        {
+            var user = await _identityRepository.GetUser(id);
+            _ = exceptionIfNotExist ? (user == null ? throw new UserNotFoundException(id) : user) : user;
             return user;
         }
     }

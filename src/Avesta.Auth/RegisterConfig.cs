@@ -1,5 +1,6 @@
 ﻿using Avesta.Auth.Authentication.Config;
 using Avesta.Auth.Authentication.Service;
+using Avesta.Auth.Authorize.Service;
 using Avesta.Auth.HTTP.Service;
 using Avesta.Auth.JWT.Model;
 using Avesta.Auth.JWT.Service;
@@ -53,14 +54,31 @@ namespace Avesta.Auth
             service.AddScoped<IUserService<TAvestaUser>, UserService<TAvestaUser, TRole>>();
             #endregion
 
+            return service;
+        }
 
+
+
+        public static IServiceCollection AddAvestaAuthorization<TAvestaUser, TAvestaAuthorizeGroup>(this IServiceCollection service)
+            where TAvestaUser : AvestaUser
+            where TAvestaAuthorizeGroup : AvestaAuthorizeGroup
+        {
+            service.AddScoped<IAuthorizeGroupService<TAvestaAuthorizeGroup>, AuthorizeGroupService<TAvestaUser, TAvestaAuthorizeGroup>>();
+            service.AddScoped<IUserAuthorizeGroupService<TAvestaUser, TAvestaAuthorizeGroup>, UserAuthorizeGroupService<TAvestaUser, TAvestaAuthorizeGroup>>();
 
             return service;
         }
 
 
 
+        public static IServiceCollection AddAvestaAuthorization<TAvestaUser>(this IServiceCollection service)
+            where TAvestaUser : AvestaUser
+        {
+            service.AddScoped<IAuthorizeGroupService<AvestaAuthorizeGroup>, AuthorizeGroupService<TAvestaUser, AvestaAuthorizeGroup>>();
+            service.AddScoped<IUserAuthorizeGroupService<TAvestaUser, AvestaAuthorizeGroup>, UserAuthorizeGroupService<TAvestaUser, AvestaAuthorizeGroup>>();
 
+            return service;
+        }
 
 
 

@@ -18,6 +18,11 @@ namespace Avesta.Data.Context
 
         }
 
+
+        public DbSet<AvestaAuthorizeGroup> AuthorizeGroups { get; set; }
+        public DbSet<UserAuthorizeGroup> UserAuthorizeGroups { get; set; }
+
+
         protected virtual void OnModelCreating(ModelBuilder modelBuilder)
         {
             //use reflection to write this code

@@ -13,7 +13,7 @@ namespace Avesta.Share.Utilities
         public static async Task<IEnumerable<T>> Search<T>(this IEnumerable<T> entityList, string keyword)
         {
             if (string.IsNullOrEmpty(keyword))
-                return Enumerable.Empty<T>();
+                return entityList;
 
             await Task.CompletedTask;
             var resultList = new List<T>();

@@ -15,13 +15,13 @@ namespace Avesta.Data.Model
             ModifiedDate = RegisterDate;
         }
 
-        public DateTime RegisterDate { get; set; }
-        public DateTime ModifiedDate { get; set; }
-        public DateTime? DeleteDate { get; set; }
-        public DateTime? DateOfBirth { get; set; }
-        public DateTime? VerifiedDate { get; set; }
-        public string? ProfileImageUrl { get; set; }
-        public string? Address { get; set; }
+        public virtual DateTime RegisterDate { get; set; }
+        public virtual DateTime ModifiedDate { get; set; }
+        public virtual DateTime? DeleteDate { get; set; }
+        public virtual DateTime? DateOfBirth { get; set; }
+        public virtual DateTime? VerifiedDate { get; set; }
+        public virtual string? ProfileImageUrl { get; set; }
+        public virtual string? Address { get; set; }
 
         public virtual string? FirstName { get; set; }
         public virtual string? LastName { get; set; }
@@ -34,6 +34,10 @@ namespace Avesta.Data.Model
         public virtual string? RefreshToken { get; set; }
 
         #endregion
+
+
+        public virtual ICollection<UserAuthorizeGroup> UserAuthorizeGroups { get; set; }
+
 
     }
 
