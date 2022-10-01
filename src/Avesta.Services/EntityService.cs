@@ -33,6 +33,20 @@ namespace Avesta.Services
             var result = await _repository.GetAllIncludeAllChildren();
             return result;
         }
+
+        public virtual async Task<IEnumerable<TModel>> GetAllEntitiesWithSpecificChildren(string navigationPropertyPath)
+        {
+            var result = await _repository.GetAllByInclude(navigationPropertyPath: navigationPropertyPath);
+            return result;
+        }
+
+        public virtual async Task<TModel> GetEntityWithSpecificChildren(string id, string navigationPropertyPath)
+        {
+            var result = await _repository.SingleOrDefaultAsyncByInclude(navigationPropertyPath: navigationPropertyPath, e => e.ID == id);
+            return result;
+        }
+
+
         public virtual async Task<TModel> GetEntityWithAllChildren(string id)
         {
             var result = await _repository.GetIncludeAllChildren(id);

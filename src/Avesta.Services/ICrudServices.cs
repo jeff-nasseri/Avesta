@@ -30,7 +30,9 @@ namespace Avesta.Services
     {
         Task<IEnumerable<TModel>> GetAllEntities();
         Task<IEnumerable<TModel>> GetAllEntitiesWithAllChildren();
+        Task<IEnumerable<TModel>> GetAllEntitiesWithSpecificChildren(string navigationPropertyPath);
         Task<TModel> GetEntityWithAllChildren(string id);
+        Task<TModel> GetEntityWithSpecificChildren(string id,string navigationPropertyPath);
         Task<IEnumerable<TViewModel>> GetAllEntitiesAsViewModel();
         Task<IEnumerable<TModel>> GetAllEntities(string navigationProperties);
         Task CreateNew(TCreateViewModel viewModel);

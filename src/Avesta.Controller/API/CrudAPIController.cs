@@ -2,6 +2,7 @@
 using Avesta.Model;
 using Avesta.Services;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -53,6 +54,26 @@ namespace Avesta.Controller.API
         public async Task<IActionResult> GetWithChildren(string id)
         {
             var result = await _crudService.GetEntityWithAllChildren(id);
+            return Ok(result);
+        }
+
+
+
+        [HttpGet]
+        [Route(CrudEndPointController.GetAllWithSpecificChildren)]
+        public async Task<IActionResult> GetAllWithSpecificChildren(string navigationPropertyPath)
+        {
+            var result = await _crudService.GetAllEntitiesWithSpecificChildren(navigationPropertyPath);
+            return Ok(result);
+        }
+
+
+
+        [HttpGet]
+        [Route(CrudEndPointController.GetWithSpecificChildren)]
+        public async Task<IActionResult> GetWithSpecificChildren(string id, string navigationPropertyPath)
+        {
+            var result = await _crudService.GetEntityWithSpecificChildren(id, navigationPropertyPath);
             return Ok(result);
         }
 
