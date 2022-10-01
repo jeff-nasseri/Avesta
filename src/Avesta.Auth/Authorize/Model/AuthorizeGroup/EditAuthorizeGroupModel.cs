@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 
 namespace Avesta.Auth.Authorize.Model.AuthorizeGroup
 {
-    public class EditAuthorizeGroupModel : AuthorizeGroupModel { }
+    public class EditAvestaAuthorizeGroupModel : AvestaAuthorizeGroupModel { }
 
 }

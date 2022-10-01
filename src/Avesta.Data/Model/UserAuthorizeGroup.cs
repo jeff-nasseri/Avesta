@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Avesta.Data.Model
 {
-    public class UserAuthorizeGroup : BaseEntity
+    public class AvestaUserAuthorizeGroup : BaseEntity
     {
         [ForeignKey(nameof(AuthorizeGroup))]
         public virtual string GroupId { get; set; }

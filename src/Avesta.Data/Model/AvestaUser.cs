@@ -36,7 +36,7 @@ namespace Avesta.Data.Model
         #endregion
 
 
-        public virtual ICollection<UserAuthorizeGroup> UserAuthorizeGroups { get; set; }
+        public virtual ICollection<AvestaUserAuthorizeGroup> UserAuthorizeGroups { get; set; }
 
 
     }

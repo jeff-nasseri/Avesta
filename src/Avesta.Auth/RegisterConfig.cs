@@ -59,23 +59,13 @@ namespace Avesta.Auth
 
 
 
-        public static IServiceCollection AddAvestaAuthorization<TAvestaUser, TAvestaAuthorizeGroup>(this IServiceCollection service)
+        public static IServiceCollection AddAvestaAuthorization<TAvestaUser,TAvestaAuthorizeGroup,TAvestaUserAuthorizeGroup>(this IServiceCollection service)
             where TAvestaUser : AvestaUser
             where TAvestaAuthorizeGroup : AvestaAuthorizeGroup
+            where TAvestaUserAuthorizeGroup : AvestaUserAuthorizeGroup
         {
             service.AddScoped<IAuthorizeGroupService<TAvestaAuthorizeGroup>, AuthorizeGroupService<TAvestaUser, TAvestaAuthorizeGroup>>();
-            service.AddScoped<IUserAuthorizeGroupService<TAvestaUser, TAvestaAuthorizeGroup>, UserAuthorizeGroupService<TAvestaUser, TAvestaAuthorizeGroup>>();
-
-            return service;
-        }
-
-
-
-        public static IServiceCollection AddAvestaAuthorization<TAvestaUser>(this IServiceCollection service)
-            where TAvestaUser : AvestaUser
-        {
-            service.AddScoped<IAuthorizeGroupService<AvestaAuthorizeGroup>, AuthorizeGroupService<TAvestaUser, AvestaAuthorizeGroup>>();
-            service.AddScoped<IUserAuthorizeGroupService<TAvestaUser, AvestaAuthorizeGroup>, UserAuthorizeGroupService<TAvestaUser, AvestaAuthorizeGroup>>();
+            service.AddScoped<IAvestaUserAuthorizeGroupService<TAvestaUser, AvestaUserAuthorizeGroup>, AvestaUserAuthorizeGroupService<TAvestaUser, AvestaUserAuthorizeGroup>>();
 
             return service;
         }

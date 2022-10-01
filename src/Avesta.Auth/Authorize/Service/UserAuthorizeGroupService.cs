@@ -13,21 +13,22 @@ namespace Avesta.Auth.Authorize.Service
 {
 
 
-    public interface IUserAuthorizeGroupService<TAvestaUser, TAvestaAuthorizeGroup>
-    : ICrudService<TAvestaAuthorizeGroup, UserAuthorizeGroupModel, EditUserAuthorizeGroupModel, CreateUserAuthorizeGroupModel>
+    public interface IAvestaUserAuthorizeGroupService<TAvestaUser, TAvestaUserAuthorizeGroup>
+    : ICrudService<TAvestaUserAuthorizeGroup, AvestaUserAuthorizeGroupModel, EditAvestaUserAuthorizeGroupModel, CreateAvestaUserAuthorizeGroupModel>
     where TAvestaUser : AvestaUser
-    where TAvestaAuthorizeGroup : AvestaAuthorizeGroup
+    where TAvestaUserAuthorizeGroup : AvestaUserAuthorizeGroup
     {
     }
 
 
 
-    public class UserAuthorizeGroupService<TAvestaUser, TAvestaAuthorizeGroup>
-         : EntityService<TAvestaAuthorizeGroup, UserAuthorizeGroupModel, EditUserAuthorizeGroupModel, CreateUserAuthorizeGroupModel>, IUserAuthorizeGroupService<TAvestaUser, TAvestaAuthorizeGroup>
+    public class AvestaUserAuthorizeGroupService<TAvestaUser, TAvestaUserAuthorizeGroup>
+         : EntityService<TAvestaUserAuthorizeGroup, AvestaUserAuthorizeGroupModel, EditAvestaUserAuthorizeGroupModel, CreateAvestaUserAuthorizeGroupModel>
+        , IAvestaUserAuthorizeGroupService<TAvestaUser, TAvestaUserAuthorizeGroup>
         where TAvestaUser : AvestaUser
-        where TAvestaAuthorizeGroup : AvestaAuthorizeGroup
+        where TAvestaUserAuthorizeGroup : AvestaUserAuthorizeGroup
     {
-        public UserAuthorizeGroupService(IRepository<TAvestaAuthorizeGroup> repository, IMapper mapper) : base(repository, mapper)
+        public AvestaUserAuthorizeGroupService(IRepository<TAvestaUserAuthorizeGroup> repository, IMapper mapper) : base(repository, mapper)
         {
         }
     }

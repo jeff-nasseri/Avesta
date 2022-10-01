@@ -17,14 +17,14 @@ namespace Avesta.Auth.Authorize.Service
 
 
 
-    public interface IAuthorizeGroupService<TAvestaAuthorizeGroup> : ICrudService<TAvestaAuthorizeGroup, AuthorizeGroupModel, EditAuthorizeGroupModel, CreateAuthorizeGroupModel>
+    public interface IAuthorizeGroupService<TAvestaAuthorizeGroup> : ICrudService<TAvestaAuthorizeGroup, AvestaAuthorizeGroupModel, EditAvestaAuthorizeGroupModel, CreateAvestaAuthorizeGroupModel>
         where TAvestaAuthorizeGroup : AvestaAuthorizeGroup
     {
     }
 
 
     public class AuthorizeGroupService<TAvestaUser, TAvestaAuthorizeGroup>
-        : EntityService<TAvestaAuthorizeGroup, AuthorizeGroupModel, EditAuthorizeGroupModel, CreateAuthorizeGroupModel>, IAuthorizeGroupService<TAvestaAuthorizeGroup>
+        : EntityService<TAvestaAuthorizeGroup, AvestaAuthorizeGroupModel, EditAvestaAuthorizeGroupModel, CreateAvestaAuthorizeGroupModel>, IAuthorizeGroupService<TAvestaAuthorizeGroup>
         where TAvestaUser : AvestaUser
         where TAvestaAuthorizeGroup : AvestaAuthorizeGroup
     {

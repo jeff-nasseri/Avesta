@@ -31,7 +31,7 @@ namespace Avesta.Data.Model
             }
         }
 
-        public virtual ICollection<UserAuthorizeGroup> UserAuthorizeGroups { get; set; }
+        public virtual ICollection<AvestaUserAuthorizeGroup> UserAuthorizeGroups { get; set; }
     }
 
 }
