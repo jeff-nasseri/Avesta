@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 
 namespace Avesta.Data.Model
 {
-    public class AvestaAuthorizeGroup : BaseEntity
+    public class AvestaAuthorizeGroup<TAvestaUserGroup> : BaseEntity
+        where TAvestaUserGroup : AvestaUserAuthorizeGroup
     {
         public virtual string GroupName { get; set; }
 
@@ -31,7 +32,7 @@ namespace Avesta.Data.Model
             }
         }
 
-        public virtual ICollection<AvestaUserAuthorizeGroup> UserAuthorizeGroups { get; set; }
+        public virtual ICollection<TAvestaUserGroup>? UserAuthorizeGroups { get; set; }
     }
 
 }

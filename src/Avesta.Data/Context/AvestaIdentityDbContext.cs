@@ -11,8 +11,8 @@ using Avesta.Data.Model;
 namespace Avesta.Data.Context
 {
     public class AvestaIdentityDbContext<TAvestaUser, TAvestaAuthorizeGroup, TUserAuthorizeGroup> : AvestaIdentityDbContext<TAvestaUser>
-        where TAvestaUser : AvestaUser
-        where TAvestaAuthorizeGroup : AvestaAuthorizeGroup
+        where TAvestaUser : AvestaUser<TUserAuthorizeGroup>
+        where TAvestaAuthorizeGroup : AvestaAuthorizeGroup<TUserAuthorizeGroup>
         where TUserAuthorizeGroup : AvestaUserAuthorizeGroup
     {
         public AvestaIdentityDbContext(DbContextOptions options)

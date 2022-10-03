@@ -36,11 +36,15 @@ namespace Avesta.Data.Model
         #endregion
 
 
-        public virtual ICollection<AvestaUserAuthorizeGroup> UserAuthorizeGroups { get; set; }
 
 
     }
+    public class AvestaUser<TAvestaUserGroup> : AvestaUser
+    where TAvestaUserGroup : AvestaUserAuthorizeGroup
+    {
+        public virtual ICollection<TAvestaUserGroup>? UserAuthorizeGroups { get; set; }
 
+    }
 
 
 }

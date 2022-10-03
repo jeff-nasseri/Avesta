@@ -7,6 +7,8 @@ using Avesta.Auth.JWT.Service;
 using Avesta.Auth.User.Service;
 using Avesta.Data.Context;
 using Avesta.Data.Model;
+using Avesta.Repository.EntityRepository;
+using Avesta.Repository.EntityRepositoryRepository;
 using Avesta.Repository.Identity;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -59,13 +61,25 @@ namespace Avesta.Auth
 
 
 
-        public static IServiceCollection AddAvestaAuthorization<TAvestaUser,TAvestaAuthorizeGroup,TAvestaUserAuthorizeGroup>(this IServiceCollection service)
-            where TAvestaUser : AvestaUser
-            where TAvestaAuthorizeGroup : AvestaAuthorizeGroup
+
+
+        public static IServiceCollection AddAvestaAuthorization<TAvestaUser, TAvestaAuthorizeGroup, TAvestaUserAuthorizeGroup, TAvestaDbContext>(this IServiceCollection service)
+
+            where TAvestaUser : AvestaUser<TAvestaUserAuthorizeGroup>
+            where TAvestaAuthorizeGroup : AvestaAuthorizeGroup<TAvestaUserAuthorizeGroup>
+            where TAvestaDbContext : AvestaIdentityDbContext<TAvestaUser, TAvestaAuthorizeGroup, TAvestaUserAuthorizeGroup>
             where TAvestaUserAuthorizeGroup : AvestaUserAuthorizeGroup
         {
-            service.AddScoped<IAuthorizeGroupService<TAvestaAuthorizeGroup>, AuthorizeGroupService<TAvestaUser, TAvestaAuthorizeGroup>>();
-            service.AddScoped<IAvestaUserAuthorizeGroupService<TAvestaUser, AvestaUserAuthorizeGroup>, AvestaUserAuthorizeGroupService<TAvestaUser, AvestaUserAuthorizeGroup>>();
+
+            service.AddScoped<IRepository<TAvestaAuthorizeGroup>, EntityRepository<TAvestaAuthorizeGroup, TAvestaDbContext>>();
+            service.AddScoped<IRepository<TAvestaUserAuthorizeGroup>, EntityRepository<TAvestaUserAuthorizeGroup, TAvestaDbContext>>();
+
+
+            service.AddScoped<IAuthorizeGroupService<TAvestaUser, TAvestaAuthorizeGroup, TAvestaUserAuthorizeGroup>
+                , AuthorizeGroupService<TAvestaUser, TAvestaAuthorizeGroup, TAvestaUserAuthorizeGroup>>();
+
+            service.AddScoped<IAvestaUserAuthorizeGroupService<TAvestaUser, TAvestaAuthorizeGroup, TAvestaUserAuthorizeGroup>
+                , AvestaUserAuthorizeGroupService<TAvestaUser, TAvestaAuthorizeGroup, TAvestaUserAuthorizeGroup>>();
 
             return service;
         }

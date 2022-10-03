@@ -19,12 +19,12 @@ namespace Avesta.Controller.API.Auth
     [Route(AuthorizeGroupEndPointController.Controller)]
     public class AvestaAuthorizeGroupController<TAvestaUser, TAvestaAuthorizeGroup, TAvestaUserAuthorizeGroup>
         : CrudAPIController<TAvestaAuthorizeGroup, AvestaAuthorizeGroupModel, EditAvestaAuthorizeGroupModel, CreateAvestaAuthorizeGroupModel>
-        where TAvestaAuthorizeGroup : AvestaAuthorizeGroup
-        where TAvestaUser : AvestaUser
+        where TAvestaAuthorizeGroup : AvestaAuthorizeGroup<TAvestaUserAuthorizeGroup>
+        where TAvestaUser : AvestaUser<TAvestaUserAuthorizeGroup>
         where TAvestaUserAuthorizeGroup : AvestaUserAuthorizeGroup
     {
-        public AvestaAuthorizeGroupController(IAuthorizeGroupService<TAvestaAuthorizeGroup> authorizeGroupService) : base(authorizeGroupService)
-        {   
+        public AvestaAuthorizeGroupController(IAuthorizeGroupService<TAvestaUser, TAvestaAuthorizeGroup, TAvestaUserAuthorizeGroup> authorizeGroupService) : base(authorizeGroupService)
+        {
         }
     }
 

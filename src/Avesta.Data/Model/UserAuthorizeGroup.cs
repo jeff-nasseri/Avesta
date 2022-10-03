@@ -9,13 +9,9 @@ namespace Avesta.Data.Model
 {
     public class AvestaUserAuthorizeGroup : BaseEntity
     {
-        [ForeignKey(nameof(AuthorizeGroup))]
         public virtual string GroupId { get; set; }
-        public virtual AvestaAuthorizeGroup AuthorizeGroup { get; set; }
 
-
-        [ForeignKey(nameof(User))]
         public virtual string UserId { get; set; }
-        public virtual AvestaUser User { get; set; }
+
     }
 }

@@ -13,22 +13,25 @@ namespace Avesta.Auth.Authorize.Service
 {
 
 
-    public interface IAvestaUserAuthorizeGroupService<TAvestaUser, TAvestaUserAuthorizeGroup>
-    : ICrudService<TAvestaUserAuthorizeGroup, AvestaUserAuthorizeGroupModel, EditAvestaUserAuthorizeGroupModel, CreateAvestaUserAuthorizeGroupModel>
-    where TAvestaUser : AvestaUser
-    where TAvestaUserAuthorizeGroup : AvestaUserAuthorizeGroup
+    public interface IAvestaUserAuthorizeGroupService<TAvestaUser, TAvestaAuthorizeGroup, TUserAuthorizeGroup>
+           : ICrudService<TUserAuthorizeGroup, AvestaUserAuthorizeGroupModel, EditAvestaUserAuthorizeGroupModel, CreateAvestaUserAuthorizeGroupModel>
+
+        where TAvestaUser : AvestaUser<TUserAuthorizeGroup>
+        where TUserAuthorizeGroup : AvestaUserAuthorizeGroup
     {
     }
 
 
 
-    public class AvestaUserAuthorizeGroupService<TAvestaUser, TAvestaUserAuthorizeGroup>
-         : EntityService<TAvestaUserAuthorizeGroup, AvestaUserAuthorizeGroupModel, EditAvestaUserAuthorizeGroupModel, CreateAvestaUserAuthorizeGroupModel>
-        , IAvestaUserAuthorizeGroupService<TAvestaUser, TAvestaUserAuthorizeGroup>
-        where TAvestaUser : AvestaUser
-        where TAvestaUserAuthorizeGroup : AvestaUserAuthorizeGroup
+    public class AvestaUserAuthorizeGroupService<TAvestaUser, TAvestaAuthorizeGroup, TUserAuthorizeGroup>
+             : EntityService<TUserAuthorizeGroup, AvestaUserAuthorizeGroupModel, EditAvestaUserAuthorizeGroupModel, CreateAvestaUserAuthorizeGroupModel>
+         , IAvestaUserAuthorizeGroupService<TAvestaUser, TAvestaAuthorizeGroup, TUserAuthorizeGroup>
+
+        where TAvestaUser : AvestaUser<TUserAuthorizeGroup>
+        where TAvestaAuthorizeGroup : AvestaAuthorizeGroup<TUserAuthorizeGroup>
+        where TUserAuthorizeGroup : AvestaUserAuthorizeGroup
     {
-        public AvestaUserAuthorizeGroupService(IRepository<TAvestaUserAuthorizeGroup> repository, IMapper mapper) : base(repository, mapper)
+        public AvestaUserAuthorizeGroupService(IRepository<TUserAuthorizeGroup> repository, IMapper mapper) : base(repository, mapper)
         {
         }
     }
