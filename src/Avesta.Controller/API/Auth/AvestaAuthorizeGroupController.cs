@@ -15,8 +15,7 @@ using RouteAttribute = Microsoft.AspNetCore.Mvc.RouteAttribute;
 namespace Avesta.Controller.API.Auth
 {
 
-    [ApiController]
-    [Route(AuthorizeGroupEndPointController.Controller)]
+
     public class AvestaAuthorizeGroupController<TAvestaUser, TAvestaAuthorizeGroup, TAvestaUserAuthorizeGroup>
         : CrudAPIController<TAvestaAuthorizeGroup, AvestaAuthorizeGroupModel, EditAvestaAuthorizeGroupModel, CreateAvestaAuthorizeGroupModel>
         where TAvestaAuthorizeGroup : AvestaAuthorizeGroup<TAvestaUserAuthorizeGroup>

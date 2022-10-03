@@ -9,5 +9,6 @@ namespace Avesta.Storage.Constant.EndPoints.Auth
     public class AuthorizeGroupController : CrudController
     {
         public const string Controller = "authorize_group";
+        public const string AccessList = "access-list";
     }
 }
