@@ -1,5 +1,0 @@
-B:\Mohammady\BLOG\Avesta\Avesta.Exception\obj\Debug\net5.0\Avesta.Exception.csproj.AssemblyReference.cache
-B:\Mohammady\BLOG\Avesta\Avesta.Exception\obj\Debug\net5.0\Avesta.Exception.GeneratedMSBuildEditorConfig.editorconfig
-B:\Mohammady\BLOG\Avesta\Avesta.Exception\obj\Debug\net5.0\Avesta.Exception.AssemblyInfoInputs.cache
-B:\Mohammady\BLOG\Avesta\Avesta.Exception\obj\Debug\net5.0\Avesta.Exception.AssemblyInfo.cs
-B:\Mohammady\BLOG\Avesta\Avesta.Exception\obj\Debug\net5.0\Avesta.Exception.csproj.CoreCompileInputs.cache
