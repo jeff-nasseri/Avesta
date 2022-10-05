@@ -10,3 +10,15 @@ B:\Avesta\Framework\src\Avesta.Global\obj\Debug\net6.0\Avesta.Global.dll
 B:\Avesta\Framework\src\Avesta.Global\obj\Debug\net6.0\refint\Avesta.Global.dll
 B:\Avesta\Framework\src\Avesta.Global\obj\Debug\net6.0\Avesta.Global.pdb
 B:\Avesta\Framework\src\Avesta.Global\obj\Debug\net6.0\ref\Avesta.Global.dll
+B:\Findaso\Avesta_Alireza\src\Avesta.Global\bin\Debug\net6.0\Avesta.Global.deps.json
+B:\Findaso\Avesta_Alireza\src\Avesta.Global\bin\Debug\net6.0\Avesta.Global.dll
+B:\Findaso\Avesta_Alireza\src\Avesta.Global\bin\Debug\net6.0\Avesta.Global.pdb
+B:\Findaso\Avesta_Alireza\src\Avesta.Global\obj\Debug\net6.0\Avesta.Global.csproj.AssemblyReference.cache
+B:\Findaso\Avesta_Alireza\src\Avesta.Global\obj\Debug\net6.0\Avesta.Global.GeneratedMSBuildEditorConfig.editorconfig
+B:\Findaso\Avesta_Alireza\src\Avesta.Global\obj\Debug\net6.0\Avesta.Global.AssemblyInfoInputs.cache
+B:\Findaso\Avesta_Alireza\src\Avesta.Global\obj\Debug\net6.0\Avesta.Global.AssemblyInfo.cs
+B:\Findaso\Avesta_Alireza\src\Avesta.Global\obj\Debug\net6.0\Avesta.Global.csproj.CoreCompileInputs.cache
+B:\Findaso\Avesta_Alireza\src\Avesta.Global\obj\Debug\net6.0\Avesta.Global.dll
+B:\Findaso\Avesta_Alireza\src\Avesta.Global\obj\Debug\net6.0\refint\Avesta.Global.dll
+B:\Findaso\Avesta_Alireza\src\Avesta.Global\obj\Debug\net6.0\Avesta.Global.pdb
+B:\Findaso\Avesta_Alireza\src\Avesta.Global\obj\Debug\net6.0\ref\Avesta.Global.dll
