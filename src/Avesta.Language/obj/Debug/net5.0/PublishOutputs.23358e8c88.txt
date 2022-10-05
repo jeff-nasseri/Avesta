@@ -1,7 +1,0 @@
-B:\Mohammady\BLOG\Avesta\Avesta.Language\bin\Debug\net5.0\publish\Avesta.Language.dll
-B:\Mohammady\BLOG\Avesta\Avesta.Language\bin\Debug\net5.0\publish\Avesta.Language.deps.json
-B:\Mohammady\BLOG\Avesta\Avesta.Language\bin\Debug\net5.0\publish\Avesta.Language.pdb
-B:\Mohammady\BLOG\Avesta\Avesta.Language\bin\Debug\net5.0\publish\Avesta.Global.dll
-B:\Mohammady\BLOG\Avesta\Avesta.Language\bin\Debug\net5.0\publish\Avesta.Storage.dll
-B:\Mohammady\BLOG\Avesta\Avesta.Language\bin\Debug\net5.0\publish\Avesta.Global.pdb
-B:\Mohammady\BLOG\Avesta\Avesta.Language\bin\Debug\net5.0\publish\Avesta.Storage.pdb
