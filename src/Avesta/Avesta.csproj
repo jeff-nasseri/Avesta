@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>Avesta</AssemblyName>
+    <BaseOutputPath>B:\Avesta\Framework\nuget</BaseOutputPath>
+    <GenerateDocumentationFile>False</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>Avesta Main Package</Title>
+    <Authors>alireza-nasseri</Authors>
+    <Description>Avesta Main Package</Description>
+    <Copyright>MIT LICENSE</Copyright>
+    <PackageProjectUrl></PackageProjectUrl>
+    <RepositoryUrl>https://github.com/alireza-nasseri/Avesta</RepositoryUrl>
+    <PackageTags>Avesta;Avesta.Framework</PackageTags>
+  </PropertyGroup>
+
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\Avesta.Attribute\Avesta.Attribute.csproj" />
+    <ProjectReference Include="..\Avesta.Auth\Avesta.Auth.csproj" />
+    <ProjectReference Include="..\Avesta.Controller\Avesta.Controller.csproj" />
+    <ProjectReference Include="..\Avesta.Data\Avesta.Data.csproj" />
+    <ProjectReference Include="..\Avesta.Exceptions\Avesta.Exceptions.csproj" />
+    <ProjectReference Include="..\Avesta.Global\Avesta.Global.csproj" />
+    <ProjectReference Include="..\Avesta.Language\Avesta.Language.csproj" />
+    <ProjectReference Include="..\Avesta.Logging\Avesta.Logging.csproj" />
+    <ProjectReference Include="..\Avesta.Mapper\Avesta.Mapper.csproj" />
+    <ProjectReference Include="..\Avesta.MiddleWare\Avesta.MiddleWare.csproj" />
+    <ProjectReference Include="..\Avesta.Model\Avesta.Model.csproj" />
+    <ProjectReference Include="..\Avesta.Repository\Avesta.Repository.csproj" />
+    <ProjectReference Include="..\Avesta.Seed\Avesta.Seed.csproj" />
+    <ProjectReference Include="..\Avesta.Services\Avesta.Services.csproj" />
+    <ProjectReference Include="..\Avesta.Share\Avesta.Share.csproj" />
+    <ProjectReference Include="..\Avesta.Storage\Avesta.Storage.csproj" />
+  </ItemGroup>
+
+</Project>
