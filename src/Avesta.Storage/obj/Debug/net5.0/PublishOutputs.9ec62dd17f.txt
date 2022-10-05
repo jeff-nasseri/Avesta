@@ -1,3 +1,0 @@
-B:\Mohammady\BLOG\Avesta\Avesta.Build\Avesta.Dashboard\Release\Avesta.Storage.dll
-B:\Mohammady\BLOG\Avesta\Avesta.Build\Avesta.Dashboard\Release\Avesta.Storage.deps.json
-B:\Mohammady\BLOG\Avesta\Avesta.Build\Avesta.Dashboard\Release\Avesta.Storage.pdb

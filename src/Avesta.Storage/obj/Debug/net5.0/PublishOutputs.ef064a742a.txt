@@ -1,3 +1,0 @@
-B:\Mohammady\BLOG\Avesta\Avesta.Storage\bin\Debug\net5.0\publish\Avesta.Storage.dll
-B:\Mohammady\BLOG\Avesta\Avesta.Storage\bin\Debug\net5.0\publish\Avesta.Storage.deps.json
-B:\Mohammady\BLOG\Avesta\Avesta.Storage\bin\Debug\net5.0\publish\Avesta.Storage.pdb
