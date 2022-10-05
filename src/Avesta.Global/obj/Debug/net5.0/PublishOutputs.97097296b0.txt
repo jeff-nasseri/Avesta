@@ -1,3 +1,0 @@
-B:\Mohammady\BLOG\Avesta\build\WEB\Release\Avesta.Global.dll
-B:\Mohammady\BLOG\Avesta\build\WEB\Release\Avesta.Global.deps.json
-B:\Mohammady\BLOG\Avesta\build\WEB\Release\Avesta.Global.pdb

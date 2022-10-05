@@ -1,3 +1,0 @@
-B:\Mohammady\BLOG\Avesta\Avesta.Global\bin\Debug\net5.0\publish\Avesta.Global.dll
-B:\Mohammady\BLOG\Avesta\Avesta.Global\bin\Debug\net5.0\publish\Avesta.Global.deps.json
-B:\Mohammady\BLOG\Avesta\Avesta.Global\bin\Debug\net5.0\publish\Avesta.Global.pdb
