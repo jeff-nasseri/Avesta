@@ -2,8 +2,21 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
+    <AssemblyName>Avesta.Services</AssemblyName>
+    <BaseOutputPath>B:\Avesta\Framework\nuget</BaseOutputPath>
+    <GenerateDocumentationFile>False</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>Avesta Services Component</Title>
+    <Authors>alireza-nasseri</Authors>
+    <Description>Services Component For Avesta</Description>
+    <Copyright>MIT LICENSE</Copyright>
+    <PackageProjectUrl></PackageProjectUrl>
+    <RepositoryUrl>https://github.com/alireza-nasseri/Avesta</RepositoryUrl>
+    <PackageTags>Avesta;Avesta.Services;Avesta.Framework</PackageTags>
   </PropertyGroup>
 
+  
+  
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="6.0.0" />

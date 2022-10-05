@@ -1,9 +1,21 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
+
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <AssemblyName>Avesta.Auth</AssemblyName>
+    <BaseOutputPath>B:\Avesta\Framework\nuget</BaseOutputPath>
+    <GenerateDocumentationFile>False</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>Avesta Auth Component</Title>
+    <Authors>alireza-nasseri</Authors>
+    <Description>Authorization And Authentication Component For Avesta</Description>
+    <Copyright>MIT LICENSE</Copyright>
+    <PackageProjectUrl></PackageProjectUrl>
+    <RepositoryUrl>https://github.com/alireza-nasseri/Avesta</RepositoryUrl>
+    <PackageTags>Avesta;Avesta.Auth;Avesta.Framework</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>

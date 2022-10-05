@@ -1,8 +1,22 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
+
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
+    <AssemblyName>Avesta.Controller</AssemblyName>
+    <BaseOutputPath>B:\Avesta\Framework\nuget</BaseOutputPath>
+    <GenerateDocumentationFile>False</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>Avesta Controller Component</Title>
+    <Authors>alireza-nasseri</Authors>
+    <Description>General Controller Component For Avesta</Description>
+    <Copyright>MIT LICENSE</Copyright>
+    <PackageProjectUrl></PackageProjectUrl>
+    <RepositoryUrl>https://github.com/alireza-nasseri/Avesta</RepositoryUrl>
+    <PackageTags>Avesta;Avesta.Controller;Avesta.Framework</PackageTags>
   </PropertyGroup>
+  
+  
 
   <ItemGroup>
     <ProjectReference Include="..\Avesta.Auth\Avesta.Auth.csproj" />

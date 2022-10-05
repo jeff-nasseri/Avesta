@@ -2,6 +2,17 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
+    <AssemblyName>Avesta.Storage</AssemblyName>
+    <BaseOutputPath>B:\Avesta\Framework\nuget</BaseOutputPath>
+    <GenerateDocumentationFile>False</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>Avesta Storage Component</Title>
+    <Authors>alireza-nasseri</Authors>
+    <Description>Storage Component For Avesta</Description>
+    <Copyright>MIT LICENSE</Copyright>
+    <PackageProjectUrl></PackageProjectUrl>
+    <RepositoryUrl>https://github.com/alireza-nasseri/Avesta</RepositoryUrl>
+    <PackageTags>Avesta;Avesta.Storage;Avesta.Framework</PackageTags>
   </PropertyGroup>
 
 </Project>

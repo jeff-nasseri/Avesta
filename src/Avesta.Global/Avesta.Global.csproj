@@ -2,6 +2,17 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
+    <AssemblyName>Avesta.Global</AssemblyName>
+    <BaseOutputPath>B:\Avesta\Framework\nuget</BaseOutputPath>
+    <GenerateDocumentationFile>False</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>Avesta Global Component</Title>
+    <Authors>alireza-nasseri</Authors>
+    <Description>Global Types And Low Level Classes For Avesta</Description>
+    <Copyright>MIT LICENSE</Copyright>
+    <PackageProjectUrl></PackageProjectUrl>
+    <RepositoryUrl>https://github.com/alireza-nasseri/Avesta</RepositoryUrl>
+    <PackageTags>Avesta;Avesta.Global;Avesta.Framework</PackageTags>
   </PropertyGroup>
 
 </Project>

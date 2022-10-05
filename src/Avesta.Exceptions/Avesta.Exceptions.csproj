@@ -1,10 +1,22 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
+  
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>Avesta.Exceptions</AssemblyName>
-    <RootNamespace>Avesta.Exceptions</RootNamespace>
+    <BaseOutputPath>B:\Avesta\Framework\nuget</BaseOutputPath>
+    <GenerateDocumentationFile>False</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>Avesta Exceptions Component</Title>
+    <Authors>alireza-nasseri</Authors>
+    <Description>Avesta Exception Models</Description>
+    <Copyright>MIT LICENSE</Copyright>
+    <PackageProjectUrl></PackageProjectUrl>
+    <RepositoryUrl>https://github.com/alireza-nasseri/Avesta</RepositoryUrl>
+    <PackageTags>Avesta;Avesta.Exceptions;Avesta.Framework</PackageTags>
   </PropertyGroup>
+  
+  
 
   <ItemGroup>
     <ProjectReference Include="..\Avesta.Language\Avesta.Language.csproj" />

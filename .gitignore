@@ -16,6 +16,10 @@ TODO
 .\TODO\*
 
 
+.\nuget
+.\nuget\*
+.\nuget\Debug
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
