@@ -26,7 +26,7 @@ namespace Avesta.Auth.Authentication.Service
         Task<IdentityReturnTemplate> Login<TLoginUserModel>(TLoginUserModel model) where TLoginUserModel : LoginModelBase;
         Task<IdentityReturnTemplate> Register(RegisterUserViewModel model);
         Task<IdentityReturnTemplate> ResetPassword(ResetPasswordViewModel viewModel);
-        Task<JWTTokenIdentityResult> SignInWithJWT<TLoginUserModel>(TLoginUserModel model) where TLoginUserModel : LoginModelBase;
+        Task<TAvestaUser?> SignInWithJWT<TLoginUserModel>(TLoginUserModel model) where TLoginUserModel : LoginModelBase;
         Task<TAvestaUser> GetAuthenticatedUser<TLoginModel>(TLoginModel model) where TLoginModel : LoginModelBase;
         Task<JWTTokenIdentityResult> RefreshJWTTokens(JWTTokenIdentityResult model);
         Task<TAvestaUser?> GetUserByToken(string token);
@@ -121,7 +121,7 @@ namespace Avesta.Auth.Authentication.Service
 
         }
 
-        public async Task<JWTTokenIdentityResult> SignInWithJWT<TLoginUserModel>(TLoginUserModel model) where TLoginUserModel : LoginModelBase
+        public async Task<TAvestaUser?> SignInWithJWT<TLoginUserModel>(TLoginUserModel model) where TLoginUserModel : LoginModelBase
         {
             var user = await GetAuthenticatedUser(model);
             if (user == null)
@@ -136,7 +136,7 @@ namespace Avesta.Auth.Authentication.Service
             user.RefreshToken = result.RefreshToken;
             await _identityRepository.UpdateUser(user);
 
-            return result;
+            return user;
 
         }
 
