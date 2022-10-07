@@ -11,6 +11,7 @@ namespace Avesta.Storage.Constant.EndPoints
         public const string Register = "register";
         public const string Authenticate = "authenticate";
         public const string ReAuthenticate = "re-authenticate";
+        public const string GetUserByJWTToken = "get-user-by-jwt-token";
         public const string SignOut = "signout";
     }
 }

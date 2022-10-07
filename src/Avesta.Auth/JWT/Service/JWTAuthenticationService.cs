@@ -20,8 +20,9 @@ namespace Avesta.Auth.JWT.Service
     {
         Task<string> GenerateRefreshToken();
         Task<JWTTokenIdentityResult> GenerateToken(IEnumerable<Claim> claims);
-        Task<ClaimsPrincipal?> GetPrincipalFromExpiredToken(string? token);
+        Task<ClaimsPrincipal?> GetPrincipalFromToken(string? token);
         Task<JWTTokenIdentityResult> ReinitialIdentityJWTTokens(JWTTokenIdentityResult model);
+        Task<string?> GetClaimFromToken(string token, string claimUrl);
 
     }
     public class JWTAuthenticationService<TAvestaUser, TRole> : IJWTAuthenticationService
@@ -52,12 +53,12 @@ namespace Avesta.Auth.JWT.Service
 
         public async Task<JWTTokenIdentityResult> ReinitialIdentityJWTTokens(JWTTokenIdentityResult model)
         {
-            var principle = await GetPrincipalFromExpiredToken(model.Token);
+            var principle = await GetPrincipalFromToken(model.Token);
             if (principle == null)
                 throw new IdentityException(msg: "can not found principle in ReinitialIdentityJWTTokens", ExceptionConstant.IdentityException);
 
 
-            var email = principle.Claims.SingleOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
+            var email = await GetClaimFromToken(model.Token, ClaimTypes.Email);
 
             if (email == null)
                 throw new IdentityException(msg: "can not found email of principle", ExceptionConstant.IdentityException);
@@ -71,6 +72,20 @@ namespace Avesta.Auth.JWT.Service
             var identityToken = await GenerateToken(principle.Claims.ToList());
             return identityToken;
         }
+
+
+
+        public async Task<string?> GetClaimFromToken(string token, string claimUrl)
+        {
+            var principle = await GetPrincipalFromToken(token);
+            if (principle == null)
+                throw new IdentityException(msg: "can not found principle in ReinitialIdentityJWTTokens", ExceptionConstant.IdentityException);
+
+            var value = principle.Claims.SingleOrDefault(c => c.Type == claimUrl)?.Value;
+
+            return value;
+        }
+
 
 
         public async Task<JWTTokenIdentityResult> GenerateToken(IEnumerable<Claim> claims)
@@ -93,7 +108,7 @@ namespace Avesta.Auth.JWT.Service
             };
         }
 
-        public async Task<ClaimsPrincipal?> GetPrincipalFromExpiredToken(string? token)
+        public async Task<ClaimsPrincipal?> GetPrincipalFromToken(string? token)
         {
             await Task.CompletedTask;
 

@@ -29,6 +29,7 @@ namespace Avesta.Auth.Authentication.Service
         Task<JWTTokenIdentityResult> SignInWithJWT<TLoginUserModel>(TLoginUserModel model) where TLoginUserModel : LoginModelBase;
         Task<TAvestaUser> GetAuthenticatedUser<TLoginModel>(TLoginModel model) where TLoginModel : LoginModelBase;
         Task<JWTTokenIdentityResult> RefreshJWTTokens(JWTTokenIdentityResult model);
+        Task<TAvestaUser?> GetUserByToken(string token);
         Task LogOut();
 
     }
@@ -36,7 +37,7 @@ namespace Avesta.Auth.Authentication.Service
 
 
 
-    public class AuthenticationService<TAvestaUser,TRole> : IAuthenticationService<TAvestaUser>
+    public class AuthenticationService<TAvestaUser, TRole> : IAuthenticationService<TAvestaUser>
         where TAvestaUser : AvestaUser
         where TRole : IdentityRole
     {
@@ -55,6 +56,14 @@ namespace Avesta.Auth.Authentication.Service
             _identityRepository = identityRepository;
             _mapper = mapper;
             _identityRepository = identityRepository;
+        }
+
+
+        public async Task<TAvestaUser?> GetUserByToken(string token)
+        {
+            var email = await _jWTAuthenticationService.GetClaimFromToken(token, ClaimTypes.Email);
+            var user = await _identityRepository.GetUserByEmail(email);
+            return user;
         }
 
 
