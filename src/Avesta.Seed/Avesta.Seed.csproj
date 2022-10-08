@@ -18,9 +18,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Avesta.Data\Avesta.Data.csproj" />
-    <ProjectReference Include="..\Avesta.Exceptions\Avesta.Exceptions.csproj" />
-    <ProjectReference Include="..\Avesta.Repository\Avesta.Repository.csproj" />
     <ProjectReference Include="..\Avesta.Share\Avesta.Share.csproj" />
   </ItemGroup>
 
