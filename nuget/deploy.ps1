@@ -8,7 +8,7 @@ dotnet build
 cd .\nuget\Debug\
 
 
-#cd .\Debug\
+#cd .\Debudfsfdsdfg\
 
 
 $nuget_key = oy2l63lkkwuxkoqf2gwqtkpecbtx5bje7hqvi6vzpv4pjq
