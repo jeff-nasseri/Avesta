@@ -20,6 +20,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Avesta.Attribute\Avesta.Attribute.csproj" />
+    <ProjectReference Include="..\Avesta.Language\Avesta.Language.csproj" />
     <ProjectReference Include="..\Avesta.Share\Avesta.Share.csproj" />
   </ItemGroup>
 

@@ -19,6 +19,7 @@
   
 
   <ItemGroup>
+    <ProjectReference Include="..\Avesta.Auth\Avesta.Auth.csproj" />
     <ProjectReference Include="..\Avesta.Seed\Avesta.Seed.csproj" />
     <ProjectReference Include="..\Avesta.Services\Avesta.Services.csproj" />
   </ItemGroup>

@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Avesta.Exceptions\Avesta.Exceptions.csproj" />
     <ProjectReference Include="..\Avesta.Model\Avesta.Model.csproj" />
     <ProjectReference Include="..\Avesta.Share\Avesta.Share.csproj" />
     <ProjectReference Include="..\Avesta.Storage\Avesta.Storage.csproj" />
