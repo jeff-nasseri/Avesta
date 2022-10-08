@@ -17,7 +17,7 @@ TODO
 
 
 .\nuget\deploy.ps1
-.\nuget\*
+nuget\*
 .\nuget\Debug
 
 # User-specific files (MonoDevelop/Xamarin Studio)
