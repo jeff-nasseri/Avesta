@@ -16,7 +16,7 @@ TODO
 .\TODO\*
 
 
-.\nuget
+.\nuget\*.ps1
 .\nuget\*
 .\nuget\Debug
 
