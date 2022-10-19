@@ -8,10 +8,17 @@ namespace Avesta.Share.Helper
 {
     public static class Keys
     {
-        public static string GenerateUnicKey()
+        public static string GenerateUniqueKey()
         {
             var result = Guid.NewGuid().ToString();
             return result;
         }
+
+        public static string GenerateUniqueId()
+        {
+            var result = Guid.NewGuid().ToString();
+            return result;
+        }
+
     }
 }

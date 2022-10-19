@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Avesta.Attribute\Avesta.Attribute.csproj" />
     <ProjectReference Include="..\Avesta.Exceptions\Avesta.Exceptions.csproj" />
     <ProjectReference Include="..\Avesta.Model\Avesta.Model.csproj" />
     <ProjectReference Include="..\Avesta.Share\Avesta.Share.csproj" />
