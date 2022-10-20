@@ -36,13 +36,13 @@ namespace Avesta.MiddleWare
                     {
                         var key = (attribute as RequestHeaderAttribute).Key;
                         var headerValue = request.Headers[key].ToString();
-                        property.SetValue(headerValue, schemaModel);
+                        property.SetValue(schemaModel, headerValue);
                     }
                     if (attribute is RequestCookieAttribute)
                     {
                         var key = (attribute as RequestCookieAttribute).Key;
                         var cookieValue = request.Cookies[key].ToString();
-                        property.SetValue(cookieValue, attribute);
+                        property.SetValue(schemaModel, cookieValue);
                     }
                 }
 

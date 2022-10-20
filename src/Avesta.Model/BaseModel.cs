@@ -6,15 +6,17 @@ using System.Threading.Tasks;
 
 namespace Avesta.Model
 {
-    public class BaseModel : Model
+    public class BaseModel : BaseModel<string>
     {
-        /// <summary>
-        /// id of current used model
-        /// id for variour view model or model can be null
-        /// </summary>
-        public virtual string? ID { get; set; }
     }
 
+    public class BaseModel<T> : Model
+    {
+        /// <summary>
+        /// current model or entity id with type of 'T'
+        /// </summary>
+        public virtual T? ID { get; set; }
+    }
 
 
     public abstract class Model

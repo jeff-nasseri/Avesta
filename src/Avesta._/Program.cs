@@ -1,5 +1,7 @@
+using Avesta.Attribute.Schema;
 using Avesta.MiddleWare;
 using Avesta.Model.Shema;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -38,5 +40,9 @@ app.Run();
 
 
 
-public class TestSchema : HttpSchema { }
+public class TestSchema : HttpSchema 
+{
+    [RequestCookie("SSO_jwt")]
+    public string SSO { get; set; }
+}
 

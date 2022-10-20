@@ -11,8 +11,8 @@ namespace Avesta.Model.Shema
 
     public abstract class HttpSchema : RequestSchema
     {
-        [RequestHeader("content-type")]
-        public virtual string ContentType { get; set; }
+        [RequestHeader("accept")]
+        public virtual string Accept { get; set; }
 
         [RequestHeader("origin")]
         public virtual string Origin { get; set; }

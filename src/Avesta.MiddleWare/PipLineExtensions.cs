@@ -1,6 +1,7 @@
 using Avesta.Exceptions;
 using Avesta.Model;
 using Avesta.Model.API;
+using Avesta.Model.Shema;
 using Avesta.Share.Helper;
 using Avesta.Storage.Constant;
 using Microsoft.AspNetCore.Builder;
@@ -23,6 +24,12 @@ namespace Avesta.MiddleWare
 
     public static class PipLineExtensions
     {
+
+        public static IApplicationBuilder SchemaCather<T>(this IApplicationBuilder app) where T : RequestSchema
+            => app.UseMiddleware<T>();
+
+
+
 
 
 
@@ -48,6 +55,8 @@ namespace Avesta.MiddleWare
                     context.Response.Redirect($"/account/login");
                 });
             });
+
+
 
 
 
