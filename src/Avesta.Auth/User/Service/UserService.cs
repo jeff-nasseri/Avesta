@@ -5,6 +5,7 @@ using Avesta.Exceptions.Identity;
 using Avesta.Model.Identity;
 using Avesta.Repository.Identity;
 using Avesta.Services;
+using Avesta.Share.Extensions;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,8 @@ namespace Avesta.Auth.User.Service
         Task<TAvestaUser> GetUserByEmail(string email, bool exceptionIfNotExist = false);
         Task<TAvestaUser> GetUserById(string id, bool exceptionIfNotExist = false);
         Task<TAvestaUser> Update<TUserModel>(TUserModel model) where TUserModel : UserBaseModel;
+        Task<IEnumerable<TAvestaUser>> GetAll();
+        Task<TAvestaUser> Delete(string id);
     }
 
 
@@ -57,9 +60,30 @@ namespace Avesta.Auth.User.Service
                 throw new UserNotFoundException(model.ID);
 
             var mappedUser = _mapper.Map<TAvestaUser>(model);
-            await _identityRepository.UpdateUser(mappedUser);
+
+            var updatedUser = user.UpdateBy<TAvestaUser>(mappedUser);
+
+            await _identityRepository.UpdateUser(updatedUser);
             return mappedUser;
 
+        }
+
+        public async Task<IEnumerable<TAvestaUser>> GetAll()
+        {
+            var users = await _identityRepository.GetUsers();
+            return users;
+        }
+
+
+        public async Task<TAvestaUser> Delete(string id)
+        {
+            var user = await _identityRepository.GetUser(id);
+            if (user == null)
+                throw new UserNotFoundException(id);
+
+            await _identityRepository.DeleteUser(user);
+
+            return user;
         }
 
 
