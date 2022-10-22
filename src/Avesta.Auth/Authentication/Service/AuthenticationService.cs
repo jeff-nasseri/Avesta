@@ -26,7 +26,8 @@ namespace Avesta.Auth.Authentication.Service
         where TAvestaUser : AvestaUser
     {
         Task<IdentityReturnTemplate> Login<TLoginUserModel>(TLoginUserModel model) where TLoginUserModel : LoginModelBase;
-        Task<IdentityReturnTemplate> Register(RegisterUserViewModel model);
+        Task<IdentityReturnTemplate> Register<IRegisterUserViewModel>(IRegisterUserViewModel model)
+            where IRegisterUserViewModel : RegisterUserViewModel;
         Task<IdentityReturnTemplate> ResetPassword(ResetPasswordViewModel viewModel);
         Task<JWTAvestaUser?> SignInWithJWT<TLoginUserModel>(TLoginUserModel model) where TLoginUserModel : LoginModelBase;
         Task<TAvestaUser> GetAuthenticatedUser<TLoginModel>(TLoginModel model) where TLoginModel : LoginModelBase;
@@ -88,7 +89,8 @@ namespace Avesta.Auth.Authentication.Service
             return token;
         }
 
-        public async Task<IdentityReturnTemplate> Register(RegisterUserViewModel model)
+        public async Task<IdentityReturnTemplate> Register<IRegisterUserViewModel>(IRegisterUserViewModel model)
+            where IRegisterUserViewModel : RegisterUserViewModel
         {
             var user = _mapper.Map<TAvestaUser>(model);
             var result = await _identityRepository.RegisterNewUser(user, model.Password);
