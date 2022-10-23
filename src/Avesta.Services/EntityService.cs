@@ -308,6 +308,10 @@ namespace Avesta.Services
         {
             await base.Update(viewModel);
         }
+        public virtual async Task EditEntity(TModel model)
+        {
+            await base.Update(model);
+        }
 
         public virtual async Task<IEnumerable<TModel>> GetAllEntities()
         {

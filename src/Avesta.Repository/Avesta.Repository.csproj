@@ -13,7 +13,7 @@
     <PackageProjectUrl></PackageProjectUrl>
     <RepositoryUrl>https://github.com/alireza-nasseri/Avesta</RepositoryUrl>
     <PackageTags>Avesta;Avesta.Repository;Avesta.Framework</PackageTags>
-    <Version>1.0.1.6</Version>
+    <Version>1.0.1.8</Version>
   </PropertyGroup>
 
   <ItemGroup>

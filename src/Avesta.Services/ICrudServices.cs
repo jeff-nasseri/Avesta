@@ -43,6 +43,7 @@ namespace Avesta.Services
         Task<TModel> GetEntity(string id, bool exceptionRaseIfNotExist);
         Task<TModel> GetEntity(string navigationProperties, string id, bool exceptionRaseIfNotExist);
         Task EditEntity(TEditViewModel viewModel);
+        Task EditEntity(TModel model);
         Task Delete(string id);
         Task SoftDelete(string id, bool exceptionRaseIfNotExist = true);
         Task<IEnumerable<TModel>> GetLastN(int n);
