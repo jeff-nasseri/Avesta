@@ -21,6 +21,7 @@ namespace Avesta.Auth.User.Service
         Task<TAvestaUser> GetUserByEmail(string email, bool exceptionIfNotExist = false);
         Task<TAvestaUser> GetUserById(string id, bool exceptionIfNotExist = false);
         Task<TAvestaUser> Update<TUserModel>(TUserModel model) where TUserModel : UserBaseModel;
+        Task Update(TAvestaUser user);
         Task<IEnumerable<TAvestaUser>> GetAll();
         Task<TAvestaUser> Delete(string id);
     }
@@ -33,7 +34,7 @@ namespace Avesta.Auth.User.Service
         readonly IIdentityRepository<TAvestaUser, TRole> _identityRepository;
         readonly IMapper _mapper;
 
-        public UserService(IIdentityRepository<TAvestaUser, TRole> identityRepository,IMapper mapper)
+        public UserService(IIdentityRepository<TAvestaUser, TRole> identityRepository, IMapper mapper)
         {
             _identityRepository = identityRepository;
             _mapper = mapper;
@@ -86,7 +87,9 @@ namespace Avesta.Auth.User.Service
             return user;
         }
 
-
-
+        public async Task Update(TAvestaUser user)
+        {
+            await _identityRepository.UpdateUser(user);
+        }
     }
 }
