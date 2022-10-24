@@ -42,7 +42,7 @@ namespace Avesta.Controller.API
 
         [HttpGet]
         [Route(CrudEndPointController.GetAllWithChildren)]
-        public async Task<IActionResult> GetAllWithChildren()
+        public virtual async Task<IActionResult> GetAllWithChildren()
         {
             var result = await _crudService.GetAllEntitiesWithAllChildren();
             return Ok(result);
@@ -51,7 +51,7 @@ namespace Avesta.Controller.API
 
         [HttpGet]
         [Route(CrudEndPointController.GetWithChildren)]
-        public async Task<IActionResult> GetWithChildren(string id)
+        public virtual async Task<IActionResult> GetWithChildren(string id)
         {
             var result = await _crudService.GetEntityWithAllChildren(id);
             return Ok(result);
@@ -61,7 +61,7 @@ namespace Avesta.Controller.API
 
         [HttpGet]
         [Route(CrudEndPointController.GetAllWithSpecificChildren)]
-        public async Task<IActionResult> GetAllWithSpecificChildren(string navigationPropertyPath)
+        public virtual async Task<IActionResult> GetAllWithSpecificChildren(string navigationPropertyPath)
         {
             var result = await _crudService.GetAllEntitiesWithSpecificChildren(navigationPropertyPath);
             return Ok(result);
@@ -71,7 +71,7 @@ namespace Avesta.Controller.API
 
         [HttpGet]
         [Route(CrudEndPointController.GetWithSpecificChildren)]
-        public async Task<IActionResult> GetWithSpecificChildren(string id, string navigationPropertyPath)
+        public virtual async Task<IActionResult> GetWithSpecificChildren(string id, string navigationPropertyPath)
         {
             var result = await _crudService.GetEntityWithSpecificChildren(id, navigationPropertyPath);
             return Ok(result);
@@ -95,7 +95,7 @@ namespace Avesta.Controller.API
 
         [HttpPost]
         [Route(CrudEndPointController.Create)]
-        public async Task<IActionResult> Create(TCreateViewModel viewModel)
+        public virtual async Task<IActionResult> Create(TCreateViewModel viewModel)
         {
             await _crudService.CreateNew(viewModel);
             return Ok(viewModel);
@@ -103,7 +103,7 @@ namespace Avesta.Controller.API
 
         [HttpDelete]
         [Route(CrudEndPointController.Delete)]
-        public async Task<IActionResult> Delete(string id)
+        public virtual async Task<IActionResult> Delete(string id)
         {
             var viewModel = await _crudService.GetEntityAsViewModel(id, exceptionRaseIfNotExist: true);
             await _crudService.Delete(id);
@@ -113,7 +113,7 @@ namespace Avesta.Controller.API
 
         [HttpDelete]
         [Route(CrudEndPointController.SoftDelete)]
-        public async Task<IActionResult> SoftDelete(string id)
+        public virtual async Task<IActionResult> SoftDelete(string id)
         {
             var viewModel = await _crudService.GetEntityAsViewModel(id, exceptionRaseIfNotExist: true);
             await _crudService.SoftDelete(id);
@@ -123,7 +123,7 @@ namespace Avesta.Controller.API
 
         [HttpPost]
         [Route(CrudEndPointController.Edit)]
-        public async Task<IActionResult> Edit(TEditViewModel viewModel)
+        public virtual async Task<IActionResult> Edit(TEditViewModel viewModel)
         {
             await _crudService.EditEntity(viewModel);
             return Ok(viewModel);
@@ -131,7 +131,7 @@ namespace Avesta.Controller.API
 
         [HttpGet]
         [Route(CrudEndPointController.GetAll)]
-        public async Task<IActionResult> GetAll()
+        public virtual async Task<IActionResult> GetAll()
         {
             var result = await _crudService.GetAllEntitiesAsViewModel();
             return Ok(result);
@@ -139,7 +139,7 @@ namespace Avesta.Controller.API
 
         [HttpGet]
         [Route(CrudEndPointController.GetAsViewModel)]
-        public async Task<IActionResult> GetAsViewModel(string id)
+        public virtual async Task<IActionResult> GetAsViewModel(string id)
         {
             var result = await _crudService.GetEntityAsViewModel(id, exceptionRaseIfNotExist: true);
             return Ok(result);
@@ -148,7 +148,7 @@ namespace Avesta.Controller.API
 
         [HttpGet]
         [Route(CrudEndPointController.Get)]
-        public async Task<IActionResult> Get(string id)
+        public virtual async Task<IActionResult> Get(string id)
         {
             var result = await _crudService.GetEntity(id, exceptionRaseIfNotExist: true);
             return Ok(result);

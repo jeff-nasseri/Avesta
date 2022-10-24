@@ -37,7 +37,7 @@ namespace Avesta.Controller.Seed.API
 
         [HttpPost]
         [Route(SeedEndPointController.SeedTable)]
-        public async Task<IActionResult> SeedTable(string tableName)
+        public virtual async Task<IActionResult> SeedTable(string tableName)
         {
             throw new NotImplementedException();
         }
@@ -46,7 +46,7 @@ namespace Avesta.Controller.Seed.API
 
         [HttpPost]
         [Route(SeedEndPointController.SeedUsers)]
-        public async Task<IActionResult> SeedUsers(AvestaUserSeedModel<TAvestaUser> model)
+        public virtual async Task<IActionResult> SeedUsers(AvestaUserSeedModel<TAvestaUser> model)
         {
             if (ModelState.IsValid)
             {

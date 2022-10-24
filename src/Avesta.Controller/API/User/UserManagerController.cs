@@ -25,7 +25,7 @@ namespace Avesta.Controller.API.User
 
         [HttpGet]
         [Route(UserManagerEndPointController.GetAll)]
-        public async Task<IActionResult> GetAll()
+        public virtual async Task<IActionResult> GetAll()
         {
             var result = await _userService.GetAll();
             return Ok(result);
@@ -35,7 +35,7 @@ namespace Avesta.Controller.API.User
 
         [HttpGet]
         [Route(UserManagerEndPointController.GetByEmail)]
-        public async Task<IActionResult> GetByEmail(string email)
+        public virtual async Task<IActionResult> GetByEmail(string email)
         {
             var user = await _userService.GetUserByEmail(email);
             return Ok(user);
@@ -45,7 +45,7 @@ namespace Avesta.Controller.API.User
 
         [HttpGet]
         [Route(UserManagerEndPointController.GetById)]
-        public async Task<IActionResult> GetById(string id)
+        public virtual async Task<IActionResult> GetById(string id)
         {
             var user = await _userService.GetUserById(id);
             return Ok(user);
@@ -55,7 +55,7 @@ namespace Avesta.Controller.API.User
 
         [HttpPost]
         [Route(UserManagerEndPointController.Edit)]
-        public async Task<IActionResult> EditUser(TUserViewModel viewModel)
+        public virtual async Task<IActionResult> EditUser(TUserViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
@@ -69,7 +69,7 @@ namespace Avesta.Controller.API.User
 
         [HttpDelete]
         [Route(UserManagerEndPointController.Delete)]
-        public async Task<IActionResult> Delete(string id)
+        public virtual async Task<IActionResult> Delete(string id)
         {
             var result = await _userService.Delete(id);
             return Ok(result);

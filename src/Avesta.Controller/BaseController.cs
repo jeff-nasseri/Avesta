@@ -31,7 +31,7 @@ namespace Avesta.Controller
 
   
         [ApiExplorerSettings(IgnoreApi = true)]
-        public async Task<IActionResult> Paginate(int page, string viewName, string keyword = null)
+        public virtual async Task<IActionResult> Paginate(int page, string viewName, string keyword = null)
         {
             var tuple = await _baseService.Paginate(page, searchKeyWord: keyword);
             var entities = tuple.Item1;

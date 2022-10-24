@@ -234,20 +234,20 @@ namespace Avesta.Services
         {
         }
 
-        public async Task<IEnumerable<TModel>> GetLastN(int n)
+        public virtual async Task<IEnumerable<TModel>> GetLastN(int n)
         {
             var entities = await GetAllEntities();
             var result = entities.TakeLast(n).ToList();
             return result;
         }
 
-        public async Task<IEnumerable<TModel>> Where(Expression<Func<TModel, bool>> where)
+        public virtual async Task<IEnumerable<TModel>> Where(Expression<Func<TModel, bool>> where)
         {
             var result = await base.GetAll(exp: where);
             return result;
         }
 
-        public async Task<IEnumerable<TModel>> Where(string navigationProperties, Expression<Func<TModel, bool>> where)
+        public virtual async Task<IEnumerable<TModel>> Where(string navigationProperties, Expression<Func<TModel, bool>> where)
         {
             var result = await base.GetAll(navigationProperties, exp: where);
             return result;
@@ -256,14 +256,14 @@ namespace Avesta.Services
 
 
 
-        public async Task<IEnumerable<TModel>> GetLastN<TKey>(int n, Expression<Func<TModel, TKey>> orderBy) where TKey : class
+        public virtual async Task<IEnumerable<TModel>> GetLastN<TKey>(int n, Expression<Func<TModel, TKey>> orderBy) where TKey : class
         {
             var entities = await GetAllEntities();
             var result = entities.AsQueryable().OrderBy(orderBy).TakeLast(n).ToList();
             return result;
         }
 
-        public async Task<IEnumerable<TModel>> GetLastN(int n, Expression<Func<TModel, bool>> filter)
+        public virtual async Task<IEnumerable<TModel>> GetLastN(int n, Expression<Func<TModel, bool>> filter)
         {
             var entities = await GetAllEntities();
             var result = entities.AsQueryable().Where(filter).TakeLast(n).ToList();
@@ -271,7 +271,7 @@ namespace Avesta.Services
         }
 
 
-        public async Task<TModel> GetEntity(string id, bool exceptionRaseIfNotExist)
+        public virtual async Task<TModel> GetEntity(string id, bool exceptionRaseIfNotExist)
         {
             return await base.Get(id, exceptionRaseIfNotExist: exceptionRaseIfNotExist);
         }
@@ -326,7 +326,7 @@ namespace Avesta.Services
         }
 
 
-        public async Task<IEnumerable<TViewModel>> GetAllEntitiesAsViewModel()
+        public virtual async Task<IEnumerable<TViewModel>> GetAllEntitiesAsViewModel()
         {
             var result = await base.GetAllAsViewModel();
             return result.ToList();

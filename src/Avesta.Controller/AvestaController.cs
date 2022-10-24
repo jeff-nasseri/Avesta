@@ -17,7 +17,7 @@ namespace Avesta.Controller
 
 
         [ApiExplorerSettings(IgnoreApi = true)]
-        public async Task<RedirectResult> BaseRedirect(string action, string controller, string redirectURL = "")
+        public virtual async Task<RedirectResult> BaseRedirect(string action, string controller, string redirectURL = "")
         {
             await Task.CompletedTask;
             if (string.IsNullOrEmpty(redirectURL))
@@ -27,7 +27,7 @@ namespace Avesta.Controller
             return Redirect(redirectURL);
         }
         [ApiExplorerSettings(IgnoreApi = true)]
-        public async Task<RedirectResult> BaseRedirect(string defaultRedirect, string redirectURL = "")
+        public virtual async Task<RedirectResult> BaseRedirect(string defaultRedirect, string redirectURL = "")
         {
             await Task.CompletedTask;
             if (string.IsNullOrEmpty(redirectURL))
@@ -37,7 +37,7 @@ namespace Avesta.Controller
             return Redirect(redirectURL);
         }
         [ApiExplorerSettings(IgnoreApi = true)]
-        public async Task<IActionResult> BaseRedirectToAction(string defaultAction, string redirect = "")
+        public virtual async Task<IActionResult> BaseRedirectToAction(string defaultAction, string redirect = "")
         {
             await Task.CompletedTask;
             if (string.IsNullOrEmpty(redirect))
@@ -50,7 +50,7 @@ namespace Avesta.Controller
 
 
         [ApiExplorerSettings(IgnoreApi = true)]
-        public async Task<IActionResult> Search(string contoller, string keyword)
+        public virtual async Task<IActionResult> Search(string contoller, string keyword)
         {
             //make standard
             keyword = keyword?.Trim();
@@ -65,7 +65,7 @@ namespace Avesta.Controller
 
 
         [ApiExplorerSettings(IgnoreApi = true)]
-        public async Task<IActionResult> Search(string keyword, object _ = null)
+        public virtual async Task<IActionResult> Search(string keyword, object _ = null)
         {
             //make standard
             keyword = keyword?.Trim();
