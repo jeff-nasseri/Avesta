@@ -16,4 +16,4 @@ Avesta libraries avaible on nuget.org
 Install main package if you wish to install all Avesta libraries.***
 
 ## Dependencies
-<img src="https://raw.githubusercontent.com/swagger-api/swagger.io/wordpress/images/assets/SW-logo-clr.png" width="200" height="50" />
+<img src="https://raw.githubusercontent.com/swagger-api/swagger.io/wordpress/images/assets/SW-logo-clr.png" width="200" />
