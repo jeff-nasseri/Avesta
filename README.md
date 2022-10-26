@@ -17,3 +17,4 @@ Install main package if you wish to install all Avesta libraries.***
 
 ## Dependencies
 ![](https://raw.githubusercontent.com/swagger-api/swagger.io/wordpress/images/assets/SW-logo-clr.png)
+<img src="https://raw.githubusercontent.com/swagger-api/swagger.io/wordpress/images/assets/SW-logo-clr.png" width="200" height="400" />
