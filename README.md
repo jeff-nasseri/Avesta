@@ -20,4 +20,4 @@ Install main package if you wish to install all Avesta libraries.***
 <img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Microsoft_.NET_logo.svg" width="100" height="100" /> 
 <img src="https://ih1.redbubble.net/image.366684675.5673/flat,128x128,075,t-pad,128x128,f8f8f8.u2.jpg"  />
 <img src="https://codeopinion.com/wp-content/uploads/2017/10/Bitmap-MEDIUM_Entity-Framework-Core-Logo_2colors_Square_Boxed_RGB.png" width="100" />
-<img src="http://taswar.zeytinsoft.com/automapper-mapping-objects-part-2-of-7-flattening-by-convention/" width="100" />
+<img src="http://taswar.zeytinsoft.com/wp-content/uploads/2011/03/automapper-logo.jpg" width="100" />
