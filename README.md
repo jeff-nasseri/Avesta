@@ -1,3 +1,4 @@
+
 # Avesta Framework [![.NET](https://img.shields.io/badge/--512BD4?logo=.net&logoColor=ffffff)](https://dotnet.microsoft.com/)
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![version](https://img.shields.io/badge/version-1.0.2.0-blue)
 
@@ -5,7 +6,7 @@
 
 
 ## Installation
-****
+
 Avesta libraries avaible on nuget.org 
  - installation via dotnet cli
 >dotnet add package Avesta --version
@@ -19,5 +20,7 @@ Install main package if you wish to install all Avesta libraries.***
 <img src="https://raw.githubusercontent.com/swagger-api/swagger.io/wordpress/images/assets/SW-logo-clr.png" width="200" />
 <img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Microsoft_.NET_logo.svg" width="100" height="100" /> 
 <img src="https://ih1.redbubble.net/image.366684675.5673/flat,128x128,075,t-pad,128x128,f8f8f8.u2.jpg"  />
-<img src="https://codeopinion.com/wp-content/uploads/2017/10/Bitmap-MEDIUM_Entity-Framework-Core-Logo_2colors_Square_Boxed_RGB.png" width="100" />
-<img src="http://taswar.zeytinsoft.com/wp-content/uploads/2011/03/automapper-logo.jpg" width="150" height="100" />
+<img 
+src="https://codeopinion.com/wp-content/uploads/2017/10/Bitmap-MEDIUM_Entity-Framework-Core-Logo_2colors_Square_Boxed_RGB.png" width="100" />
+<img 
+src="http://taswar.zeytinsoft.com/wp-content/uploads/2011/03/automapper-logo.jpg" width="150" height="100" />
