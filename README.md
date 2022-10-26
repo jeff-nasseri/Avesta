@@ -4,7 +4,8 @@
 ### Avesta is a .Net framework for .Net developers who looking for do more with less structure  😉
 
 ## Installation
-### - Via dotnet cli
+Avesta libraries avaible on nuget.org 
+ - installation via dotnet cli
 >dotnet add package Avesta --version
-### - Via nuget console
+ - installation via nuget console
 >Install-Package Avesta
