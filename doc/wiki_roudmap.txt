@@ -1,0 +1,22 @@
+1-Quick Brief
+
+2-Installation
+
+3-Quick start (application)
+ - run first avesta application
+ - data layer
+ - business layer
+ - api layer 
+ - how to ovveride
+ - run application 
+ - avesta CD/CI
+
+4-Quick start (Identity application)
+ - run first avesta identity application 
+ - data layer
+ - business layer
+ - how to ovveride
+ - api layer 
+ - run application 
+ - avesta CD/CI
+
