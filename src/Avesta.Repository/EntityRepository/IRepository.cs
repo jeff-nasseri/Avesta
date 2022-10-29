@@ -37,6 +37,7 @@ namespace Avesta.Repository.EntityRepository
         Task<IEnumerable<TEntity>> GetAllIncludeAllChildren(int skip, int take, bool track = false);
         Task<TEntity> GetIncludeAllChildren(string id, bool track = false);
         Task<IEnumerable<TEntity>> GetAllByInclude(string navigationPropertyPath);
+        Task<IEnumerable<TEntity>> GetAllByInclude(string navigationPropertyPath, int skip, int take);
         Task<IEnumerable<TEntity>> GetAllAsync<TKey>(string navigationPropertyPath = null, Func<TEntity, TKey> descendingOrder = null);
         #endregion
 
@@ -75,7 +76,7 @@ namespace Avesta.Repository.EntityRepository
 
         #region where
         Task<IEnumerable<TEntity>> WhereByInclude(string navigationPropertyPath, Expression<Func<TEntity, bool>> search);
-        Task<IEnumerable<TEntity>> GetAllByParentInfo(PropertyInfo info);
+        Task<IEnumerable<TEntity>> GetAllByPropertyInfo(PropertyInfo info);
         #endregion
 
 

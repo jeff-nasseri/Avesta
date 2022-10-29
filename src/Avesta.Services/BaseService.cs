@@ -21,12 +21,14 @@ namespace Avesta.Services
         /// <param name="searchKeyWord">search str for search in entites</param>
         /// <returns>tuple of entites and entites count</returns>
         Task<PaginationModel<T>> Paginate(int page, int perPage = Pagination.PerPage, string searchKeyWord = null);
-        
+
+        Task<PaginationModel<T>> PaginateNavigationChildren(int page, string? navigation = null, bool? navigateAll = null, int perPage = Pagination.PerPage, string searchKeyWord = null);
+
     }
 
 
-    public interface IBaseService<TModel,TViewModel> : IBaseService<TModel>
-        where TModel : class 
+    public interface IBaseService<TModel, TViewModel> : IBaseService<TModel>
+        where TModel : class
         where TViewModel : class
     {
         Task<IEnumerable<TViewModel>> SearchAsViewModel(string keyword);

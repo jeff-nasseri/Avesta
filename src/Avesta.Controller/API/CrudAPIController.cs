@@ -3,12 +3,14 @@ using Avesta.Model;
 using Avesta.Services;
 using Avesta.Storage.Constant;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Microsoft.Extensions.Logging.EventSource.LoggingEventSource;
 using CrudEndPointController = Avesta.Storage.Constant.EndPoints.CrudController;
 
 namespace Avesta.Controller.API
@@ -43,10 +45,10 @@ namespace Avesta.Controller.API
 
         [HttpGet]
         [Route(CrudEndPointController.GetAllWithChildren)]
-        public virtual async Task<IActionResult> GetAllWithChildren(int page, string search = null)
+        public virtual async Task<IActionResult> GetAllWithChildren(int page, string? search = null)
         {
-            var result = await _crudService.GetAllEntitiesWithAllChildren();
-            return Ok(result);
+            await Task.CompletedTask;
+            return RedirectToAction(nameof(base.PaginateNavigationChildren), new { page = page, navigationAll = true, perPage = Pagination.PerPage, keyword = search });
         }
 
 
@@ -62,10 +64,10 @@ namespace Avesta.Controller.API
 
         [HttpGet]
         [Route(CrudEndPointController.GetAllWithSpecificChildren)]
-        public virtual async Task<IActionResult> GetAllWithSpecificChildren(string navigationPropertyPath)
+        public virtual async Task<IActionResult> GetAllWithSpecificChildren(string navigationPropertyPath, int page, string? search = null)
         {
-            var result = await _crudService.GetAllEntitiesWithSpecificChildren(navigationPropertyPath);
-            return Ok(result);
+            await Task.CompletedTask;
+            return RedirectToAction(nameof(base.PaginateNavigationChildren), new { page = page, navigation = navigationPropertyPath, perPage = Pagination.PerPage, keyword = search });
         }
 
 
@@ -83,9 +85,9 @@ namespace Avesta.Controller.API
 
         [HttpPost]
         [Route(CrudEndPointController.GetAllByParentId)]
-        public async Task<IActionResult> GetAllByParentInfo(PropertyInfo parent)
+        public async Task<IActionResult> GetAllByPropertyInfo(PropertyInfo parent)
         {
-            var result = await _crudService.GetAllByParentInfo(parent);
+            var result = await _crudService.GetAllByPropertyInfo(parent);
             return Ok(result);
         }
 

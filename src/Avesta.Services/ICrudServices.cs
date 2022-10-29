@@ -38,7 +38,7 @@ namespace Avesta.Services
         Task<IEnumerable<TModel>> GetAllEntities(string navigationProperties);
         Task CreateNew(TCreateViewModel viewModel);
         Task CreateRange(IEnumerable<TViewModel> viewModels);
-        Task<IEnumerable<TViewModel>> GetAllByParentInfo(PropertyInfo info);
+        Task<IEnumerable<TViewModel>> GetAllByPropertyInfo(PropertyInfo info);
         Task CreateNew(TModel model);
         Task<TEditViewModel> GetEntityAsViewModel(string id, bool exceptionRaseIfNotExist = false);
         Task<TModel> GetEntity(string id, bool exceptionRaseIfNotExist);

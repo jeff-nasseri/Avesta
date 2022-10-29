@@ -61,6 +61,15 @@ namespace Avesta.Controller
             return Ok(result);
         }
 
+
+        [ApiExplorerSettings(IgnoreApi = true)]
+        [Route(BaseController.PaginateNavigationChildren)]
+        public virtual async Task<IActionResult> PaginateNavigationChildren(int page, string? navigation = null, bool? navigationAll = null, int perPage = Pagination.PerPage, string? keyword = null)
+        {
+            var result = await _baseService.PaginateNavigationChildren(page, navigation: navigation, navigateAll: navigationAll, perPage: perPage, searchKeyWord: keyword);
+            return Ok(result);
+        }
+
     }
 
 

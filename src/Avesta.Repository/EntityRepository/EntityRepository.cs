@@ -100,6 +100,11 @@ namespace Avesta.Repository.EntityRepositoryRepository
         {
             return await base.GetAllByInclude<TEntity>(navigationPropertyPath);
         }
+        public async Task<IEnumerable<TEntity>> GetAllByInclude(string navigationPropertyPath, int skip, int take)
+        {
+            return await base.GetAllByInclude<TEntity>(navigationPropertyPath, skip, take);
+        }
+
         public async Task<IEnumerable<TEntity>> GetAllAsync<TKey>(string navigationPropertyPath = null, Func<TEntity, TKey> descendingOrder = null)
         {
             return await base.GetAllAsync<TEntity, TKey>(navigationPropertyPath, descendingOrder);
@@ -189,9 +194,9 @@ namespace Avesta.Repository.EntityRepositoryRepository
         {
             return await base.WhereByInclude<TEntity>(navigationPropertyPath, search);
         }
-        public async Task<IEnumerable<TEntity>> GetAllByParentInfo(PropertyInfo info)
+        public async Task<IEnumerable<TEntity>> GetAllByPropertyInfo(PropertyInfo info)
         {
-            return await base.GetAllByParentInfo<TEntity>(info);
+            return await base.GetAllByPropertyInfo<TEntity>(info);
         }
 
         #endregion

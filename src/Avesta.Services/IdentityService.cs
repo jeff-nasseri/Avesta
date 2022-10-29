@@ -23,6 +23,11 @@ namespace Avesta.Services
             throw new NotImplementedException();
         }
 
+        public Task<PaginationModel<TAvestaUser>> PaginateNavigationChildren(int page, string navigation = null, bool? navigateAll = null, int perPage = 7, string searchKeyWord = null)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<IEnumerable<TAvestaUser>> Search(string keyword)
         {
             throw new NotImplementedException();

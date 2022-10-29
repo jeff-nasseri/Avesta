@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Identity;
 using Avesta.Data.Model;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Avesta.Model.Controller;
+using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Avesta.Services
 {
@@ -46,7 +47,11 @@ namespace Avesta.Services
             var result = await _repository.GetAllByInclude(navigationPropertyPath: navigationPropertyPath);
             return result;
         }
-
+        public virtual async Task<IEnumerable<TModel>> GetAllEntitiesWithSpecificChildren(string navigationPropertyPath, int skip, int take)
+        {
+            var result = await _repository.GetAllByInclude(navigationPropertyPath: navigationPropertyPath, skip, take);
+            return result;
+        }
         public virtual async Task<TModel> GetEntityWithSpecificChildren(string id, string navigationPropertyPath)
         {
             var result = await _repository.SingleOrDefaultAsyncByInclude(navigationPropertyPath: navigationPropertyPath, e => e.ID == id);
@@ -139,9 +144,9 @@ namespace Avesta.Services
         }
 
 
-        public virtual async Task<IEnumerable<TViewModel>> GetAllByParentInfo(PropertyInfo info)
+        public virtual async Task<IEnumerable<TViewModel>> GetAllByPropertyInfo(PropertyInfo info)
         {
-            var entities = await _repository.GetAllByParentInfo(info);
+            var entities = await _repository.GetAllByPropertyInfo(info);
             var result = entities.Select(e => _mapper.Map<TViewModel>(e)).ToList();
             return result;
         }
@@ -234,6 +239,23 @@ namespace Avesta.Services
             var result = await all.Search(keywords);
             return result;
         }
+
+
+        public virtual async Task<IEnumerable<TModel>> SearchByIncludeNavigationPath(string keywords, string? navigation = null, bool? navigateAll = null)
+        {
+            IEnumerable<TModel> all = null;
+            if (!string.IsNullOrEmpty(navigation))
+            {
+                all = await GetAllEntitiesWithSpecificChildren(navigation);
+            }
+            if (navigateAll.HasValue && navigateAll.Value)
+            {
+                all = await GetAllEntitiesWithAllChildren();
+            }
+            var result = await all.Search(keywords);
+            return result;
+        }
+
         public virtual async Task<IEnumerable<TViewModel>> SearchAsViewModel(string keywords)
         {
             var all = await GetAllAsViewModel();
@@ -448,6 +470,51 @@ namespace Avesta.Services
 
             return result;
 
+        }
+
+
+        public virtual async Task<PaginationModel<TModel>> PaginateNavigationChildren(int page
+            , string? navigation = null
+            , bool? navigateAll = null
+            , int perPage = Pagination.PerPage
+            , string? searchKeyword = null)
+        {
+            IEnumerable<TModel> resultSearchByCustome = default;
+            IEnumerable<TModel> resultSearchByDefault = default;
+            IEnumerable<TModel> total = null;
+            IEnumerable<TModel> all = null;
+
+            var skip = (page - 1) * perPage;
+            var take = perPage;
+
+            if (!string.IsNullOrEmpty(navigation))
+            {
+                all = await GetAllEntitiesWithSpecificChildren(navigation, skip, take);
+            }
+            if (navigateAll.HasValue && navigateAll.Value)
+            {
+                all = await GetAllEntitiesWithAllChildren(skip, take);
+            }
+
+            var count = await Count();
+            if (!string.IsNullOrEmpty(searchKeyword))
+            {
+                resultSearchByCustome = await SearchByIncludeNavigationPath(searchKeyword, navigation: navigation, navigateAll: navigateAll);
+                resultSearchByDefault = await all.Search(keyword: searchKeyword);
+                total = List.Merge(resultSearchByCustome, resultSearchByDefault);
+                count = total.Distinct().Count();
+                total = total.Distinct().Skip(skip).Take(take).ToList();
+            }
+
+
+            var result = new PaginationModel<TModel>
+            {
+                Entities = (total ?? all),
+                Total = count
+            };
+
+
+            return result;
         }
 
 
