@@ -1,6 +1,7 @@
 ﻿using Avesta.Data.Model;
 using Avesta.Model;
 using Avesta.Services;
+using Avesta.Storage.Constant;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;
@@ -25,7 +26,7 @@ namespace Avesta.Controller.API
     }
 
 
-    public class CrudAPIController<TModel, TViewModel, TEditViewModel, TCreateViewModel> : BaseController<TModel>
+    public class CrudAPIController<TModel, TViewModel, TEditViewModel, TCreateViewModel> : BaseAPIController<TModel, TViewModel>
         where TCreateViewModel : TViewModel
         where TEditViewModel : TViewModel
         where TViewModel : BaseModel
@@ -42,7 +43,7 @@ namespace Avesta.Controller.API
 
         [HttpGet]
         [Route(CrudEndPointController.GetAllWithChildren)]
-        public virtual async Task<IActionResult> GetAllWithChildren()
+        public virtual async Task<IActionResult> GetAllWithChildren(int page, string search = null)
         {
             var result = await _crudService.GetAllEntitiesWithAllChildren();
             return Ok(result);
@@ -131,10 +132,10 @@ namespace Avesta.Controller.API
 
         [HttpGet]
         [Route(CrudEndPointController.GetAll)]
-        public virtual async Task<IActionResult> GetAll()
+        public virtual async Task<IActionResult> GetAll(int page = 1, string? search = null)
         {
-            var result = await _crudService.GetAllEntitiesAsViewModel();
-            return Ok(result);
+            await Task.CompletedTask;
+            return RedirectToAction(nameof(base.PaginateAsViewModel), new { page = page, perPage = Pagination.PerPage, keyword = search });
         }
 
         [HttpGet]

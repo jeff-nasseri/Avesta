@@ -112,7 +112,18 @@ namespace Avesta.Repository.EntityRepositoryRepository
                 result = query.ToList();
 
             return result;
+        }
+        public async Task<IEnumerable<TEntity>> GetAllIncludeAllChildren<TEntity>(int skip, int take, bool track = false)
+            where TEntity : BaseEntity<TIdType>
+        {
+            var result = default(IEnumerable<TEntity>);
+            var query = await Query<TEntity>(eager: true);
+            if (track)
+                result = query.AsNoTracking().Skip(skip).Take(take).ToList();
+            else
+                result = query.Skip(skip).Take(take).ToList();
 
+            return result;
         }
         public async Task<TEntity> GetIncludeAllChildren<TEntity>(string id, bool track = false)
             where TEntity : BaseEntity<TIdType>
@@ -135,6 +146,11 @@ namespace Avesta.Repository.EntityRepositoryRepository
             where TEntity : BaseEntity<TIdType>
         {
             return (await _context.Set<TEntity>().ToListAsync());
+        }
+        public virtual async Task<IEnumerable<TEntity>> GetAllAsync<TEntity>(int skip, int take)
+            where TEntity : BaseEntity<TIdType>
+        {
+            return (await _context.Set<TEntity>().Skip(skip).Take(take).ToListAsync());
         }
         public async Task<IEnumerable<TEntity>> GetAllAsync<TEntity>(bool track = false)
             where TEntity : BaseEntity<TIdType>
@@ -469,5 +485,5 @@ namespace Avesta.Repository.EntityRepositoryRepository
 
 
 
-   
+
 }

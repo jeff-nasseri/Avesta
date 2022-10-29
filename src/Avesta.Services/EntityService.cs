@@ -12,6 +12,8 @@ using Avesta.Repository.EntityRepository;
 using Avesta.Storage.Constant;
 using Microsoft.AspNetCore.Identity;
 using Avesta.Data.Model;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Avesta.Model.Controller;
 
 namespace Avesta.Services
 {
@@ -31,6 +33,11 @@ namespace Avesta.Services
         public virtual async Task<IEnumerable<TModel>> GetAllEntitiesWithAllChildren()
         {
             var result = await _repository.GetAllIncludeAllChildren();
+            return result;
+        }
+        public virtual async Task<IEnumerable<TModel>> GetAllEntitiesWithAllChildren(int skip, int take)
+        {
+            var result = await _repository.GetAllIncludeAllChildren(skip, take);
             return result;
         }
 
@@ -60,6 +67,11 @@ namespace Avesta.Services
         public virtual async Task<IEnumerable<TModel>> GetAll()
         {
             var result = await _repository.GetAllAsync();
+            return result;
+        }
+        public virtual async Task<IEnumerable<TModel>> GetAll(int skip, int take)
+        {
+            var result = await _repository.GetAllAsync(skip, take);
             return result;
         }
 
@@ -99,6 +111,13 @@ namespace Avesta.Services
             var result = entites.Select(e => _mapper.Map<TViewModel>(e)).ToList();
             return result;
         }
+        public virtual async Task<IEnumerable<TViewModel>> GetAllAsViewModel(int skip, int take)
+        {
+            var entites = await _repository.GetAllAsync(skip, take);
+            var result = entites.Select(e => _mapper.Map<TViewModel>(e)).ToList();
+            return result;
+        }
+
         public virtual async Task<IEnumerable<TViewModel>> GetAllAsViewModel(Expression<Func<TModel, bool>> exp)
         {
             var entites = await _repository.GetAllAsync(exp);
@@ -215,6 +234,20 @@ namespace Avesta.Services
             var result = await all.Search(keywords);
             return result;
         }
+        public virtual async Task<IEnumerable<TViewModel>> SearchAsViewModel(string keywords)
+        {
+            var all = await GetAllAsViewModel();
+            var result = await all.Search(keywords);
+            return result;
+        }
+
+
+
+        public virtual async Task<int> Count()
+        {
+            var result = await _repository.Count();
+            return result;
+        }
 
 
     }
@@ -229,9 +262,11 @@ namespace Avesta.Services
       where TEditViewModel : TViewModel
       where TCreateViewModel : TViewModel
     {
+        readonly IMapper _mapper;
         public EntityService(IRepository<TModel> repository
             , IMapper mapper) : base(repository, mapper)
         {
+            _mapper = mapper;
         }
 
         public virtual async Task<IEnumerable<TModel>> GetLastN(int n)
@@ -319,6 +354,12 @@ namespace Avesta.Services
             return result.OrderByDescending(e => e.CreatedDate).ToList();
         }
 
+        public virtual async Task<IEnumerable<TModel>> GetAllEntities(int skip, int take)
+        {
+            var result = await base.GetAll(skip, take);
+            return result.OrderByDescending(e => e.CreatedDate).ToList();
+        }
+
         public virtual async Task<IEnumerable<TModel>> GetAllEntitiesIncludeAllChildren()
         {
             var result = await base.GetAllEntitiesWithAllChildren();
@@ -345,28 +386,76 @@ namespace Avesta.Services
             return result;
         }
 
-        public virtual async Task<(IEnumerable<TModel>, int)> Paginate(int page, int perPage = Pagination.PerPage, string searchKeyWord = null)
+        public virtual async Task<PaginationModel<TModel>> Paginate(int page, int perPage = Pagination.PerPage, string searchKeyWord = null)
         {
             IEnumerable<TModel> resultSearchByCustome = default;
             IEnumerable<TModel> resultSearchByDefault = default;
             IEnumerable<TModel> total = null;
-            var all = await GetAllEntities();
+
+            var skip = (page - 1) * perPage;
+            var take = perPage;
+
+            var all = await GetAllEntities(skip, take);
+            var count = await Count();
             if (!string.IsNullOrEmpty(searchKeyWord))
             {
                 resultSearchByCustome = await Search(searchKeyWord);
                 resultSearchByDefault = await all.Search(keyword: searchKeyWord);
                 total = List.Merge(resultSearchByCustome, resultSearchByDefault);
-                total = total.Distinct().ToList();
+                count = total.Distinct().Count();
+                total = total.Distinct().Skip(skip).Take(take).ToList();
             }
 
 
-            var result = await (total ?? all).Paginate(page, perPage: perPage);
+            var result = new PaginationModel<TModel>
+            {
+                Entities = (total ?? all),
+                Total = count
+            };
 
 
             return result;
         }
 
 
+        public virtual async Task<PaginationModel<TViewModel>> PaginateAsViewModel(int page, int perPage = Pagination.PerPage, string searchKeyWord = null)
+        {
+            IEnumerable<TViewModel> resultSearchByCustome = default;
+            IEnumerable<TViewModel> resultSearchByDefault = default;
+            IEnumerable<TViewModel> total = null;
+
+            var skip = (page - 1) * perPage;
+            var take = perPage;
+
+            var all = await GetAllAsViewModel(skip, take);
+            var count = await Count();
+            if (!string.IsNullOrEmpty(searchKeyWord))
+            {
+                resultSearchByCustome = await SearchAsViewModel(searchKeyWord);
+                resultSearchByDefault = await all.Search(keyword: searchKeyWord);
+                total = List.Merge(resultSearchByCustome, resultSearchByDefault);
+                count = total.Distinct().Count();
+                total = total.Distinct().Skip(skip).Take(take).ToList();
+            }
+
+
+            var result = new PaginationModel<TViewModel>
+            {
+                Entities = (total ?? all),
+                Total = count
+            };
+
+
+            return result;
+
+        }
+
+
     }
+
+
+
+
+
 
 }

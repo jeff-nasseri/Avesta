@@ -10,5 +10,6 @@ namespace Avesta.Storage.Constant
     {
         public const string Search = "search";
         public const string Paginate = "paginate";
+        public const string PaginateAsViewModel = "paginate_as_view_model";
     }
 }

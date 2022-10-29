@@ -32,7 +32,9 @@ namespace Avesta.Repository.EntityRepository
         Task<IEnumerable<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> predicate, bool track = true);
         Task<IEnumerable<TEntity>> GetAllAsync(bool track = false);
         Task<IEnumerable<TEntity>> GetAllAsync();
+        Task<IEnumerable<TEntity>> GetAllAsync(int skip, int take);
         Task<IEnumerable<TEntity>> GetAllIncludeAllChildren(bool track = false);
+        Task<IEnumerable<TEntity>> GetAllIncludeAllChildren(int skip, int take, bool track = false);
         Task<TEntity> GetIncludeAllChildren(string id, bool track = false);
         Task<IEnumerable<TEntity>> GetAllByInclude(string navigationPropertyPath);
         Task<IEnumerable<TEntity>> GetAllAsync<TKey>(string navigationPropertyPath = null, Func<TEntity, TKey> descendingOrder = null);

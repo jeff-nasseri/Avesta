@@ -71,6 +71,10 @@ namespace Avesta.Repository.EntityRepositoryRepository
         {
             return await base.GetAllIncludeAllChildren<TEntity>(track);
         }
+        public async Task<IEnumerable<TEntity>> GetAllIncludeAllChildren(int skip, int take, bool track = false)
+        {
+            return await base.GetAllIncludeAllChildren<TEntity>(skip, take, track);
+        }
         public async Task<TEntity> GetIncludeAllChildren(string id, bool track = false)
         {
             return await base.GetIncludeAllChildren<TEntity>(id, track);
@@ -79,6 +83,10 @@ namespace Avesta.Repository.EntityRepositoryRepository
         public virtual async Task<IEnumerable<TEntity>> GetAllAsync()
         {
             return await base.GetAllAsync<TEntity>();
+        }
+        public virtual async Task<IEnumerable<TEntity>> GetAllAsync(int skip, int take)
+        {
+            return await base.GetAllAsync<TEntity>(skip, take);
         }
         public async Task<IEnumerable<TEntity>> GetAllAsync(bool track = false)
         {

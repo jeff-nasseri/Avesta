@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Avesta.Model.API;
+using Avesta.Storage.Constant;
 
 namespace Avesta.Controller
 {
@@ -29,20 +30,62 @@ namespace Avesta.Controller
             _baseService = baseService;
         }
 
-  
+
         [ApiExplorerSettings(IgnoreApi = true)]
         public virtual async Task<IActionResult> Paginate(int page, string viewName, string keyword = null)
         {
-            var tuple = await _baseService.Paginate(page, searchKeyWord: keyword);
-            var entities = tuple.Item1;
-            TempData["EntityCount"] = tuple.Item2;
+            var model = await _baseService.Paginate(page, searchKeyWord: keyword);
+            var entities = model.Entities;
+            TempData["EntityCount"] = model.Total;
             return View(viewName, entities);
         }
 
     }
 
 
+    public abstract class BaseAPIController<T> : AvestaController
+        where T : class
+    {
+        readonly IBaseService<T> _baseService;
+        public BaseAPIController(
+            IBaseService<T> baseService)
+        {
+            _baseService = baseService;
+        }
 
+        [ApiExplorerSettings(IgnoreApi = true)]
+        [Route(BaseController.Paginate)]
+        public virtual async Task<IActionResult> Paginate(int page, int perPage = Pagination.PerPage, string? keyword = null)
+        {
+            var result = await _baseService.Paginate(page, perPage: perPage, searchKeyWord: keyword);
+            return Ok(result);
+        }
+
+    }
+
+
+
+    public abstract class BaseAPIController<T, TViewModel> : BaseAPIController<T>
+        where T : class
+        where TViewModel : class
+    {
+        readonly IBaseService<T, TViewModel> _baseService;
+        public BaseAPIController(
+            IBaseService<T, TViewModel> baseService) : base(baseService)
+        {
+            _baseService = baseService;
+        }
+
+
+
+        [ApiExplorerSettings(IgnoreApi = true)]
+        [Route(BaseController.PaginateAsViewModel)]
+        public virtual async Task<IActionResult> PaginateAsViewModel(int page, int perPage = Pagination.PerPage, string? keyword = null)
+        {
+            var result = await _baseService.PaginateAsViewModel(page, perPage: perPage, searchKeyWord: keyword);
+            return Ok(result);
+        }
+    }
 
 
 

@@ -36,6 +36,19 @@ namespace Avesta.Share.Utilities
             }
             return resultList;
         }
+
+
+
+        /// <summary>
+        /// This method run for all datas even data you dont need 
+        /// After fetch data use this function if you want to paginate and search into your data
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="entityList"></param>
+        /// <param name="page"></param>
+        /// <param name="perPage"></param>
+        /// <param name="searchKeyWord"></param>
+        /// <returns></returns>
         public static async Task<(IEnumerable<T>, int)> Paginate<T>(this IEnumerable<T> entityList, int page, int perPage = 1, string searchKeyWord = null)
         {
             var products = default(IEnumerable<T>);

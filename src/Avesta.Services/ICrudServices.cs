@@ -10,13 +10,13 @@ using System.Threading.Tasks;
 
 namespace Avesta.Services
 {
-    public interface ICrudService<TModel, TViewModel, TEditViewModel, TCreateViewModel> : IBaseService<TModel>, IBaseCrudService<TModel, TViewModel, TEditViewModel, TCreateViewModel>
+    public interface ICrudService<TModel, TViewModel, TEditViewModel, TCreateViewModel> : IBaseService<TModel, TViewModel>, IBaseCrudService<TModel, TViewModel, TEditViewModel, TCreateViewModel>
         where TModel : BaseEntity
         where TViewModel : BaseModel
         where TEditViewModel : TViewModel
         where TCreateViewModel : TViewModel
     {
-       
+
     }
 
 
@@ -29,10 +29,11 @@ namespace Avesta.Services
         where TCreateViewModel : TViewModel
     {
         Task<IEnumerable<TModel>> GetAllEntities();
+        Task<IEnumerable<TModel>> GetAllEntities(int skip, int take);
         Task<IEnumerable<TModel>> GetAllEntitiesWithAllChildren();
         Task<IEnumerable<TModel>> GetAllEntitiesWithSpecificChildren(string navigationPropertyPath);
         Task<TModel> GetEntityWithAllChildren(string id);
-        Task<TModel> GetEntityWithSpecificChildren(string id,string navigationPropertyPath);
+        Task<TModel> GetEntityWithSpecificChildren(string id, string navigationPropertyPath);
         Task<IEnumerable<TViewModel>> GetAllEntitiesAsViewModel();
         Task<IEnumerable<TModel>> GetAllEntities(string navigationProperties);
         Task CreateNew(TCreateViewModel viewModel);
