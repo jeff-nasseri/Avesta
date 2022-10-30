@@ -45,7 +45,7 @@ namespace Avesta.Controller.API
 
         [HttpGet]
         [Route(CrudEndPointController.GetAllWithChildren)]
-        public virtual async Task<IActionResult> GetAllWithChildren(int page, string? search = null)
+        public virtual async Task<IActionResult> GetAllWithChildren(int page = 1, string? search = null)
         {
             await Task.CompletedTask;
             return RedirectToAction(nameof(base.PaginateNavigationChildren), new { page = page, navigationAll = true, perPage = Pagination.PerPage, keyword = search });
@@ -64,7 +64,7 @@ namespace Avesta.Controller.API
 
         [HttpGet]
         [Route(CrudEndPointController.GetAllWithSpecificChildren)]
-        public virtual async Task<IActionResult> GetAllWithSpecificChildren(string navigationPropertyPath, int page, string? search = null)
+        public virtual async Task<IActionResult> GetAllWithSpecificChildren(string navigationPropertyPath, int page = 1, string? search = null)
         {
             await Task.CompletedTask;
             return RedirectToAction(nameof(base.PaginateNavigationChildren), new { page = page, navigation = navigationPropertyPath, perPage = Pagination.PerPage, keyword = search });
