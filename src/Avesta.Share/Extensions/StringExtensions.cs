@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace Avesta.Share.Extensions
 {
+
     public static class StringExtensions
     {
+
+
 
         public static int ToInt(this string value)
         {

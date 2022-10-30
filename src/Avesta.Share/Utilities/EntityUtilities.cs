@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Avesta.Share.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -8,14 +9,22 @@ using System.Threading.Tasks;
 namespace Avesta.Share.Utilities
 {
 
+
+
+
+
     public static class EntityUtilites
     {
         public static async Task<IEnumerable<T>> Search<T>(this IEnumerable<T> entityList, string keyword)
         {
+            await Task.CompletedTask;
+
             if (string.IsNullOrEmpty(keyword))
                 return entityList;
 
-            await Task.CompletedTask;
+
+            keyword.GetSearchParam(out List<string> words);
+
             var resultList = new List<T>();
             foreach (var entity in entityList)
             {
@@ -23,8 +32,11 @@ namespace Avesta.Share.Utilities
                 {
                     if (p.PropertyType == typeof(string) || p.PropertyType == typeof(int))
                     {
-                        return p.GetValue(entity) != null
-                        && p.GetValue(entity).ToString().ToLower().Contains(keyword);
+                        var data = p.GetValue(entity)?.ToString().ToLower();
+                        if (string.IsNullOrEmpty(data))
+                            return false;
+                        var any = words.Any(w => data.Contains(w.ToLower()));
+                        return any;
                     }
                     return false;
                 };
