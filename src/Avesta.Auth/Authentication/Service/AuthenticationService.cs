@@ -18,10 +18,10 @@ namespace Avesta.Auth.Authentication.Service
         where TAvestaUser : AvestaUser
     {
         Task<IdentityReturnTemplate> Login<TLoginUserModel>(TLoginUserModel model) where TLoginUserModel : LoginModelBase;
-        Task<IdentityReturnTemplate> Register<IRegisterUserViewModel>(IRegisterUserViewModel model)
-            where IRegisterUserViewModel : RegisterUserViewModel;
+        Task<IdentityReturnTemplate> Register<IRegisterUserViewModel>(IRegisterUserViewModel model) where IRegisterUserViewModel : RegisterUserViewModel;
         Task<IdentityReturnTemplate> ResetPassword(ResetPasswordViewModel viewModel);
         Task<JWTAvestaUser?> SignInWithJWT<TLoginUserModel>(TLoginUserModel model) where TLoginUserModel : LoginModelBase;
+        Task<JWTAvestaUser?> SignInWithJWT<TLoginUserModel>(TLoginUserModel model, params Claim[] claims) where TLoginUserModel : LoginModelBase;
         Task<TAvestaUser> GetAuthenticatedUser<TLoginModel>(TLoginModel model) where TLoginModel : LoginModelBase;
         Task<JWTTokenIdentityResult> RefreshJWTTokens(JWTTokenIdentityResult model);
         Task<JWTAvestaUser?> GetUserByToken(string token);
@@ -124,7 +124,6 @@ namespace Avesta.Auth.Authentication.Service
             if (user == null)
                 throw new IdentityException(msg: "", code: ExceptionConstant.IdentityException);
 
-
             var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.Email,user.Email)
@@ -137,6 +136,29 @@ namespace Avesta.Auth.Authentication.Service
             return data;
 
         }
+
+        public async Task<JWTAvestaUser?> SignInWithJWT<TLoginUserModel>(TLoginUserModel model, params Claim[] claims) where TLoginUserModel : LoginModelBase
+        {
+            var user = await GetAuthenticatedUser(model);
+            if (user == null)
+                throw new IdentityException(msg: "", code: ExceptionConstant.IdentityException);
+
+            var localClaims = new List<Claim>
+            {
+                new Claim(ClaimTypes.Email,user.Email)
+            };
+            localClaims.AddRange(claims);
+
+            var result = await _jWTAuthenticationService.GenerateToken(claims);
+            user.RefreshToken = result.RefreshToken;
+            await _identityRepository.UpdateUser(user);
+
+            var data = user.Convert<JWTAvestaUser>()?.SetToken(result.Token);
+            return data;
+
+        }
+
+
 
         public async Task<JWTTokenIdentityResult> RefreshJWTTokens(JWTTokenIdentityResult model)
         {
