@@ -1,11 +1,6 @@
-﻿using Avesta.Data.Model;
-using Avesta.Exceptions.Entity;
-using Avesta.Exceptions.Reflection;
-using Avesta.Model;
-using Avesta.Share.Extensions;
+﻿using Avesta.Share.Model;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
@@ -76,7 +71,7 @@ namespace Avesta.Repository.EntityRepository
 
         #region where
         Task<IEnumerable<TEntity>> WhereByInclude(string navigationPropertyPath, Expression<Func<TEntity, bool>> search);
-        Task<IEnumerable<TEntity>> GetAllByPropertyInfo(PropertyInfo info);
+        Task<IEnumerable<TEntity>> GetAllByPropertyInfo(PropertyInformation info);
         #endregion
 
 

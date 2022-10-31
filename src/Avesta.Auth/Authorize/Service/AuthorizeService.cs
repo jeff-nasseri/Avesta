@@ -24,6 +24,7 @@ namespace Avesta.Auth.Authorize.Service
         where TUserAuthorizeGroup : AvestaUserAuthorizeGroup
         where TAvestaUser : AvestaUser<TUserAuthorizeGroup>
     {
+        Task<string?> GetFeatureStrOfGroup(string groupId);
     }
 
 
@@ -39,6 +40,15 @@ namespace Avesta.Auth.Authorize.Service
             , IMapper mapper) : base(repository, mapper)
         {
         }
+
+
+        public async Task<string?> GetFeatureStrOfGroup(string groupId)
+        {
+            var group = await base.Get(groupId, exceptionRaseIfNotExist: true);
+            return group.FeaturesStr;
+        }
+
+
     }
 
 

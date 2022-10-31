@@ -1,14 +1,7 @@
-﻿using AutoMapper;
-using Avesta.Data.Model;
-using Avesta.Model;
-using Avesta.Model.Controller;
-using Avesta.Repository.Identity;
-using Microsoft.AspNetCore.Identity;
+﻿using Avesta.Data.Model;
+using Avesta.Share.Model.Controller;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Avesta.Services

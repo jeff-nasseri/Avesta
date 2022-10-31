@@ -30,7 +30,7 @@ namespace Avesta.Share.Utilities
             {
                 Func<PropertyInfo, bool> check = (p) =>
                 {
-                    if (p.PropertyType == typeof(string) || p.PropertyType == typeof(int))
+                    if (p.PropertyType == typeof(string) || p.PropertyType.IsNumericData())
                     {
                         var data = p.GetValue(entity)?.ToString().ToLower();
                         if (string.IsNullOrEmpty(data))

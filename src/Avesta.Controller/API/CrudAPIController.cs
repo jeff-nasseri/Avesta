@@ -1,16 +1,10 @@
 ﻿using Avesta.Data.Model;
-using Avesta.Model;
 using Avesta.Services;
+using Avesta.Share.Model;
 using Avesta.Storage.Constant;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using static Microsoft.Extensions.Logging.EventSource.LoggingEventSource;
 using CrudEndPointController = Avesta.Storage.Constant.EndPoints.CrudController;
 
 namespace Avesta.Controller.API
@@ -85,7 +79,7 @@ namespace Avesta.Controller.API
 
         [HttpPost]
         [Route(CrudEndPointController.GetAllByParentId)]
-        public async Task<IActionResult> GetAllByPropertyInfo(PropertyInfo parent)
+        public async Task<IActionResult> GetAllByPropertyInfo(PropertyInformation parent)
         {
             var result = await _crudService.GetAllByPropertyInfo(parent);
             return Ok(result);

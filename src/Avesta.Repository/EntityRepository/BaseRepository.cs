@@ -1,8 +1,6 @@
-﻿using Avesta.Data.Context;
-using Avesta.Data.Model;
+﻿using Avesta.Data.Model;
 using Avesta.Exceptions.Entity;
 using Avesta.Exceptions.Reflection;
-using Avesta.Model;
 using Avesta.Share.Extensions;
 using System;
 using System.Collections.Generic;
@@ -12,6 +10,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using DbContext = Microsoft.EntityFrameworkCore.DbContext;
 using EntityState = Microsoft.EntityFrameworkCore.EntityState;
+using Avesta.Share.Model;
 
 namespace Avesta.Repository.EntityRepositoryRepository
 {
@@ -350,7 +349,7 @@ namespace Avesta.Repository.EntityRepositoryRepository
             var result = await table.Where(search).ToListAsync();
             return result;
         }
-        public async Task<IEnumerable<TEntity>> GetAllByPropertyInfo<TEntity>(PropertyInfo info)
+        public async Task<IEnumerable<TEntity>> GetAllByPropertyInfo<TEntity>(PropertyInformation info)
             where TEntity : BaseEntity<TIdType>
         {
             await Task.CompletedTask;

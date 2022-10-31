@@ -1,11 +1,5 @@
-﻿using Avesta.Model;
-using Avesta.Model.Enum;
-using Avesta.Model.Identity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Avesta.Share.Enum;
+using Avesta.Share.Model.Identity;
 
 namespace Avesta.Auth.Authentication.ViewModel
 {

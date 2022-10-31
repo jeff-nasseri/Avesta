@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Avesta.Model.Controller;
+using Avesta.Share.Model.Controller;
 using Avesta.Storage.Constant;
 
 namespace Avesta.Services

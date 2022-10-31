@@ -1,11 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Avesta.Model;
-using Avesta.Model.Identity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Avesta.Share.Model;
+using Microsoft.AspNetCore.Identity;
 
 namespace Avesta.Repository.Identity.Model
 {

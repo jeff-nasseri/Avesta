@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SysEnum = System.Enum;
 
 namespace Avesta.Share.Extensions
 {
     public static class EnumHelper
     {
-        public static T GetAttributeOfType<T>(this Enum enumVal) where T : System.Attribute
+        public static T GetAttributeOfType<T>(this SysEnum enumVal) where T : System.Attribute
         {
             var type = enumVal.GetType();
             var memInfo = type.GetMember(enumVal.ToString());

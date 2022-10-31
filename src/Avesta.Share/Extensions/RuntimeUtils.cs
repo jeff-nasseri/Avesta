@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SysEnum = System.Enum;
 
 namespace Avesta.Share.Extensions
 {
@@ -10,8 +11,8 @@ namespace Avesta.Share.Extensions
     {
         public static IEnumerable<T> GetListOfValues<T>(this Type enumType)
         {
-            Type enumUnderlyingType = Enum.GetUnderlyingType(enumType);
-            Array enumValues = Enum.GetValues(enumType);
+            Type enumUnderlyingType = SysEnum.GetUnderlyingType(enumType);
+            Array enumValues = SysEnum.GetValues(enumType);
 
             for (int i = 0; i < enumValues.Length; i++)
             {

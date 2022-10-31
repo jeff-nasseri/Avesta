@@ -1,11 +1,7 @@
 ﻿using Avesta.Auth.User.Service;
 using Avesta.Data.Model;
-using Avesta.Model.Identity;
+using Avesta.Share.Model.Identity;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using UserManagerEndPointController = Avesta.Storage.Constant.EndPoints.User.UserManagerController;
 

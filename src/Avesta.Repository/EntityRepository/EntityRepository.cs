@@ -1,13 +1,7 @@
 ﻿using Avesta.Data.Model;
-using Avesta.Exceptions.Entity;
-using Avesta.Exceptions.Reflection;
-using Avesta.Model;
 using Avesta.Repository.EntityRepository;
-using Avesta.Repository.EntityRepositoryRepository;
-using Avesta.Share.Extensions;
+using Avesta.Share.Model;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Diagnostics;
-using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -194,7 +188,7 @@ namespace Avesta.Repository.EntityRepositoryRepository
         {
             return await base.WhereByInclude<TEntity>(navigationPropertyPath, search);
         }
-        public async Task<IEnumerable<TEntity>> GetAllByPropertyInfo(PropertyInfo info)
+        public async Task<IEnumerable<TEntity>> GetAllByPropertyInfo(PropertyInformation info)
         {
             return await base.GetAllByPropertyInfo<TEntity>(info);
         }

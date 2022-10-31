@@ -1,17 +1,11 @@
 ﻿using AutoMapper;
-using Avesta.Auth.Authentication.ViewModel;
 using Avesta.Data.Model;
 using Avesta.Exceptions.Identity;
-using Avesta.Model.Identity;
 using Avesta.Repository.Identity;
 using Avesta.Services;
 using Avesta.Share.Extensions;
+using Avesta.Share.Model.Identity;
 using Microsoft.AspNetCore.Identity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Avesta.Auth.User.Service
 {

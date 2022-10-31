@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Avesta.Data\Avesta.Data.csproj" />
+    <ProjectReference Include="..\Avesta.Repository\Avesta.Repository.csproj" />
+    <ProjectReference Include="..\Avesta.Share\Avesta.Share.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="JWT\Config\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.23.1" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.23.1" />
+  </ItemGroup>
+
+</Project>

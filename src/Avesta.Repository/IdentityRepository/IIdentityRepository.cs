@@ -1,13 +1,11 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Avesta.Repository.Identity.Model;
-using Avesta.Model.Identity;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Security.Claims;
-using System.Text;
 using System.Threading.Tasks;
 using System.Linq.Expressions;
+using Avesta.Share.Model.Identity;
 
 namespace Avesta.Repository.Identity
 {

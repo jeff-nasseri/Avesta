@@ -1,20 +1,15 @@
 ﻿using AutoMapper;
-
 using Avesta.Share.Utilities;
-using Avesta.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
 using Avesta.Repository.EntityRepository;
 using Avesta.Storage.Constant;
-using Microsoft.AspNetCore.Identity;
 using Avesta.Data.Model;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using Avesta.Model.Controller;
-using Microsoft.EntityFrameworkCore.Metadata;
+using Avesta.Share.Model;
+using Avesta.Share.Model.Controller;
 
 namespace Avesta.Services
 {
@@ -144,7 +139,7 @@ namespace Avesta.Services
         }
 
 
-        public virtual async Task<IEnumerable<TViewModel>> GetAllByPropertyInfo(PropertyInfo info)
+        public virtual async Task<IEnumerable<TViewModel>> GetAllByPropertyInfo(PropertyInformation info)
         {
             var entities = await _repository.GetAllByPropertyInfo(info);
             var result = entities.Select(e => _mapper.Map<TViewModel>(e)).ToList();

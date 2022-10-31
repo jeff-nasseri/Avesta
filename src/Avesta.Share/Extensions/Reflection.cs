@@ -9,6 +9,14 @@ namespace Avesta.Share.Extensions
 {
     public static class ReflectionExtension
     {
+        
+        public static bool IsNumericData(this Type type)
+        {
+            var result = type == typeof(int) || type == typeof(float) || type == typeof(decimal) || type == typeof(double);
+            return result;
+        }
+
+
         public static bool EnSureHasProperty(this Type type, string name)
         {
             var props = type.GetProperties();

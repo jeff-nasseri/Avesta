@@ -1,24 +1,16 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using System.Threading.Tasks;
 using AutoMapper;
-using System.Text;
 using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
-using System.Security.Cryptography;
-using Avesta.Avesta.Model.Identity;
-using Avesta.Model.Identity;
-using Avesta.Auth.JWT.Model;
 using Avesta.Data.Model;
 using Avesta.Repository.Identity;
-using Avesta.Auth.JWT.Service;
 using Avesta.Auth.Authentication.ViewModel;
 using Avesta.Exceptions.Identity;
 using Avesta.Storage.Constant;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Http;
 using Avesta.Share.Extensions;
-using Microsoft.AspNetCore.Mvc;
+using Avesta.Share.Model.Identity;
+using Avesta.HTTP.JWT.Model;
+using Avesta.HTTP.JWT.Service;
 
 namespace Avesta.Auth.Authentication.Service
 {
