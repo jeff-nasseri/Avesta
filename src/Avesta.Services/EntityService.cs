@@ -435,7 +435,10 @@ namespace Avesta.Services
         }
 
 
-        public virtual async Task<PaginationModel<TViewModel>> PaginateAsViewModel(int page, int perPage = Pagination.PerPage, string searchKeyWord = null)
+        public virtual async Task<PaginationModel<TViewModel>> PaginateAsViewModel(int page, int perPage = Pagination.PerPage
+            , string searchKeyWord = null
+            , DateTime? startDate = null
+            , DateTime? endDate = null)
         {
             IEnumerable<TViewModel> resultSearchByCustome = default;
             IEnumerable<TViewModel> resultSearchByDefault = default;
@@ -445,6 +448,12 @@ namespace Avesta.Services
             var take = perPage;
 
             var all = await GetAllAsViewModel(skip, take);
+
+            //filter by date time
+            if (startDate != null && endDate != null)
+                all = all.Where(a => a.CreatedDate >= startDate && a.CreatedDate <= endDate).ToList();
+
+
             var count = await Count();
             if (!string.IsNullOrEmpty(searchKeyWord))
             {
@@ -472,7 +481,9 @@ namespace Avesta.Services
             , string? navigation = null
             , bool? navigateAll = null
             , int perPage = Pagination.PerPage
-            , string? searchKeyword = null)
+            , string? searchKeyword = null
+            , DateTime? startDate = null
+            , DateTime? endDate = null)
         {
             IEnumerable<TModel> resultSearchByCustome = default;
             IEnumerable<TModel> resultSearchByDefault = default;
@@ -490,6 +501,10 @@ namespace Avesta.Services
             {
                 all = await GetAllEntitiesWithAllChildren(skip, take);
             }
+
+            //filter by date time
+            if (startDate != null && endDate != null)
+                all = all.Where(a => a.CreatedDate >= startDate && a.CreatedDate < endDate);
 
             var count = await Count();
             if (!string.IsNullOrEmpty(searchKeyword))

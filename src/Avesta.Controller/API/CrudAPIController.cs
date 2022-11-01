@@ -3,6 +3,7 @@ using Avesta.Services;
 using Avesta.Share.Model;
 using Avesta.Storage.Constant;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using CrudEndPointController = Avesta.Storage.Constant.EndPoints.CrudController;
@@ -39,10 +40,23 @@ namespace Avesta.Controller.API
 
         [HttpGet]
         [Route(CrudEndPointController.GetAllWithChildren)]
-        public virtual async Task<IActionResult> GetAllWithChildren(int page = 1, string? search = null)
+        public virtual async Task<IActionResult> GetAllWithChildren(int page = 1, string? search = null, DateTime? startDate = null, DateTime? endDate = null)
         {
             await Task.CompletedTask;
-            return RedirectToAction(nameof(base.PaginateNavigationChildren), new { page = page, navigationAll = true, perPage = Pagination.PerPage, keyword = search });
+            return RedirectToAction(nameof(base.PaginateNavigationChildren), new
+            {
+                page = page
+                ,
+                navigationAll = true
+                ,
+                perPage = Pagination.PerPage
+                ,
+                keyword = search
+                ,
+                startDate = startDate
+                ,
+                endDate = endDate
+            });
         }
 
 
@@ -58,10 +72,24 @@ namespace Avesta.Controller.API
 
         [HttpGet]
         [Route(CrudEndPointController.GetAllWithSpecificChildren)]
-        public virtual async Task<IActionResult> GetAllWithSpecificChildren(string navigationPropertyPath, int page = 1, string? search = null)
+        public virtual async Task<IActionResult> GetAllWithSpecificChildren(string navigationPropertyPath, int page = 1, string? search = null, DateTime? startDate = null, DateTime? endDate = null)
         {
             await Task.CompletedTask;
-            return RedirectToAction(nameof(base.PaginateNavigationChildren), new { page = page, navigation = navigationPropertyPath, perPage = Pagination.PerPage, keyword = search });
+            return RedirectToAction(nameof(base.PaginateNavigationChildren), new
+            {
+                page = page
+                ,
+                navigation = navigationPropertyPath
+                ,
+                perPage = Pagination.PerPage
+                ,
+                keyword = search
+                ,
+                startDate = startDate
+                ,
+                endDate = endDate
+            });
+
         }
 
 
@@ -128,10 +156,17 @@ namespace Avesta.Controller.API
 
         [HttpGet]
         [Route(CrudEndPointController.GetAll)]
-        public virtual async Task<IActionResult> GetAll(int page = 1, string? search = null)
+        public virtual async Task<IActionResult> GetAll(int page = 1, string? search = null, DateTime? startDate = null, DateTime? endDate = null)
         {
             await Task.CompletedTask;
-            return RedirectToAction(nameof(base.PaginateAsViewModel), new { page = page, perPage = Pagination.PerPage, keyword = search });
+            return RedirectToAction(nameof(base.PaginateAsViewModel), new
+            { 
+                page = page
+                , perPage = Pagination.PerPage
+                , keyword = search 
+                , startDate = startDate
+                , endDate = endDate
+            });
         }
 
         [HttpGet]

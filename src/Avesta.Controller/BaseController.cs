@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using Avesta.Storage.Constant;
+using System;
 
 namespace Avesta.Controller
 {
@@ -58,9 +59,17 @@ namespace Avesta.Controller
 
         [ApiExplorerSettings(IgnoreApi = true)]
         [Route(BaseController.PaginateNavigationChildren)]
-        public virtual async Task<IActionResult> PaginateNavigationChildren(int page, string? navigation = null, bool? navigationAll = null, int perPage = Pagination.PerPage, string? keyword = null)
+        public virtual async Task<IActionResult> PaginateNavigationChildren(int page, string? navigation = null, bool? navigationAll = null
+            , int perPage = Pagination.PerPage
+            , string? keyword = null
+            , DateTime? startDate = null
+            , DateTime? endDate = null)
         {
-            var result = await _baseService.PaginateNavigationChildren(page, navigation: navigation, navigateAll: navigationAll, perPage: perPage, searchKeyWord: keyword);
+            var result = await _baseService.PaginateNavigationChildren(page, navigation: navigation, navigateAll: navigationAll
+                , perPage: perPage
+                , searchKeyWord: keyword
+                , startDate: startDate
+                , endDate: endDate);
             return Ok(result);
         }
 
@@ -83,9 +92,11 @@ namespace Avesta.Controller
 
         [ApiExplorerSettings(IgnoreApi = true)]
         [Route(BaseController.PaginateAsViewModel)]
-        public virtual async Task<IActionResult> PaginateAsViewModel(int page, int perPage = Pagination.PerPage, string? keyword = null)
+        public virtual async Task<IActionResult> PaginateAsViewModel(int page, int perPage = Pagination.PerPage, string? keyword = null
+            , DateTime? startDate = null
+            , DateTime? endDate = null)
         {
-            var result = await _baseService.PaginateAsViewModel(page, perPage: perPage, searchKeyWord: keyword);
+            var result = await _baseService.PaginateAsViewModel(page, perPage: perPage, searchKeyWord: keyword, startDate: startDate, endDate: endDate);
             return Ok(result);
         }
     }
