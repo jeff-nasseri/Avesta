@@ -52,6 +52,8 @@ namespace Avesta.Storage.Constant
         public const int PasswordRequiresLower = 6680;
         public const int PasswordRequiresUpper = 6681;
         public const int CanNotFoundAnyUserWithThisUsernameAndPassword = 6682;
+        public const int AuhotizationAccessException = 6683;
+
         #endregion
 
 

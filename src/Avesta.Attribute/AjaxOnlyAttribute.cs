@@ -14,7 +14,7 @@ namespace Avesta.Attribute
     {
         public override bool IsValidForRequest(RouteContext routeContext, ActionDescriptor action)
         {
-            return routeContext.HttpContext.Request.IsAjaxRequest();
+            return routeContext.HttpContext.IsAjaxRequest();
         }
     }
 }

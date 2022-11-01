@@ -7,13 +7,19 @@ using System.Threading.Tasks;
 
 namespace Avesta.Share.Extensions
 {
-    public static class HttpRequestExtension
-    {
-        private const string RequestedWithHeader = "X-Requested-With";
-        private const string XmlHttpRequest = "XMLHttpRequest";
 
-        public static bool IsAjaxRequest(this HttpRequest request)
+    public static class HttpContextExtensions
+    {
+
+
+        public static bool IsAjaxRequest(this HttpContext context)
         {
+
+            const string RequestedWithHeader = "X-Requested-With";
+            const string XmlHttpRequest = "XMLHttpRequest";
+
+            var request = context.Request;
+
             if (request == null)
             {
                 throw new ArgumentNullException("request");
@@ -26,5 +32,23 @@ namespace Avesta.Share.Extensions
 
             return false;
         }
+
+
+
+        public async static Task<string?> GetHeaderValue(this HttpContext context, string key, string prefix = null)
+        {
+            await Task.CompletedTask;
+
+            var value = context.Request.Headers[key].ToString();
+            if (!string.IsNullOrEmpty(value))
+            {
+                var result = value.Replace(prefix, string.Empty);
+                return result;
+            }
+            return value;
+        }
+
+
+
     }
 }

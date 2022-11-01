@@ -40,4 +40,11 @@ namespace Avesta.Exceptions.Identity
         {
         }
     }
+
+    public class AuhotizationAccessException : IdentityException
+    {
+        public AuhotizationAccessException(string msg) : base(msg, ExceptionConstant.AuhotizationAccessException)
+        {
+        }
+    }
 }

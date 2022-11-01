@@ -1,6 +1,7 @@
 ﻿using Avesta.Data.Model;
 using Avesta.HTTP.JWT.Service;
 using Avesta.Repository.Identity;
+using Avesta.Share.Extensions;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -13,7 +14,6 @@ namespace Avesta.HTTP.Auth.Service
         Task<TAvestaUser> GetCurrentLoggedUserByCookieAuth();
         Task<TAvestaUser> GetCurrentLoggedUserByJWTAuth();
         Task<TAvestaUser> GetCurrentLoggedUserFromContext();
-        Task<string?> GetAuthenticationTokenFromContext(string authenticationSchema, string tokenName);
         Task<string?> GetBearerTokenFromContext();
     }
 
@@ -68,17 +68,9 @@ namespace Avesta.HTTP.Auth.Service
         }
 
 
-
-
-        public async Task<string?> GetAuthenticationTokenFromContext(string authenticationSchema, string tokenName)
-        {
-            var token = await _httpContextAccessor.HttpContext.GetTokenAsync(authenticationSchema, tokenName);
-            return token;
-        }
-
         public async Task<string?> GetBearerTokenFromContext()
         {
-            var token = await GetAuthenticationTokenFromContext("Bearer", "Authorization");
+            var token = await _httpContextAccessor.HttpContext.GetHeaderValue("Authorization", prefix: "Bearer ");
             return token;
         }
 
