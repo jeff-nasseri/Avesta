@@ -29,23 +29,23 @@ namespace Avesta.Services
         public virtual async Task<IEnumerable<TModel>> GetAllEntitiesWithAllChildren()
         {
             var result = await _repository.GetAllIncludeAllChildren();
-            return result;
+            return result.OrderByDescending(i => i.CreatedDate);
         }
         public virtual async Task<IEnumerable<TModel>> GetAllEntitiesWithAllChildren(int skip, int take)
         {
             var result = await _repository.GetAllIncludeAllChildren(skip, take);
-            return result;
+            return result.OrderByDescending(i => i.CreatedDate);
         }
 
         public virtual async Task<IEnumerable<TModel>> GetAllEntitiesWithSpecificChildren(string navigationPropertyPath)
         {
             var result = await _repository.GetAllByInclude(navigationPropertyPath: navigationPropertyPath);
-            return result;
+            return result.OrderByDescending(i => i.CreatedDate);
         }
         public virtual async Task<IEnumerable<TModel>> GetAllEntitiesWithSpecificChildren(string navigationPropertyPath, int skip, int take)
         {
             var result = await _repository.GetAllByInclude(navigationPropertyPath: navigationPropertyPath, skip, take);
-            return result;
+            return result.OrderByDescending(i => i.CreatedDate);
         }
         public virtual async Task<TModel> GetEntityWithSpecificChildren(string id, string navigationPropertyPath)
         {
@@ -67,7 +67,7 @@ namespace Avesta.Services
         public virtual async Task<IEnumerable<TModel>> GetAll()
         {
             var result = await _repository.GetAllAsync();
-            return result;
+            return result.OrderByDescending(i => i.CreatedDate);
         }
         public virtual async Task<IEnumerable<TModel>> GetAll(int skip, int take)
         {
@@ -78,12 +78,12 @@ namespace Avesta.Services
         public virtual async Task<IEnumerable<TModel>> GetAll(string navigationPropertyPath)
         {
             var result = await _repository.GetAllByInclude(navigationPropertyPath);
-            return result;
+            return result.OrderByDescending(i => i.CreatedDate);
         }
         public virtual async Task<IEnumerable<TModel>> GetAll(string navigationPropertyPath, Expression<Func<TModel, bool>> exp)
         {
             var result = await _repository.WhereByInclude(navigationPropertyPath, exp);
-            return result;
+            return result.OrderByDescending(i => i.CreatedDate);
         }
 
 
@@ -91,7 +91,7 @@ namespace Avesta.Services
         {
             var entites = await _repository.WhereByInclude(navigationPropertyPath, exp);
             var result = entites.Select(e => _mapper.Map<TViewModel>(e)).ToList();
-            return result;
+            return result.OrderByDescending(i => i.CreatedDate);
         }
         public virtual async Task<IEnumerable<GViewModel>> WhereAsViewModel<GViewModel>(string navigationPropertyPath, Expression<Func<TModel, bool>> exp)
         {
@@ -103,26 +103,26 @@ namespace Avesta.Services
         {
             var entites = await _repository.GetAllAsync(exp);
             var result = entites.Select(e => _mapper.Map<TViewModel>(e)).ToList();
-            return result;
+            return result.OrderByDescending(i => i.CreatedDate);
         }
         public virtual async Task<IEnumerable<TViewModel>> GetAllAsViewModel()
         {
             var entites = await _repository.GetAllAsync();
             var result = entites.Select(e => _mapper.Map<TViewModel>(e)).ToList();
-            return result;
+            return result.OrderByDescending(i => i.CreatedDate);
         }
         public virtual async Task<IEnumerable<TViewModel>> GetAllAsViewModel(int skip, int take)
         {
             var entites = await _repository.GetAllAsync(skip, take);
             var result = entites.Select(e => _mapper.Map<TViewModel>(e)).ToList();
-            return result;
+            return result.OrderByDescending(i => i.CreatedDate);
         }
 
         public virtual async Task<IEnumerable<TViewModel>> GetAllAsViewModel(Expression<Func<TModel, bool>> exp)
         {
             var entites = await _repository.GetAllAsync(exp);
             var result = entites.Select(e => _mapper.Map<TViewModel>(e)).ToList();
-            return result;
+            return result.OrderByDescending(i => i.CreatedDate);
         }
 
         public virtual async Task Create(TViewModel viewModel)
@@ -156,7 +156,7 @@ namespace Avesta.Services
         public virtual async Task<IEnumerable<TModel>> GetAll(Expression<Func<TModel, bool>> exp)
         {
             var result = await _repository.GetAllAsync(exp);
-            return result;
+            return result.OrderByDescending(i => i.CreatedDate);
         }
         public virtual async Task<TModel> Get(Expression<Func<TModel, bool>> exp, bool exceptionRaseIfNotExist)
         {
@@ -248,14 +248,14 @@ namespace Avesta.Services
                 all = await GetAllEntitiesWithAllChildren();
             }
             var result = await all.Search(keywords);
-            return result;
+            return result.OrderByDescending(i => i.CreatedDate);
         }
 
         public virtual async Task<IEnumerable<TViewModel>> SearchAsViewModel(string keywords)
         {
             var all = await GetAllAsViewModel();
             var result = await all.Search(keywords);
-            return result;
+            return result.OrderByDescending(i => i.CreatedDate);
         }
 
 
