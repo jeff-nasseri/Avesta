@@ -11,7 +11,8 @@ namespace Avesta.Services
     public class IdentityService<TAvestaUser> : IBaseService<TAvestaUser>
         where TAvestaUser : AvestaUser
     {
-        public Task<PaginationModel<TAvestaUser>> Paginate(int page, int perPage = 7, string searchKeyWord = null)
+
+        public Task<PaginationModel<TAvestaUser>> Paginate(int page, int perPage = 7, string searchKeyWord = null, DateTime? startDate = null, DateTime? endDate = null)
         {
             throw new NotImplementedException();
         }
@@ -24,7 +25,7 @@ namespace Avesta.Services
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<TAvestaUser>> Search(string keyword)
+        public Task<IEnumerable<TAvestaUser>> Search(string keyword, DateTime? startDate = null, DateTime? endDate = null)
         {
             throw new NotImplementedException();
         }

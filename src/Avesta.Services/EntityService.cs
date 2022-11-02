@@ -10,6 +10,7 @@ using Avesta.Storage.Constant;
 using Avesta.Data.Model;
 using Avesta.Share.Model;
 using Avesta.Share.Model.Controller;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Avesta.Services
 {
@@ -228,15 +229,22 @@ namespace Avesta.Services
             await Update(viewModel);
         }
 
-        public virtual async Task<IEnumerable<TModel>> Search(string keywords)
+        public virtual async Task<IEnumerable<TModel>> Search(string keywords, DateTime? startDate = null, DateTime? endDate = null)
         {
             var all = await GetAll();
             var result = await all.Search(keywords);
+
+            if (startDate != null && endDate != null)
+                result = result.Where(item => item.CreatedDate >= startDate && item.CreatedDate <= endDate);
+
             return result;
         }
 
 
-        public virtual async Task<IEnumerable<TModel>> SearchByIncludeNavigationPath(string keywords, string? navigation = null, bool? navigateAll = null)
+        public virtual async Task<IEnumerable<TModel>> SearchByIncludeNavigationPath(string keywords, string? navigation = null
+            , bool? navigateAll = null
+            , DateTime? startDate = null
+            , DateTime? endDate = null)
         {
             IEnumerable<TModel> all = null;
             if (!string.IsNullOrEmpty(navigation))
@@ -248,13 +256,21 @@ namespace Avesta.Services
                 all = await GetAllEntitiesWithAllChildren();
             }
             var result = await all.Search(keywords);
+
+            if (startDate != null && endDate != null)
+                result = result.Where(item => item.CreatedDate >= startDate && item.CreatedDate <= endDate);
+
             return result.OrderByDescending(i => i.CreatedDate);
         }
 
-        public virtual async Task<IEnumerable<TViewModel>> SearchAsViewModel(string keywords)
+        public virtual async Task<IEnumerable<TViewModel>> SearchAsViewModel(string keywords, DateTime? startDate = null, DateTime? endDate = null)
         {
             var all = await GetAllAsViewModel();
             var result = await all.Search(keywords);
+
+            if (startDate != null && endDate != null)
+                result = result.Where(item => item.CreatedDate >= startDate && item.CreatedDate <= endDate);
+
             return result.OrderByDescending(i => i.CreatedDate);
         }
 
@@ -403,10 +419,11 @@ namespace Avesta.Services
             return result;
         }
 
-        public virtual async Task<PaginationModel<TModel>> Paginate(int page, int perPage = Pagination.PerPage, string searchKeyWord = null)
+        public virtual async Task<PaginationModel<TModel>> Paginate(int page, int perPage = Pagination.PerPage, string searchKeyWord = null
+            , DateTime? startDate = null
+            , DateTime? endDate = null)
         {
             IEnumerable<TModel> resultSearchByCustome = default;
-            IEnumerable<TModel> resultSearchByDefault = default;
             IEnumerable<TModel> total = null;
 
             var skip = (page - 1) * perPage;
@@ -414,13 +431,11 @@ namespace Avesta.Services
 
             var all = await GetAllEntities(skip, take);
             var count = await Count();
-            if (!string.IsNullOrEmpty(searchKeyWord))
+            if (!string.IsNullOrEmpty(searchKeyWord) || (startDate != null && endDate != null))
             {
-                resultSearchByCustome = await Search(searchKeyWord);
-                resultSearchByDefault = await all.Search(keyword: searchKeyWord);
-                total = List.Merge(resultSearchByCustome, resultSearchByDefault);
-                count = total.Distinct().Count();
-                total = total.Distinct().Skip(skip).Take(take).ToList();
+                resultSearchByCustome = await Search(searchKeyWord, startDate: startDate, endDate: endDate);
+                count = resultSearchByCustome.Distinct().Count();
+                total = resultSearchByCustome.Distinct().Skip(skip).Take(take).ToList();
             }
 
 
@@ -441,7 +456,6 @@ namespace Avesta.Services
             , DateTime? endDate = null)
         {
             IEnumerable<TViewModel> resultSearchByCustome = default;
-            IEnumerable<TViewModel> resultSearchByDefault = default;
             IEnumerable<TViewModel> total = null;
 
             var skip = (page - 1) * perPage;
@@ -449,19 +463,13 @@ namespace Avesta.Services
 
             var all = await GetAllAsViewModel(skip, take);
 
-            //filter by date time
-            if (startDate != null && endDate != null)
-                all = all.Where(a => a.CreatedDate >= startDate && a.CreatedDate <= endDate).ToList();
-
 
             var count = await Count();
-            if (!string.IsNullOrEmpty(searchKeyWord))
+            if (!string.IsNullOrEmpty(searchKeyWord) || (startDate != null && endDate != null))
             {
-                resultSearchByCustome = await SearchAsViewModel(searchKeyWord);
-                resultSearchByDefault = await all.Search(keyword: searchKeyWord);
-                total = List.Merge(resultSearchByCustome, resultSearchByDefault);
-                count = total.Distinct().Count();
-                total = total.Distinct().Skip(skip).Take(take).ToList();
+                resultSearchByCustome = await SearchAsViewModel(searchKeyWord, startDate: startDate, endDate: endDate);
+                count = resultSearchByCustome.Distinct().Count();
+                total = resultSearchByCustome.Distinct().Skip(skip).Take(take).ToList();
             }
 
 
@@ -486,7 +494,6 @@ namespace Avesta.Services
             , DateTime? endDate = null)
         {
             IEnumerable<TModel> resultSearchByCustome = default;
-            IEnumerable<TModel> resultSearchByDefault = default;
             IEnumerable<TModel> total = null;
             IEnumerable<TModel> all = null;
 
@@ -502,18 +509,14 @@ namespace Avesta.Services
                 all = await GetAllEntitiesWithAllChildren(skip, take);
             }
 
-            //filter by date time
-            if (startDate != null && endDate != null)
-                all = all.Where(a => a.CreatedDate >= startDate && a.CreatedDate < endDate);
-
             var count = await Count();
-            if (!string.IsNullOrEmpty(searchKeyword))
+            if (!string.IsNullOrEmpty(searchKeyword) || (startDate != null && endDate != null))
             {
-                resultSearchByCustome = await SearchByIncludeNavigationPath(searchKeyword, navigation: navigation, navigateAll: navigateAll);
-                resultSearchByDefault = await all.Search(keyword: searchKeyword);
-                total = List.Merge(resultSearchByCustome, resultSearchByDefault);
-                count = total.Distinct().Count();
-                total = total.Distinct().Skip(skip).Take(take).ToList();
+                resultSearchByCustome = await SearchByIncludeNavigationPath(searchKeyword, navigation: navigation, navigateAll: navigateAll
+                    , startDate: startDate
+                    , endDate: endDate);
+                count = resultSearchByCustome.Distinct().Count();
+                total = resultSearchByCustome.Distinct().Skip(skip).Take(take).ToList();
             }
 
 

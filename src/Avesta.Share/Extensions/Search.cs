@@ -14,6 +14,13 @@ namespace Avesta.Share.Extensions
             searchParams = new List<string>();
             searchParams.AddRange(search.Split(Character.SearchSpliterChar).ToList());
         }
+
+
+
+        //TODO : complete this function 
+        //public static T IsItInTimeInterval<T>(this T data,DateTime? startDate = null, DateTime? endDate = null) where T : BaseEntity
+
+
     }
 
 }
