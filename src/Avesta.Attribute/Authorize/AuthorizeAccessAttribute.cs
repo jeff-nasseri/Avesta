@@ -54,6 +54,7 @@ namespace Avesta.Attribute.Authorize
                 throw new AuhotizationAccessException("User does not have any access to current endpoint");
         }
     }
+
     public class AuthorizeAccessAttribute<TAvestaUser, TRole> : TypeFilterAttribute
         where TAvestaUser : AvestaUser
         where TRole : IdentityRole

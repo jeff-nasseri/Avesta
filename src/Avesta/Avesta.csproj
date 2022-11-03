@@ -28,6 +28,7 @@
     <ProjectReference Include="..\Avesta.Data\Avesta.Data.csproj" />
     <ProjectReference Include="..\Avesta.Exceptions\Avesta.Exceptions.csproj" />
     <ProjectReference Include="..\Avesta.Global\Avesta.Global.csproj" />
+    <ProjectReference Include="..\Avesta.HTTP\Avesta.HTTP.csproj" />
     <ProjectReference Include="..\Avesta.Language\Avesta.Language.csproj" />
     <ProjectReference Include="..\Avesta.Logging\Avesta.Logging.csproj" />
     <ProjectReference Include="..\Avesta.Mapper\Avesta.Mapper.csproj" />

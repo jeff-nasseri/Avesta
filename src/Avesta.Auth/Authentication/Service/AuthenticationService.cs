@@ -149,7 +149,7 @@ namespace Avesta.Auth.Authentication.Service
             };
             localClaims.AddRange(claims);
 
-            var result = await _jWTAuthenticationService.GenerateToken(claims);
+            var result = await _jWTAuthenticationService.GenerateToken(localClaims);
             user.RefreshToken = result.RefreshToken;
             await _identityRepository.UpdateUser(user);
 

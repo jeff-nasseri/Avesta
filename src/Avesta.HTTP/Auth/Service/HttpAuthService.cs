@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using System.Linq.Expressions;
+using System.Security.Claims;
 
 namespace Avesta.HTTP.Auth.Service
 {
@@ -56,7 +57,10 @@ namespace Avesta.HTTP.Auth.Service
         /// <returns>Avesta User</returns>
         public async Task<TAvestaUser> GetCurrentLoggedUserByJWTAuth()
         {
-            throw new NotImplementedException();
+            var token = await GetBearerTokenFromContext();
+            var email = await _jWTAuthenticationService.GetClaimFromToken(token, ClaimTypes.Email);
+            var user = await _identityRepository.GetUserByEmail(email);
+            return user;
         }
 
 
