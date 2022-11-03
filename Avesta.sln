@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.32802.440
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avesta.Share", "src\Avesta.Share\Avesta.Share.csproj", "{6BEF4F01-926C-49AD-BA77-7887B836D20C}"
 EndProject
@@ -50,9 +50,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avesta", "src\Avesta\Avesta
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avesta.CLI", "src\Avesta.CLI\Avesta.CLI.csproj", "{CE3F3B6E-DFF8-4EBE-AAB4-AB921133F73C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F4D7BA0D-3062-4D78-98B7-04282988F9B2}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avesta.HTTP", "src\Avesta.HTTP\Avesta.HTTP.csproj", "{8A86DEA8-137F-470F-B3F0-B9C9B259480B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avesta.HTTP", "src\Avesta.HTTP\Avesta.HTTP.csproj", "{8A86DEA8-137F-470F-B3F0-B9C9B259480B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -146,8 +144,5 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C62A6BB7-70CB-4A3D-8A23-934D5EA5B7EC}
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{8A86DEA8-137F-470F-B3F0-B9C9B259480B} = {F4D7BA0D-3062-4D78-98B7-04282988F9B2}
 	EndGlobalSection
 EndGlobal
