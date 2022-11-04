@@ -24,6 +24,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Avesta.Attribute\Avesta.Attribute.csproj" />
     <ProjectReference Include="..\Avesta.Auth\Avesta.Auth.csproj" />
+    <ProjectReference Include="..\Avesta.CLI\Avesta.CLI.csproj" />
     <ProjectReference Include="..\Avesta.Controller\Avesta.Controller.csproj" />
     <ProjectReference Include="..\Avesta.Data\Avesta.Data.csproj" />
     <ProjectReference Include="..\Avesta.Exceptions\Avesta.Exceptions.csproj" />

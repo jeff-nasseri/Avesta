@@ -7,7 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Core\" />
+    <ProjectReference Include="..\Avesta.Attribute\Avesta.Attribute.csproj" />
+    <ProjectReference Include="..\Avesta.Share\Avesta.Share.csproj" />
+    <ProjectReference Include="..\Avesta.Storage\Avesta.Storage.csproj" />
   </ItemGroup>
 
 </Project>
