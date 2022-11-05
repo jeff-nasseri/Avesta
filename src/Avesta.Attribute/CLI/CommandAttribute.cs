@@ -11,7 +11,7 @@ namespace Avesta.Attribute.CLI
     public abstract class CommandAttribute : System.Attribute
     {
         public string Id { get; }
-        public string Name { get; set; }
+        public string FullName { get; set; }
         public string Help { get; set; }
         public string Verbosity { get; set; }
 
@@ -19,9 +19,9 @@ namespace Avesta.Attribute.CLI
         {
             Id = Keys.GenerateUniqueId();
         }
-        public CommandAttribute(string name, string help, string verbosity = "") : this()
+        public CommandAttribute(string fullName, string help, string verbosity = "") : this()
         {
-            Name = name;
+            FullName = fullName;
             Help = help;
             Verbosity = verbosity;
         }

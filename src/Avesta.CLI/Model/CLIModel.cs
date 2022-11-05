@@ -10,8 +10,9 @@ namespace Avesta.CLI.Model
 
     public class CLIModel : Share.Model.Model
     {
-        public string Help { get; set; }
-        public string Name { get; set; }
-        public Type Type { get; set; }
+        public virtual string Help { get; set; }
+        public virtual string RealName { get; set; }
+        public virtual string FullName { get; set; }
+        public virtual Type Type { get; set; }
     }
 }

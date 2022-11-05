@@ -11,11 +11,9 @@ namespace Avesta.Attribute.CLI
     public class PropertyAttribute : CommandAttribute
     {
         public string ShortName { get; set; }
-        public string FullName { get; set; }
-        public PropertyAttribute(string shortName, string fullName, string help) : base(name: fullName, help: help)
+        public PropertyAttribute(string shortName, string fullName, string help) : base(fullName: fullName, help: help)
         {
             ShortName = shortName;
-            FullName = fullName;
         }
     }
 }

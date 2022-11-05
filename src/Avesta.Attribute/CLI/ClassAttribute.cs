@@ -11,7 +11,7 @@ namespace Avesta.Attribute.CLI
     [AttributeUsage(AttributeTargets.Class)]
     public class ClassAttribute : CommandAttribute
     {
-        public ClassAttribute(string name, string help) : base(name: name, help: help)
+        public ClassAttribute(string fullName, string help) : base(fullName: fullName, help: help)
         {
         }
     }

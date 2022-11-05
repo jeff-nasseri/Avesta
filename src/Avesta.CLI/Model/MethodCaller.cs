@@ -1,9 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore.ChangeTracking;
+﻿using Avesta.Share.Model.CLI;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PropertyValues = Avesta.Share.Model.CLI.PropertyValues;
 
 namespace Avesta.CLI.Model
 {
@@ -15,18 +17,6 @@ namespace Avesta.CLI.Model
         public PropertyValues Properties { get; set; }
         public ArgumentValues Arguments { get; set; }
     }
-    public class PropertyValues : Dictionary<string, object>
-    {
-        public PropertyValues(string key, object value)
-        {
-            base.Add(key, value);
-        }
-    }
-    public class ArgumentValues : Dictionary<string, object>
-    {
-        public ArgumentValues(string key, object value)
-        {
-            base.Add(key, value);
-        }
-    }
+
+
 }

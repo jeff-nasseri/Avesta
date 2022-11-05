@@ -27,8 +27,6 @@ namespace Avesta.CLI
             .AddSingleton<CommandExecuter>();
 
 
-
-
             return services;
         }
 
@@ -43,5 +41,17 @@ namespace Avesta.CLI
 
             return services;
         }
+
+
+
+        public static ServiceProvider InitializeCLI(this ServiceProvider serviceProvider,IEnumerable<Type> cliTypes)
+        {
+            var core = serviceProvider.GetRequiredService<Core>();
+            core.OnProcess(cliTypes);
+
+            return serviceProvider;
+        }
+
+
     }
 }

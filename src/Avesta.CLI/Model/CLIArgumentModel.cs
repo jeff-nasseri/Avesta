@@ -10,6 +10,8 @@ namespace Avesta.CLI.Model
     public class CLIArgumentModel : CLIModel
     {
         public string ShortName { get; set; }
-        public string FullName { get; set; }
+
+        public override string RealName { get => base.FullName; }
+
     }
 }

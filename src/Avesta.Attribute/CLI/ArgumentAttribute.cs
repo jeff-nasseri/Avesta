@@ -12,12 +12,10 @@ namespace Avesta.Attribute.CLI
     public class ArgumentAttribute : CommandAttribute
     {
         public string ShortName { get; set; }
-        public string FullName { get; set; }
         public Type ArgumentType { get; set; }
-        public ArgumentAttribute(string shortName, string fullName, string help, Type argumentType) : base(name: fullName, help: help)
+        public ArgumentAttribute(string shortName, string fullName, string help, Type argumentType) : base(fullName: fullName, help: help)
         {
             ShortName = shortName;
-            FullName = fullName;
             ArgumentType = argumentType;
         }
     }
