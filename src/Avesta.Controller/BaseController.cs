@@ -13,7 +13,7 @@ namespace Avesta.Controller
     {
 
         Task<IActionResult> Search(string keyword);
-        Task<IActionResult> Paginate(int page, string keyword = null);
+        Task<IActionResult> Paginate(int? page = null, string keyword = null);
     }
     public abstract class BaseController<T> : AvestaController
         where T : class
@@ -27,7 +27,7 @@ namespace Avesta.Controller
 
 
         [ApiExplorerSettings(IgnoreApi = true)]
-        public virtual async Task<IActionResult> Paginate(int page, string viewName, string keyword = null)
+        public virtual async Task<IActionResult> Paginate(int? page = null, string viewName = null, string keyword = null)
         {
             var model = await _baseService.Paginate(page, searchKeyWord: keyword);
             var entities = model.Entities;
@@ -50,7 +50,7 @@ namespace Avesta.Controller
 
         [ApiExplorerSettings(IgnoreApi = true)]
         [Route(BaseController.Paginate)]
-        public virtual async Task<IActionResult> Paginate(int page, int perPage = Pagination.PerPage, string? keyword = null)
+        public virtual async Task<IActionResult> Paginate(int? page = null, int perPage = Pagination.PerPage, string? keyword = null)
         {
             var result = await _baseService.Paginate(page, perPage: perPage, searchKeyWord: keyword);
             return Ok(result);
@@ -59,7 +59,7 @@ namespace Avesta.Controller
 
         [ApiExplorerSettings(IgnoreApi = true)]
         [Route(BaseController.PaginateNavigationChildren)]
-        public virtual async Task<IActionResult> PaginateNavigationChildren(int page, string? navigation = null, bool? navigationAll = null
+        public virtual async Task<IActionResult> PaginateNavigationChildren(int? page = null, string? navigation = null, bool? navigationAll = null
             , int perPage = Pagination.PerPage
             , string? keyword = null
             , DateTime? startDate = null
@@ -92,7 +92,7 @@ namespace Avesta.Controller
 
         [ApiExplorerSettings(IgnoreApi = true)]
         [Route(BaseController.PaginateAsViewModel)]
-        public virtual async Task<IActionResult> PaginateAsViewModel(int page, int perPage = Pagination.PerPage, string? keyword = null
+        public virtual async Task<IActionResult> PaginateAsViewModel(int? page = null, int perPage = Pagination.PerPage, string? keyword = null
             , DateTime? startDate = null
             , DateTime? endDate = null)
         {

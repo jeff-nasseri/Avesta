@@ -40,7 +40,7 @@ namespace Avesta.Controller.API
 
         [HttpGet]
         [Route(CrudEndPointController.GetAllWithChildren)]
-        public virtual async Task<IActionResult> GetAllWithChildren(int page = 1, string? search = null, DateTime? startDate = null, DateTime? endDate = null)
+        public virtual async Task<IActionResult> GetAllWithChildren(int? page = null, int perPage = Pagination.PerPage, string? search = null, DateTime? startDate = null, DateTime? endDate = null)
         {
             await Task.CompletedTask;
             return RedirectToAction(nameof(base.PaginateNavigationChildren), new
@@ -49,7 +49,7 @@ namespace Avesta.Controller.API
                 ,
                 navigationAll = true
                 ,
-                perPage = Pagination.PerPage
+                perPage = perPage
                 ,
                 keyword = search
                 ,
@@ -72,7 +72,8 @@ namespace Avesta.Controller.API
 
         [HttpGet]
         [Route(CrudEndPointController.GetAllWithSpecificChildren)]
-        public virtual async Task<IActionResult> GetAllWithSpecificChildren(string navigationPropertyPath, int page = 1, string? search = null, DateTime? startDate = null, DateTime? endDate = null)
+        public virtual async Task<IActionResult> GetAllWithSpecificChildren(string navigationPropertyPath, int? page = null, int perPage = Pagination.PerPage
+            , string? search = null, DateTime? startDate = null, DateTime? endDate = null)
         {
             await Task.CompletedTask;
             return RedirectToAction(nameof(base.PaginateNavigationChildren), new
@@ -81,7 +82,7 @@ namespace Avesta.Controller.API
                 ,
                 navigation = navigationPropertyPath
                 ,
-                perPage = Pagination.PerPage
+                perPage = perPage
                 ,
                 keyword = search
                 ,
@@ -156,13 +157,13 @@ namespace Avesta.Controller.API
 
         [HttpGet]
         [Route(CrudEndPointController.GetAll)]
-        public virtual async Task<IActionResult> GetAll(int page = 1, string? search = null, DateTime? startDate = null, DateTime? endDate = null)
+        public virtual async Task<IActionResult> GetAll(int? page = null, int perPage = Pagination.PerPage, string? search = null, DateTime? startDate = null, DateTime? endDate = null)
         {
             await Task.CompletedTask;
             return RedirectToAction(nameof(base.PaginateAsViewModel), new
             { 
                 page = page
-                , perPage = Pagination.PerPage
+                , perPage = perPage
                 , keyword = search 
                 , startDate = startDate
                 , endDate = endDate

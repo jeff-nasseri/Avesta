@@ -419,14 +419,18 @@ namespace Avesta.Services
             return result;
         }
 
-        public virtual async Task<PaginationModel<TModel>> Paginate(int page, int perPage = Pagination.PerPage, string searchKeyWord = null
+        public virtual async Task<PaginationModel<TModel>> Paginate(int? page = null, int perPage = Pagination.PerPage, string searchKeyWord = null
             , DateTime? startDate = null
             , DateTime? endDate = null)
         {
             IEnumerable<TModel> resultSearchByCustome = default;
             IEnumerable<TModel> total = null;
 
-            var skip = (page - 1) * perPage;
+            if (page == null)
+                return await AllModel(searchKeyWord, startDate, endDate);
+
+
+            var skip = (page.Value - 1) * perPage;
             var take = perPage;
 
             var all = await GetAllEntities(skip, take);
@@ -449,8 +453,34 @@ namespace Avesta.Services
             return result;
         }
 
+        async Task<PaginationModel<TModel>> AllModel(string searchKeyWord = null
+    , DateTime? startDate = null
+    , DateTime? endDate = null)
+        {
+            IEnumerable<TModel> resultSearchByCustome = default;
+            IEnumerable<TModel> total = null;
 
-        public virtual async Task<PaginationModel<TViewModel>> PaginateAsViewModel(int page, int perPage = Pagination.PerPage
+            var all = await GetAllEntities();
+            var count = await Count();
+            if (!string.IsNullOrEmpty(searchKeyWord) || (startDate != null && endDate != null))
+            {
+                resultSearchByCustome = await Search(searchKeyWord, startDate: startDate, endDate: endDate);
+                count = resultSearchByCustome.Distinct().Count();
+                total = resultSearchByCustome.Distinct().ToList();
+            }
+
+            var result = new PaginationModel<TModel>
+            {
+                Entities = (total ?? all),
+                Total = count
+            };
+
+
+            return result;
+        }
+
+
+        public virtual async Task<PaginationModel<TViewModel>> PaginateAsViewModel(int? page = null, int perPage = Pagination.PerPage
             , string searchKeyWord = null
             , DateTime? startDate = null
             , DateTime? endDate = null)
@@ -458,7 +488,11 @@ namespace Avesta.Services
             IEnumerable<TViewModel> resultSearchByCustome = default;
             IEnumerable<TViewModel> total = null;
 
-            var skip = (page - 1) * perPage;
+
+            if (page == null)
+                return await AllAsViewModel(searchKeyWord, startDate, endDate);
+
+            var skip = (page.Value - 1) * perPage;
             var take = perPage;
 
             var all = await GetAllAsViewModel(skip, take);
@@ -485,7 +519,44 @@ namespace Avesta.Services
         }
 
 
-        public virtual async Task<PaginationModel<TModel>> PaginateNavigationChildren(int page
+
+
+        async Task<PaginationModel<TViewModel>> AllAsViewModel(string searchKeyWord = null
+         , DateTime? startDate = null
+         , DateTime? endDate = null)
+        {
+            IEnumerable<TViewModel> resultSearchByCustome = default;
+            IEnumerable<TViewModel> total = null;
+
+
+            var all = await GetAllAsViewModel();
+
+
+            var count = await Count();
+            if (!string.IsNullOrEmpty(searchKeyWord) || (startDate != null && endDate != null))
+            {
+                resultSearchByCustome = await SearchAsViewModel(searchKeyWord, startDate: startDate, endDate: endDate);
+                count = resultSearchByCustome.Distinct().Count();
+                total = resultSearchByCustome.Distinct().ToList();
+            }
+
+
+            var result = new PaginationModel<TViewModel>
+            {
+                Entities = (total ?? all),
+                Total = count
+            };
+
+
+            return result;
+
+        }
+
+
+
+
+
+        public virtual async Task<PaginationModel<TModel>> PaginateNavigationChildren(int? page = null
             , string? navigation = null
             , bool? navigateAll = null
             , int perPage = Pagination.PerPage
@@ -497,7 +568,11 @@ namespace Avesta.Services
             IEnumerable<TModel> total = null;
             IEnumerable<TModel> all = null;
 
-            var skip = (page - 1) * perPage;
+
+            if (page == null)
+                return await AllNavigationChildren(navigation, navigateAll, searchKeyword, startDate, endDate);
+
+            var skip = (page.Value - 1) * perPage;
             var take = perPage;
 
             if (!string.IsNullOrEmpty(navigation))
@@ -529,6 +604,53 @@ namespace Avesta.Services
 
             return result;
         }
+
+
+
+
+
+        async Task<PaginationModel<TModel>> AllNavigationChildren(string? navigation = null
+          , bool? navigateAll = null
+          , string? searchKeyword = null
+          , DateTime? startDate = null
+          , DateTime? endDate = null)
+        {
+            IEnumerable<TModel> resultSearchByCustome = default;
+            IEnumerable<TModel> total = null;
+            IEnumerable<TModel> all = null;
+
+
+            if (!string.IsNullOrEmpty(navigation))
+            {
+                all = await GetAllEntitiesWithSpecificChildren(navigation);
+            }
+            if (navigateAll.HasValue && navigateAll.Value)
+            {
+                all = await GetAllEntitiesWithAllChildren();
+            }
+
+            var count = await Count();
+            if (!string.IsNullOrEmpty(searchKeyword) || (startDate != null && endDate != null))
+            {
+                resultSearchByCustome = await SearchByIncludeNavigationPath(searchKeyword, navigation: navigation, navigateAll: navigateAll
+                    , startDate: startDate
+                    , endDate: endDate);
+                count = resultSearchByCustome.Distinct().Count();
+                total = resultSearchByCustome.Distinct().ToList();
+            }
+
+            var result = new PaginationModel<TModel>
+            {
+                Entities = (total ?? all),
+                Total = count
+            };
+
+
+            return result;
+        }
+
+
+
 
 
     }

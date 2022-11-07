@@ -11,16 +11,12 @@ namespace Avesta.Services
     public class IdentityService<TAvestaUser> : IBaseService<TAvestaUser>
         where TAvestaUser : AvestaUser
     {
-
-        public Task<PaginationModel<TAvestaUser>> Paginate(int page, int perPage = 7, string searchKeyWord = null, DateTime? startDate = null, DateTime? endDate = null)
+        public Task<PaginationModel<TAvestaUser>> Paginate(int? page = null, int perPage = 7, string searchKeyWord = null, DateTime? startDate = null, DateTime? endDate = null)
         {
             throw new NotImplementedException();
         }
 
-        public Task<PaginationModel<TAvestaUser>> PaginateNavigationChildren(int page, string navigation = null, bool? navigateAll = null, int perPage = 7
-            , string searchKeyWord = null
-            , DateTime? startDate = null
-            , DateTime? endDate = null)
+        public Task<PaginationModel<TAvestaUser>> PaginateNavigationChildren(int? page = null, string navigation = null, bool? navigateAll = null, int perPage = 7, string searchKeyWord = null, DateTime? startDate = null, DateTime? endDate = null)
         {
             throw new NotImplementedException();
         }
