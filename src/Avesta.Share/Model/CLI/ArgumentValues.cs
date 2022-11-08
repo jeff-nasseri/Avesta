@@ -6,15 +6,14 @@ using System.Threading.Tasks;
 
 namespace Avesta.Share.Model.CLI
 {
-    public class ArgumentValues : Dictionary<string, object>
+    public class ArgumentValues : List<(Type type, string name, object value)>
     {
+        public ArgumentValues(Type type, string name, object value)
+        {
+            Add(new (type, name, value));
+        }
         public ArgumentValues()
         {
-
-        }
-        public ArgumentValues(string key, object value)
-        {
-            base.Add(key, value);
         }
     }
 }

@@ -39,15 +39,7 @@ namespace Avesta.CLI
             }
 
             var methodInfo = obj.GetType().GetMethod(caller.MethodName);
-            var args = caller.Arguments.Select(a => a.Value as Object).ToArray();
-            
-            /*
-             * 1- sequence of args may not be matched by sequence of method args
-             * 2- we dont have any type info about args with want to send to method 
-             * 
-             * these are our problem when trying to call method or invoke method 
-             * with custome parameter !
-             */
+            var args = caller.Arguments.Select(a => Convert.ChangeType(a.value, a.type)).ToArray();
 
             methodInfo?.Invoke(obj, args);
 
@@ -95,23 +87,23 @@ namespace Avesta.CLI
             foreach (var arg in command.ArgumentValues)
             {
 
-                if (arg.Key.StartsWith("--"))
+                if (arg.name.StartsWith("--"))
                 {
-                    var fullName = arg.Key.Substring(2);
+                    var fullName = arg.name.Substring(2);
                     var targetArg = method?.Arguments.SingleOrDefault(a => a.FullName.ToLower() == fullName.ToLower());
                     if (targetArg == null)
                         continue;
 
-                    argumentValues.Add(targetArg?.RealName, arg.Value);
+                    argumentValues.Add(new(targetArg.Type, targetArg?.RealName, arg.value));
                 }
-                if (arg.Key.StartsWith('-'))
+                if (arg.name.StartsWith('-'))
                 {
-                    var shortName = arg.Key.Substring(1);
+                    var shortName = arg.name.Substring(1);
                     var targetArg = method?.Arguments.SingleOrDefault(a => a.ShortName.ToLower() == shortName.ToLower());
                     if (targetArg == null)
                         continue;
 
-                    propertyValues.Add(targetArg?.RealName, arg.Value);
+                    argumentValues.Add(new(targetArg.Type, targetArg?.RealName, arg.value));
                 }
 
             }

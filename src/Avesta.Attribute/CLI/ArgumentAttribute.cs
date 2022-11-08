@@ -8,7 +8,7 @@ namespace Avesta.Attribute.CLI
 {
 
 
-    [AttributeUsage(AttributeTargets.Method)]
+    [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
     public class ArgumentAttribute : CommandAttribute
     {
         public string ShortName { get; set; }

@@ -55,7 +55,7 @@ namespace Avesta.Share.Utilities
             {
                 var index = argumentPhase.IndexOf(name);
                 var value = argumentPhase[index + 1];
-                argumentValues.Add(name, value);
+                argumentValues.Add((null, name, value));
             }
 
 
