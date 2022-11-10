@@ -188,6 +188,15 @@ namespace Avesta.Repository.EntityRepositoryRepository
         {
             return await base.WhereByInclude<TEntity>(navigationPropertyPath, search);
         }
+        public async Task<IEnumerable<TEntity>> WhereByInclude(string navigationPropertyPath, string dynamicQuery, int skip, int take)
+        {
+            return await base.WhereByInclude<TEntity>(navigationPropertyPath, dynamicQuery, skip: skip, take: take);
+        }
+        public async Task<IEnumerable<TEntity>> WhereByInclude(string navigationPropertyPath, string dynamicQuery)
+        {
+            return await base.WhereByInclude<TEntity>(navigationPropertyPath, dynamicQuery);
+        }
+
         public async Task<IEnumerable<TEntity>> GetAllByPropertyInfo(PropertyInformation info)
         {
             return await base.GetAllByPropertyInfo<TEntity>(info);

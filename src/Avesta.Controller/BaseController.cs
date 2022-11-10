@@ -62,12 +62,14 @@ namespace Avesta.Controller
         public virtual async Task<IActionResult> PaginateNavigationChildren(int? page = null, string? navigation = null, bool? navigationAll = null
             , int perPage = Pagination.PerPage
             , string? keyword = null
+            , string? dynamicQuery = null
             , DateTime? startDate = null
             , DateTime? endDate = null)
         {
             var result = await _baseService.PaginateNavigationChildren(page, navigation: navigation, navigateAll: navigationAll
                 , perPage: perPage
                 , searchKeyWord: keyword
+                , dynamicQuery: dynamicQuery
                 , startDate: startDate
                 , endDate: endDate);
             return Ok(result);

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.ObjectPool;
 using MoreLinq;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,24 @@ namespace Avesta.Share.Extensions
 
     public static class PublicExtension
     {
+
+        public static object Log(this object obj)
+        {
+            var properties = obj.GetType().GetProperties();
+            foreach (var prop in properties)
+            {
+                Console.WriteLine($"{prop.Name} : {prop.GetValue(obj)}");
+            }
+            return obj;
+           
+        }
+        public static void SeperateLogInConsole(this object obj,string title)
+        {
+            Console.WriteLine($"\n-------{title}-------\n");
+        }
+
+
+
         public static string ToGoogleCaltureSchema(this string schemaStr)
         {
             return schemaStr.Replace("type", "@type").Replace("context", "@context");

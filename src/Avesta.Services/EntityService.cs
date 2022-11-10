@@ -43,6 +43,16 @@ namespace Avesta.Services
             var result = await _repository.GetAllByInclude(navigationPropertyPath: navigationPropertyPath);
             return result.OrderByDescending(i => i.CreatedDate);
         }
+        public virtual async Task<IEnumerable<TModel>> WhereEntitiesWithSpecificChildren(string navigationPropertyPath, string dynamicQuery, int skip, int take)
+        {
+            var result = await _repository.WhereByInclude(navigationPropertyPath: navigationPropertyPath, dynamicQuery: dynamicQuery, skip, take);
+            return result.OrderByDescending(i => i.CreatedDate);
+        }
+        public virtual async Task<IEnumerable<TModel>> WhereEntitiesWithSpecificChildren(string navigationPropertyPath, string dynamicQuery)
+        {
+            var result = await _repository.WhereByInclude(navigationPropertyPath: navigationPropertyPath, dynamicQuery: dynamicQuery);
+            return result.OrderByDescending(i => i.CreatedDate);
+        }
         public virtual async Task<IEnumerable<TModel>> GetAllEntitiesWithSpecificChildren(string navigationPropertyPath, int skip, int take)
         {
             var result = await _repository.GetAllByInclude(navigationPropertyPath: navigationPropertyPath, skip, take);
@@ -86,6 +96,7 @@ namespace Avesta.Services
             var result = await _repository.WhereByInclude(navigationPropertyPath, exp);
             return result.OrderByDescending(i => i.CreatedDate);
         }
+
 
 
         public virtual async Task<IEnumerable<TViewModel>> WhereAsViewModel(string navigationPropertyPath, Expression<Func<TModel, bool>> exp)
@@ -561,6 +572,7 @@ namespace Avesta.Services
             , bool? navigateAll = null
             , int perPage = Pagination.PerPage
             , string? searchKeyword = null
+            , string? dynamicQuery = null
             , DateTime? startDate = null
             , DateTime? endDate = null)
         {
@@ -570,19 +582,29 @@ namespace Avesta.Services
 
 
             if (page == null)
-                return await AllNavigationChildren(navigation, navigateAll, searchKeyword, startDate, endDate);
+                return await AllNavigationChildren(navigation, navigateAll, searchKeyword, dynamicQuery, startDate, endDate);
 
             var skip = (page.Value - 1) * perPage;
             var take = perPage;
 
-            if (!string.IsNullOrEmpty(navigation))
+
+            //TODO : fix this statement and make more better 
+            if (!string.IsNullOrEmpty(dynamicQuery))
             {
-                all = await GetAllEntitiesWithSpecificChildren(navigation, skip, take);
+                all = await WhereEntitiesWithSpecificChildren(navigation, dynamicQuery, skip, take);
             }
-            if (navigateAll.HasValue && navigateAll.Value)
+            else
             {
-                all = await GetAllEntitiesWithAllChildren(skip, take);
+                if (!string.IsNullOrEmpty(navigation))
+                {
+                    all = await GetAllEntitiesWithSpecificChildren(navigation, skip, take);
+                }
+                if (navigateAll.HasValue && navigateAll.Value)
+                {
+                    all = await GetAllEntitiesWithAllChildren(skip, take);
+                }
             }
+
 
             var count = await Count();
             if (!string.IsNullOrEmpty(searchKeyword) || (startDate != null && endDate != null))
@@ -612,6 +634,7 @@ namespace Avesta.Services
         async Task<PaginationModel<TModel>> AllNavigationChildren(string? navigation = null
           , bool? navigateAll = null
           , string? searchKeyword = null
+          , string? dynamicQuery = null
           , DateTime? startDate = null
           , DateTime? endDate = null)
         {
@@ -620,14 +643,25 @@ namespace Avesta.Services
             IEnumerable<TModel> all = null;
 
 
-            if (!string.IsNullOrEmpty(navigation))
+
+
+            //TODO : fix this statement and make more better 
+            if (!string.IsNullOrEmpty(dynamicQuery))
             {
-                all = await GetAllEntitiesWithSpecificChildren(navigation);
+                all = await WhereEntitiesWithSpecificChildren(navigation, dynamicQuery);
             }
-            if (navigateAll.HasValue && navigateAll.Value)
+            else
             {
-                all = await GetAllEntitiesWithAllChildren();
+                if (!string.IsNullOrEmpty(navigation))
+                {
+                    all = await GetAllEntitiesWithSpecificChildren(navigation);
+                }
+                if (navigateAll.HasValue && navigateAll.Value)
+                {
+                    all = await GetAllEntitiesWithAllChildren();
+                }
             }
+
 
             var count = await Count();
             if (!string.IsNullOrEmpty(searchKeyword) || (startDate != null && endDate != null))

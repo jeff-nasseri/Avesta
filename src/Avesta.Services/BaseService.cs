@@ -22,6 +22,7 @@ namespace Avesta.Services
 
         Task<PaginationModel<T>> PaginateNavigationChildren(int? page = null, string? navigation = null, bool? navigateAll = null, int perPage = Pagination.PerPage
             , string searchKeyWord = null
+            , string? dynamicQuery = null
             , DateTime? startDate = null
             , DateTime? endDate = null);
 

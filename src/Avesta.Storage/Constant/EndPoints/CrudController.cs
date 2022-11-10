@@ -16,6 +16,7 @@ namespace Avesta.Storage.Constant.EndPoints
         public const string GetAll = "get_all";
         public const string GetAsViewModel = "get_as_view_model";
         public const string Get = "get";
+        public const string Query = "query";
         public const string GetAllWithChildren = "get_all_include_mapped_children";
         public const string GetAllWithSpecificChildren = "get_all_include_specific_mapped_children";
         public const string GetWithChildren = "get_include_mapped_children";

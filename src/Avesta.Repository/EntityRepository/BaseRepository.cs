@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using DbContext = Microsoft.EntityFrameworkCore.DbContext;
 using EntityState = Microsoft.EntityFrameworkCore.EntityState;
 using Avesta.Share.Model;
+using System.Linq.Dynamic.Core;
 
 namespace Avesta.Repository.EntityRepositoryRepository
 {
@@ -188,6 +189,9 @@ namespace Avesta.Repository.EntityRepositoryRepository
             var table = await Include<TEntity>(navigationPropertyPath);
             return table.Skip(skip).Take(take).ToList();
         }
+
+
+
         public async Task<IEnumerable<TEntity>> GetAllAsync<TEntity, TKey>(string navigationPropertyPath = null, Func<TEntity, TKey> descendingOrder = null)
             where TEntity : BaseEntity<TIdType>
         {
@@ -342,6 +346,28 @@ namespace Avesta.Repository.EntityRepositoryRepository
 
 
         #region where
+
+        public async Task<IEnumerable<TEntity>> GatherData<TEntity>(string navigationPropertyPath, string where, string select, int page)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public async Task<IEnumerable<TEntity>> WhereByInclude<TEntity>(string navigationPropertyPath, string dynamicQuery, int skip, int take)
+            where TEntity : BaseEntity<TIdType>
+        {
+            var table = await Include<TEntity>(navigationPropertyPath);
+            var result = table.Where(dynamicQuery).Skip(skip).Take(take);
+            return result;
+        }
+        public async Task<IEnumerable<TEntity>> WhereByInclude<TEntity>(string navigationPropertyPath, string dynamicQuery)
+            where TEntity : BaseEntity<TIdType>
+        {
+            var table = await Include<TEntity>(navigationPropertyPath);
+            var result = table.Where(dynamicQuery);
+            return result;
+        }
+
         public async Task<IEnumerable<TEntity>> WhereByInclude<TEntity>(string navigationPropertyPath, Expression<Func<TEntity, bool>> search)
             where TEntity : BaseEntity<TIdType>
         {

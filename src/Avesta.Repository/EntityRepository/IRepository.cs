@@ -71,6 +71,8 @@ namespace Avesta.Repository.EntityRepository
 
         #region where
         Task<IEnumerable<TEntity>> WhereByInclude(string navigationPropertyPath, Expression<Func<TEntity, bool>> search);
+        Task<IEnumerable<TEntity>> WhereByInclude(string navigationPropertyPath, string dynamicQuery, int skip, int take);
+        Task<IEnumerable<TEntity>> WhereByInclude(string navigationPropertyPath, string dynamicQuery);
         Task<IEnumerable<TEntity>> GetAllByPropertyInfo(PropertyInformation info);
         #endregion
 

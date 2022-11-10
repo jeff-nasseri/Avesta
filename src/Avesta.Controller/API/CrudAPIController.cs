@@ -39,6 +39,15 @@ namespace Avesta.Controller.API
 
 
         [HttpGet]
+        [Route(CrudEndPointController.Query)]
+        public virtual async Task<IActionResult> Query(string where, string select, int? page = null, int perpage = Pagination.PerPage)
+        {
+
+        }
+
+
+
+        [HttpGet]
         [Route(CrudEndPointController.GetAllWithChildren)]
         public virtual async Task<IActionResult> GetAllWithChildren(int? page = null, int perPage = Pagination.PerPage, string? search = null, DateTime? startDate = null, DateTime? endDate = null)
         {
@@ -73,7 +82,7 @@ namespace Avesta.Controller.API
         [HttpGet]
         [Route(CrudEndPointController.GetAllWithSpecificChildren)]
         public virtual async Task<IActionResult> GetAllWithSpecificChildren(string navigationPropertyPath, int? page = null, int perPage = Pagination.PerPage
-            , string? search = null, DateTime? startDate = null, DateTime? endDate = null)
+            , string? search = null, string? dynamicQuery = null, DateTime? startDate = null, DateTime? endDate = null)
         {
             await Task.CompletedTask;
             return RedirectToAction(nameof(base.PaginateNavigationChildren), new
@@ -85,6 +94,8 @@ namespace Avesta.Controller.API
                 perPage = perPage
                 ,
                 keyword = search
+                ,
+                dynamicQuery = dynamicQuery
                 ,
                 startDate = startDate
                 ,
@@ -161,12 +172,16 @@ namespace Avesta.Controller.API
         {
             await Task.CompletedTask;
             return RedirectToAction(nameof(base.PaginateAsViewModel), new
-            { 
+            {
                 page = page
-                , perPage = perPage
-                , keyword = search 
-                , startDate = startDate
-                , endDate = endDate
+                ,
+                perPage = perPage
+                ,
+                keyword = search
+                ,
+                startDate = startDate
+                ,
+                endDate = endDate
             });
         }
 
