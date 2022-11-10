@@ -347,10 +347,24 @@ namespace Avesta.Repository.EntityRepositoryRepository
 
         #region where
 
-        public async Task<IEnumerable<TEntity>> GatherData<TEntity>(string navigationPropertyPath, string where, string select, int page)
+        public async Task<IEnumerable<TResult>> DynamicQuery<TEntity, TResult>(string navigationPropertyPath, string where, string select, int skip, int take)
+            where TEntity : BaseEntity<TIdType>
+            where TResult : class
         {
-            throw new NotImplementedException();
+            var table = await Include<TEntity>(navigationPropertyPath);
+            var result = table.Where(where).Select(select).Skip(skip).Take(take).ToDynamicList<TResult>();
+            return result;
         }
+
+        public async Task<IEnumerable<TResult>> DynamicQuery<TEntity, TResult>(string navigationPropertyPath, string where, string select)
+            where TEntity : BaseEntity<TIdType>
+            where TResult : class
+        {
+            var table = await Include<TEntity>(navigationPropertyPath);
+            var result = table.Where(where).Select(select).ToDynamicList<TResult>();
+            return result;
+        }
+
 
 
         public async Task<IEnumerable<TEntity>> WhereByInclude<TEntity>(string navigationPropertyPath, string dynamicQuery, int skip, int take)

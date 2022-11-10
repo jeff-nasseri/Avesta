@@ -26,6 +26,12 @@ namespace Avesta.Services
             , DateTime? startDate = null
             , DateTime? endDate = null);
 
+
+
+
+        Task<IEnumerable<dynamic>> PaginateDynamicQuery(string navigationPropertyPath, string where, string select, int? page = null, int perpage = Pagination.PerPage);
+
+
     }
 
 

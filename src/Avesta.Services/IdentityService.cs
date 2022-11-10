@@ -16,6 +16,11 @@ namespace Avesta.Services
             throw new NotImplementedException();
         }
 
+        public Task<IEnumerable<dynamic>> PaginateDynamicQuery(string navigationPropertyPath, string where, string select, int? page = null, int perpage = 7)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<PaginationModel<TAvestaUser>> PaginateNavigationChildren(int? page = null, string navigation = null, bool? navigateAll = null, int perPage = 7, string searchKeyWord = null, string dynamicQuery = null, DateTime? startDate = null, DateTime? endDate = null)
         {
             throw new NotImplementedException();

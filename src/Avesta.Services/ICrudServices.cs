@@ -51,5 +51,6 @@ namespace Avesta.Services
         Task<IEnumerable<TModel>> Where(Expression<Func<TModel, bool>> where);
         Task<IEnumerable<TModel>> GetLastN<TKey>(int n, Expression<Func<TModel, TKey>> orderBy) where TKey : class;
         Task<IEnumerable<TModel>> GetLastN(int n, Expression<Func<TModel, bool>> filter);
+        
     }
 }

@@ -40,9 +40,10 @@ namespace Avesta.Controller.API
 
         [HttpGet]
         [Route(CrudEndPointController.Query)]
-        public virtual async Task<IActionResult> Query(string where, string select, int? page = null, int perpage = Pagination.PerPage)
+        public virtual async Task<IActionResult> Query(string navigationPropertyPath, string where, string select, int? page = null, int perpage = Pagination.PerPage)
         {
-
+            var result = await _crudService.PaginateDynamicQuery(navigationPropertyPath, where, select, page, perpage);
+            return Ok(result);
         }
 
 

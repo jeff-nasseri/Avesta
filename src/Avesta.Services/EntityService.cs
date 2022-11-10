@@ -11,6 +11,7 @@ using Avesta.Data.Model;
 using Avesta.Share.Model;
 using Avesta.Share.Model.Controller;
 using System.Diagnostics.CodeAnalysis;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Avesta.Services
 {
@@ -48,6 +49,19 @@ namespace Avesta.Services
             var result = await _repository.WhereByInclude(navigationPropertyPath: navigationPropertyPath, dynamicQuery: dynamicQuery, skip, take);
             return result.OrderByDescending(i => i.CreatedDate);
         }
+        public virtual async Task<IEnumerable<TResult>> DynamicQuery<TResult>(string navigationPropertyPath, string where, string select, int skip, int take)
+            where TResult : class
+        {
+            var result = await _repository.DynamicQuery<TResult>(navigationPropertyPath: navigationPropertyPath, where: where, select: select, skip, take);
+            return result;
+        }
+        public virtual async Task<IEnumerable<TResult>> DynamicQuery<TResult>(string navigationPropertyPath, string where, string select)
+            where TResult : class
+        {
+            var result = await _repository.DynamicQuery<TResult>(navigationPropertyPath: navigationPropertyPath, where: where, select: select);
+            return result;
+        }
+
         public virtual async Task<IEnumerable<TModel>> WhereEntitiesWithSpecificChildren(string navigationPropertyPath, string dynamicQuery)
         {
             var result = await _repository.WhereByInclude(navigationPropertyPath: navigationPropertyPath, dynamicQuery: dynamicQuery);
@@ -254,18 +268,28 @@ namespace Avesta.Services
 
         public virtual async Task<IEnumerable<TModel>> SearchByIncludeNavigationPath(string keywords, string? navigation = null
             , bool? navigateAll = null
+            , string? dynamicQuery = null
             , DateTime? startDate = null
             , DateTime? endDate = null)
         {
             IEnumerable<TModel> all = null;
-            if (!string.IsNullOrEmpty(navigation))
+
+            if (!string.IsNullOrEmpty(dynamicQuery))
             {
-                all = await GetAllEntitiesWithSpecificChildren(navigation);
+                all = await WhereEntitiesWithSpecificChildren(navigation, dynamicQuery);
             }
-            if (navigateAll.HasValue && navigateAll.Value)
+            else
             {
-                all = await GetAllEntitiesWithAllChildren();
+                if (!string.IsNullOrEmpty(navigation))
+                {
+                    all = await GetAllEntitiesWithSpecificChildren(navigation);
+                }
+                if (navigateAll.HasValue && navigateAll.Value)
+                {
+                    all = await GetAllEntitiesWithAllChildren();
+                }
             }
+
             var result = await all.Search(keywords);
 
             if (startDate != null && endDate != null)
@@ -610,6 +634,7 @@ namespace Avesta.Services
             if (!string.IsNullOrEmpty(searchKeyword) || (startDate != null && endDate != null))
             {
                 resultSearchByCustome = await SearchByIncludeNavigationPath(searchKeyword, navigation: navigation, navigateAll: navigateAll
+                    , dynamicQuery: dynamicQuery
                     , startDate: startDate
                     , endDate: endDate);
                 count = resultSearchByCustome.Distinct().Count();
@@ -682,6 +707,25 @@ namespace Avesta.Services
 
             return result;
         }
+
+
+
+        public virtual async Task<IEnumerable<dynamic>> PaginateDynamicQuery(string navigationPropertyPath, string where, string select, int? page = null, int perpage = Pagination.PerPage)
+        {
+            IEnumerable<dynamic> result = default;
+            if (page == null)
+            {
+                result = await DynamicQuery<dynamic>(navigationPropertyPath, where, select);
+            }
+            else
+            {
+                var skip = (page - 1) * perpage;
+                result = await DynamicQuery<dynamic>(navigationPropertyPath, where, select, skip: skip.Value, take: perpage);
+            }
+            return result;
+        }
+
+
 
 
 
