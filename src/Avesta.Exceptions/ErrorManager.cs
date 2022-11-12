@@ -29,7 +29,7 @@ namespace Avesta.Exceptions
             var code = exception.Code;
             var stack = exception.StackTrace;
             var message = exception.Message;
-            var now = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+            var now = DateTime.UtcNow.ToString("yyyy/MM/dd HH:mm:ss");
 
             var logMessage = $"[code : {code}] \n [message : {message}] \n stack trace : {stack}";
 

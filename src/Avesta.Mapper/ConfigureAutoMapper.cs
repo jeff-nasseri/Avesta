@@ -20,6 +20,9 @@ namespace Avesta.Mapper
                 config.CreateMap<TModel, TViewModel>()
                 .ReverseMap();
 
+                config.CreateMap<TModel, TViewModel>()
+                .ForMember(src => src.CreatedTime, opt => opt.MapFrom(dest => dest.CreatedDate));
+
                 config.CreateMap<TViewModel, TEditViewModel>()
                 .ReverseMap();
 

@@ -27,8 +27,8 @@ namespace Avesta.Share.Utilities
 
         public static (DateTime start, DateTime end) GetLastWeekPeriod()
         {
-            int days = DateTime.Now.DayOfWeek - DayOfWeek.Sunday;
-            DateTime pastDate = DateTime.Now.AddDays(-(days + 7));
+            int days = DateTime.UtcNow.DayOfWeek - DayOfWeek.Sunday;
+            DateTime pastDate = DateTime.UtcNow.AddDays(-(days + 7));
             DateTime futureDate = pastDate.AddDays(6);
 
             return (pastDate, futureDate);

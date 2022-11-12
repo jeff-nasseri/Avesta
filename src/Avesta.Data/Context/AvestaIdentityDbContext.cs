@@ -26,13 +26,7 @@ namespace Avesta.Data.Context
         public DbSet<TUserAuthorizeGroup>? UserAuthorizeGroups { get; set; }
 
 
-        protected virtual void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            //use reflection to write this code
-            //modelBuilder.Entity<Like>().HasQueryFilter(u => !u.DeletedDate.HasValue);
-            base.OnModelCreating(modelBuilder);
-
-        }
+      
 
     }
 
@@ -49,13 +43,7 @@ namespace Avesta.Data.Context
 
         }
 
-        protected virtual void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            //use reflection to write this code
-            //modelBuilder.Entity<Like>().HasQueryFilter(u => !u.DeletedDate.HasValue);
-            base.OnModelCreating(modelBuilder);
-
-        }
+       
 
     }
 }

@@ -109,6 +109,8 @@ namespace Avesta.Auth.Authentication.Service
         public async Task<TAvestaUser> GetAuthenticatedUser<TLoginModel>(TLoginModel model) where TLoginModel : LoginModelBase
         {
             var user = await _identityRepository.GetUserByEmail(model.Email);
+            if (user == null)
+                throw new UserNotFoundException($"user with email or id : {model.Email} not found !");
             model.ID = user.Id;
             var result = await _identityRepository.SignIn<LoginModelBase>(model, isPersistent: model.RememberMe);
             if (!result.Succeed)

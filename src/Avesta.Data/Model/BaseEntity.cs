@@ -10,6 +10,9 @@ namespace Avesta.Data.Model
 {
     public class BaseEntity : BaseEntity<string>
     {
+        public BaseEntity() : base()
+        {
+        }
 
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Counter { get; set; }
@@ -20,8 +23,7 @@ namespace Avesta.Data.Model
     {
         public BaseEntity()
         {
-            CreatedDate = DateTime.Now;
-            ModifiedDate = CreatedDate;
+            CreatedDate = DateTime.UtcNow;
         }
 
         [Key]

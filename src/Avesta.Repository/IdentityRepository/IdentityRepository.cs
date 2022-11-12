@@ -224,7 +224,7 @@ namespace Avesta.Repository.Identity
         {
             var user = await GetUser(id);
             var end = await _userManager.GetLockoutEndDateAsync(user);
-            return end > DateTime.Now;
+            return end > DateTime.UtcNow;
         }
 
         public async Task<IdentityResult> RegisterNewUser(TUser user, string password)

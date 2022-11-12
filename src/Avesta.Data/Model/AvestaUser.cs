@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +12,7 @@ namespace Avesta.Data.Model
     {
         public AvestaUser()
         {
-            RegisterDate = DateTime.Now;
+            RegisterDate = DateTime.UtcNow;
             ModifiedDate = RegisterDate;
         }
 
@@ -25,6 +26,10 @@ namespace Avesta.Data.Model
 
         public virtual string? FirstName { get; set; }
         public virtual string? LastName { get; set; }
+
+        [NotMapped]
+        public string? FullName => $"{FirstName} {LastName}";
+
         public virtual string? IdentityNumber { get; set; }
 
 

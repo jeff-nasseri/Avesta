@@ -18,12 +18,12 @@ namespace Avesta.Global
         }
         public new void Add(T value)
         {
-            value.ExpiredDate ??= DateTime.Now.AddMinutes(5);
+            value.ExpiredDate ??= DateTime.UtcNow.AddMinutes(5);
             base.Add(value);
         }
         public void Add(T value, TimeSpan timeSpan)
         {
-            value.ExpiredDate ??= DateTime.Now.Add(timeSpan);
+            value.ExpiredDate ??= DateTime.UtcNow.Add(timeSpan);
             base.Add(value);
         }
         void ValidateExpiredTimer(object source, ElapsedEventArgs e)
@@ -31,7 +31,7 @@ namespace Avesta.Global
             for (int i = 0; i < Count; i++)
             {
                 var data = this[i];
-                if (DateTime.Now >= data.ExpiredDate)
+                if (DateTime.UtcNow >= data.ExpiredDate)
                 {
                     Remove(data);
                 }

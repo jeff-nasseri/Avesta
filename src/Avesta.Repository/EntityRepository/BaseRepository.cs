@@ -336,7 +336,7 @@ namespace Avesta.Repository.EntityRepositoryRepository
             where TEntity : BaseEntity<TIdType>
         {
             var entity = await GetByIdAsync<TEntity>(id, exceptionRaseIfNotExist: exceptionRaseIfNotExist);
-            entity.DeletedDate = DateTime.Now;
+            entity.DeletedDate = DateTime.UtcNow;
             await UpdateAsync(entity);
         }
 

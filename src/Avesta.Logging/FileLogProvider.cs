@@ -57,7 +57,7 @@ namespace Avesta.Logging
         {
             if (WriterContext == null)
                 Open();
-            WriterContext?.WriteLine($"({DateTime.Now}) [{severity,-7}]\t{log}");
+            WriterContext?.WriteLine($"({DateTime.UtcNow}) [{severity,-7}]\t{log}");
             WriterContext.Flush();
         }
         #endregion

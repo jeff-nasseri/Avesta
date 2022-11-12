@@ -16,8 +16,8 @@ namespace Avesta.Share.Model
         /// current model or entity id with type of 'T'
         /// </summary>
         public virtual T? ID { get; set; }
-        public DateTime CreatedDate { get; set; }
-    }
+        public DateTime CreatedTime { get; set; }
+    }   
 
 
     public abstract class Model

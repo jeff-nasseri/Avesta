@@ -117,7 +117,7 @@ namespace Avesta.Services
         {
             var entites = await _repository.WhereByInclude(navigationPropertyPath, exp);
             var result = entites.Select(e => _mapper.Map<TViewModel>(e)).ToList();
-            return result.OrderByDescending(i => i.CreatedDate);
+            return result.OrderByDescending(i => i.CreatedTime);
         }
         public virtual async Task<IEnumerable<GViewModel>> WhereAsViewModel<GViewModel>(string navigationPropertyPath, Expression<Func<TModel, bool>> exp)
         {
@@ -129,26 +129,26 @@ namespace Avesta.Services
         {
             var entites = await _repository.GetAllAsync(exp);
             var result = entites.Select(e => _mapper.Map<TViewModel>(e)).ToList();
-            return result.OrderByDescending(i => i.CreatedDate);
+            return result.OrderByDescending(i => i.CreatedTime);
         }
         public virtual async Task<IEnumerable<TViewModel>> GetAllAsViewModel()
         {
             var entites = await _repository.GetAllAsync();
             var result = entites.Select(e => _mapper.Map<TViewModel>(e)).ToList();
-            return result.OrderByDescending(i => i.CreatedDate);
+            return result.OrderByDescending(i => i.CreatedTime);
         }
         public virtual async Task<IEnumerable<TViewModel>> GetAllAsViewModel(int skip, int take)
         {
             var entites = await _repository.GetAllAsync(skip, take);
             var result = entites.Select(e => _mapper.Map<TViewModel>(e)).ToList();
-            return result.OrderByDescending(i => i.CreatedDate);
+            return result.OrderByDescending(i => i.CreatedTime);
         }
 
         public virtual async Task<IEnumerable<TViewModel>> GetAllAsViewModel(Expression<Func<TModel, bool>> exp)
         {
             var entites = await _repository.GetAllAsync(exp);
             var result = entites.Select(e => _mapper.Map<TViewModel>(e)).ToList();
-            return result.OrderByDescending(i => i.CreatedDate);
+            return result.OrderByDescending(i => i.CreatedTime);
         }
 
         public virtual async Task Create(TViewModel viewModel)
@@ -304,9 +304,9 @@ namespace Avesta.Services
             var result = await all.Search(keywords);
 
             if (startDate != null && endDate != null)
-                result = result.Where(item => item.CreatedDate >= startDate && item.CreatedDate <= endDate);
+                result = result.Where(item => item.CreatedTime >= startDate && item.CreatedTime <= endDate);
 
-            return result.OrderByDescending(i => i.CreatedDate);
+            return result.OrderByDescending(i => i.CreatedTime);
         }
 
 
