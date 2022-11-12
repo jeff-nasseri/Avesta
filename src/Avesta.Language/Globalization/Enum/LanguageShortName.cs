@@ -8,7 +8,8 @@ namespace Avesta.Language.Globalization.Enum
 {
     public enum LanguageShortName
     {
-        US_EN,
-        IR_FA
+        EN,
+        IR,
+        TR
     }
 }

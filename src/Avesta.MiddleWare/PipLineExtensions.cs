@@ -1,4 +1,5 @@
 using Avesta.Exceptions;
+using Avesta.Language.Globalization;
 using Avesta.Model;
 using Avesta.Model.Shema;
 using Avesta.Share.Model.API;
@@ -54,7 +55,7 @@ namespace Avesta.MiddleWare
 
 
 
-        public static IApplicationBuilder SetErrorHandlingForAPI(this IApplicationBuilder app)
+        public static IApplicationBuilder SetErrorHandlingForAPI<TWordContext>(this IApplicationBuilder app) where TWordContext : WordContext
         => app.UseExceptionHandler(errorapp =>
         {
             errorapp.Run(async context =>
@@ -62,6 +63,7 @@ namespace Avesta.MiddleWare
                 context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
                 context.Response.ContentType = "text/html";
                 var data = context.Features.Get<IExceptionHandlerPathFeature>();
+                var wordContext = context.RequestServices.GetService(typeof(TWordContext)) as TWordContext;
                 ErrorModel error = default(ErrorModel);
                 if (data.Error is SystemException)
                 {
@@ -70,7 +72,7 @@ namespace Avesta.MiddleWare
                     error = new ErrorModel
                     {
                         Code = finlibException.Code,
-                        Message = ErrorManager.GetErrorMessageByCode(finlibException.Code)
+                        Message = await wordContext.GetMessageInCurrentActiveLanguage(finlibException.Code)
                     };
                 }
                 else

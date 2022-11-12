@@ -469,7 +469,7 @@ namespace Avesta.Services
             var take = perPage;
 
             var all = await GetAllEntities(skip, take);
-            var count = await Count();
+            var count = all.Count();
             if (!string.IsNullOrEmpty(searchKeyWord) || (startDate != null && endDate != null))
             {
                 resultSearchByCustome = await Search(searchKeyWord, startDate: startDate, endDate: endDate);
@@ -496,7 +496,8 @@ namespace Avesta.Services
             IEnumerable<TModel> total = null;
 
             var all = await GetAllEntities();
-            var count = await Count();
+
+            var count = all.Count();
             if (!string.IsNullOrEmpty(searchKeyWord) || (startDate != null && endDate != null))
             {
                 resultSearchByCustome = await Search(searchKeyWord, startDate: startDate, endDate: endDate);
@@ -533,7 +534,7 @@ namespace Avesta.Services
             var all = await GetAllAsViewModel(skip, take);
 
 
-            var count = await Count();
+            var count = all.Count();
             if (!string.IsNullOrEmpty(searchKeyWord) || (startDate != null && endDate != null))
             {
                 resultSearchByCustome = await SearchAsViewModel(searchKeyWord, startDate: startDate, endDate: endDate);
@@ -567,7 +568,7 @@ namespace Avesta.Services
             var all = await GetAllAsViewModel();
 
 
-            var count = await Count();
+            var count = all.Count();
             if (!string.IsNullOrEmpty(searchKeyWord) || (startDate != null && endDate != null))
             {
                 resultSearchByCustome = await SearchAsViewModel(searchKeyWord, startDate: startDate, endDate: endDate);
@@ -629,8 +630,7 @@ namespace Avesta.Services
                 }
             }
 
-
-            var count = await Count();
+            var count = all.Count();
             if (!string.IsNullOrEmpty(searchKeyword) || (startDate != null && endDate != null))
             {
                 resultSearchByCustome = await SearchByIncludeNavigationPath(searchKeyword, navigation: navigation, navigateAll: navigateAll
@@ -688,7 +688,7 @@ namespace Avesta.Services
             }
 
 
-            var count = await Count();
+            var count = all.Count();
             if (!string.IsNullOrEmpty(searchKeyword) || (startDate != null && endDate != null))
             {
                 resultSearchByCustome = await SearchByIncludeNavigationPath(searchKeyword, navigation: navigation, navigateAll: navigateAll

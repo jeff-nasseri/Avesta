@@ -11,20 +11,20 @@ namespace Avesta.Language.Globalization.Model
         #region [-Properties-]
         public IList<Word> Words { get; set; } = new List<Word>();
         public string Comment { get; set; }
-        public virtual string Key { get; set; }
+        public virtual object Key { get; set; }
         #endregion
 
 
 
         #region [-Constructor-]
-        public GlobalWord(string key, string comment, params Word[] data) : this(key, comment)
+        public GlobalWord(object key, string comment, params Word[] data) : this(key, comment)
         {
             foreach (var item in data)
             {
                 Words.Add(item);
             }
         }
-        public GlobalWord(string key, string comment)
+        public GlobalWord(object key, string comment)
         {
             Key = key;
             Comment = comment;

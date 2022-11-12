@@ -10,26 +10,14 @@ using System.Threading.Tasks;
 
 namespace Avesta.Language.Globalization.Provider
 {
-    //set correect name
-    public enum x
-    {
-        Append = 1,
-        Ovveride = 2,
-        None = 3
-    }
-
-    public class WordContextOption
-    {
-        public x ContextWritingType { get; set; }
-    }
-
+ 
 
     public class LangFileProvider : LangContextProvider
     {
 
         #region [-Fields-]
-        readonly string _dir;
-        readonly string _suffix;
+        readonly string _dir = ".\\language";
+        readonly string _suffix = "lang";
         #endregion
 
 
@@ -41,13 +29,15 @@ namespace Avesta.Language.Globalization.Provider
 
 
         #region [-Constructor-]
-        public LangFileProvider(string dir = ".") : this()
+        public LangFileProvider(string dir, string suffix) : this()
         {
             _dir = dir;
-            _suffix = "lang";
+            _suffix = suffix;
         }
         public LangFileProvider()
         {
+            if(!Directory.Exists(_dir))
+                Directory.CreateDirectory(_dir);
         }
         #endregion
 
@@ -65,7 +55,12 @@ namespace Avesta.Language.Globalization.Provider
             var line = GetLineFormatOf(globalWord);
             foreach (var word in globalWord.Words ?? Enumerable.Empty<Word>())
             {
-                await File.AppendAllTextAsync(GetFilePath(word.Language), line);
+                var exist = await IsKeyExist(globalWord.Key, word.Language);
+                if (exist)
+                    continue;
+
+                var path = GetFilePath(word.Language);
+                await File.AppendAllTextAsync(path, line);
             }
         }
         public async override Task<string> ReadText(GlobalWord globalWord, LanguageShortName lang)
@@ -74,18 +69,24 @@ namespace Avesta.Language.Globalization.Provider
             return result.ToString();
         }
 
-        public async override Task<Word> Read(string key, LanguageShortName lang)
+        public async override Task<string> Read(object key, LanguageShortName lang)
         {
-            //open the file 
-            //read each line 
-            //try to parse each line
-            //try to save each line in related data
-            //try to transalte each line to related data
-            //try to set content of translation of each data to related word
-            //return word
+            var path = GetFilePath(lang);
+            var line = (await File.ReadAllLinesAsync(path)).SingleOrDefault(l => l.Trim().ToLower().StartsWith(key.ToString().Trim().ToLower()));
+            var parts = line.Split('=');
+            var message = parts[1].Substring(0, parts[1].IndexOf("#"));
+            return message.Trim();
+        }
 
+        public async override Task<bool> IsKeyExist(object key, LanguageShortName language)
+        {
+            await Task.CompletedTask;
+            var path = GetFilePath(language);
+            if (!File.Exists(path))
+                return false;
 
-            throw new NotImplementedException();
+            var result = File.ReadAllLines(path).Any(l => l.Trim().ToLower().StartsWith(key.ToString().Trim().ToLower()));
+            return result;
         }
 
         #endregion
@@ -105,16 +106,18 @@ namespace Avesta.Language.Globalization.Provider
 
 
         #region [-Internal Methods-]
-        string GetFilePath(LanguageShortName lang)
+        public virtual string GetFilePath(LanguageShortName lang)
         {
             var fileName = GetFileName(lang);
             var path = Path.Combine(_dir, fileName);
             return path;
         }
 
-        string GetFileName(LanguageShortName lang) => $"{lang}.{_suffix}";
+        public virtual string GetFileName(LanguageShortName lang) => $"{lang}.{_suffix}";
 
-        static string GetLineFormatOf(GlobalWord globalWord) => $"{globalWord.Key}=\t\t\t{(!string.IsNullOrEmpty(globalWord.Comment) ? "#" + globalWord.Comment : string.Empty)}";
+        public virtual string GetLineFormatOf(GlobalWord globalWord) => $"{globalWord.Key}=\t\t\t{(!string.IsNullOrEmpty(globalWord.Comment) ? "#" + globalWord.Comment : string.Empty)}\n";
+
+
 
         #endregion
 
@@ -122,10 +125,10 @@ namespace Avesta.Language.Globalization.Provider
 
 
 
-       
-  
 
-      
+
+
+
     }
 
 

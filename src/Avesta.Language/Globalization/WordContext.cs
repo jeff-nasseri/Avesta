@@ -16,6 +16,8 @@ namespace Avesta.Language.Globalization
             _provider = provider;
         }
 
+        public abstract Task<string> GetMessageInCurrentActiveLanguage(object key);
+
 
 
         /// <summary>
@@ -23,7 +25,7 @@ namespace Avesta.Language.Globalization
         /// </summary>
         public async virtual Task OnCreate()
         {
-            var globalWords = this.GetType().GetFields().ToList().Select(c=>c.GetValue(this) as GlobalWord).ToList();
+            var globalWords = this.GetType().GetFields().ToList().Select(c => c.GetValue(this) as GlobalWord).ToList();
             foreach (var globalWord in globalWords)
             {
                 await _provider.Write(globalWord);
@@ -33,12 +35,22 @@ namespace Avesta.Language.Globalization
 
 
         /// <summary>
-        /// Fill all GlobalWord.Words type fields in application WordContext
+        /// Fill content of all GlobalWord.Words type fields in application WordContext
         /// </summary>
         public async virtual Task OnInitialize()
         {
-            //fill content of all word in Twordcontext global words
+            var globalWords = this.GetType().GetFields().ToList().Select(c => c.GetValue(this) as GlobalWord).ToList();
+            foreach (var globalWord in globalWords)
+            {
+                var key = globalWord.Key;
+                foreach (var word in globalWord.Words)
+                {
+                    var content = await _provider.Read(key, word.Language);
+                    word.OnSetContent(content);
+                }
+            }
         }
+
 
 
         /// <summary>
@@ -48,6 +60,19 @@ namespace Avesta.Language.Globalization
         {
             await _provider.Save();
         }
+
+
+
+        /// <summary>
+        /// This method call OnCreate and then OnInitialize method
+        /// </summary>
+        public async virtual Task ToWayInitialize()
+        {
+            await OnCreate();
+            await OnInitialize();
+        }
+
+
 
 
     }

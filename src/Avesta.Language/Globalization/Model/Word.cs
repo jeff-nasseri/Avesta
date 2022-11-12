@@ -21,13 +21,21 @@ namespace Avesta.Language.Globalization.Model
             Language = language;
             ContentType = contentType;
         }
+        public Word(LanguageShortName language) : this()
+        {
+            Language = language;
+        }
         #endregion
 
 
 
         #region [-Properties-]
         string Content { get; set; }
-        public virtual void OnSetContent(string content) => Content = content;
+        public virtual Word OnSetContent(string content)
+        {
+            Content = content;
+            return this;
+        }
         public virtual string Guid { get; private set; }
         public LanguageShortName Language { get; private set; }
         public AnnotationContentType ContentType { get; private set; }
