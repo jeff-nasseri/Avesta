@@ -47,7 +47,7 @@ namespace Avesta.Repository.EntityRepository
         Task InsertAsync(TEntity entity);
         Task UpdateAsync(TEntity entity);
         Task InsertRange(IEnumerable<TEntity> entities);
-        Task UpdateOrInsert(TEntity entity);
+        Task<TEntity> UpdateOrInsert(TEntity entity);
         Task ClearAllTEntityInDbThenAddRange(IEnumerable<TEntity> insertEntities);
         Task ClearAllTEntityInDbThenAddRange(IEnumerable<TEntity> removeEntities, IEnumerable<TEntity> insertEntities);
         Task ReCreate(Expression<Func<TEntity, bool>> deleteCondition, IEnumerable<TEntity> insertEntities);

@@ -26,6 +26,7 @@ namespace Avesta.Share.Model.API
             Data = data;
             Status = 200;
             Successfull = true;
+            Message = "Successfull";
 
             return this;
         }

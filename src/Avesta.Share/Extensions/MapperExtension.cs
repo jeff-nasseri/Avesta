@@ -24,11 +24,20 @@ namespace Avesta.Share.Extensions
             var properties = updated.GetType().GetProperties();
             foreach (var property in properties)
             {
-                var value = property.GetValue(updated);
-                if (value == null)
-                    continue;
+                try
+                {
+                    var value = property.GetValue(updated);
+                    if (value == null)
+                        continue;
 
-                property.SetValue(obj, value);
+                    property.SetValue(obj, value);
+
+                }
+                catch (Exception exception)
+                {
+                    Console.WriteLine(exception.Message);
+                    Console.WriteLine(exception.StackTrace);
+                }
 
             }
 

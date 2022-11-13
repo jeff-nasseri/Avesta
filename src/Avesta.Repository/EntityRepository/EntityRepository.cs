@@ -146,9 +146,10 @@ namespace Avesta.Repository.EntityRepositoryRepository
         {
             await base.UpdateAsync<TEntity>(entity);
         }
-        public virtual async Task UpdateOrInsert(TEntity entity)
+        public virtual async Task<TEntity> UpdateOrInsert(TEntity entity)
         {
-            await base.UpdateOrInsert<TEntity>(entity);
+            var result = await base.UpdateOrInsert<TEntity>(entity);
+            return result;
         }
         #endregion
 

@@ -157,6 +157,15 @@ namespace Avesta.Services
             await _repository.InsertAsync(entity);
         }
 
+        public virtual async Task<TModel> UpdateOrInsert(TViewModel viewModel)
+        {
+            var entity = _mapper.Map<TModel>(viewModel);
+            var result = await _repository.UpdateOrInsert(entity);
+            return result;
+        }
+
+
+
 
         public virtual async Task CreateRange(IEnumerable<TViewModel> viewModels)
         {
@@ -396,6 +405,14 @@ namespace Avesta.Services
         {
             await base.Create(model);
         }
+
+        public virtual async Task<TModel> UpdateOrInsert(TEditViewModel editViewModel)
+        {
+            var result = await base.UpdateOrInsert(editViewModel);
+            return result;
+        }
+
+
         public virtual async Task Delete(string id)
         {
             await base.DeleteById(id);

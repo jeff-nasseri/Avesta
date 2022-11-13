@@ -79,6 +79,15 @@ namespace Avesta.Controller.API
         }
 
 
+        [HttpPost]
+        [Route(CrudEndPointController.UpdateOrCreate)]
+        public virtual async Task<IActionResult> UpdateOrCreate(TEditViewModel editViewModel)
+        {
+            var result = await _crudService.UpdateOrInsert(editViewModel);
+            return Ok(result);
+        }
+
+
 
         [HttpGet]
         [Route(CrudEndPointController.GetAllWithSpecificChildren)]

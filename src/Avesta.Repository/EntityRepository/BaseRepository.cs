@@ -12,6 +12,7 @@ using DbContext = Microsoft.EntityFrameworkCore.DbContext;
 using EntityState = Microsoft.EntityFrameworkCore.EntityState;
 using Avesta.Share.Model;
 using System.Linq.Dynamic.Core;
+using Microsoft.AspNetCore.Hosting;
 
 namespace Avesta.Repository.EntityRepositoryRepository
 {
@@ -247,6 +248,8 @@ namespace Avesta.Repository.EntityRepositoryRepository
             await _context.SaveChangesAsync();
         }
 
+
+
         public async Task ClearAllTEntityInDbThenAddRange<TEntity>(IEnumerable<TEntity> insertEntities)
             where TEntity : BaseEntity<TIdType>
         {
@@ -281,7 +284,7 @@ namespace Avesta.Repository.EntityRepositoryRepository
             await _context.SaveChangesAsync();
 
         }
-        public virtual async Task UpdateOrInsert<TEntity>(TEntity entity)
+        public virtual async Task<TEntity> UpdateOrInsert<TEntity>(TEntity entity)
             where TEntity : BaseEntity<TIdType>
         {
             var en = await _context.Set<TEntity>().FindAsync(entity.ID);
@@ -294,6 +297,7 @@ namespace Avesta.Repository.EntityRepositoryRepository
             {
                 await UpdateAsync(entity);
             }
+            return entity;
         }
         #endregion
 
