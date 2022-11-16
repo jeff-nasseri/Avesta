@@ -9,6 +9,6 @@ namespace Avesta.Share.Model.Attribute.Authorization
 {
     public class AuthorizAttrubuteModel
     {
-        public FeaturesNeedAuthorizedAccess[] Features { get; set; }
+        public string[] Features { get; set; }
     }
 }

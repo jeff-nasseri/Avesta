@@ -35,9 +35,9 @@ namespace Avesta.Repository.Identity
         }
 
 
-        
 
-      
+
+
 
         #region role
         public async Task<IdentityResult> CreateNewRole(TRole role) => await _roleManager.CreateAsync(role);
@@ -123,6 +123,16 @@ namespace Avesta.Repository.Identity
             var user = await _userManager.FindByEmailAsync(email);
             return user;
         }
+
+        public async Task<TUser> GetUserByEmail(string email, string navigationPropertyPath)
+        {
+            var user = await _userManager.Users.Include(navigationPropertyPath).SingleOrDefaultAsync(u => u.Email == email);
+            if (user == null)
+                throw new UserNotFoundException($"user with email {email} and navigation path {navigationPropertyPath} not found!");
+
+            return user;
+        }
+
         public async Task<TUser> GetUserByInclude(string navigationProperties, Expression<Func<TUser, bool>> exp, bool exceptionIfNotExist = false)
         {
             var result = await _userManager.Users.Include(navigationProperties).SingleOrDefaultAsync(exp);
@@ -238,7 +248,7 @@ namespace Avesta.Repository.Identity
             await _userManager.UpdateAsync(user);
         }
 
-  
+
         #endregion
 
     }

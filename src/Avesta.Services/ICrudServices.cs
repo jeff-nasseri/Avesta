@@ -47,6 +47,7 @@ namespace Avesta.Services
         Task SoftDelete(string id, bool exceptionRaseIfNotExist = true);
         Task<IEnumerable<TModel>> GetLastN(int n);
         Task<IEnumerable<TModel>> Where(string navigationProperties, Expression<Func<TModel, bool>> where);
+        Task<TModel> Get(Expression<Func<TModel, bool>> exp, bool exceptionRaseIfNotExist);
         Task<IEnumerable<TViewModel>> WhereAsViewModel(string navigationProperties, Expression<Func<TModel, bool>> where);
         Task<IEnumerable<TViewModel>> WhereAsViewModel(Expression<Func<TModel, bool>> where);
         Task<IEnumerable<TModel>> Where(Expression<Func<TModel, bool>> where);

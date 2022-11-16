@@ -34,6 +34,7 @@ namespace Avesta.Repository.Identity
         Task<IEnumerable<TUser>> GetUsers();
         Task<TUser> GetUser(string id);
         Task<TUser> GetUserByEmail(string email);
+        Task<TUser> GetUserByEmail(string email, string navigationPropertyPath);
         Task<TUser> GetUserByInclude(string navigationProperties, Expression<Func<TUser, bool>> exp, bool exceptionIfNotExist = false);
         Task<TUser> GetUser(Expression<Func<TUser, bool>> exp, bool exceptionIfNotExist = false);
 

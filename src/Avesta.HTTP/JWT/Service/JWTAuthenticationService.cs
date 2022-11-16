@@ -79,7 +79,8 @@ namespace Avesta.HTTP.JWT.Service
             if (principle == null)
                 throw new IdentityException(msg: "can not found principle in ReinitialIdentityJWTTokens", ExceptionConstant.IdentityException);
 
-            var value = principle.Claims.SingleOrDefault(c => c.Type == claimName)?.Value;
+
+            var value = principle?.Claims?.SingleOrDefault(c => c.Type == claimName)?.Value;
 
             return value;
         }
@@ -110,6 +111,8 @@ namespace Avesta.HTTP.JWT.Service
         public async Task<ClaimsPrincipal?> GetPrincipalFromToken(string? token)
         {
             await Task.CompletedTask;
+            if(string.IsNullOrEmpty(token))
+                return null;
 
             var tokenValidationParameters = new TokenValidationParameters
             {

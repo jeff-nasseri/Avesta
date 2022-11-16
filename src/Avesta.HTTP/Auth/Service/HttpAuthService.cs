@@ -13,7 +13,8 @@ namespace Avesta.HTTP.Auth.Service
     public interface IHttpAuthService<TAvestaUser>
     {
         Task<TAvestaUser> GetCurrentLoggedUserByCookieAuth();
-        Task<TAvestaUser> GetCurrentLoggedUserByJWTAuth();
+        Task<TAvestaUser?> GetCurrentLoggedUserByJWTAuth();
+        Task<TAvestaUser?> GetCurrentLoggedUserByJWTAuth(string navigationPropertyPath);
         Task<TAvestaUser> GetCurrentLoggedUserFromContext();
         Task<string?> GetBearerTokenFromContext();
     }
@@ -55,14 +56,25 @@ namespace Avesta.HTTP.Auth.Service
         /// Then you can get user from http context with this method
         /// </summary>
         /// <returns>Avesta User</returns>
-        public async Task<TAvestaUser> GetCurrentLoggedUserByJWTAuth()
+        public async Task<TAvestaUser?> GetCurrentLoggedUserByJWTAuth()
         {
             var token = await GetBearerTokenFromContext();
+            if (token == null)
+                return default(TAvestaUser);
             var email = await _jWTAuthenticationService.GetClaimFromToken(token, ClaimTypes.Email);
             var user = await _identityRepository.GetUserByEmail(email);
             return user;
         }
 
+        public async Task<TAvestaUser?> GetCurrentLoggedUserByJWTAuth(string navigationPropertyPath)
+        {
+            var token = await GetBearerTokenFromContext();
+            if (token == null)
+                return default(TAvestaUser);
+            var email = await _jWTAuthenticationService.GetClaimFromToken(token, ClaimTypes.Email);
+            var user = await _identityRepository.GetUserByEmail(email, navigationPropertyPath);
+            return user;
+        }
 
 
 

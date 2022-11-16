@@ -16,13 +16,13 @@ namespace Avesta.Data.Model
         public virtual string? FeaturesStr { get; set; }
 
         [NotMapped]
-        public virtual List<int>? Features
+        public virtual List<string>? Features
         {
             get
             {
                 if (string.IsNullOrEmpty(FeaturesStr))
-                    return new List<int>();
-                var result = JsonConvert.DeserializeObject<List<int>>(FeaturesStr);
+                    return new List<string>();
+                var result = JsonConvert.DeserializeObject<List<string>>(FeaturesStr);
                 return result;
             }
             set

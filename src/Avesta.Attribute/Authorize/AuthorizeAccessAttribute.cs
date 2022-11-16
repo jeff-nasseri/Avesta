@@ -41,7 +41,7 @@ namespace Avesta.Attribute.Authorize
             var token = await _authService.GetBearerTokenFromContext();
 
             var featuresStr = await _jWTAuthenticationService.GetClaimFromToken(token, ClaimKeys.AccessesFeatures);
-            var features = JsonConvert.DeserializeObject<List<FeaturesNeedAuthorizedAccess>>(featuresStr);
+            var features = JsonConvert.DeserializeObject<List<string>>(featuresStr);
 
             var counter = 0;
             foreach (var feature in features)
@@ -61,10 +61,10 @@ namespace Avesta.Attribute.Authorize
     {
         public AuthorizeAccessAttribute(params object[] features) : base(typeof(AuthSPARequiredFilter<TAvestaUser, TRole>))
         {
-            var result = new List<FeaturesNeedAuthorizedAccess>();
+            var result = new List<string>();
             foreach (var item in features)
             {
-                result.Add((FeaturesNeedAuthorizedAccess)item);
+                result.Add((string)item);
             }
             Arguments = new object[] { new AuthorizAttrubuteModel { Features = result.ToArray() } };
         }

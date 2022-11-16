@@ -12,7 +12,7 @@ namespace Avesta.Model.Route
         public string Root { get; set; }
         public string RootName { get; set; }
         public bool ShowAble { get; set; } = false;
-        public FeaturesNeedAuthorizedAccess FeaturesNeedAuthorizedAccess { get; set; }
+        public string FeaturesNeedAuthorizedAccess { get; set; }
     }
 
 

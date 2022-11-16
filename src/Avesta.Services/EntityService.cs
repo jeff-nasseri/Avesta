@@ -709,6 +709,7 @@ namespace Avesta.Services
             if (!string.IsNullOrEmpty(searchKeyword) || (startDate != null && endDate != null))
             {
                 resultSearchByCustome = await SearchByIncludeNavigationPath(searchKeyword, navigation: navigation, navigateAll: navigateAll
+                    , dynamicQuery: dynamicQuery
                     , startDate: startDate
                     , endDate: endDate);
                 count = resultSearchByCustome.Distinct().Count();
