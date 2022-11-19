@@ -2,6 +2,12 @@
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![version](https://img.shields.io/badge/version-1.0.2.0-blue)
 
+# This framework is under the develop ...
+
+
+
+
+
 ### Avesta is a .Net framework for .Net developers who looking for do more with less structure  😉
 
 ## Made Top Of The
@@ -50,7 +56,7 @@ Install main package if you wish to install all Avesta libraries.***
 
    1. dotnet cli
    2. nuget console
-3. Avesta Application Hello world
+3. Avesta Application Hello world(MVC/api/CLI/Console)
 
    1. run first avesta application
    2. structure
@@ -62,7 +68,7 @@ Install main package if you wish to install all Avesta libraries.***
          1. try to figure out !
    3. avesta CI/CD
    4. run application
-4. Avesta Identity Application Hello World
+4. Avesta Identity Application Hello World(MVC/API/CLI/Console)
 
    1. run first avesta identity application
    2. structure
@@ -74,3 +80,61 @@ Install main package if you wish to install all Avesta libraries.***
          1. try to figure out !
    3. avesta CI/CD
    4. run application
+
+
+
+-------(for source codes)-------
+
+Third Parties libraries
+
+
+Avesta.Data
+	Avesta.Entity & Avesta.Identity
+		Context
+		Entity
+	
+	
+
+
+Avesta.Model 
+
+Avesta.Share 
+	Enum
+	Extension
+	Helper
+	Model
+	Utilities
+
+Avesta.Storage
+	EndPoint
+	Public Data
+
+
+Avesta.Global
+
+
+Avesta.Atrribute
+
+
+Avesta.Exception
+
+
+Avesta.Repository 
+	Entity & Identity
+
+
+
+Avesta.Service	
+	EntityService
+
+
+Avesta.Controller
+	API
+	MVC
+
+
+
+
+then we go for modules ...
+
+
