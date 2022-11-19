@@ -128,13 +128,41 @@ Avesta.Service
 	EntityService
 
 
+
+
+
+---------(modules)---------
+
+modules brief
+modules structure
+
+Avesta.Auth
+      Authentication
+      Authorize
+      User
+   Registery.cs
+
+
+Avesta.CLI
+
+
+
 Avesta.Controller
 	API
 	MVC
 
 
+Avesta.HTTP
+   Auth
+   JWT
+
+Avesta.Language
+   Globalization
+
+Avesta.Logging
+
+Avesta.Mapper
 
 
-then we go for modules ...
-
-
+Avesta.Web
+   Avesta.Automation
