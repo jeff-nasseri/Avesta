@@ -1,3 +1,8 @@
+using Avesta.Repository.EntityRepository;
+using Avesta.Repository.EntityRepositoryRepository;
+using AvestaWebAPI.Data;
+using AvestaWebAPI.Model;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +11,11 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+
+builder.Services.AddDbContext<AppDbContext>(opt => opt.UseSqlite("Data source = avesta_app.db"));
+builder.Services.AddScoped<IRepository<AvestaCrudModel>, EntityRepository<AvestaCrudModel, AppDbContext>>();
+
 
 var app = builder.Build();
 
