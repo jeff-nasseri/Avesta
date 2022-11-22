@@ -1,4 +1,5 @@
-﻿using Avesta.Language.Globalization.Model;
+﻿using Avesta.Language.Globalization.Enum;
+using Avesta.Language.Globalization.Model;
 using Avesta.Language.Globalization.Provider;
 using System;
 using System.Data;
@@ -15,6 +16,25 @@ namespace Avesta.Language.Globalization
         {
             _provider = provider;
         }
+
+        //public virtual string? this[GlobalWord key]
+        //{
+        //    get
+        //    {
+
+        //        var lang = _requestModel.LanguageFlag;
+        //        var result = string.Empty;
+        //        switch (lang)
+        //        {
+        //            case "en": result = key.Words.SingleOrDefault(w => w.Language == LanguageShortName.EN)?.ToString(); break;
+        //            case "tr": result = key.Words.SingleOrDefault(w => w.Language == LanguageShortName.TR)?.ToString(); break;
+        //            default: result = key.Words.SingleOrDefault(w => w.Language == LanguageShortName.EN)?.ToString(); break;
+        //        }
+
+        //        return result;
+        //    }
+        //}
+
 
         public abstract Task<string> GetMessageInCurrentActiveLanguage(object key);
 

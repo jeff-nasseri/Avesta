@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Avesta.Controller.Startup
+namespace Avesta.DependencyInjection
 {
 
     public interface IStartup<T> where T : class

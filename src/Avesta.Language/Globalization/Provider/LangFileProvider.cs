@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Avesta.Language.Globalization.Provider
 {
- 
+
 
     public class LangFileProvider : LangContextProvider
     {
@@ -36,7 +36,7 @@ namespace Avesta.Language.Globalization.Provider
         }
         public LangFileProvider()
         {
-            if(!Directory.Exists(_dir))
+            if (!Directory.Exists(_dir))
                 Directory.CreateDirectory(_dir);
         }
         #endregion
@@ -72,7 +72,7 @@ namespace Avesta.Language.Globalization.Provider
         public async override Task<string> Read(object key, LanguageShortName lang)
         {
             var path = GetFilePath(lang);
-            var line = (await File.ReadAllLinesAsync(path)).SingleOrDefault(l => l.Trim().ToLower().StartsWith(key.ToString().Trim().ToLower()));
+            var line = (await File.ReadAllLinesAsync(path)).SingleOrDefault(l => (l.Split('=')[0]).Trim().ToLower() == key.ToString().Trim().ToLower());
             var parts = line.Split('=');
             var message = parts[1].Substring(0, parts[1].IndexOf("#"));
             return message.Trim();

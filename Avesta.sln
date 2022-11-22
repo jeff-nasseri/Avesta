@@ -43,6 +43,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avesta.Attribute", "src\Ave
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avesta", "src\Avesta\Avesta.csproj", "{40FEED85-FB28-44BA-8CA1-456692BFA634}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0DEE2BA5-A64B-4DF3-A0E7-475140B37946}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avesta.DependencyInjection", "src\Avesta.DependencyInjection\Avesta.DependencyInjection.csproj", "{D108048F-447B-433F-9E36-80B33C5B4410}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avesta.BlockChain", "src\Avesta.BlockChain\Avesta.BlockChain.csproj", "{23E682AF-4064-4580-9DA6-614EB51784A6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -129,11 +135,23 @@ Global
 		{40FEED85-FB28-44BA-8CA1-456692BFA634}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40FEED85-FB28-44BA-8CA1-456692BFA634}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40FEED85-FB28-44BA-8CA1-456692BFA634}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D108048F-447B-433F-9E36-80B33C5B4410}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D108048F-447B-433F-9E36-80B33C5B4410}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D108048F-447B-433F-9E36-80B33C5B4410}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D108048F-447B-433F-9E36-80B33C5B4410}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23E682AF-4064-4580-9DA6-614EB51784A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23E682AF-4064-4580-9DA6-614EB51784A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23E682AF-4064-4580-9DA6-614EB51784A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23E682AF-4064-4580-9DA6-614EB51784A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8259D7C8-8DB5-4A11-B128-83667EF52388}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D108048F-447B-433F-9E36-80B33C5B4410} = {0DEE2BA5-A64B-4DF3-A0E7-475140B37946}
+		{23E682AF-4064-4580-9DA6-614EB51784A6} = {0DEE2BA5-A64B-4DF3-A0E7-475140B37946}
 	EndGlobalSection
 EndGlobal
