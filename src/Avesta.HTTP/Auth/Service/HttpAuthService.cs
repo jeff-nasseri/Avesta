@@ -59,7 +59,7 @@ namespace Avesta.HTTP.Auth.Service
         public async Task<TAvestaUser?> GetCurrentLoggedUserByJWTAuth()
         {
             var token = await GetBearerTokenFromContext();
-            if (token == null)
+            if (string.IsNullOrEmpty(token))
                 return default(TAvestaUser);
             var email = await _jWTAuthenticationService.GetClaimFromToken(token, ClaimTypes.Email);
             var user = await _identityRepository.GetUserByEmail(email);
