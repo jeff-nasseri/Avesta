@@ -9,7 +9,7 @@ namespace Avesta.Storage.Constant.EndPoints
     public class CrudController : BaseController
     {
         public const string Create = "create";
-        public const string UpdateOrCreate = "update-or-create";
+        public const string UpdateOrCreate = "update_or_create";
         public const string Edit = "edit";
         public const string Detail = "Detail";
         public const string Delete = "delete";

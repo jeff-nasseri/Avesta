@@ -551,7 +551,7 @@ namespace Avesta.Services
             var all = await GetAllAsViewModel(skip, take);
 
 
-            var count = all.Count();
+            var count = await Count();
             if (!string.IsNullOrEmpty(searchKeyWord) || (startDate != null && endDate != null))
             {
                 resultSearchByCustome = await SearchAsViewModel(searchKeyWord, startDate: startDate, endDate: endDate);
