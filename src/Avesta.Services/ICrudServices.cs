@@ -50,9 +50,16 @@ namespace Avesta.Services
         Task<TModel> Get(Expression<Func<TModel, bool>> exp, bool exceptionRaseIfNotExist);
         Task<IEnumerable<TViewModel>> WhereAsViewModel(string navigationProperties, Expression<Func<TModel, bool>> where);
         Task<IEnumerable<TViewModel>> WhereAsViewModel(Expression<Func<TModel, bool>> where);
+        Task<IEnumerable<TModel>> WhereEntitiesWithSpecificChildren(string navigationPropertyPath, string dynamicQuery);
         Task<IEnumerable<TModel>> Where(Expression<Func<TModel, bool>> where);
         Task<IEnumerable<TModel>> GetLastN<TKey>(int n, Expression<Func<TModel, TKey>> orderBy) where TKey : class;
         Task<IEnumerable<TModel>> GetLastN(int n, Expression<Func<TModel, bool>> filter);
-        
+        Task<IEnumerable<TModel>> SearchByIncludeNavigationPath(string keywords, string? navigation = null
+      , bool? navigateAll = null
+      , string? dynamicQuery = null
+      , DateTime? startDate = null
+      , DateTime? endDate = null);
+
+
     }
 }
