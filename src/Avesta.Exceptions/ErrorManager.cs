@@ -44,19 +44,9 @@ namespace Avesta.Exceptions
         /// <returns></returns>
         public static string GetErrorMessageByCode(int code)
         {
-            var key = $"error.code.{code}";
-            return Lang.T(key);
+            throw new NotImplementedException();
         }
 
-        /// <summary>
-        /// use pattern error.code.{kyeStr}
-        /// </summary>
-        /// <param name="keyStr">key string for message</param>
-        /// <returns></returns>
-        public static string GetErrorMessageByKeyString(string keyStr)
-        {
-            var key = $"error.code.{keyStr}";
-            return Lang.T(key);
-        }
+        
     }
 }

@@ -728,19 +728,25 @@ namespace Avesta.Services
 
 
 
-        public virtual async Task<IEnumerable<dynamic>> PaginateDynamicQuery(string navigationPropertyPath, string where, string select, int? page = null, int perpage = Pagination.PerPage)
+        public virtual async Task<IEnumerable<dynamic>> PaginateDynamicQuery(string navigationPropertyPath
+            , string where
+            , string select
+            , int? page = null
+            , int perpage = Pagination.PerPage)
         {
-            IEnumerable<dynamic> result = default;
+            IEnumerable<dynamic> data = default;
             if (page == null)
             {
-                result = await DynamicQuery<dynamic>(navigationPropertyPath, where, select);
+                data = await DynamicQuery<dynamic>(navigationPropertyPath, where, select);
             }
             else
             {
                 var skip = (page - 1) * perpage;
-                result = await DynamicQuery<dynamic>(navigationPropertyPath, where, select, skip: skip.Value, take: perpage);
+                data = await DynamicQuery<dynamic>(navigationPropertyPath, where, select, skip: skip.Value, take: perpage);
             }
-            return result;
+
+
+            return data;
         }
 
 

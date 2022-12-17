@@ -1,6 +1,5 @@
 ﻿using Avesta.Language.Globalization.Provider;
 using Microsoft.Extensions.DependencyInjection;
-using Avesta.Language.Globalization;
 using Avesta.Language.Globalization.Enum;
 using Avesta.Language.Globalization.Extension;
 using Avesta.Language.Globalization.Model;

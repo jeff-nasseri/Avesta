@@ -53,7 +53,7 @@ namespace Avesta.Controller.MVCController
                 try
                 {
                     await _crudService.CreateNew(viewModel);
-                    TempData[ExceptionKeys.SuccessKey] = Lang.T(PublicMessageKey.SuccessMessage);
+                    //TempData[ExceptionKeys.SuccessKey] = Lang.T(PublicMessageKey.SuccessMessage);
                     return await BaseRedirectToAction(nameof(GetAll), redirect);
                 }
                 catch (SystemException exception)
@@ -71,7 +71,7 @@ namespace Avesta.Controller.MVCController
             try
             {
                 await _crudService.Delete(id);
-                TempData[ExceptionKeys.SuccessKey] = Lang.T(PublicMessageKey.SuccessMessage);
+                //TempData[ExceptionKeys.SuccessKey] = Lang.T(PublicMessageKey.SuccessMessage);
             }
             catch (SystemException exception)
             {
@@ -91,7 +91,7 @@ namespace Avesta.Controller.MVCController
                 try
                 {
                     await _crudService.EditEntity(viewModel);
-                    TempData[ExceptionKeys.SuccessKey] = Lang.T(PublicMessageKey.SuccessMessage);
+                    //TempData[ExceptionKeys.SuccessKey] = Lang.T(PublicMessageKey.SuccessMessage);
                     return await BaseRedirectToAction(nameof(GetAll), redirect);
                 }
                 catch (SystemException exception)

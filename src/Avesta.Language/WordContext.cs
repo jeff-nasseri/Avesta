@@ -7,7 +7,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 
-namespace Avesta.Language.Globalization
+namespace Avesta.Language
 {
     public abstract class WordContext
     {
@@ -45,7 +45,7 @@ namespace Avesta.Language.Globalization
         /// </summary>
         public async virtual Task OnCreate()
         {
-            var globalWords = this.GetType().GetFields().ToList().Select(c => c.GetValue(this) as GlobalWord).ToList();
+            var globalWords = GetType().GetFields().ToList().Select(c => c.GetValue(this) as GlobalWord).ToList();
             foreach (var globalWord in globalWords)
             {
                 await _provider.Write(globalWord);
@@ -59,7 +59,7 @@ namespace Avesta.Language.Globalization
         /// </summary>
         public async virtual Task OnInitialize()
         {
-            var globalWords = this.GetType().GetFields().ToList().Select(c => c.GetValue(this) as GlobalWord).ToList();
+            var globalWords = GetType().GetFields().ToList().Select(c => c.GetValue(this) as GlobalWord).ToList();
             foreach (var globalWord in globalWords)
             {
                 var key = globalWord.Key;
