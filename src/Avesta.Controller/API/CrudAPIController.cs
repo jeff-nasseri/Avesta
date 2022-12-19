@@ -45,9 +45,9 @@ namespace Avesta.Controller.API
         [Route(CrudEndPointController.Query)]
         public virtual async Task<IActionResult> Query(
             string? navigationPropertyPath = null
-            , string where = "true"
-            , string select = "item=>item"
-            , string orderBy = nameof(BaseEntity.CreatedDate)
+            , string? where = "true"
+            , string? select = "item=>item"
+            , string? orderBy = nameof(BaseEntity.CreatedDate)
             , int? takeFromLast = null
             , int? page = null
             , int? perpage = Pagination.PerPage)
