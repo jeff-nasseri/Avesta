@@ -16,7 +16,17 @@ namespace Avesta.Services
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<dynamic>> PaginateDynamicQuery(string navigationPropertyPath, string where, string select, int? page = null, int perpage = 7)
+        public Task<IEnumerable<dynamic>> PaginateDynamicQuery(string navigationPropertyPath, string where, string select, string orderBy, int? page = null, int perpage = 7)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<dynamic>> PaginateDynamicQuery(string navigationPropertyPath, string where, string select, string orderBy, int? page = null, int? perpage = 7)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<dynamic>> PaginateDynamicQuery(string navigationPropertyPath, string where, string select, string orderBy, int? takeFromLast = null, int? page = null, int? perpage = 7)
         {
             throw new NotImplementedException();
         }

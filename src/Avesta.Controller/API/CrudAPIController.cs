@@ -1,10 +1,13 @@
-﻿using Avesta.Data.Model;
+﻿using Avesta.Attribute.Qraph;
+using Avesta.Data.Model;
 using Avesta.Services;
 using Avesta.Share.Model;
 using Avesta.Storage.Constant;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Routing;
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using CrudEndPointController = Avesta.Storage.Constant.EndPoints.CrudController;
 
@@ -38,15 +41,18 @@ namespace Avesta.Controller.API
         }
 
 
-        [HttpGet]
+        [AvestaQraph]
         [Route(CrudEndPointController.Query)]
-        public virtual async Task<IActionResult> Query(string navigationPropertyPath
-            , string where
-            , string select
+        public virtual async Task<IActionResult> Query(
+            string? navigationPropertyPath = null
+            , string where = "true"
+            , string select = "item=>item"
+            , string orderBy = nameof(BaseEntity.CreatedDate)
+            , int? takeFromLast = null
             , int? page = null
-            , int perpage = Pagination.PerPage)
+            , int? perpage = Pagination.PerPage)
         {
-            var result = await _crudService.PaginateDynamicQuery(navigationPropertyPath, where, select, page, perpage);
+            var result = await _crudService.PaginateDynamicQuery(navigationPropertyPath, where, select, orderBy, takeFromLast, page, perpage);
             return Ok(result);
         }
 

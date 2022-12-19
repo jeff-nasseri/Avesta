@@ -200,10 +200,10 @@ namespace Avesta.Repository.EntityRepositoryRepository
             return await base.DynamicQuery<TEntity, TResult>(navigationPropertyPath, where, select, skip: skip, take: take);
         }
 
-        public async Task<IEnumerable<TResult>> DynamicQuery<TResult>(string navigationPropertyPath, string where, string select)
+        public async Task<IEnumerable<TResult>> DynamicQuery<TResult>(string navigationPropertyPath, string where, string select, string orderBy, int? takeFromLast)
             where TResult : class
         {
-            return await base.DynamicQuery<TEntity, TResult>(navigationPropertyPath, where, select);
+            return await base.DynamicQuery<TEntity, TResult>(navigationPropertyPath, where, select, orderBy, takeFromLast);
         }
 
 

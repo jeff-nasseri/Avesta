@@ -74,7 +74,7 @@ namespace Avesta.Repository.EntityRepository
         Task<IEnumerable<TEntity>> WhereByInclude(string navigationPropertyPath, string dynamicQuery, int skip, int take);
         Task<IEnumerable<TResult>> DynamicQuery<TResult>(string navigationPropertyPath, string where, string select, int skip, int take)
             where TResult : class;
-        Task<IEnumerable<TResult>> DynamicQuery<TResult>(string navigationPropertyPath, string where, string select)
+        Task<IEnumerable<TResult>> DynamicQuery<TResult>(string navigationPropertyPath, string where, string select, string orderBy, int? takeFromLast)
             where TResult : class;
         Task<IEnumerable<TEntity>> WhereByInclude(string navigationPropertyPath, string dynamicQuery);
         Task<IEnumerable<TEntity>> GetAllByPropertyInfo(PropertyInformation info);

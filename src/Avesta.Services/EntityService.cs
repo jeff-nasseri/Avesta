@@ -12,6 +12,8 @@ using Avesta.Share.Model;
 using Avesta.Share.Model.Controller;
 using System.Diagnostics.CodeAnalysis;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Routing;
+using Microsoft.AspNetCore.Http;
 
 namespace Avesta.Services
 {
@@ -55,10 +57,10 @@ namespace Avesta.Services
             var result = await _repository.DynamicQuery<TResult>(navigationPropertyPath: navigationPropertyPath, where: where, select: select, skip, take);
             return result;
         }
-        public virtual async Task<IEnumerable<TResult>> DynamicQuery<TResult>(string navigationPropertyPath, string where, string select)
+        public virtual async Task<IEnumerable<TResult>> DynamicQuery<TResult>(string navigationPropertyPath, string where, string select, string orderBy, int? takeFromLast)
             where TResult : class
         {
-            var result = await _repository.DynamicQuery<TResult>(navigationPropertyPath: navigationPropertyPath, where: where, select: select);
+            var result = await _repository.DynamicQuery<TResult>(navigationPropertyPath: navigationPropertyPath, where: where, select: select, orderBy: orderBy, takeFromLast: takeFromLast);
             return result;
         }
 
@@ -729,20 +731,22 @@ namespace Avesta.Services
 
 
         public virtual async Task<IEnumerable<dynamic>> PaginateDynamicQuery(string navigationPropertyPath
-            , string where
-            , string select
+            , string where = null
+            , string select = null
+            , string orderBy = null
+            , int? takeFromLast = null
             , int? page = null
-            , int perpage = Pagination.PerPage)
+            , int? perpage = Pagination.PerPage)
         {
             IEnumerable<dynamic> data = default;
             if (page == null)
             {
-                data = await DynamicQuery<dynamic>(navigationPropertyPath, where, select);
+                data = await DynamicQuery<dynamic>(navigationPropertyPath, where, select, orderBy, takeFromLast);
             }
             else
             {
                 var skip = (page - 1) * perpage;
-                data = await DynamicQuery<dynamic>(navigationPropertyPath, where, select, skip: skip.Value, take: perpage);
+                data = await DynamicQuery<dynamic>(navigationPropertyPath, where, select, skip: skip.Value, take: perpage.Value);
             }
 
 
@@ -756,7 +760,6 @@ namespace Avesta.Services
 
 
     }
-
 
 
 

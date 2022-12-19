@@ -360,12 +360,17 @@ namespace Avesta.Repository.EntityRepositoryRepository
             return result;
         }
 
-        public async Task<IEnumerable<TResult>> DynamicQuery<TEntity, TResult>(string navigationPropertyPath, string where, string select)
+        public async Task<IEnumerable<TResult>> DynamicQuery<TEntity, TResult>(string navigationPropertyPath, string where, string select, string orderBy, int? takeFromLast)
             where TEntity : BaseEntity<TIdType>
             where TResult : class
         {
             var table = await Include<TEntity>(navigationPropertyPath);
-            var result = table.Where(where).Select(select).ToDynamicList<TResult>();
+            int skip = default(int);
+            if(takeFromLast > 0)
+            {
+                skip = table.Count() - takeFromLast.Value;
+            }
+            var result = table.Where(where).Select(select).OrderBy(orderBy).Skip(skip).ToDynamicList<TResult>();
             return result;
         }
 
@@ -455,8 +460,10 @@ namespace Avesta.Repository.EntityRepositoryRepository
             where TEntity : BaseEntity<TIdType>
         {
             await Task.CompletedTask;
-            var props = navigationPropertyPath.Split(";");
             var table = _context.Set<TEntity>() as IQueryable<TEntity>;
+            if (string.IsNullOrEmpty(navigationPropertyPath))
+                return table;
+            var props = navigationPropertyPath.Split(";");
             foreach (var prop in props)
             {
                 table = table.Include(prop);
