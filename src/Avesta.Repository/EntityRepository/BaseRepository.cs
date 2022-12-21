@@ -366,12 +366,12 @@ namespace Avesta.Repository.EntityRepositoryRepository
         {
             var table = await Include<TEntity>(navigationPropertyPath);
             int skip = default(int);
-            var tableWhere = table.Where(where);
+            var tableWhere = table.OrderBy(orderBy).Where(where);
             if (takeFromLast > 0 && tableWhere.Count() > takeFromLast)
             {
                 skip = tableWhere.Count() - takeFromLast.Value;
             }
-            var result = tableWhere.OrderBy(orderBy).Select(select).Skip(skip).ToDynamicList<TResult>();
+            var result = tableWhere.Select(select).Skip(skip).ToDynamicList<TResult>();
             return result;
         }
 
