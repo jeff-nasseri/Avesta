@@ -18,5 +18,35 @@ namespace Avesta.Share.Utilities
             return result;
 
         }
+
+
+    }
+
+    public class Compare
+    {
+        public static IEnumerable<string> GetChangedPropertyNames<T, G>(T original, G changedObj, string[] excludes = null) where T : class
+    where G : class
+        {
+            var changes = new List<string>();
+            var propperties = typeof(T).GetProperties().ToList();
+            foreach (var property in propperties)
+            {
+                if (excludes.Any(item => item.ToLower().Contains(property.Name.ToLower())))
+                    continue;
+
+                var originalValue = property.GetValue(original)?.ToString();
+                var changedValue = property.GetValue(changedObj)?.ToString();
+                if (originalValue != changedValue)
+                {
+                    changes.Add(property.Name);
+                }
+            }
+
+            return changes;
+
+        }
+
+        public static IEnumerable<string> GetChangedPropertyNames<T>(T original, T changedObj, string[] excludes = null) where T : class => GetChangedPropertyNames<T, T>(original, changedObj, excludes);
+
     }
 }
