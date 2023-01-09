@@ -273,6 +273,11 @@ namespace Avesta.Repository.EntityRepositoryRepository
             return await base.Query<TEntity>(eager);
         }
 
+        public async Task<int> Count(string navigationPropertyPath, string where)
+        {
+            return await base.Count<TEntity>(navigationPropertyPath, where);
+        }
+
         #endregion
 
 

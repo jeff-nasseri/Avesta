@@ -99,6 +99,7 @@ namespace Avesta.Repository.EntityRepository
         #endregion
 
         Task<int> Count();
+        Task<int> Count(string navigationPropertyPath, string where);
 
 
         #region propeties

@@ -29,13 +29,15 @@ namespace Avesta.Services
 
 
 
-        Task<IEnumerable<dynamic>> PaginateDynamicQuery(string navigationPropertyPath
+        Task<PaginationDynamicModel> PaginateDynamicQuery(string navigationPropertyPath
             , string where
             , string select
             , string orderBy
             , int? takeFromLast = null
             , int? page = null
             , int? perpage = Pagination.PerPage);
+
+       
 
 
     }

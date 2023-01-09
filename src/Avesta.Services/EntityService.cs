@@ -79,7 +79,11 @@ namespace Avesta.Services
             var result = await _repository.SingleOrDefaultAsyncByInclude(navigationPropertyPath: navigationPropertyPath, e => e.ID == id);
             return result;
         }
-
+        public async Task<int> Count(string navigationPropertyPath, string where)
+        {
+            var result = await _repository.Count(navigationPropertyPath, where);
+            return result;
+        }
 
         public virtual async Task<TModel> GetEntityWithAllChildren(string id)
         {
@@ -730,7 +734,7 @@ namespace Avesta.Services
 
 
 
-        public virtual async Task<IEnumerable<dynamic>> PaginateDynamicQuery(string navigationPropertyPath
+        public virtual async Task<PaginationDynamicModel> PaginateDynamicQuery(string navigationPropertyPath
             , string where = null
             , string select = null
             , string orderBy = null
@@ -739,6 +743,7 @@ namespace Avesta.Services
             , int? perpage = Pagination.PerPage)
         {
             IEnumerable<dynamic> data = default;
+            var count = await base.Count(navigationPropertyPath, where);
             if (page == null)
             {
                 data = await DynamicQuery<dynamic>(navigationPropertyPath, where, select, orderBy, takeFromLast);
@@ -749,16 +754,16 @@ namespace Avesta.Services
                 data = await DynamicQuery<dynamic>(navigationPropertyPath, where, select, skip: skip.Value, take: perpage.Value);
             }
 
+            var result = new PaginationDynamicModel
+            {
+                Entities = (data),
+                Total = count
+            };
 
-            return data;
+            return result;
         }
 
-
-
-
-
-
-
+        
     }
 
 

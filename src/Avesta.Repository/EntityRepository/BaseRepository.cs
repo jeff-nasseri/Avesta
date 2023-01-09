@@ -360,6 +360,14 @@ namespace Avesta.Repository.EntityRepositoryRepository
             return result;
         }
 
+        public async Task<int> Count<TEntity>(string navigationPropertyPath, string where)
+            where TEntity : BaseEntity<TIdType>
+        {
+            var table = await Include<TEntity>(navigationPropertyPath);
+            var count = table.Count(where);
+            return count;
+        }
+
         public async Task<IEnumerable<TResult>> DynamicQuery<TEntity, TResult>(string navigationPropertyPath, string where, string select, string orderBy, int? takeFromLast)
             where TEntity : BaseEntity<TIdType>
             where TResult : class

@@ -1,10 +1,22 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
+ 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+    <AssemblyName>Avesta.DependencyInjection</AssemblyName>
+    <BaseOutputPath>B:\Avesta\Framework\nuget</BaseOutputPath>
+    <GenerateDocumentationFile>False</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>Avesta Dependency Injection Component</Title>
+    <Authors>alireza-nasseri</Authors>
+    <Description>Dependency Injection Libraries For Avesta</Description>
+    <Copyright>MIT LICENSE</Copyright>
+    <PackageProjectUrl></PackageProjectUrl>
+    <RepositoryUrl>https://github.com/alireza-nasseri/Avesta</RepositoryUrl>
+    <PackageTags>Avesta;Avesta.DependencyInjection;Avesta.Framework</PackageTags>
+    <Version>1.0.2.26</Version>
   </PropertyGroup>
+
 
   <ItemGroup>
     <ProjectReference Include="..\Avesta.Share\Avesta.Share.csproj" />

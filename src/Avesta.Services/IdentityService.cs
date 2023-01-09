@@ -40,5 +40,10 @@ namespace Avesta.Services
         {
             throw new NotImplementedException();
         }
+
+        Task<PaginationDynamicModel> IBaseService<TAvestaUser>.PaginateDynamicQuery(string navigationPropertyPath, string where, string select, string orderBy, int? takeFromLast, int? page, int? perpage)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

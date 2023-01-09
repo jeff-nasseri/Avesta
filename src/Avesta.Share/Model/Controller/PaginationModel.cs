@@ -12,4 +12,9 @@ namespace Avesta.Share.Model.Controller
         public IEnumerable<T> Entities { get; set; }
         public int Total { get; set; }
     }
+
+    public class PaginationDynamicModel : PaginationModel<dynamic> 
+    {
+    }
+
 }
