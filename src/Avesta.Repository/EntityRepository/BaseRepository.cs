@@ -351,12 +351,12 @@ namespace Avesta.Repository.EntityRepositoryRepository
 
         #region where
 
-        public async Task<IEnumerable<TResult>> DynamicQuery<TEntity, TResult>(string navigationPropertyPath, string where, string select, int skip, int take)
+        public async Task<IEnumerable<TResult>> DynamicQuery<TEntity, TResult>(string navigationPropertyPath, string where, string select, string orderBy, int skip, int take)
             where TEntity : BaseEntity<TIdType>
             where TResult : class
         {
             var table = await Include<TEntity>(navigationPropertyPath);
-            var result = table.Where(where).Select(select).Skip(skip).Take(take).ToDynamicList<TResult>();
+            var result = table.OrderBy(orderBy).Where(where).Select(select).Skip(skip).Take(take).ToDynamicList<TResult>();
             return result;
         }
 

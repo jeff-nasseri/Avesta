@@ -51,10 +51,10 @@ namespace Avesta.Services
             var result = await _repository.WhereByInclude(navigationPropertyPath: navigationPropertyPath, dynamicQuery: dynamicQuery, skip, take);
             return result.OrderByDescending(i => i.CreatedDate);
         }
-        public virtual async Task<IEnumerable<TResult>> DynamicQuery<TResult>(string navigationPropertyPath, string where, string select, int skip, int take)
+        public virtual async Task<IEnumerable<TResult>> DynamicQuery<TResult>(string navigationPropertyPath, string where, string select, string orderBy, int skip, int take)
             where TResult : class
         {
-            var result = await _repository.DynamicQuery<TResult>(navigationPropertyPath: navigationPropertyPath, where: where, select: select, skip, take);
+            var result = await _repository.DynamicQuery<TResult>(navigationPropertyPath: navigationPropertyPath, where: where, select: select, orderBy: orderBy, skip, take);
             return result;
         }
         public virtual async Task<IEnumerable<TResult>> DynamicQuery<TResult>(string navigationPropertyPath, string where, string select, string orderBy, int? takeFromLast)
@@ -751,7 +751,7 @@ namespace Avesta.Services
             else
             {
                 var skip = (page - 1) * perpage;
-                data = await DynamicQuery<dynamic>(navigationPropertyPath, where, select, skip: skip.Value, take: perpage.Value);
+                data = await DynamicQuery<dynamic>(navigationPropertyPath, where, select, orderBy, skip: skip.Value, take: perpage.Value);
             }
 
             var result = new PaginationDynamicModel
@@ -763,7 +763,7 @@ namespace Avesta.Services
             return result;
         }
 
-        
+
     }
 
 
