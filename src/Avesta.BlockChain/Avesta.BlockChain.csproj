@@ -4,7 +4,7 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>Avesta.BlockChain</AssemblyName>
-    <BaseOutputPath>B:\Avesta\Framework\nuget</BaseOutputPath>
+    <BaseOutputPath>..\..\nuget</BaseOutputPath>
     <GenerateDocumentationFile>False</GenerateDocumentationFile>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>Avesta BlockChain Component</Title>
@@ -14,7 +14,7 @@
     <PackageProjectUrl></PackageProjectUrl>
     <RepositoryUrl>https://github.com/alireza-nasseri/Avesta</RepositoryUrl>
     <PackageTags>Avesta;Avesta.BlockChain;Avesta.Framework</PackageTags>
-    <Version>1.0.2.27</Version>
+    <Version>1.0.2.28</Version>
   </PropertyGroup>
 
 
