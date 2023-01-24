@@ -14,7 +14,7 @@ builder.Services.AddSwaggerGen();
 
 
 builder.Services.AddDbContext<AppDbContext>(opt => opt.UseSqlite("Data source = avesta_app.db"));
-builder.Services.AddScoped<IRepository<AvestaCrudModel>, EntityRepository<AvestaCrudModel, AppDbContext>>();
+builder.Services.AddScoped<IRepository<AvestaCrudEntity>, EntityRepository<AvestaCrudEntity, AppDbContext>>();
 
 
 var app = builder.Build();

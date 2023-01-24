@@ -78,7 +78,7 @@ namespace AvestaWebAPI.Model
 
 ```
 
-* Tips : Every view model or models in avesta application (like current application we are talking about) must extend 'Avesta.Share.Model.BaseModel' and tell avesta, they are kind of models
+* Tips : Every view model or models in avesta application (like current application we are talking about) must extend 'Avesta.Share.Model.BaseModel' and tell avesta, they are kind of view models
 
 
 
@@ -121,7 +121,7 @@ namespace AvestaWebAPI.Service
 Open your Program.cs file and add bellow content beside of other codes
 ```csharp
 builder.Services.AddDbContext<AppDbContext>(opt => opt.UseSqlite("Data source = avesta_app.db"));
-builder.Services.AddScoped<IRepository<AvestaCrudModel>, EntityRepository<AvestaCrudModel, AppDbContext>>();
+builder.Services.AddScoped<IRepository<AvestaCrudEntity>, EntityRepository<AvestaCrudEntity, AppDbContext>>();
 ```
 
 
@@ -153,5 +153,8 @@ namespace AvestaWebAPI.Controllers
 * Tips : We will discuss more about crud api(s) in Avesta framework !
 
 Now just try to run application and navigate to swagger (if you use swagger !), then you can see list of crud api(s) for your entity, Enjoy!
+
+## Here you can found more detail of current example. 
+
 
 

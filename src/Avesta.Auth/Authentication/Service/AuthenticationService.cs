@@ -19,11 +19,13 @@ namespace Avesta.Auth.Authentication.Service
     {
         Task<IdentityReturnTemplate> Login<TLoginUserModel>(TLoginUserModel model) where TLoginUserModel : LoginModelBase;
         Task<IdentityReturnTemplate> Register<IRegisterUserViewModel>(IRegisterUserViewModel model) where IRegisterUserViewModel : RegisterUserViewModel;
-        Task<IdentityReturnTemplate> ResetPassword(ResetPasswordViewModel viewModel);
+        Task<IdentityReturnTemplate> ResetPasswordByPhoneNumber(ResetPasswordViewModel viewModel);
+        Task<IdentityReturnTemplate> ResetPasswordByEmail(ResetPasswordViewModel viewModel);
         Task<JWTAvestaUser?> SignInWithJWT<TLoginUserModel>(TLoginUserModel model) where TLoginUserModel : LoginModelBase;
         Task<JWTAvestaUser?> SignInWithJWT<TLoginUserModel>(TLoginUserModel model, params Claim[] claims) where TLoginUserModel : LoginModelBase;
         Task<TAvestaUser> GetAuthenticatedUser<TLoginModel>(TLoginModel model) where TLoginModel : LoginModelBase;
         Task<JWTTokenIdentityResult> RefreshJWTTokens(JWTTokenIdentityResult model);
+        Task<string> GenerateResetPasswordTokenByEmail(string email);
         Task<JWTAvestaUser?> GetUserByToken(string token);
         Task LogOut();
 
@@ -63,9 +65,20 @@ namespace Avesta.Auth.Authentication.Service
         }
 
 
-        public async Task<IdentityReturnTemplate> ResetPassword(ResetPasswordViewModel viewModel)
+        public async Task<IdentityReturnTemplate> ResetPasswordByPhoneNumber(ResetPasswordViewModel viewModel)
         {
             var user = await _identityRepository.GetUser(u => u.PhoneNumber == viewModel.UserPhonenumber, exceptionIfNotExist: true);
+            var result = await _identityRepository.ResetUserPassword(user, viewModel.ResetPasswordToken, viewModel.Password);
+            return new IdentityReturnTemplate
+            {
+                Errors = result.Errors.Select(e => e.Description).ToArray(),
+                Succeed = result.Succeeded
+            };
+        }
+
+        public async Task<IdentityReturnTemplate> ResetPasswordByEmail(ResetPasswordViewModel viewModel)
+        {
+            var user = await _identityRepository.GetUser(u => u.Email == viewModel.Email, exceptionIfNotExist: true);
             var result = await _identityRepository.ResetUserPassword(user, viewModel.ResetPasswordToken, viewModel.Password);
             return new IdentityReturnTemplate
             {
@@ -80,6 +93,17 @@ namespace Avesta.Auth.Authentication.Service
             var token = await _identityRepository.GenerateResetPasswordToken(user);
             return token;
         }
+
+
+
+        public async Task<string> GenerateResetPasswordTokenByEmail(string email)
+        {
+            var user = await _identityRepository.GetUserByEmail(email);
+            var token = await _identityRepository.GenerateResetPasswordToken(user);
+            return token;
+        }
+
+
 
         public async Task<IdentityReturnTemplate> Register<IRegisterUserViewModel>(IRegisterUserViewModel model)
             where IRegisterUserViewModel : RegisterUserViewModel
@@ -119,6 +143,13 @@ namespace Avesta.Auth.Authentication.Service
             return user;
 
         }
+
+
+
+
+
+
+
 
         public async Task<JWTAvestaUser?> SignInWithJWT<TLoginUserModel>(TLoginUserModel model) where TLoginUserModel : LoginModelBase
         {
