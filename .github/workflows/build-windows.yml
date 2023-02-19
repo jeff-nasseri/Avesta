@@ -1,0 +1,16 @@
+﻿name: Build/windows
+run-name: Build Avesta On windows
+on: [push]
+jobs:
+  build-dotnet:
+    runs-on: windows-latest
+    steps:
+     - uses: actions/checkout@v3
+
+     - name: Setup .NET Core SDK
+       uses: actions/setup-dotnet@v3.0.3
+     - run: dotnet --info
+     
+
+        
+       
