@@ -8,7 +8,10 @@ jobs:
       - name: Setup .NET Core SDK
         uses: actions/setup-dotnet@v3.0.3
       - run: dotnet --info
-      - run: ls && pwd
+      - run: cd /
+      - run: apt update
+      - run: apt install tree
+      - run: tree
 
         
        
