@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Setup .NET Core SDK
         uses: actions/setup-dotnet@v3.0.3
-      - run: dotnet clean
+      - run: echo ls
       - run: dotnet restore --verbosity diagnostic
       - run: dotnet build
 
