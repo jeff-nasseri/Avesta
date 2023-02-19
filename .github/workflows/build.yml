@@ -1,0 +1,31 @@
+﻿name: Build
+run-name: Build Avesta Framework
+on: [push]
+jobs:
+  build-dotnet-windows:
+    runs-on: windows-latest
+    steps:
+     - uses: actions/checkout@v3
+
+     - name: Setup .NET Core SDK
+       uses: actions/setup-dotnet@v3.0.3
+     - run: dotnet --info
+        
+  build-dotnet-ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+     - uses: actions/checkout@v3
+
+     - name: Setup .NET Core SDK
+       uses: actions/setup-dotnet@v3.0.3
+     - run: dotnet --info
+
+
+  build-dotnet-mac:
+    runs-on: macos-latest
+    steps:
+     - uses: actions/checkout@v3
+
+     - name: Setup .NET Core SDK
+       uses: actions/setup-dotnet@v3.0.3
+     - run: dotnet --info
