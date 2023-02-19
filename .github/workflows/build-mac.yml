@@ -1,0 +1,12 @@
+﻿name: Build on ubuntu
+run-name: Build Avesta Framework On Ubutntu
+on: [push]
+jobs:
+  check-bats-version:
+    runs-on: macos-latest
+    steps:
+      - name: Setup .NET Core SDK
+        uses: actions/setup-dotnet@v3.0.3
+      - run: dotnet build
+
+        

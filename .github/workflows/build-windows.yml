@@ -1,13 +1,12 @@
-﻿name: CI/CD
-run-name: CI/CD
+﻿name: Build on ubuntu
+run-name: Build Avesta Framework On Ubutntu
 on: [push]
 jobs:
   check-bats-version:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - name: Setup .NET Core SDK
         uses: actions/setup-dotnet@v3.0.3
-      - run: dotnet restore --verbosity diagnostic
       - run: dotnet build
 
         
