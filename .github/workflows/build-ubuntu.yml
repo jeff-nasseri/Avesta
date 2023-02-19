@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Setup .NET Core SDK
-        uses: actions/setup-dotnet@latest
-      - run: dotnet build
+        uses: actions/setup-dotnet@v3.0.3
+      - run: dotnet build ./Avesta.sln
 
         
