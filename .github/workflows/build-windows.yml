@@ -1,8 +1,8 @@
-﻿name: Build on ubuntu
+﻿name: Build/windows
 run-name: Build Avesta On Windows
 on: [push]
 jobs:
-  check-bats-version:
+  build-dotnet:
     runs-on: windows-latest
     steps:
       - name: Setup .NET Core SDK

@@ -1,8 +1,8 @@
-﻿name: Build on ubuntu
-run-name: Build Avesta On Macos
+﻿name: Build/mac
+run-name: Build Avesta On MacOS
 on: [push]
 jobs:
-  check-bats-version:
+  build-dotnet:
     runs-on: macos-latest
     steps:
       - name: Setup .NET Core SDK
