@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.32802.440
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avesta.Web", "src\Avesta.Web\Avesta.Web.csproj", "{C29B8D90-CE78-43C6-A0A5-3AB94F0E2065}"
 EndProject
@@ -43,7 +43,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avesta.Attribute", "src\Ave
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avesta", "src\Avesta\Avesta.csproj", "{40FEED85-FB28-44BA-8CA1-456692BFA634}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0DEE2BA5-A64B-4DF3-A0E7-475140B37946}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "item", "item", "{0DEE2BA5-A64B-4DF3-A0E7-475140B37946}"
+	ProjectSection(SolutionItems) = preProject
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avesta.DependencyInjection", "src\Avesta.DependencyInjection\Avesta.DependencyInjection.csproj", "{D108048F-447B-433F-9E36-80B33C5B4410}"
 EndProject
