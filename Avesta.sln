@@ -47,6 +47,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "item", "item", "{0DEE2BA5-A
 	ProjectSection(SolutionItems) = preProject
 		.gitattributes = .gitattributes
 		.gitignore = .gitignore
+		.github\workflows\github-actions-demo.yml = .github\workflows\github-actions-demo.yml
 		LICENSE = LICENSE
 		README.md = README.md
 	EndProjectSection
