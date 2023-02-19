@@ -5,13 +5,12 @@ jobs:
   build-dotnet:
     runs-on: ubuntu-latest
     steps:
-      - name: Setup .NET Core SDK
-        uses: actions/setup-dotnet@v3.0.3
-      - run: dotnet --info
-      - run: cd /
-      - run: apt update
-      - run: apt install tree
-      - run: tree
+     - uses: actions/checkout@v3
+
+     - name: Setup .NET Core SDK
+       uses: actions/setup-dotnet@v3.0.3
+     - run: dotnet --info
+     
 
         
        
