@@ -1,5 +1,5 @@
 ﻿name: Build on ubuntu
-run-name: Build Avesta Framework On Ubutntu
+run-name: Build Avesta On Macos
 on: [push]
 jobs:
   check-bats-version:
