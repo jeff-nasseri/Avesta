@@ -74,4 +74,4 @@ Now we want use Avesta repository to get data and complete our service :
 So we used avesta repository to get car object by id, there is various ways to gather data information using Avesta repository and Avesta services, you will learn more about then !
 
 
-[Now let create a simple service and use built in service data access in Avesta](./../ServiceLayer/)
+[Now let create a simple service and use built in service data access in Avesta](./../ServiceLayer/SimpleUseOfEntityService.md)
