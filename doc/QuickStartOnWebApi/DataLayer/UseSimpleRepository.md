@@ -50,3 +50,28 @@ Here I create a simple service in .NET 5
     }
 ```
 Now we want use Avesta repository to get data and complete our service : 
+```csharp
+    public interface ICarService
+    {
+       Task<Car> GetCarById(object id);
+    }
+    public class CarService : ICarService
+    {
+       readonly IRepository<Car> _carRepository;
+       public CarService(IRepository<Car> carRepository)
+       {
+            _carRepository = carRepository;
+       }
+
+       public async Task<Car> GetCarById(object id)
+       {
+            //find the car and then return it
+            var resule = await _carRepsitory.GetByIdAsync(id);
+            return result;
+       }
+    }
+```
+So we used avesta repository to get car object by id, there is various ways to gather data information using Avesta repository and Avesta services, you will learn more about then !
+
+
+[Now let create a simple service and use built in service data access in Avesta](./../ServiceLayer/)
