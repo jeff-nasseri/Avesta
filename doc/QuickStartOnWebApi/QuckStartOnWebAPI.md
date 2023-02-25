@@ -154,7 +154,7 @@ namespace AvestaWebAPI.Controllers
 
 Now just try to run application and navigate to swagger (if you use swagger !), then you can see list of crud api(s) for your entity, Enjoy!
 
-## Here you can found more detail of current example. 
 
 
+ [Design entity models using Avesta](./DataLayer/CreateEntityModel.md)
 

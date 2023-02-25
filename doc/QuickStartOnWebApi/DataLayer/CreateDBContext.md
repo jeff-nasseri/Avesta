@@ -40,3 +40,5 @@ Lets take a look inside the AvestaDbContext :
 ``` 
 So AvestaDbContext automaticlly exclude deleted entity in OnModel Creating.
 * Tips : must of the functionality in Avesta framework is override able ,So you can change and custome them in your application .
+
+[How can i get access to the context and data models](./UseSimpleRepository.md)
