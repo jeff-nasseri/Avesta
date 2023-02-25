@@ -21,9 +21,5 @@ But Avesta has some usefull built-in libraries for who looking to create below a
 2 - Console Application (CLI) & client side apps like WPF
 
 
-## Avesta Articheture !
-Actually Avesta is a 'Artichecture', So if you are a developer from another language like java, I really preasiate you to help me for transferring Avesta artichecture to another language and create more and more useable codes.
-
-
  [Lets install avesta framework on our application](./doc/Installation.md)
  
