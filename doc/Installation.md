@@ -8,3 +8,5 @@ Install via Pakcage-Manager
 
 * Tips : Avesta is a cross platform framework ,You can use it on your desier platform for developing .NET applications.
 
+
+ [Lunch a simple web api with Avesta framework](./doc/QuickStartOnWebApi/QuickStartOnWebApi.md)
