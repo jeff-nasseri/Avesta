@@ -60,4 +60,7 @@ There is better way if you use BaseEntity<string> and make your id as UUID ,Beca
 
 So That's it ,We write our first model entity with the little help of Avesta.
 Now we must write our DbContext and register it in our application
-# Create DbContext using Avesta Framework
+[Create DbContent using Avesta](./CreateDBContext.md)
+
+[Avesta.Data.Model Reference](./../../Reference/Avesta.Data/)
+
