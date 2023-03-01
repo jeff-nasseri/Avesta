@@ -6,7 +6,7 @@ Run command bellow for create a simple web api project
 
 Then navigate to your project directory, and then install the full package of avesta
 
-* Tips : Actually you dont need the full package of avesta for your application, But this time we want use that just for practice
+* Tips : you dont need the full package of avesta for your application, But this time we want use that just for practice
 
 Run command bellow on your terminal
 > dotnet package add Avesta
@@ -33,10 +33,10 @@ namespace AvestaWebAPI.Data
 }
 ```
 
-* Tips : We strogly suggest extend each entity of your application in your datalayer from 'AvestaData.Model.BaseEntity'
+* Tips : you must extend each entity of your application in your datalayer from 'AvestaData.Model.BaseEntity'
 
 
-Then create a file with AppDbContext.cs and then insert code below to it.
+Then create a file with AppDbContext.cs and then insert below code to it.
 ```csharp
 using Avesta.Data.Context;
 using AvestaWebAPI.Model;

@@ -1,13 +1,13 @@
 # Avesta Data Repository
-Avesta repository is a bunch of functions and libraries help you to query and access to the data within a various ways and method.
+Avesta repository is a bunch of functions and classes help you to query and access to the data within a various ways and methods.
 
-In this toturial I will tell you more about how you can use Avesta repository .
+In this toturial I will tell you more about how you can use Avesta repository
 
 Please read These toturial before you continue :
- - Avesta.Models.md
- - Avesta.DbContext.md
+ - [Avesta Models](./Avesta.Models.md)
+ - [Avesta Db Context](./Avesta.DbContext.md)
 
-The repository of Avesta is based on BaseEntity and AvestaDbContext .
+The repository of Avesta is based on BaseEntity and AvestaDbContext
 First Lets take a look at the signature of Avesta IRepository for get data in IRepository.cs in the Avesta source code :
 ```csharp
     public interface IRepository<TEntity>
@@ -25,14 +25,7 @@ First Lets take a look at the signature of Avesta IRepository for get data in IR
         .
     }
 ```
-As you can see there is various way just for get one entity in Avesta Repository .So how we can use this repository in our application ?
-
-Before we use Avesta repository in our application let's introduce you with some logic in the Avesta Repository libraries :
-- BaseRepository
-- EntityRepository
-
-The make functionality of EntityRepository is just in the BaseRepository .
-* Tips : we dont discuss about code logic in BaseRepository ,If you want know more about functionality of BaseEntity please refer to this link.
+As you can see there is various way just for get one entity in Avesta Repository. So how we can use this repository in our application?
 
 # How we use Avesta Repository in our services
 Here I create a simple service in .NET 5
@@ -74,4 +67,4 @@ Now we want use Avesta repository to get data and complete our service :
 So we used avesta repository to get car object by id, there is various ways to gather data information using Avesta repository and Avesta services, you will learn more about then !
 
 
-[Now let create a simple service and use built in service data access in Avesta](./../ServiceLayer/SimpleUseOfEntityService.md)
+[Now let's create a simple service and use built in service data access in Avesta](./../ServiceLayer/SimpleUseOfEntityService.md)

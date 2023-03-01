@@ -21,26 +21,32 @@ First create view models for CRUD functionality of car entity :
 ```csharp
     using Avesta.Share.Model;
 
-    namespace AvestaWebAPI.Model
+    namespace CarNameSpace.Model
     {
-        public class AvestaCrudModel : BaseModel
+        public class CarViewModel : BaseModel
         {
-            public int Number { get; set; }
-            public string? Content { get; set; }
+            public string Name { get; set; }
+            public int Weight { get; set; }
+            public int MaxSpeed { get; set; }    
         }
-        public class CreateAvestaCrudModelModel : AvestaCrudModel { }
-        public class EditAvestaCrudModelModel : AvestaCrudModel { }
+        public class CreateCarViewModel : CarViewModel { }
+        public class EditCarViewModel : CarViewModel { }
     }
 ```
 And then we can change our service as below :
 ```csharp
-    public interface ICarService : IEntityService<Model,ViewModel,EditViewModel,CreateViewModel>
+    public interface ICarService : IEntityService<CarModel,CarViewModel,EditCarViewModel,CreateCarViewModel>
     {
     }
-    public class CarService : EntityService<Model,ViewModel,EditViewModel,CreateViewModel>,ICarService
+    public class CarService : EntityService<CarModel,CarViewModel,EditCarViewModel,CreateCarViewModel>, ICarService
     {
+        public CarService(IRepository<Car> carRepository,IMapper mapper) : base(carRepository,  mapper)
+        {
+        }
     }
 ```
+ ** Tips : Avesta use in AutoMapper library for mapping view model to entity 
+
 Now if you inject your ICarService, there is a lot of functionality in the service  you can use, for example if i like to get data by id i can use line below : 
 
 ```csharp

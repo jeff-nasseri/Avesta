@@ -1,5 +1,5 @@
 # Data layer of simple crud in Avesta framework web api
-Avesta.Repository & Avesta.Data is the main libraries you can user for design your data layer for your application. Currently Avesta only support Entity Framework Core as ORM.
+Avesta.Repository & Avesta.Data is the main libraries you can use them for design your data layer of your application. Currently Avesta only support Entity Framework Core as ORM.
 
 ### Lest start designing a simple data layer !
 When you want to create various entity model in your data layer ,First of all you need to create a class of that model you want ,For example I want to create a basic Car Model in my data layer :
@@ -8,7 +8,7 @@ public class Car
 {
     public int Id { get; set; }
     public string Name { get; set; }
-    public int Weght { get; set; }
+    public int Weight { get; set; }
     public int MaxSpeed { get; set; }    
 }
 ```
@@ -19,7 +19,7 @@ Here is the code you must write in your application when you use Avesta as your 
 public class Car : BaseEntity<int>
 {
     public string Name { get; set; }
-    public int Weght { get; set; }
+    public int Weight { get; set; }
     public int MaxSpeed { get; set; }    
 }
 ```
@@ -41,7 +41,7 @@ Actually Avesta help you to make an integer id for your model beside of the some
  }
 ```
 The (T) is a generic type you can use it for set the type of id.
-There is better way if you use BaseEntity<string> and make your id as UUID ,Because that's make a more and better system security for some kind of database attack like sql injection !.
+There is better way if you use BaseEntity<string> and make your id as UUID ,Because that's make a better system security for some kind of database attack like sql injection !.
 
 * Tips : You can use buit in BaseEntity<string> in Avesta ,The counter assign a number for your entities automaticlly.
 

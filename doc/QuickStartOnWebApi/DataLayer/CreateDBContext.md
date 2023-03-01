@@ -10,7 +10,7 @@ So from the previous toturial after you create your own entity model you must cr
  }
 ```
 With the little help of Avesta you can extend AvestaDbContext in your application DbContext.
-* Tips : We strongly suggest you to extend AvestaDbContext in your db context because it's very important in Repository layer of Avesta ,We will descuss about the repository later .
+* Tips : you must extent AvestaDbContext in your db context because it's very important in Repository layer of Avesta ,We will descuss about the repository later
 
 Here when u arrive MyApplicationDbContext from AvestaDbContext :   
 ```csharp
