@@ -19,16 +19,11 @@ namespace Avesta.Data.Context
         public AvestaDbContext(DbContextOptions options)
             : base(options)
         {
-
         }
-
-        protected virtual void OnModelCreating(ModelBuilder modelBuilder)
+        public AvestaDbContext() : base()
         {
-            //use reflection to write this code
-            //modelBuilder.Entity<Like>().HasQueryFilter(u => !u.DeletedDate.HasValue);
-            base.OnModelCreating(modelBuilder);
-
         }
+
     }
 
 
