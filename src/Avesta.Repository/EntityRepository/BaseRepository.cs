@@ -35,18 +35,6 @@ namespace Avesta.Repository.EntityRepositoryRepository
         #endregion
 
         #region get entity
-        public virtual async Task<TEntity> GetByIdAsync<TEntity>(int id, bool track = true, bool exceptionRaseIfNotExist = false)
-            where TEntity : BaseEntity<TIdType>
-        {
-            var entity = await _context.Set<TEntity>().FindAsync(id);
-
-            if (entity == null && exceptionRaseIfNotExist)
-                throw new CanNotFoundEntityException(new int { }, null);
-
-            if (!track)
-                _context.Entry(entity).State = EntityState.Detached;
-            return entity;
-        }
         public async Task<TEntity> GetByIdAsync<TEntity>(object key, bool track = true, bool exceptionRaseIfNotExist = false)
             where TEntity : BaseEntity<TIdType>
         {
