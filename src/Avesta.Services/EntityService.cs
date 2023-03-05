@@ -211,12 +211,12 @@ namespace Avesta.Services
         }
         public virtual async Task<TModel> Get(string id, bool exceptionRaseIfNotExist)
         {
-            var result = await _repository.GetByIdAsync(id, exceptionRaseIfNotExist: exceptionRaseIfNotExist);
+            var result = await _repository.GetById(id, exceptionRaseIfNotExist: exceptionRaseIfNotExist);
             return result;
         }
         public virtual async Task<TViewModel> GetAsViewModel(string id, bool exceptionRaseIfNotExist)
         {
-            var entity = await _repository.GetByIdAsync(id, exceptionRaseIfNotExist: exceptionRaseIfNotExist);
+            var entity = await _repository.GetById(id, exceptionRaseIfNotExist: exceptionRaseIfNotExist);
             var model = _mapper.Map<TViewModel>(entity);
             return model;
         }

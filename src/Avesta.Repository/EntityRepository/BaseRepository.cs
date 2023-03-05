@@ -35,7 +35,7 @@ namespace Avesta.Repository.EntityRepositoryRepository
         #endregion
 
         #region get entity
-        public async Task<TEntity> GetByIdAsync<TEntity>(object key, bool track = true, bool exceptionRaseIfNotExist = false)
+        public async Task<TEntity> GetById<TEntity>(object key, bool track = true, bool exceptionRaseIfNotExist = false)
             where TEntity : BaseEntity<TIdType>
         {
             var entity = await _context.FindAsync<TEntity>(key);
@@ -327,7 +327,7 @@ namespace Avesta.Repository.EntityRepositoryRepository
         public async Task SoftDelete<TEntity>(string id, bool exceptionRaseIfNotExist)
             where TEntity : BaseEntity<TIdType>
         {
-            var entity = await GetByIdAsync<TEntity>(id, exceptionRaseIfNotExist: exceptionRaseIfNotExist);
+            var entity = await GetById<TEntity>(id, exceptionRaseIfNotExist: exceptionRaseIfNotExist);
             entity.DeletedDate = DateTime.UtcNow;
             await UpdateAsync(entity);
         }

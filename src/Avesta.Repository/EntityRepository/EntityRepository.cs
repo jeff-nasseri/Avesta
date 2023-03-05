@@ -30,9 +30,9 @@ namespace Avesta.Repository.EntityRepositoryRepository
         #endregion
 
         #region get entity
-        public async Task<TEntity> GetByIdAsync(object key, bool track = true, bool exceptionRaseIfNotExist = false)
+        public async Task<TEntity> GetById(object key, bool track = true, bool exceptionRaseIfNotExist = false)
         {
-            return await base.GetByIdAsync<TEntity>(key, track, exceptionRaseIfNotExist);
+            return await base.GetById<TEntity>(key, track, exceptionRaseIfNotExist);
         }
         public async Task<TEntity> GetEntity(Expression<Func<TEntity, bool>> predicate, bool exceptionRaseIfNotExist = false)
         {

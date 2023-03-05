@@ -66,7 +66,7 @@ namespace Avesta.Repository.Test
         [TestCaseSource(nameof(Source))]
         public async Task GetByIdAsync_MustReturnValidEntity(string id)
         {
-            var result = await _repository.GetByIdAsync(id);
+            var result = await _repository.GetById(id);
             Assert.That(result, Is.Not.Null);
         }
 
@@ -79,8 +79,25 @@ namespace Avesta.Repository.Test
         [ExpectedException(typeof(CanNotFoundEntityException))]
         public async Task GetByIdAsyncWithUnvalidId_MustThrowCanNotFoundEntityException(string id)
         {
-            await _repository.GetByIdAsync(id, exceptionRaseIfNotExist: true);
+            await _repository.GetById(id, exceptionRaseIfNotExist: true);
         }
+
+
+
+        [TestCase("Not_Valid_ID_1")]
+        [TestCase("Not_Valid_ID_2")]
+        public async Task GetByIdAsyncWithUnvalidId_WillReturnNull_IfExceptionRaseIsFalse(string id)
+        {
+            var result = await _repository.GetById(id, exceptionRaseIfNotExist: false);
+            Assert.That(result, Is.Null);
+        }
+
+
+
+
+
+        #endregion
+
 
 
         [TestCaseSource(nameof(Source))]
@@ -101,12 +118,6 @@ namespace Avesta.Repository.Test
         {
             await _repository.GetEntity(e => e.ID == id, exceptionRaseIfNotExist: true);
         }
-
-
-
-        #endregion
-
-
 
 
 
