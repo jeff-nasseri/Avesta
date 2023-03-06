@@ -76,7 +76,7 @@ namespace Avesta.Services
         }
         public virtual async Task<TModel> GetEntityWithSpecificChildren(string id, string navigationPropertyPath)
         {
-            var result = await _repository.SingleOrDefaultByInclude(navigationPropertyPath: navigationPropertyPath, e => e.ID == id);
+            var result = await _repository.SingleOrDefault(navigationPropertyPath: navigationPropertyPath, e => e.ID == id);
             return result;
         }
         public async Task<int> Count(string navigationPropertyPath, string where)

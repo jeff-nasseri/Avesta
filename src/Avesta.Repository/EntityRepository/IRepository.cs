@@ -20,7 +20,8 @@ namespace Avesta.Repository.EntityRepository
         Task<TEntity> GetEntity(string navigationPropertyPath, Expression<Func<TEntity, bool>> predicate, bool track = true, bool exceptionRaiseIfNotExist = false);
         Task<TEntity> FirstOrDefault(bool track = true, bool exceptionRaiseIfNotExist = false);
         Task<TEntity> FirstOrDefault(Expression<Func<TEntity, bool>> search, bool track = true, bool exceptionRaiseIfNotExist = false);
-        Task<TEntity> SingleOrDefaultByInclude(string navigationPropertyPath, Expression<Func<TEntity, bool>> search, bool track = true, bool exceptionRaiseIfNotExist = false);
+        Task<TEntity> SingleOrDefault(Expression<Func<TEntity, bool>> search, bool track = true, bool exceptionRaiseIfNotExist = false);
+        Task<TEntity> SingleOrDefault(string navigationPropertyPath, Expression<Func<TEntity, bool>> search, bool track = true, bool exceptionRaiseIfNotExist = false);
 
 
         #endregion

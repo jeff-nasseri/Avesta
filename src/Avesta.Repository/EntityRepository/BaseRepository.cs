@@ -100,7 +100,7 @@ namespace Avesta.Repository.EntityRepositoryRepository
         }
 
 
-        public async Task<TEntity> SingleOrDefaultByInclude<TEntity>(string navigationPropertyPath, Expression<Func<TEntity, bool>> search, bool track = true, bool exceptionRaiseIfNotExist = false)
+        public async Task<TEntity> SingleOrDefault<TEntity>(string navigationPropertyPath, Expression<Func<TEntity, bool>> search, bool track = true, bool exceptionRaiseIfNotExist = false)
              where TEntity : BaseEntity<TIdType>
         {
             var table = await Include<TEntity>(navigationPropertyPath);
@@ -113,7 +113,20 @@ namespace Avesta.Repository.EntityRepositoryRepository
                 _context.Entry(result).State = EntityState.Detached;
             return result;
         }
-     
+
+        public async Task<TEntity> SingleOrDefault<TEntity>(Expression<Func<TEntity, bool>> search, bool track = true, bool exceptionRaiseIfNotExist = false)
+           where TEntity : BaseEntity<TIdType>
+        {
+            var result = await _context.Set<TEntity>().SingleOrDefaultAsync(search);
+
+            if (result == null && exceptionRaiseIfNotExist)
+                throw new CanNotFoundEntityException(search.ToString());
+
+            if (!track)
+                _context.Entry(result).State = EntityState.Detached;
+            return result;
+        }
+
 
 
         public virtual async Task<IEnumerable<TEntity>> GetByIds<TEntity>(IEnumerable<int> ids)

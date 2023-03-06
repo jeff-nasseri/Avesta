@@ -51,6 +51,15 @@ namespace Avesta.Repository.EntityRepositoryRepository
             return await base.FirstOrDefault<TEntity>(search, track: track, exceptionRaiseIfNotExist: exceptionRaiseIfNotExist);
         }
 
+        public async Task<TEntity> SingleOrDefault(string navigationPropertyPath, Expression<Func<TEntity, bool>> search, bool track = true, bool exceptionRaiseIfNotExist = false)
+        {
+            return await base.SingleOrDefault<TEntity>(navigationPropertyPath, search, track: track, exceptionRaiseIfNotExist: exceptionRaiseIfNotExist);
+        }
+        public async Task<TEntity> SingleOrDefault(Expression<Func<TEntity, bool>> search, bool track = true, bool exceptionRaiseIfNotExist = false)
+        {
+            return await base.SingleOrDefault<TEntity>(search, track: track, exceptionRaiseIfNotExist: exceptionRaiseIfNotExist);
+        }
+
         #endregion
 
 
@@ -221,14 +230,6 @@ namespace Avesta.Repository.EntityRepositoryRepository
         #endregion
 
 
-
-        #region single
-        public async Task<TEntity> SingleOrDefaultByInclude(string navigationPropertyPath, Expression<Func<TEntity, bool>> search, bool track = true, bool exceptionRaiseIfNotExist = false)
-        {
-            return await base.SingleOrDefaultByInclude<TEntity>(navigationPropertyPath, search, track: track, exceptionRaiseIfNotExist: exceptionRaiseIfNotExist);
-        }
-
-        #endregion
 
 
 

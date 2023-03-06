@@ -66,7 +66,6 @@ namespace Avesta.Repository.Test
 
 
 
-        #region [- GetByIdAsync -]
 
         [TestCaseSource(nameof(OnlyEntitySource))]
         public async Task GetById_MustReturnValidEntity(string id)
@@ -117,13 +116,11 @@ namespace Avesta.Repository.Test
 
 
 
-        #endregion
 
 
 
 
 
-        #region [- GetEntity -]
 
         [TestCaseSource(nameof(OnlyEntitySource))]
         public async Task GetEntity_MustReturnValidEntity(string id)
@@ -234,7 +231,43 @@ namespace Avesta.Repository.Test
 
 
 
-        #endregion
+
+        [TestCaseSource(nameof(OnlyEntitySource))]
+        public async Task SingleOrDefault_MustTrackEntity(string id)
+        {
+            var result = await _repository.SingleOrDefault(e => e.ID == id, track: true);
+            Assert.That(_context.Entry(result).State, Is.Not.EqualTo(EntityState.Detached));
+        }
+
+
+
+        [TestCaseSource(nameof(OnlyEntitySource))]
+        public async Task SingleOrDefault_MustDetachEntity_IfTrackIsFalse(string id)
+        {
+            var result = await _repository.SingleOrDefault(e => e.ID == id, track: false);
+            Assert.That(_context.Entry(result).State, Is.EqualTo(EntityState.Detached));
+        }
+
+
+
+
+        [TestCaseSource(nameof(EntitySourceWithIncludePath))]
+        public async Task SingleOrDefaultWithInclude_MustReturnValidIncludedEntity(string id, string navigationIncludePath)
+        {
+            var result = await _repository.SingleOrDefault(navigationIncludePath, e => e.ID == id);
+            Assert.That(result, Is.Not.Null);
+        }
+
+
+
+
+        [TestCaseSource(nameof(EntitySourceWithInvalidIncludePath))]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public async Task SingleOrDefaultWithInvalidInclude_MustThrowInvalidOperationException(string id, string navigationIncludePath)
+        {
+            await _repository.SingleOrDefault(navigationIncludePath, e => e.ID == id);
+        }
+
 
 
 
