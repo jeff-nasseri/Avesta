@@ -34,6 +34,11 @@ namespace Avesta.Repository.EntityRepositoryRepository
         }
         #endregion
 
+
+
+
+
+
         #region [- Read -]
         public async Task<TEntity> GetById<TEntity>(object key, bool track = true, bool exceptionRaseIfNotExist = false)
             where TEntity : BaseEntity<TIdType>
@@ -70,12 +75,20 @@ namespace Avesta.Repository.EntityRepositoryRepository
         }
 
 
-        public async Task<TEntity> First<TEntity>(bool exceptionRaseIfNotExist)
+        public async Task<TEntity> FirstOrDefault<TEntity>(bool exceptionRaseIfNotExist)
             where TEntity : BaseEntity<TIdType>
         {
             var entity = await _context.Set<TEntity>().FirstOrDefaultAsync();
             if (exceptionRaseIfNotExist && entity == null)
                 throw new CanNotFoundEntityException("first entity");
+            return entity;
+        }
+        public async Task<TEntity> FirstOrDefault<TEntity>(Expression<Func<TEntity, bool>> search, bool exceptionIfNotExist = false)
+             where TEntity : BaseEntity<TIdType>
+        {
+            var entity = await _context.Set<TEntity>().FirstOrDefaultAsync(search);
+            if (entity == null && exceptionIfNotExist)
+                throw new CanNotFoundEntityException(search);
             return entity;
         }
 
@@ -502,14 +515,7 @@ namespace Avesta.Repository.EntityRepositoryRepository
             _context.Dispose();
         }
 
-        public async Task<TEntity> FirstAsync<TEntity>(Expression<Func<TEntity, bool>> search, bool exceptionIfNotExist = false)
-            where TEntity : BaseEntity<TIdType>
-        {
-            var entity = await _context.Set<TEntity>().FirstOrDefaultAsync(search);
-            if (entity == null && exceptionIfNotExist)
-                throw new CanNotFoundEntityException(search);
-            return entity;
-        }
+   
 
 
         public virtual async Task<IQueryable<TEntity>> Query<TEntity>(bool eager = false)

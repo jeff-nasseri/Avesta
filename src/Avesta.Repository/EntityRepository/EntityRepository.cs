@@ -44,7 +44,7 @@ namespace Avesta.Repository.EntityRepositoryRepository
         }
         public async Task<TEntity> First(bool exceptionRaseIfNotExist)
         {
-            return await base.First<TEntity>(exceptionRaseIfNotExist);
+            return await base.FirstOrDefault<TEntity>(exceptionRaseIfNotExist);
         }
         #endregion
 
@@ -260,7 +260,7 @@ namespace Avesta.Repository.EntityRepositoryRepository
 
         public async Task<TEntity> FirstAsync(Expression<Func<TEntity, bool>> search, bool exceptionIfNotExist = false)
         {
-            return await base.FirstAsync<TEntity>(search, exceptionIfNotExist);
+            return await base.FirstOrDefault<TEntity>(search, exceptionIfNotExist);
         }
 
 
