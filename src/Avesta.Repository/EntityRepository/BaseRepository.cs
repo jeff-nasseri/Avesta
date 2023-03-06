@@ -100,22 +100,20 @@ namespace Avesta.Repository.EntityRepositoryRepository
         }
 
 
-        public async Task<TEntity> SingleOrDefaultAsyncByInclude<TEntity>(string navigationPropertyPath, Expression<Func<TEntity, bool>> search)
+        public async Task<TEntity> SingleOrDefaultByInclude<TEntity>(string navigationPropertyPath, Expression<Func<TEntity, bool>> search, bool track = true, bool exceptionRaiseIfNotExist = false)
              where TEntity : BaseEntity<TIdType>
         {
             var table = await Include<TEntity>(navigationPropertyPath);
             var result = await table.SingleOrDefaultAsync(search);
-            return result;
-        }
-        public async Task<TEntity> SingleAsyncByInclude<TEntity>(string navigationPropertyPath, Expression<Func<TEntity, bool>> search)
-            where TEntity : BaseEntity<TIdType>
-        {
-            var table = await Include<TEntity>(navigationPropertyPath);
-            var result = await table.SingleOrDefaultAsync(search)
-                ?? throw new CanNotFoundEntityException(search.ToString());
-            return result;
-        }
 
+            if (result == null && exceptionRaiseIfNotExist)
+                throw new CanNotFoundEntityException(search.ToString());
+
+            if (!track)
+                _context.Entry(result).State = EntityState.Detached;
+            return result;
+        }
+     
 
 
         public virtual async Task<IEnumerable<TEntity>> GetByIds<TEntity>(IEnumerable<int> ids)

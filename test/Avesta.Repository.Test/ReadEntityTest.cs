@@ -199,6 +199,13 @@ namespace Avesta.Repository.Test
             Assert.That(result, Is.Not.Null);
         }
 
+        [Test]
+        public async Task FirstOrDefaultWithExpression_MustDetachEntity_IfTrackIsFalse()
+        {
+            var result = await _repository.FirstOrDefault(track: false);
+            Assert.That(_context.Entry(result).State, Is.EqualTo(EntityState.Detached));
+        }
+
 
 
         [TestCaseSource(nameof(OnlyEntitySource))]

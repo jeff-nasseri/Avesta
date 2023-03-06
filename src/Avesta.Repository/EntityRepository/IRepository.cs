@@ -20,6 +20,8 @@ namespace Avesta.Repository.EntityRepository
         Task<TEntity> GetEntity(string navigationPropertyPath, Expression<Func<TEntity, bool>> predicate, bool track = true, bool exceptionRaiseIfNotExist = false);
         Task<TEntity> FirstOrDefault(bool track = true, bool exceptionRaiseIfNotExist = false);
         Task<TEntity> FirstOrDefault(Expression<Func<TEntity, bool>> search, bool track = true, bool exceptionRaiseIfNotExist = false);
+        Task<TEntity> SingleOrDefaultByInclude(string navigationPropertyPath, Expression<Func<TEntity, bool>> search, bool track = true, bool exceptionRaiseIfNotExist = false);
+
 
         #endregion
 
@@ -35,6 +37,7 @@ namespace Avesta.Repository.EntityRepository
         Task<IEnumerable<TEntity>> GetAllByInclude(string navigationPropertyPath);
         Task<IEnumerable<TEntity>> GetAllByInclude(string navigationPropertyPath, int skip, int take);
         Task<IEnumerable<TEntity>> GetAllAsync<TKey>(string navigationPropertyPath = null, Func<TEntity, TKey> descendingOrder = null);
+
         #endregion
 
 
@@ -79,12 +82,6 @@ namespace Avesta.Repository.EntityRepository
             where TResult : class;
         Task<IEnumerable<TEntity>> WhereByInclude(string navigationPropertyPath, string dynamicQuery);
         Task<IEnumerable<TEntity>> GetAllByPropertyInfo(PropertyInformation info);
-        #endregion
-
-
-        #region single
-        Task<TEntity> SingleOrDefaultAsyncByInclude(string navigationPropertyPath, Expression<Func<TEntity, bool>> search);
-        Task<TEntity> SingleAsyncByInclude(string navigationPropertyPath, Expression<Func<TEntity, bool>> search);
         #endregion
 
 

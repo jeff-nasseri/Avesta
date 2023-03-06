@@ -223,13 +223,9 @@ namespace Avesta.Repository.EntityRepositoryRepository
 
 
         #region single
-        public async Task<TEntity> SingleOrDefaultAsyncByInclude(string navigationPropertyPath, Expression<Func<TEntity, bool>> search)
+        public async Task<TEntity> SingleOrDefaultByInclude(string navigationPropertyPath, Expression<Func<TEntity, bool>> search, bool track = true, bool exceptionRaiseIfNotExist = false)
         {
-            return await base.SingleOrDefaultAsyncByInclude<TEntity>(navigationPropertyPath, search);
-        }
-        public async Task<TEntity> SingleAsyncByInclude(string navigationPropertyPath, Expression<Func<TEntity, bool>> search)
-        {
-            return await base.SingleAsyncByInclude<TEntity>(navigationPropertyPath, search);
+            return await base.SingleOrDefaultByInclude<TEntity>(navigationPropertyPath, search, track: track, exceptionRaiseIfNotExist: exceptionRaiseIfNotExist);
         }
 
         #endregion
