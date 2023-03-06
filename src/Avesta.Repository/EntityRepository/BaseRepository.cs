@@ -128,7 +128,7 @@ namespace Avesta.Repository.EntityRepositoryRepository
         }
 
 
-
+        [Obsolete("this must be updated to TIdType Not only int")]
         public virtual async Task<IEnumerable<TEntity>> GetByIds<TEntity>(IEnumerable<int> ids)
             where TEntity : BaseEntity<TIdType>
         {
@@ -142,12 +142,13 @@ namespace Avesta.Repository.EntityRepositoryRepository
             return result;
         }
 
-        public async Task<IEnumerable<TEntity>> GetAllIncludeAllChildren<TEntity>(bool track = false)
+
+        public async Task<IEnumerable<TEntity>> GetAllIncludeAllChildren<TEntity>(bool track = true)
             where TEntity : BaseEntity<TIdType>
         {
             var result = default(IEnumerable<TEntity>);
             var query = await Query<TEntity>(eager: true);
-            if (track)
+            if (!track)
                 result = query.AsNoTracking().ToList();
             else
                 result = query.ToList();

@@ -71,7 +71,7 @@ namespace Avesta.Repository.EntityRepositoryRepository
             return await base.GetByIds<TEntity>(ids);
         }
 
-        public async Task<IEnumerable<TEntity>> GetAllIncludeAllChildren(bool track = false)
+        public async Task<IEnumerable<TEntity>> GetAllIncludeAllChildren(bool track = true)
         {
             return await base.GetAllIncludeAllChildren<TEntity>(track);
         }
