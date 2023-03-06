@@ -34,13 +34,13 @@ namespace Avesta.Repository.EntityRepositoryRepository
         {
             return await base.GetById<TEntity>(key, track, exceptionRaseIfNotExist);
         }
-        public async Task<TEntity> GetEntity(Expression<Func<TEntity, bool>> predicate, bool exceptionRaseIfNotExist = false)
+        public async Task<TEntity> GetEntity(Expression<Func<TEntity, bool>> predicate, bool track = true, bool exceptionRaseIfNotExist = false)
         {
-            return await base.GetEntity<TEntity>(predicate, exceptionRaseIfNotExist);
+            return await base.GetEntity<TEntity>(predicate, track, exceptionRaseIfNotExist);
         }
-        public async Task<TEntity> GetEntity(string navigationPropertyPath, Expression<Func<TEntity, bool>> predicate, bool exceptionRaseIfNotExist = false)
+        public async Task<TEntity> GetEntity(string navigationPropertyPath, Expression<Func<TEntity, bool>> predicate, bool track = true, bool exceptionRaseIfNotExist = false)
         {
-            return await base.GetEntity<TEntity>(navigationPropertyPath, predicate, exceptionRaseIfNotExist);
+            return await base.GetEntity<TEntity>(navigationPropertyPath, predicate, track, exceptionRaseIfNotExist);
         }
         public async Task<TEntity> First(bool exceptionRaseIfNotExist)
         {
@@ -190,7 +190,7 @@ namespace Avesta.Repository.EntityRepositoryRepository
             return await base.WhereByInclude<TEntity>(navigationPropertyPath, dynamicQuery, skip: skip, take: take);
         }
 
-        public async Task<IEnumerable<TResult>> DynamicQuery<TResult>(string navigationPropertyPath, string where, string select,string orderBy, int skip, int take)
+        public async Task<IEnumerable<TResult>> DynamicQuery<TResult>(string navigationPropertyPath, string where, string select, string orderBy, int skip, int take)
             where TResult : class
         {
             return await base.DynamicQuery<TEntity, TResult>(navigationPropertyPath, where, select, orderBy: orderBy, skip: skip, take: take);

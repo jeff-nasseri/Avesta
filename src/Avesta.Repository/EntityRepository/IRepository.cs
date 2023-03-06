@@ -16,8 +16,8 @@ namespace Avesta.Repository.EntityRepository
     {
         #region get entity
         Task<TEntity> GetById(object key, bool track = true, bool exceptionRaseIfNotExist = false);
-        Task<TEntity> GetEntity(Expression<Func<TEntity, bool>> predicate, bool exceptionRaseIfNotExist = false);
-        Task<TEntity> GetEntity(string navigationPropertyPath, Expression<Func<TEntity, bool>> predicate, bool exceptionRaseIfNotExist = false);
+        Task<TEntity> GetEntity(Expression<Func<TEntity, bool>> predicate, bool track = true, bool exceptionRaseIfNotExist = false);
+        Task<TEntity> GetEntity(string navigationPropertyPath, Expression<Func<TEntity, bool>> predicate, bool track = true, bool exceptionRaseIfNotExist = false);
         Task<TEntity> First(bool exceptionRaseIfNotExist);
         #endregion
 

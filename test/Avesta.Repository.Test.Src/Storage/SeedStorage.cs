@@ -12,23 +12,37 @@ namespace Avesta.Repository.Test.Src.Storage
     public class SeedStorage
     {
 
-        public static BaseEntity First(Type type) 
+        public static string FirstId(Type type) 
         {
             switch (type.Name)
             {
-                case "Student": return Students.First();
-                case "Teacher": return Teachers.First();
-                case "School": return Schools.First();
+                case "Student": return "73794880-d275-4703-a74d-fd32a338b375";
+                case "Teacher": return "73794880-d275-4703-a74d-fd32a338b369";
+                case "School": return "73794880-d275-4703-a74d-fd32a338b373";
+                case "Teacher_School": return "13794880-d275-4703-a74d-fd32a338b373";
                 default:throw new Exception("type not found !");
             }
         }
-        public static BaseEntity Last(Type type)
+        public static string LastId(Type type)
         {
             switch (type.Name)
             {
-                case "Student": return Students.Last();
-                case "Teacher": return Teachers.Last();
-                case "School": return Schools.Last();
+                case "Student": return "73794880-d275-4703-a74d-fd32a338b379";
+                case "Teacher": return "73794880-d275-4703-a74d-fd32a338b367";
+                case "School": return "73794880-d275-4703-a74d-fd32a338b374";
+                case "Teacher_School": return "33794880-d275-4703-a74d-fd32a338b373";
+                default: throw new Exception("type not found !");
+            }
+        }
+
+        public static string GetPath(Type type)
+        {
+            switch (type.Name)
+            {
+                case "Student": return nameof(Student.School);
+                case "Teacher": return nameof(Teacher.Teacher_Schools);
+                case "School": return nameof(Teacher.Teacher_Schools);
+                case "Teacher_School": return $"{nameof(Teacher_School.Teacher)};{nameof(Teacher_School.School)}";
                 default: throw new Exception("type not found !");
             }
         }
@@ -42,7 +56,9 @@ namespace Avesta.Repository.Test.Src.Storage
                 Age = 24,
                 AnyExteraNote = "My name is Alireza, I'm very excited to be here",
                 Gender = Gender.Man,
-                ID = Guid.NewGuid().ToString()
+                //ID = Guid.NewGuid().ToString()
+                ID = "73794880-d275-4703-a74d-fd32a338b375",
+                SchoolId = "73794880-d275-4703-a74d-fd32a338b374"
             },
             new Student
             {
@@ -50,7 +66,11 @@ namespace Avesta.Repository.Test.Src.Storage
                 Age = 44,
                 AnyExteraNote = "My name is Hamed, I'm very excited to be here",
                 Gender = Gender.Man,
-                ID = Guid.NewGuid().ToString()
+                //ID = Guid.NewGuid().ToString()
+                ID = "73794880-d275-4703-a74d-fd32a338b376",
+                SchoolId = "73794880-d275-4703-a74d-fd32a338b374"
+
+
             },
             new Student
             {
@@ -58,7 +78,11 @@ namespace Avesta.Repository.Test.Src.Storage
                 Age = 25,
                 AnyExteraNote = "My name is Sahar, I'm very excited to be here",
                 Gender = Gender.Woman,
-                ID = Guid.NewGuid().ToString()
+                //ID = Guid.NewGuid().ToString()
+                ID = "73794880-d275-4703-a74d-fd32a338b377",
+                SchoolId = "73794880-d275-4703-a74d-fd32a338b374"
+
+
             },
             new Student
             {
@@ -66,7 +90,11 @@ namespace Avesta.Repository.Test.Src.Storage
                 Age = 20,
                 AnyExteraNote = "My name is Sara, I'm very excited to be here",
                 Gender = Gender.Woman,
-                ID = Guid.NewGuid().ToString()
+                //ID = Guid.NewGuid().ToString()
+                ID = "73794880-d275-4703-a74d-fd32a338b378",
+                SchoolId = "73794880-d275-4703-a74d-fd32a338b374"
+
+
             },
             new Student
             {
@@ -74,7 +102,9 @@ namespace Avesta.Repository.Test.Src.Storage
                 Age = 20,
                 AnyExteraNote = "My name is Jack, I'm very excited to be here",
                 Gender = Gender.Man,
-                ID = Guid.NewGuid().ToString()
+                //ID = Guid.NewGuid().ToString()
+                ID = "73794880-d275-4703-a74d-fd32a338b379"
+
             },
             new Student
             {
@@ -82,7 +112,10 @@ namespace Avesta.Repository.Test.Src.Storage
                 Age = 22,
                 AnyExteraNote = "My name is Biden, I'm very excited to be here",
                 Gender = Gender.Man,
-                ID = Guid.NewGuid().ToString()
+                //ID = Guid.NewGuid().ToString()
+                ID = "73794880-d275-4703-a74d-fd32a338b371",
+                SchoolId = "73794880-d275-4703-a74d-fd32a338b373"
+
             },
             new Student
             {
@@ -90,7 +123,11 @@ namespace Avesta.Repository.Test.Src.Storage
                 Age = 23,
                 AnyExteraNote = "My name is Reza, I'm very excited to be here",
                 Gender = Gender.Man,
-                ID = Guid.NewGuid().ToString()
+                //ID = Guid.NewGuid().ToString()
+                ID = "73794880-d275-4703-a74d-fd32a338b372",
+                SchoolId = "73794880-d275-4703-a74d-fd32a338b373"
+
+
             }
         };
 
@@ -100,12 +137,16 @@ namespace Avesta.Repository.Test.Src.Storage
             new School
             {
                 Name = "School A",
-                ID = Guid.NewGuid().ToString()
+                //ID = Guid.NewGuid().ToString()
+                ID = "73794880-d275-4703-a74d-fd32a338b373"
+
             },
             new School
             {
                 Name = "School B",
-                ID = Guid.NewGuid().ToString()
+                //ID = Guid.NewGuid().ToString()
+                ID = "73794880-d275-4703-a74d-fd32a338b374"
+
             }
         };
 
@@ -117,21 +158,50 @@ namespace Avesta.Repository.Test.Src.Storage
                 Fullname = "Ahmad Ahmadi",
                 Age = 67,
                 Gender = Gender.Man,
-                ID = Guid.NewGuid().ToString()
+                //ID = Guid.NewGuid().ToString()
+                ID = "73794880-d275-4703-a74d-fd32a338b369"
+
             },
             new Teacher
             {
                 Fullname = "Arezo Ahmadi",
                 Age = 40,
                 Gender = Gender.Woman,
-                ID = Guid.NewGuid().ToString()
+                //ID = Guid.NewGuid().ToString()
+                ID = "73794880-d275-4703-a74d-fd32a338b368"
+
             },
             new Teacher
             {
                 Fullname = "Jef Varkat",
                 Age = 56,
                 Gender = Gender.Man,
-                ID = Guid.NewGuid().ToString()
+                //ID = Guid.NewGuid().ToString()
+                ID = "73794880-d275-4703-a74d-fd32a338b367"
+
+            }
+        };
+
+
+        public static IEnumerable<Teacher_School> Teacher_Schools = new List<Teacher_School>
+        {
+            new Teacher_School
+            {
+                TeacherId = "73794880-d275-4703-a74d-fd32a338b367",
+                SchoolId = "73794880-d275-4703-a74d-fd32a338b373",
+                ID = "13794880-d275-4703-a74d-fd32a338b373"
+            },
+            new Teacher_School
+            {
+                TeacherId = "73794880-d275-4703-a74d-fd32a338b368",
+                SchoolId = "73794880-d275-4703-a74d-fd32a338b374",
+                ID = "23794880-d275-4703-a74d-fd32a338b373"
+            },
+            new Teacher_School
+            {
+                TeacherId = "73794880-d275-4703-a74d-fd32a338b369",
+                SchoolId = "73794880-d275-4703-a74d-fd32a338b373",
+                ID = "33794880-d275-4703-a74d-fd32a338b373"
             }
         };
 

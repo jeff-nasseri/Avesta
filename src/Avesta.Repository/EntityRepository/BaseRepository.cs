@@ -45,14 +45,16 @@ namespace Avesta.Repository.EntityRepositoryRepository
                 _context.Entry(entity).State = EntityState.Detached;
             return entity;
         }
-        public async Task<TEntity> GetEntity<TEntity>(Expression<Func<TEntity, bool>> predicate, bool exceptionRaseIfNotExist = false)
+        public async Task<TEntity> GetEntity<TEntity>(Expression<Func<TEntity, bool>> predicate, bool track = true, bool exceptionRaseIfNotExist = false)
             where TEntity : BaseEntity<TIdType>
         {
-            var result = (await _context.Set<TEntity>().SingleOrDefaultAsync(predicate) ??
+            var entity = (await _context.Set<TEntity>().SingleOrDefaultAsync(predicate) ??
                 (exceptionRaseIfNotExist ? throw new CanNotFoundEntityException(predicate) : default));
-            return result;
+            if (!track)
+                _context.Entry(entity).State = EntityState.Detached;
+            return entity;
         }
-        public async Task<TEntity> GetEntity<TEntity>(string navigationPropertyPath, Expression<Func<TEntity, bool>> predicate, bool exceptionRaseIfNotExist = false)
+        public async Task<TEntity> GetEntity<TEntity>(string navigationPropertyPath, Expression<Func<TEntity, bool>> predicate, bool track = true, bool exceptionRaseIfNotExist = false)
             where TEntity : BaseEntity<TIdType>
         {
             var table = await Include<TEntity>(navigationPropertyPath);
@@ -60,6 +62,9 @@ namespace Avesta.Repository.EntityRepositoryRepository
 
             if (entity == null && exceptionRaseIfNotExist)
                 throw new CanNotFoundEntityException(predicate);
+
+            if (!track)
+                _context.Entry(entity).State = EntityState.Detached;
 
             return entity;
         }

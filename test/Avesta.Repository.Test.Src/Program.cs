@@ -63,6 +63,12 @@ namespace Avesta.Repository.Test.Src
                 dbContext.Teachers.Add(teacher);
             }
 
+            //assign teacher to school
+            foreach (var teacher_school in SeedStorage.Teacher_Schools)
+            {
+                dbContext.Teacher_Schools.Add(teacher_school);
+            }
+
             dbContext.SaveChanges();
         }
     }
