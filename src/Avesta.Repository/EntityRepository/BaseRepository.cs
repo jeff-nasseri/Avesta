@@ -25,7 +25,7 @@ namespace Avesta.Repository.EntityRepositoryRepository
         {
             _context = context;
         }
-        #region entity state
+        #region [- Entity State -]
         public async Task DetachEntity<TEntity>(TEntity entity)
             where TEntity : BaseEntity<TIdType>
         {
@@ -34,7 +34,7 @@ namespace Avesta.Repository.EntityRepositoryRepository
         }
         #endregion
 
-        #region get entity
+        #region [- Read -]
         public async Task<TEntity> GetById<TEntity>(object key, bool track = true, bool exceptionRaseIfNotExist = false)
             where TEntity : BaseEntity<TIdType>
         {
@@ -68,6 +68,8 @@ namespace Avesta.Repository.EntityRepositoryRepository
 
             return entity;
         }
+
+
         public async Task<TEntity> First<TEntity>(bool exceptionRaseIfNotExist)
             where TEntity : BaseEntity<TIdType>
         {
@@ -76,13 +78,27 @@ namespace Avesta.Repository.EntityRepositoryRepository
                 throw new CanNotFoundEntityException("first entity");
             return entity;
         }
-        #endregion
+
+
+        public async Task<TEntity> SingleOrDefaultAsyncByInclude<TEntity>(string navigationPropertyPath, Expression<Func<TEntity, bool>> search)
+             where TEntity : BaseEntity<TIdType>
+        {
+            var table = await Include<TEntity>(navigationPropertyPath);
+            var result = await table.SingleOrDefaultAsync(search);
+            return result;
+        }
+        public async Task<TEntity> SingleAsyncByInclude<TEntity>(string navigationPropertyPath, Expression<Func<TEntity, bool>> search)
+            where TEntity : BaseEntity<TIdType>
+        {
+            var table = await Include<TEntity>(navigationPropertyPath);
+            var result = await table.SingleOrDefaultAsync(search)
+                ?? throw new CanNotFoundEntityException(search.ToString());
+            return result;
+        }
 
 
 
-        #region get entities
-
-        public virtual async Task<IEnumerable<TEntity>> GetByIdsAsync<TEntity>(IEnumerable<int> ids)
+        public virtual async Task<IEnumerable<TEntity>> GetByIds<TEntity>(IEnumerable<int> ids)
             where TEntity : BaseEntity<TIdType>
         {
             _ = ids ?? throw new ArgumentNullException();
@@ -136,12 +152,12 @@ namespace Avesta.Repository.EntityRepositoryRepository
 
         }
 
-        public virtual async Task<IEnumerable<TEntity>> GetAllAsync<TEntity>()
+        public virtual async Task<IEnumerable<TEntity>> GetAll<TEntity>()
             where TEntity : BaseEntity<TIdType>
         {
             return (await _context.Set<TEntity>().ToListAsync());
         }
-        public virtual async Task<IEnumerable<TEntity>> GetAllAsync<TEntity>(int skip, int take)
+        public virtual async Task<IEnumerable<TEntity>> GetAll<TEntity>(int skip, int take)
             where TEntity : BaseEntity<TIdType>
         {
             return (await _context.Set<TEntity>().Skip(skip).Take(take).ToListAsync());
@@ -160,7 +176,7 @@ namespace Avesta.Repository.EntityRepositoryRepository
             }
             return result;
         }
-        public virtual async Task<IEnumerable<TEntity>> GetAllAsync<TEntity>(Expression<Func<TEntity, bool>> predicate, bool track = true)
+        public virtual async Task<IEnumerable<TEntity>> GetAll<TEntity>(Expression<Func<TEntity, bool>> predicate, bool track = true)
             where TEntity : BaseEntity<TIdType>
         {
             var result =
@@ -186,7 +202,7 @@ namespace Avesta.Repository.EntityRepositoryRepository
 
 
 
-        public async Task<IEnumerable<TEntity>> GetAllAsync<TEntity, TKey>(string navigationPropertyPath = null, Func<TEntity, TKey> descendingOrder = null)
+        public async Task<IEnumerable<TEntity>> GetAll<TEntity, TKey>(string navigationPropertyPath = null, Func<TEntity, TKey> descendingOrder = null)
             where TEntity : BaseEntity<TIdType>
         {
             var list = default(IEnumerable<TEntity>);
@@ -196,7 +212,12 @@ namespace Avesta.Repository.EntityRepositoryRepository
                 list = list.OrderByDescending(descendingOrder);
             return list;
         }
+
+
+
         #endregion
+
+
 
 
         #region availability
@@ -424,27 +445,6 @@ namespace Avesta.Repository.EntityRepositoryRepository
             };
 
             var result = _context.Set<TEntity>().Where(func).ToList();
-            return result;
-        }
-
-        #endregion
-
-
-
-        #region single
-        public async Task<TEntity> SingleOrDefaultAsyncByInclude<TEntity>(string navigationPropertyPath, Expression<Func<TEntity, bool>> search)
-            where TEntity : BaseEntity<TIdType>
-        {
-            var table = await Include<TEntity>(navigationPropertyPath);
-            var result = await table.SingleOrDefaultAsync(search);
-            return result;
-        }
-        public async Task<TEntity> SingleAsyncByInclude<TEntity>(string navigationPropertyPath, Expression<Func<TEntity, bool>> search)
-            where TEntity : BaseEntity<TIdType>
-        {
-            var table = await Include<TEntity>(navigationPropertyPath);
-            var result = await table.SingleOrDefaultAsync(search)
-                ?? throw new CanNotFoundEntityException(search.ToString());
             return result;
         }
 

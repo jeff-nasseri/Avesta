@@ -29,14 +29,14 @@ namespace Avesta.Repository.Test
     [TestFixture(typeof(Student), typeof(ApplicationDbContext))]
     [TestFixture(typeof(Teacher), typeof(ApplicationDbContext))]
     [TestFixture(typeof(Teacher_School), typeof(ApplicationDbContext))]
-    public class CatchEntity<TEntity, TContext> : ServiceResolver<TEntity, TContext>
+    public class ReadEntityTest<TEntity, TContext> : ServiceResolver<TEntity, TContext>
         where TEntity : BaseEntity
         where TContext : AvestaDbContext
     {
 
         readonly IRepository<TEntity> _repository;
         readonly TContext _context;
-        public CatchEntity()
+        public ReadEntityTest()
         {
             _repository = base.ResolveRepository();
             _context = base.Context;

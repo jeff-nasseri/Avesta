@@ -54,7 +54,7 @@ namespace Avesta.Repository.EntityRepositoryRepository
 
         public virtual async Task<IEnumerable<TEntity>> GetByIdsAsync(IEnumerable<int> ids)
         {
-            return await base.GetByIdsAsync<TEntity>(ids);
+            return await base.GetByIds<TEntity>(ids);
         }
 
         public async Task<IEnumerable<TEntity>> GetAllIncludeAllChildren(bool track = false)
@@ -72,11 +72,11 @@ namespace Avesta.Repository.EntityRepositoryRepository
 
         public virtual async Task<IEnumerable<TEntity>> GetAllAsync()
         {
-            return await base.GetAllAsync<TEntity>();
+            return await base.GetAll<TEntity>();
         }
         public virtual async Task<IEnumerable<TEntity>> GetAllAsync(int skip, int take)
         {
-            return await base.GetAllAsync<TEntity>(skip, take);
+            return await base.GetAll<TEntity>(skip, take);
         }
         public async Task<IEnumerable<TEntity>> GetAllAsync(bool track = false)
         {
@@ -84,7 +84,7 @@ namespace Avesta.Repository.EntityRepositoryRepository
         }
         public virtual async Task<IEnumerable<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> predicate, bool track = true)
         {
-            return await base.GetAllAsync<TEntity>(predicate, track);
+            return await base.GetAll<TEntity>(predicate, track);
         }
         public async Task<IEnumerable<TEntity>> GetAllByInclude(string navigationPropertyPath)
         {
@@ -97,7 +97,7 @@ namespace Avesta.Repository.EntityRepositoryRepository
 
         public async Task<IEnumerable<TEntity>> GetAllAsync<TKey>(string navigationPropertyPath = null, Func<TEntity, TKey> descendingOrder = null)
         {
-            return await base.GetAllAsync<TEntity, TKey>(navigationPropertyPath, descendingOrder);
+            return await base.GetAll<TEntity, TKey>(navigationPropertyPath, descendingOrder);
         }
         #endregion
 
