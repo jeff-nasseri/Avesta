@@ -199,36 +199,36 @@ namespace Avesta.Services
             var result = await _repository.GetAllAsync(exp);
             return result.OrderByDescending(i => i.CreatedDate);
         }
-        public virtual async Task<TModel> Get(Expression<Func<TModel, bool>> exp, bool exceptionRaseIfNotExist)
+        public virtual async Task<TModel> Get(Expression<Func<TModel, bool>> exp, bool exceptionRaiseIfNotExist)
         {
-            var result = await _repository.GetEntity(exp, exceptionRaseIfNotExist: exceptionRaseIfNotExist);
+            var result = await _repository.GetEntity(exp, exceptionRaiseIfNotExist: exceptionRaiseIfNotExist);
             return result;
         }
-        public virtual async Task<TModel> Get(string navigationProperties, Expression<Func<TModel, bool>> exp, bool exceptionRaseIfNotExist)
+        public virtual async Task<TModel> Get(string navigationProperties, Expression<Func<TModel, bool>> exp, bool exceptionRaiseIfNotExist)
         {
-            var result = await _repository.GetEntity(navigationProperties, exp, exceptionRaseIfNotExist: exceptionRaseIfNotExist);
+            var result = await _repository.GetEntity(navigationProperties, exp, exceptionRaiseIfNotExist: exceptionRaiseIfNotExist);
             return result;
         }
-        public virtual async Task<TModel> Get(string id, bool exceptionRaseIfNotExist)
+        public virtual async Task<TModel> Get(string id, bool exceptionRaiseIfNotExist)
         {
-            var result = await _repository.GetById(id, exceptionRaseIfNotExist: exceptionRaseIfNotExist);
+            var result = await _repository.GetById(id, exceptionRaiseIfNotExist: exceptionRaiseIfNotExist);
             return result;
         }
-        public virtual async Task<TViewModel> GetAsViewModel(string id, bool exceptionRaseIfNotExist)
+        public virtual async Task<TViewModel> GetAsViewModel(string id, bool exceptionRaiseIfNotExist)
         {
-            var entity = await _repository.GetById(id, exceptionRaseIfNotExist: exceptionRaseIfNotExist);
+            var entity = await _repository.GetById(id, exceptionRaiseIfNotExist: exceptionRaiseIfNotExist);
             var model = _mapper.Map<TViewModel>(entity);
             return model;
         }
-        public virtual async Task<GViewModel> GetAsViewModel<GViewModel>(string id, bool exceptionRaseIfNotExist) where GViewModel : BaseModel
+        public virtual async Task<GViewModel> GetAsViewModel<GViewModel>(string id, bool exceptionRaiseIfNotExist) where GViewModel : BaseModel
         {
-            var tViewModel = await GetAsViewModel(id, exceptionRaseIfNotExist);
+            var tViewModel = await GetAsViewModel(id, exceptionRaiseIfNotExist);
             var model = _mapper.Map<GViewModel>(tViewModel);
             return model;
         }
-        public virtual async Task<TViewModel> GetAsViewModel(string navigationProperties, Expression<Func<TModel, bool>> exp, bool exceptionRaseIfNotExist)
+        public virtual async Task<TViewModel> GetAsViewModel(string navigationProperties, Expression<Func<TModel, bool>> exp, bool exceptionRaiseIfNotExist)
         {
-            var entity = await _repository.GetEntity(navigationProperties, exp, exceptionRaseIfNotExist: exceptionRaseIfNotExist);
+            var entity = await _repository.GetEntity(navigationProperties, exp, exceptionRaiseIfNotExist: exceptionRaiseIfNotExist);
             var model = _mapper.Map<TViewModel>(entity);
             return model;
         }
@@ -237,16 +237,16 @@ namespace Avesta.Services
 
         public virtual async Task DeleteById(string navigationProperties, string id)
         {
-            var entity = await Get(navigationProperties, e => e.ID == id, exceptionRaseIfNotExist: true);
+            var entity = await Get(navigationProperties, e => e.ID == id, exceptionRaiseIfNotExist: true);
             await Delete(entity);
         }
         public virtual async Task DeleteById(string id)
         {
             await _repository.DeleteWithAllChildren(id);
         }
-        public virtual async Task SoftDeleteById(string id, bool exceptionRaseIfNotExist)
+        public virtual async Task SoftDeleteById(string id, bool exceptionRaiseIfNotExist)
         {
-            await _repository.SoftDelete(id, exceptionRaseIfNotExist: exceptionRaseIfNotExist);
+            await _repository.SoftDelete(id, exceptionRaiseIfNotExist: exceptionRaiseIfNotExist);
         }
         public virtual async Task Delete(TModel model)
         {
@@ -389,14 +389,14 @@ namespace Avesta.Services
         }
 
 
-        public virtual async Task<TModel> GetEntity(string id, bool exceptionRaseIfNotExist)
+        public virtual async Task<TModel> GetEntity(string id, bool exceptionRaiseIfNotExist)
         {
-            return await base.Get(id, exceptionRaseIfNotExist: exceptionRaseIfNotExist);
+            return await base.Get(id, exceptionRaiseIfNotExist: exceptionRaiseIfNotExist);
         }
 
-        public virtual async Task<TModel> GetEntity(string navigationProperties, string id, bool exceptionRaseIfNotExist)
+        public virtual async Task<TModel> GetEntity(string navigationProperties, string id, bool exceptionRaiseIfNotExist)
         {
-            var result = await base.Get(navigationProperties, i => i.ID == id, exceptionRaseIfNotExist: exceptionRaseIfNotExist);
+            var result = await base.Get(navigationProperties, i => i.ID == id, exceptionRaiseIfNotExist: exceptionRaiseIfNotExist);
             return result;
         }
 
@@ -423,9 +423,9 @@ namespace Avesta.Services
         {
             await base.DeleteById(id);
         }
-        public virtual async Task SoftDelete(string id, bool exceptionRaseIfNotExist = true)
+        public virtual async Task SoftDelete(string id, bool exceptionRaiseIfNotExist = true)
         {
-            await base.SoftDeleteById(id, exceptionRaseIfNotExist: exceptionRaseIfNotExist);
+            await base.SoftDeleteById(id, exceptionRaiseIfNotExist: exceptionRaiseIfNotExist);
         }
 
 
@@ -471,9 +471,9 @@ namespace Avesta.Services
             return result.OrderByDescending(e => e.CreatedDate).ToList();
         }
 
-        public virtual async Task<TEditViewModel> GetEntityAsViewModel(string id, bool exceptionRaseIfNotExist)
+        public virtual async Task<TEditViewModel> GetEntityAsViewModel(string id, bool exceptionRaiseIfNotExist)
         {
-            var result = await base.GetAsViewModel<TEditViewModel>(id, exceptionRaseIfNotExist);
+            var result = await base.GetAsViewModel<TEditViewModel>(id, exceptionRaiseIfNotExist);
             return result;
         }
 

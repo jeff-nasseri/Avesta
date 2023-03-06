@@ -15,10 +15,12 @@ namespace Avesta.Repository.EntityRepository
     public interface IRepository<TEntity>
     {
         #region get entity
-        Task<TEntity> GetById(object key, bool track = true, bool exceptionRaseIfNotExist = false);
-        Task<TEntity> GetEntity(Expression<Func<TEntity, bool>> predicate, bool track = true, bool exceptionRaseIfNotExist = false);
-        Task<TEntity> GetEntity(string navigationPropertyPath, Expression<Func<TEntity, bool>> predicate, bool track = true, bool exceptionRaseIfNotExist = false);
-        Task<TEntity> FirstOrDefault(bool exceptionRaseIfNotExist = false);
+        Task<TEntity> GetById(object key, bool track = true, bool exceptionRaiseIfNotExist = false);
+        Task<TEntity> GetEntity(Expression<Func<TEntity, bool>> predicate, bool track = true, bool exceptionRaiseIfNotExist = false);
+        Task<TEntity> GetEntity(string navigationPropertyPath, Expression<Func<TEntity, bool>> predicate, bool track = true, bool exceptionRaiseIfNotExist = false);
+        Task<TEntity> FirstOrDefault(bool track = true, bool exceptionRaiseIfNotExist = false);
+        Task<TEntity> FirstOrDefault(Expression<Func<TEntity, bool>> search, bool track = true, bool exceptionRaiseIfNotExist = false);
+
         #endregion
 
         #region get entities
@@ -63,7 +65,7 @@ namespace Avesta.Repository.EntityRepository
         Task DeleteAsyncById(object id);
         Task DeleteRangeAsync(IEnumerable<TEntity> entities);
         Task DeleteWithAllChildren(string id);
-        Task SoftDelete(string id, bool exceptionRaseIfNotExist);
+        Task SoftDelete(string id, bool exceptionRaiseIfNotExist);
         #endregion
 
 
@@ -82,7 +84,6 @@ namespace Avesta.Repository.EntityRepository
 
         #region single
         Task<TEntity> SingleOrDefaultAsyncByInclude(string navigationPropertyPath, Expression<Func<TEntity, bool>> search);
-        Task<TEntity> FirstOrDefault(Expression<Func<TEntity, bool>> search, bool exceptionIfNotExist = false);
         Task<TEntity> SingleAsyncByInclude(string navigationPropertyPath, Expression<Func<TEntity, bool>> search);
         #endregion
 

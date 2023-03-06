@@ -162,7 +162,7 @@ namespace Avesta.Controller.API
         [Route(CrudEndPointController.Delete)]
         public virtual async Task<IActionResult> Delete(string id)
         {
-            var viewModel = await _crudService.GetEntityAsViewModel(id, exceptionRaseIfNotExist: true);
+            var viewModel = await _crudService.GetEntityAsViewModel(id, exceptionRaiseIfNotExist: true);
             await _crudService.Delete(id);
             return Ok(viewModel);
         }
@@ -172,7 +172,7 @@ namespace Avesta.Controller.API
         [Route(CrudEndPointController.SoftDelete)]
         public virtual async Task<IActionResult> SoftDelete(string id)
         {
-            var viewModel = await _crudService.GetEntityAsViewModel(id, exceptionRaseIfNotExist: true);
+            var viewModel = await _crudService.GetEntityAsViewModel(id, exceptionRaiseIfNotExist: true);
             await _crudService.SoftDelete(id);
             return Ok(viewModel);
         }
@@ -209,7 +209,7 @@ namespace Avesta.Controller.API
         [Route(CrudEndPointController.GetAsViewModel)]
         public virtual async Task<IActionResult> GetAsViewModel(string id)
         {
-            var result = await _crudService.GetEntityAsViewModel(id, exceptionRaseIfNotExist: true);
+            var result = await _crudService.GetEntityAsViewModel(id, exceptionRaiseIfNotExist: true);
             return Ok(result);
         }
 
@@ -218,7 +218,7 @@ namespace Avesta.Controller.API
         [Route(CrudEndPointController.Get)]
         public virtual async Task<IActionResult> Get(string id)
         {
-            var result = await _crudService.GetEntity(id, exceptionRaseIfNotExist: true);
+            var result = await _crudService.GetEntity(id, exceptionRaiseIfNotExist: true);
             return Ok(result);
         }
 

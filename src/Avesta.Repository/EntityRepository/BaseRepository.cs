@@ -40,32 +40,32 @@ namespace Avesta.Repository.EntityRepositoryRepository
 
 
         #region [- Read -]
-        public async Task<TEntity> GetById<TEntity>(object key, bool track = true, bool exceptionRaseIfNotExist = false)
+        public async Task<TEntity> GetById<TEntity>(object key, bool track = true, bool exceptionRaiseIfNotExist = false)
             where TEntity : BaseEntity<TIdType>
         {
             var entity = await _context.FindAsync<TEntity>(key);
-            if (entity == null && exceptionRaseIfNotExist)
+            if (entity == null && exceptionRaiseIfNotExist)
                 throw new CanNotFoundEntityException(key);
             if (!track)
                 _context.Entry(entity).State = EntityState.Detached;
             return entity;
         }
-        public async Task<TEntity> GetEntity<TEntity>(Expression<Func<TEntity, bool>> predicate, bool track = true, bool exceptionRaseIfNotExist = false)
+        public async Task<TEntity> GetEntity<TEntity>(Expression<Func<TEntity, bool>> predicate, bool track = true, bool exceptionRaiseIfNotExist = false)
             where TEntity : BaseEntity<TIdType>
         {
             var entity = (await _context.Set<TEntity>().SingleOrDefaultAsync(predicate) ??
-                (exceptionRaseIfNotExist ? throw new CanNotFoundEntityException(predicate) : default));
+                (exceptionRaiseIfNotExist ? throw new CanNotFoundEntityException(predicate) : default));
             if (!track)
                 _context.Entry(entity).State = EntityState.Detached;
             return entity;
         }
-        public async Task<TEntity> GetEntity<TEntity>(string navigationPropertyPath, Expression<Func<TEntity, bool>> predicate, bool track = true, bool exceptionRaseIfNotExist = false)
+        public async Task<TEntity> GetEntity<TEntity>(string navigationPropertyPath, Expression<Func<TEntity, bool>> predicate, bool track = true, bool exceptionRaiseIfNotExist = false)
             where TEntity : BaseEntity<TIdType>
         {
             var table = await Include<TEntity>(navigationPropertyPath);
             var entity = table.SingleOrDefault(predicate);
 
-            if (entity == null && exceptionRaseIfNotExist)
+            if (entity == null && exceptionRaiseIfNotExist)
                 throw new CanNotFoundEntityException(predicate);
 
             if (!track)
@@ -75,20 +75,27 @@ namespace Avesta.Repository.EntityRepositoryRepository
         }
 
 
-        public async Task<TEntity> FirstOrDefault<TEntity>(bool exceptionRaseIfNotExist = false)
+        public async Task<TEntity> FirstOrDefault<TEntity>(bool track = true, bool exceptionRaiseIfNotExist = false)
             where TEntity : BaseEntity<TIdType>
         {
             var entity = await _context.Set<TEntity>().FirstOrDefaultAsync();
-            if (exceptionRaseIfNotExist && entity == null)
+            if (exceptionRaiseIfNotExist && entity == null)
                 throw new CanNotFoundEntityException("first entity");
+
+            if (!track)
+                _context.Entry(entity).State = EntityState.Detached;
             return entity;
         }
-        public async Task<TEntity> FirstOrDefault<TEntity>(Expression<Func<TEntity, bool>> search, bool exceptionIfNotExist = false)
+        public async Task<TEntity> FirstOrDefault<TEntity>(Expression<Func<TEntity, bool>> search, bool track = true, bool exceptionRaiseIfNotExist = false)
              where TEntity : BaseEntity<TIdType>
         {
             var entity = await _context.Set<TEntity>().FirstOrDefaultAsync(search);
-            if (entity == null && exceptionIfNotExist)
+            if (entity == null && exceptionRaiseIfNotExist)
                 throw new CanNotFoundEntityException(search);
+
+
+            if (!track)
+                _context.Entry(entity).State = EntityState.Detached;
             return entity;
         }
 
@@ -363,10 +370,10 @@ namespace Avesta.Repository.EntityRepositoryRepository
             await DeleteAsync(entity);
         }
 
-        public async Task SoftDelete<TEntity>(string id, bool exceptionRaseIfNotExist)
+        public async Task SoftDelete<TEntity>(string id, bool exceptionRaiseIfNotExist)
             where TEntity : BaseEntity<TIdType>
         {
-            var entity = await GetById<TEntity>(id, exceptionRaseIfNotExist: exceptionRaseIfNotExist);
+            var entity = await GetById<TEntity>(id, exceptionRaiseIfNotExist: exceptionRaiseIfNotExist);
             entity.DeletedDate = DateTime.UtcNow;
             await UpdateAsync(entity);
         }
@@ -515,7 +522,7 @@ namespace Avesta.Repository.EntityRepositoryRepository
             _context.Dispose();
         }
 
-   
+
 
 
         public virtual async Task<IQueryable<TEntity>> Query<TEntity>(bool eager = false)

@@ -30,22 +30,27 @@ namespace Avesta.Repository.EntityRepositoryRepository
         #endregion
 
         #region get entity
-        public async Task<TEntity> GetById(object key, bool track = true, bool exceptionRaseIfNotExist = false)
+        public async Task<TEntity> GetById(object key, bool track = true, bool exceptionRaiseIfNotExist = false)
         {
-            return await base.GetById<TEntity>(key, track, exceptionRaseIfNotExist);
+            return await base.GetById<TEntity>(key, track, exceptionRaiseIfNotExist);
         }
-        public async Task<TEntity> GetEntity(Expression<Func<TEntity, bool>> predicate, bool track = true, bool exceptionRaseIfNotExist = false)
+        public async Task<TEntity> GetEntity(Expression<Func<TEntity, bool>> predicate, bool track = true, bool exceptionRaiseIfNotExist = false)
         {
-            return await base.GetEntity<TEntity>(predicate, track, exceptionRaseIfNotExist);
+            return await base.GetEntity<TEntity>(predicate, track, exceptionRaiseIfNotExist);
         }
-        public async Task<TEntity> GetEntity(string navigationPropertyPath, Expression<Func<TEntity, bool>> predicate, bool track = true, bool exceptionRaseIfNotExist = false)
+        public async Task<TEntity> GetEntity(string navigationPropertyPath, Expression<Func<TEntity, bool>> predicate, bool track = true, bool exceptionRaiseIfNotExist = false)
         {
-            return await base.GetEntity<TEntity>(navigationPropertyPath, predicate, track, exceptionRaseIfNotExist);
+            return await base.GetEntity<TEntity>(navigationPropertyPath, predicate, track, exceptionRaiseIfNotExist);
         }
-        public async Task<TEntity> FirstOrDefault(bool exceptionRaseIfNotExist = false)
+        public async Task<TEntity> FirstOrDefault(bool track = true, bool exceptionRaiseIfNotExist = false)
         {
-            return await base.FirstOrDefault<TEntity>(exceptionRaseIfNotExist);
+            return await base.FirstOrDefault<TEntity>(track: track, exceptionRaiseIfNotExist: exceptionRaiseIfNotExist);
         }
+        public async Task<TEntity> FirstOrDefault(Expression<Func<TEntity, bool>> search, bool track = true, bool exceptionRaiseIfNotExist = false)
+        {
+            return await base.FirstOrDefault<TEntity>(search, track: track, exceptionRaiseIfNotExist: exceptionRaiseIfNotExist);
+        }
+
         #endregion
 
 
@@ -170,9 +175,9 @@ namespace Avesta.Repository.EntityRepositoryRepository
             await base.DeleteWithAllChildren<TEntity>(id);
         }
 
-        public async Task SoftDelete(string id, bool exceptionRaseIfNotExist)
+        public async Task SoftDelete(string id, bool exceptionRaiseIfNotExist)
         {
-            await base.SoftDelete<TEntity>(id, exceptionRaseIfNotExist);
+            await base.SoftDelete<TEntity>(id, exceptionRaiseIfNotExist);
         }
 
 
@@ -258,10 +263,6 @@ namespace Avesta.Repository.EntityRepositoryRepository
         }
 
 
-        public async Task<TEntity> FirstOrDefault(Expression<Func<TEntity, bool>> search, bool exceptionIfNotExist = false)
-        {
-            return await base.FirstOrDefault<TEntity>(search, exceptionIfNotExist);
-        }
 
 
         public virtual async Task<IQueryable<TEntity>> Query(bool eager = false)

@@ -133,19 +133,19 @@ namespace Avesta.Repository.Identity
             return user;
         }
 
-        public async Task<TUser> GetUserByInclude(string navigationProperties, Expression<Func<TUser, bool>> exp, bool exceptionIfNotExist = false)
+        public async Task<TUser> GetUserByInclude(string navigationProperties, Expression<Func<TUser, bool>> exp, bool exceptionRaiseIfNotExist = false)
         {
             var result = await _userManager.Users.Include(navigationProperties).SingleOrDefaultAsync(exp);
-            if (result == null && exceptionIfNotExist)
+            if (result == null && exceptionRaiseIfNotExist)
             {
                 throw new CanNotFoundEntityException(exp.ToString());
             }
             return result;
         }
-        public async Task<TUser> GetUser(Expression<Func<TUser, bool>> exp, bool exceptionIfNotExist = false)
+        public async Task<TUser> GetUser(Expression<Func<TUser, bool>> exp, bool exceptionRaiseIfNotExist = false)
         {
             var result = await _userManager.Users.SingleOrDefaultAsync(exp);
-            if (result == null && exceptionIfNotExist)
+            if (result == null && exceptionRaiseIfNotExist)
             {
                 throw new UserNotFoundException(exp.ToString());
             }

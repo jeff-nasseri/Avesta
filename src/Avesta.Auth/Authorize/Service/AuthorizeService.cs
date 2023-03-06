@@ -44,7 +44,7 @@ namespace Avesta.Auth.Authorize.Service
 
         public async Task<string?> GetFeatureStrOfGroup(string groupId)
         {
-            var group = await base.Get(groupId, exceptionRaseIfNotExist: true);
+            var group = await base.Get(groupId, exceptionRaiseIfNotExist: true);
             return group.FeaturesStr;
         }
 

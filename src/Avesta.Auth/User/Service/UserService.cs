@@ -12,8 +12,8 @@ namespace Avesta.Auth.User.Service
     public interface IUserService<TAvestaUser> : IBaseService<TAvestaUser>
         where TAvestaUser : AvestaUser
     {
-        Task<TAvestaUser> GetUserByEmail(string email, bool exceptionIfNotExist = false);
-        Task<TAvestaUser> GetUserById(string id, bool exceptionIfNotExist = false);
+        Task<TAvestaUser> GetUserByEmail(string email, bool exceptionRaiseIfNotExist = false);
+        Task<TAvestaUser> GetUserById(string id, bool exceptionRaiseIfNotExist = false);
         Task<TAvestaUser> Update<TUserModel>(TUserModel model) where TUserModel : UserBaseModel;
         Task Update(TAvestaUser user);
         Task<IEnumerable<TAvestaUser>> GetAll();
@@ -34,17 +34,17 @@ namespace Avesta.Auth.User.Service
             _mapper = mapper;
         }
 
-        public async Task<TAvestaUser> GetUserByEmail(string email, bool exceptionIfNotExist = false)
+        public async Task<TAvestaUser> GetUserByEmail(string email, bool exceptionRaiseIfNotExist = false)
         {
             var user = await _identityRepository.GetUserByEmail(email);
-            _ = exceptionIfNotExist ? (user == null ? throw new UserNotFoundException(email) : user) : user;
+            _ = exceptionRaiseIfNotExist ? (user == null ? throw new UserNotFoundException(email) : user) : user;
             return user;
         }
 
-        public async Task<TAvestaUser> GetUserById(string id, bool exceptionIfNotExist = false)
+        public async Task<TAvestaUser> GetUserById(string id, bool exceptionRaiseIfNotExist = false)
         {
             var user = await _identityRepository.GetUser(id);
-            _ = exceptionIfNotExist ? (user == null ? throw new UserNotFoundException(id) : user) : user;
+            _ = exceptionRaiseIfNotExist ? (user == null ? throw new UserNotFoundException(id) : user) : user;
             return user;
         }
 

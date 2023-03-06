@@ -83,7 +83,7 @@ namespace Avesta.Repository.Test
         [ExpectedException(typeof(CanNotFoundEntityException))]
         public async Task GetByIdWithUnvalidId_MustThrowCanNotFoundEntityException(string id)
         {
-            await _repository.GetById(id, exceptionRaseIfNotExist: true);
+            await _repository.GetById(id, exceptionRaiseIfNotExist: true);
         }
 
 
@@ -92,7 +92,7 @@ namespace Avesta.Repository.Test
         [TestCase("Not_Valid_ID_2")]
         public async Task GetByIdWithUnvalidId_WillReturnNull_IfExceptionRaseIsFalse(string id)
         {
-            var result = await _repository.GetById(id, exceptionRaseIfNotExist: false);
+            var result = await _repository.GetById(id, exceptionRaiseIfNotExist: false);
             Assert.That(result, Is.Null);
         }
 
@@ -140,7 +140,7 @@ namespace Avesta.Repository.Test
         [ExpectedException(typeof(CanNotFoundEntityException))]
         public async Task GetEntityWithUnvalidId_MustThrowCanNotFoundEntityException(string id)
         {
-            await _repository.GetEntity(e => e.ID == id, exceptionRaseIfNotExist: true);
+            await _repository.GetEntity(e => e.ID == id, exceptionRaiseIfNotExist: true);
         }
 
 
@@ -148,7 +148,7 @@ namespace Avesta.Repository.Test
         [TestCase("Not_Valid_ID_1")]
         public async Task GetEntityWithUnvalidId_WillReturnNull_IfExceptionRaseIsFalse(string id)
         {
-            var result = await _repository.GetEntity(e => e.ID == id, exceptionRaseIfNotExist: false);
+            var result = await _repository.GetEntity(e => e.ID == id, exceptionRaiseIfNotExist: false);
             Assert.That(result, Is.Null);
         }
 
@@ -193,11 +193,12 @@ namespace Avesta.Repository.Test
 
 
         [Test]
-        public async Task FirstOrDefaultWithId_MustReturnValidEntity()
+        public async Task FirstOrDefault_MustReturnValidEntity()
         {
             var result = await _repository.FirstOrDefault();
             Assert.That(result, Is.Not.Null);
         }
+
 
 
         [TestCaseSource(nameof(OnlyEntitySource))]
@@ -213,9 +214,16 @@ namespace Avesta.Repository.Test
         [ExpectedException(typeof(CanNotFoundEntityException))]
         public async Task FirstOrDefaultWithInvalidExpression_MustThrowCanNotFoundEntityException_IfExceptionRaiseIsTrue(string id)
         {
-            await _repository.FirstOrDefault(e => e.ID == id, exceptionIfNotExist: true);
+            await _repository.FirstOrDefault(e => e.ID == id, exceptionRaiseIfNotExist: true);
         }
 
+
+        [TestCaseSource(nameof(OnlyEntitySource))]
+        public async Task FirstOrDefaultWithExpression_MustDetachEntity_IfTrackIsFalse(string id)
+        {
+            var result = await _repository.FirstOrDefault(e => e.ID == id, track: false);
+            Assert.That(_context.Entry(result).State, Is.EqualTo(EntityState.Detached));
+        }
 
 
 

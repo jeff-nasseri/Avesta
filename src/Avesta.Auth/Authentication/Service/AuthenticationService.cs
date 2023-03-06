@@ -67,7 +67,7 @@ namespace Avesta.Auth.Authentication.Service
 
         public async Task<IdentityReturnTemplate> ResetPasswordByPhoneNumber(ResetPasswordViewModel viewModel)
         {
-            var user = await _identityRepository.GetUser(u => u.PhoneNumber == viewModel.UserPhonenumber, exceptionIfNotExist: true);
+            var user = await _identityRepository.GetUser(u => u.PhoneNumber == viewModel.UserPhonenumber, exceptionRaiseIfNotExist: true);
             var result = await _identityRepository.ResetUserPassword(user, viewModel.ResetPasswordToken, viewModel.Password);
             return new IdentityReturnTemplate
             {
@@ -78,7 +78,7 @@ namespace Avesta.Auth.Authentication.Service
 
         public async Task<IdentityReturnTemplate> ResetPasswordByEmail(ResetPasswordViewModel viewModel)
         {
-            var user = await _identityRepository.GetUser(u => u.Email == viewModel.Email, exceptionIfNotExist: true);
+            var user = await _identityRepository.GetUser(u => u.Email == viewModel.Email, exceptionRaiseIfNotExist: true);
             var result = await _identityRepository.ResetUserPassword(user, viewModel.ResetPasswordToken, viewModel.Password);
             return new IdentityReturnTemplate
             {
@@ -89,7 +89,7 @@ namespace Avesta.Auth.Authentication.Service
 
         public async Task<string> GenerateResetPasswordTokenByPhonenumber(string phoneNumber)
         {
-            var user = await _identityRepository.GetUser(u => u.PhoneNumber == phoneNumber, exceptionIfNotExist: true);
+            var user = await _identityRepository.GetUser(u => u.PhoneNumber == phoneNumber, exceptionRaiseIfNotExist: true);
             var token = await _identityRepository.GenerateResetPasswordToken(user);
             return token;
         }
