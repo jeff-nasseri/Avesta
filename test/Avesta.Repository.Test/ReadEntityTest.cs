@@ -192,6 +192,32 @@ namespace Avesta.Repository.Test
         }
 
 
+        [Test]
+        public async Task FirstOrDefaultWithId_MustReturnValidEntity()
+        {
+            var result = await _repository.FirstOrDefault();
+            Assert.That(result, Is.Not.Null);
+        }
+
+
+        [TestCaseSource(nameof(OnlyEntitySource))]
+        public async Task FirstOrDefaultWithExpression_MustReturnValidEntity(string id)
+        {
+            var result = await _repository.FirstOrDefault(e => e.ID == id);
+            Assert.That(result, Is.Not.Null);
+        }
+
+
+        [TestCase("Invalid_Id_1")]
+        [TestCase("Invalid_Id_2")]
+        [ExpectedException(typeof(CanNotFoundEntityException))]
+        public async Task FirstOrDefaultWithInvalidExpression_MustThrowCanNotFoundEntityException_IfExceptionRaiseIsTrue(string id)
+        {
+            await _repository.FirstOrDefault(e => e.ID == id, exceptionIfNotExist: true);
+        }
+
+
+
 
         #endregion
 

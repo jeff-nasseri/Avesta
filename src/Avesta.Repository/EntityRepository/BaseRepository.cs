@@ -75,7 +75,7 @@ namespace Avesta.Repository.EntityRepositoryRepository
         }
 
 
-        public async Task<TEntity> FirstOrDefault<TEntity>(bool exceptionRaseIfNotExist)
+        public async Task<TEntity> FirstOrDefault<TEntity>(bool exceptionRaseIfNotExist = false)
             where TEntity : BaseEntity<TIdType>
         {
             var entity = await _context.Set<TEntity>().FirstOrDefaultAsync();

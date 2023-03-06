@@ -42,7 +42,7 @@ namespace Avesta.Repository.EntityRepositoryRepository
         {
             return await base.GetEntity<TEntity>(navigationPropertyPath, predicate, track, exceptionRaseIfNotExist);
         }
-        public async Task<TEntity> First(bool exceptionRaseIfNotExist)
+        public async Task<TEntity> FirstOrDefault(bool exceptionRaseIfNotExist = false)
         {
             return await base.FirstOrDefault<TEntity>(exceptionRaseIfNotExist);
         }
@@ -258,7 +258,7 @@ namespace Avesta.Repository.EntityRepositoryRepository
         }
 
 
-        public async Task<TEntity> FirstAsync(Expression<Func<TEntity, bool>> search, bool exceptionIfNotExist = false)
+        public async Task<TEntity> FirstOrDefault(Expression<Func<TEntity, bool>> search, bool exceptionIfNotExist = false)
         {
             return await base.FirstOrDefault<TEntity>(search, exceptionIfNotExist);
         }
