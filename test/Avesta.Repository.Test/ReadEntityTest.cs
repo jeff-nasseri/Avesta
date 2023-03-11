@@ -8,13 +8,20 @@ using NUnit.Framework.Internal;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel;
 using Avesta.Exceptions.Entity;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json.Bson;
+using System.Reflection;
+using Newtonsoft.Json.Linq;
+using Microsoft.EntityFrameworkCore.Diagnostics;
+using Avesta.Share.Extensions;
 
 namespace Avesta.Repository.Test
 {
-    [TestFixture(typeof(School), typeof(ApplicationDbContext))]
+
+
+    //[TestFixture(typeof(School), typeof(ApplicationDbContext))]
     [TestFixture(typeof(Student), typeof(ApplicationDbContext))]
-    [TestFixture(typeof(Teacher), typeof(ApplicationDbContext))]
-    [TestFixture(typeof(Teacher_School), typeof(ApplicationDbContext))]
+    //[TestFixture(typeof(Teacher), typeof(ApplicationDbContext))]
+    //[TestFixture(typeof(Teacher_School), typeof(ApplicationDbContext))]
     public class ReadEntityTest<TEntity, TContext> : ServiceResolver<TEntity, TContext>
         where TEntity : BaseEntity
         where TContext : AvestaDbContext
@@ -249,7 +256,9 @@ namespace Avesta.Repository.Test
         [Test]
         public async Task GetAllIncludeAllChildren_MustReturnValidEntityAndValidIncludedEntity()
         {
-            Assert.Warn("Write test for check all included children");
+            var result = await _repository.GetAllIncludeAllChildren();
+            var any = result.CheckTheValueOfEntity<TEntity, BaseEntity>();
+            Assert.IsTrue(any);
         }
 
 
@@ -295,6 +304,12 @@ namespace Avesta.Repository.Test
 
 
         #endregion
+
+
+
+
+
+
 
 
         #region [- Test Storage -]

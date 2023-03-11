@@ -130,7 +130,9 @@ namespace Avesta.Repository.Test.Src.Storage
                 AnyExteraNote = "My name is Jack, I'm very excited to be here",
                 Gender = Gender.Man,
                 //ID = Guid.NewGuid().ToString()
-                ID = "73794880-d275-4703-a74d-fd32a338b379"
+                ID = "73794880-d275-4703-a74d-fd32a338b379",
+                SchoolId = "73794880-d275-4703-a74d-fd32a338b374"
+
 
             },
             new Student
