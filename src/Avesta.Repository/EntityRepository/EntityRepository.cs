@@ -2,6 +2,7 @@
 using Avesta.Repository.EntityRepository;
 using Avesta.Share.Model;
 using Microsoft.EntityFrameworkCore;
+using MoreLinq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,7 +30,7 @@ namespace Avesta.Repository.EntityRepositoryRepository
         }
         #endregion
 
-        #region get entity
+        #region [- Read -]
         public async Task<TEntity> GetById(object key, bool track = true, bool exceptionRaiseIfNotExist = false)
         {
             return await base.GetById<TEntity>(key, track, exceptionRaiseIfNotExist);
@@ -60,12 +61,6 @@ namespace Avesta.Repository.EntityRepositoryRepository
             return await base.SingleOrDefault<TEntity>(search, track: track, exceptionRaiseIfNotExist: exceptionRaiseIfNotExist);
         }
 
-        #endregion
-
-
-
-        #region get entities
-
         public virtual async Task<IEnumerable<TEntity>> GetByIdsAsync(IEnumerable<int> ids)
         {
             return await base.GetByIds<TEntity>(ids);
@@ -75,9 +70,10 @@ namespace Avesta.Repository.EntityRepositoryRepository
         {
             return await base.GetAllIncludeAllChildren<TEntity>(track);
         }
-        public async Task<IEnumerable<TEntity>> GetAllIncludeAllChildren(int skip, int take, bool track = false)
+        public async Task<IEnumerable<TEntity>> GetAllIncludeAllChildren<TKey>(int skip, int take, Expression<Func<TEntity, TKey>> orderBy = null, OrderByDirection orderbyDirection = OrderByDirection.Ascending, bool track = false)
         {
-            return await base.GetAllIncludeAllChildren<TEntity>(skip, take, track);
+            return await base.GetAllIncludeAllChildren<TEntity, TKey>(skip, take, orderBy, orderbyDirection, track);
+
         }
         public async Task<TEntity> GetIncludeAllChildren(string id, bool track = false)
         {
@@ -113,7 +109,9 @@ namespace Avesta.Repository.EntityRepositoryRepository
         {
             return await base.GetAll<TEntity, TKey>(navigationPropertyPath, descendingOrder);
         }
+
         #endregion
+
 
 
         #region availability

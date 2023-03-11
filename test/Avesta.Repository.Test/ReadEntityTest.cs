@@ -13,6 +13,7 @@ using System.Reflection;
 using Newtonsoft.Json.Linq;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Avesta.Share.Extensions;
+using Newtonsoft.Json;
 
 namespace Avesta.Repository.Test
 {
@@ -265,16 +266,26 @@ namespace Avesta.Repository.Test
         [Test]
         public async Task GetAllIncludeAllChildren_MustReturnValidEntityAsNoTracking_IfTrackIsFalse()
         {
-            Assert.Warn("Write test for check and make sure result is as no tracking");
+            var result = await _repository.GetAllIncludeAllChildren(track: false);
+
+            foreach (var item in result)
+            {
+                Assert.That(_context.Entry(item).State == EntityState.Detached);
+            }
         }
 
 
 
 
-        [Test]
-        public async Task GetAllIncludeChildren_Pagination_MustReturnValidData()
+        [TestCaseSource(nameof(PaginationSource), new object[] { 2, 1 })]
+        public async Task GetAllIncludeChildren_Pagination_MustReturnValidData(int page, int perPage, string expectedResult)
         {
-            Assert.Warn("Write test for a pagination of all entities");
+            var take = perPage;
+            var skip = (page - 1) * perPage;
+
+            var result = await _repository.GetAllIncludeAllChildren(skip, take, e => e.CreatedDate);
+            var json = JsonConvert.SerializeObject(result);
+            Assert.That(json, Is.EqualTo(expectedResult));
         }
         #endregion
 
@@ -313,6 +324,18 @@ namespace Avesta.Repository.Test
 
 
         #region [- Test Storage -]
+
+        static IEnumerable<TestCaseData> PaginationSource(int page, int perPage)
+        {
+            var result = SeedStorage.GetJsonOfDataInPage(page, perPage, typeof(TEntity));
+
+            return new List<TestCaseData>
+            {
+                new TestCaseData(page,perPage,result)
+            };
+        }
+
+
         static IEnumerable<TestCaseData> OnlyEntitySource()
         {
             var lastId = SeedStorage.LastId(typeof(TEntity));

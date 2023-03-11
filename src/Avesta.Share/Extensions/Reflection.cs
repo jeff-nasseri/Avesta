@@ -68,8 +68,25 @@ namespace Avesta.Share.Extensions
                 }
             }
             return true;
-
         }
+
+
+        public static IEnumerable<TEntity> SetAllToNull<TEntity, PropEntity>(this IEnumerable<TEntity> list)
+        {
+            var props = typeof(TEntity).GetProperties().ToList();
+            var baseEntityProperties = props.Where(p => p.PropertyType.IsSubclassOf(typeof(PropEntity)) || p.PropertyType.BaseType == typeof(PropEntity)).ToList();
+
+            foreach (var item in list)
+            {
+                foreach (var prop in baseEntityProperties)
+                {
+                    typeof(TEntity).GetProperty(prop.Name)?.SetValue(item, null);
+                }
+            }
+
+            return list;
+        }
+
 
 
 

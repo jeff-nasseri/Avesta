@@ -13,6 +13,8 @@ using EntityState = Microsoft.EntityFrameworkCore.EntityState;
 using Avesta.Share.Model;
 using System.Linq.Dynamic.Core;
 using Microsoft.AspNetCore.Hosting;
+using MoreLinq;
+using MoreLinq.Extensions;
 
 namespace Avesta.Repository.EntityRepositoryRepository
 {
@@ -155,11 +157,15 @@ namespace Avesta.Repository.EntityRepositoryRepository
 
             return result;
         }
-        public async Task<IEnumerable<TEntity>> GetAllIncludeAllChildren<TEntity>(int skip, int take, bool track = false)
+        public async Task<IEnumerable<TEntity>> GetAllIncludeAllChildren<TEntity, TKey>(int skip, int take, Expression<Func<TEntity, TKey>> orderBy = null, OrderByDirection orderbyDirection = OrderByDirection.Ascending, bool track = false)
             where TEntity : BaseEntity<TIdType>
         {
             var result = default(IEnumerable<TEntity>);
             var query = await Query<TEntity>(eager: true);
+
+            if (orderBy != null)
+                query = orderbyDirection == OrderByDirection.Ascending ? query.OrderBy(orderBy) : query.OrderByDescending(orderBy);
+
             if (track)
                 result = query.AsNoTracking().Skip(skip).Take(take).ToList();
             else
@@ -167,6 +173,9 @@ namespace Avesta.Repository.EntityRepositoryRepository
 
             return result;
         }
+
+
+
         public async Task<TEntity> GetIncludeAllChildren<TEntity>(string id, bool track = false)
             where TEntity : BaseEntity<TIdType>
         {

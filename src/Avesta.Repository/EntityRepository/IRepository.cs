@@ -1,4 +1,5 @@
 ﻿using Avesta.Share.Model;
+using MoreLinq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace Avesta.Repository.EntityRepository
 
     public interface IRepository<TEntity>
     {
-        #region get entity
+        #region [- Read -]
         Task<TEntity> GetById(object key, bool track = true, bool exceptionRaiseIfNotExist = false);
         Task<TEntity> GetEntity(Expression<Func<TEntity, bool>> predicate, bool track = true, bool exceptionRaiseIfNotExist = false);
         Task<TEntity> GetEntity(string navigationPropertyPath, Expression<Func<TEntity, bool>> predicate, bool track = true, bool exceptionRaiseIfNotExist = false);
@@ -22,18 +23,13 @@ namespace Avesta.Repository.EntityRepository
         Task<TEntity> FirstOrDefault(Expression<Func<TEntity, bool>> search, bool track = true, bool exceptionRaiseIfNotExist = false);
         Task<TEntity> SingleOrDefault(Expression<Func<TEntity, bool>> search, bool track = true, bool exceptionRaiseIfNotExist = false);
         Task<TEntity> SingleOrDefault(string navigationPropertyPath, Expression<Func<TEntity, bool>> search, bool track = true, bool exceptionRaiseIfNotExist = false);
-
-
-        #endregion
-
-        #region get entities
         Task<IEnumerable<TEntity>> GetByIdsAsync(IEnumerable<int> ids);
         Task<IEnumerable<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> predicate, bool track = true);
         Task<IEnumerable<TEntity>> GetAllAsync(bool track = false);
         Task<IEnumerable<TEntity>> GetAllAsync();
         Task<IEnumerable<TEntity>> GetAllAsync(int skip, int take);
         Task<IEnumerable<TEntity>> GetAllIncludeAllChildren(bool track = true);
-        Task<IEnumerable<TEntity>> GetAllIncludeAllChildren(int skip, int take, bool track = false);
+        Task<IEnumerable<TEntity>> GetAllIncludeAllChildren<TKey>(int skip, int take, Expression<Func<TEntity, TKey>> orderBy = null, OrderByDirection orderbyDirection = OrderByDirection.Ascending, bool track = false);
         Task<TEntity> GetIncludeAllChildren(string id, bool track = false);
         Task<IEnumerable<TEntity>> GetAllByInclude(string navigationPropertyPath);
         Task<IEnumerable<TEntity>> GetAllByInclude(string navigationPropertyPath, int skip, int take);

@@ -56,10 +56,10 @@ namespace Avesta.Repository.Test.Src.Storage
 
             switch (type.Name)
             {
-                case "Student": return "[{\"Fullname\":\"test\",\"Gender\":0,\"Age\":0,\"AnyExteraNote\":null,\"SchoolId\":null,\"School\":null,\"Counter\":0,\"ID\":null,\"IsLock\":false,\"ModifiedDate\":null,\"CreatedDate\":\"2023-03-06T16:39:42.5010541Z\",\"DeletedDate\":null}]";
-                case "Teacher": return "[{\"Fullname\":\"Ahmad Ahmadi\",\"Gender\":0,\"Age\":67,\"Teacher_Schools\":null,\"Counter\":0,\"ID\":\"73794880-d275-4703-a74d-fd32a338b369\",\"IsLock\":false,\"ModifiedDate\":null,\"CreatedDate\":\"2023-03-06T16:42:01.6871323Z\",\"DeletedDate\":null},{\"Fullname\":\"Arezo Ahmadi\",\"Gender\":1,\"Age\":40,\"Teacher_Schools\":null,\"Counter\":0,\"ID\":\"73794880-d275-4703-a74d-fd32a338b368\",\"IsLock\":false,\"ModifiedDate\":null,\"CreatedDate\":\"2023-03-06T16:42:01.6871771Z\",\"DeletedDate\":null},{\"Fullname\":\"Jef Varkat\",\"Gender\":0,\"Age\":56,\"Teacher_Schools\":null,\"Counter\":0,\"ID\":\"73794880-d275-4703-a74d-fd32a338b367\",\"IsLock\":false,\"ModifiedDate\":null,\"CreatedDate\":\"2023-03-06T16:42:01.6871772Z\",\"DeletedDate\":null}]";
-                case "School": return "[{\"Name\":\"School A\",\"Students\":null,\"Teacher_Schools\":null,\"Counter\":0,\"ID\":\"73794880-d275-4703-a74d-fd32a338b373\",\"IsLock\":false,\"ModifiedDate\":null,\"CreatedDate\":\"2023-03-06T16:42:01.6870896Z\",\"DeletedDate\":null},{\"Name\":\"School B\",\"Students\":null,\"Teacher_Schools\":null,\"Counter\":0,\"ID\":\"73794880-d275-4703-a74d-fd32a338b374\",\"IsLock\":false,\"ModifiedDate\":null,\"CreatedDate\":\"2023-03-06T16:42:01.6871091Z\",\"DeletedDate\":null}]";
-                case "Teacher_School": return "[{\"TeacherId\":\"73794880-d275-4703-a74d-fd32a338b367\",\"Teacher\":null,\"SchoolId\":\"73794880-d275-4703-a74d-fd32a338b373\",\"School\":null,\"Counter\":0,\"ID\":\"13794880-d275-4703-a74d-fd32a338b373\",\"IsLock\":false,\"ModifiedDate\":null,\"CreatedDate\":\"2023-03-06T16:42:01.6871986Z\",\"DeletedDate\":null},{\"TeacherId\":\"73794880-d275-4703-a74d-fd32a338b368\",\"Teacher\":null,\"SchoolId\":\"73794880-d275-4703-a74d-fd32a338b374\",\"School\":null,\"Counter\":0,\"ID\":\"23794880-d275-4703-a74d-fd32a338b373\",\"IsLock\":false,\"ModifiedDate\":null,\"CreatedDate\":\"2023-03-06T16:42:01.6872276Z\",\"DeletedDate\":null},{\"TeacherId\":\"73794880-d275-4703-a74d-fd32a338b369\",\"Teacher\":null,\"SchoolId\":\"73794880-d275-4703-a74d-fd32a338b373\",\"School\":null,\"Counter\":0,\"ID\":\"33794880-d275-4703-a74d-fd32a338b373\",\"IsLock\":false,\"ModifiedDate\":null,\"CreatedDate\":\"2023-03-06T16:42:01.6872277Z\",\"DeletedDate\":null}]";
+                case "Student": return JsonConvert.SerializeObject(Students.OrderBy(e => e.CreatedDate).Skip(skip).Take(take).ToList());
+                case "Teacher": return JsonConvert.SerializeObject(Teachers.OrderBy(e => e.CreatedDate).Skip(skip).Take(take).ToList());
+                case "School": return JsonConvert.SerializeObject(Schools.OrderBy(e => e.CreatedDate).Skip(skip).Take(take).ToList());
+                case "Teacher_School": return JsonConvert.SerializeObject(Teacher_Schools.OrderBy(e => e.CreatedDate).Skip(skip).Take(take).ToList());
                 default: throw new Exception("type not found !");
             }
 
@@ -68,97 +68,6 @@ namespace Avesta.Repository.Test.Src.Storage
 
 
 
-
-
-
-
-
-
-
-        public static IEnumerable<Student> Students = new List<Student>
-        {
-            new Student
-            {
-                Fullname = "Alireza Nasseri",
-                Age = 24,
-                AnyExteraNote = "My name is Alireza, I'm very excited to be here",
-                Gender = Gender.Man,
-                //ID = Guid.NewGuid().ToString()
-                ID = "73794880-d275-4703-a74d-fd32a338b375",
-                SchoolId = "73794880-d275-4703-a74d-fd32a338b374"
-            },
-            new Student
-            {
-                Fullname = "Hamed Hamidi",
-                Age = 44,
-                AnyExteraNote = "My name is Hamed, I'm very excited to be here",
-                Gender = Gender.Man,
-                //ID = Guid.NewGuid().ToString()
-                ID = "73794880-d275-4703-a74d-fd32a338b376",
-                SchoolId = "73794880-d275-4703-a74d-fd32a338b374"
-
-
-            },
-            new Student
-            {
-                Fullname = "Sahar Ziba",
-                Age = 25,
-                AnyExteraNote = "My name is Sahar, I'm very excited to be here",
-                Gender = Gender.Woman,
-                //ID = Guid.NewGuid().ToString()
-                ID = "73794880-d275-4703-a74d-fd32a338b377",
-                SchoolId = "73794880-d275-4703-a74d-fd32a338b374"
-
-
-            },
-            new Student
-            {
-                Fullname = "Sara Boiler",
-                Age = 20,
-                AnyExteraNote = "My name is Sara, I'm very excited to be here",
-                Gender = Gender.Woman,
-                //ID = Guid.NewGuid().ToString()
-                ID = "73794880-d275-4703-a74d-fd32a338b378",
-                SchoolId = "73794880-d275-4703-a74d-fd32a338b374"
-
-
-            },
-            new Student
-            {
-                Fullname = "Jack Varkat",
-                Age = 20,
-                AnyExteraNote = "My name is Jack, I'm very excited to be here",
-                Gender = Gender.Man,
-                //ID = Guid.NewGuid().ToString()
-                ID = "73794880-d275-4703-a74d-fd32a338b379",
-                SchoolId = "73794880-d275-4703-a74d-fd32a338b374"
-
-
-            },
-            new Student
-            {
-                Fullname = "Biden Boiler",
-                Age = 22,
-                AnyExteraNote = "My name is Biden, I'm very excited to be here",
-                Gender = Gender.Man,
-                //ID = Guid.NewGuid().ToString()
-                ID = "73794880-d275-4703-a74d-fd32a338b371",
-                SchoolId = "73794880-d275-4703-a74d-fd32a338b373"
-
-            },
-            new Student
-            {
-                Fullname = "Reza Asqari",
-                Age = 23,
-                AnyExteraNote = "My name is Reza, I'm very excited to be here",
-                Gender = Gender.Man,
-                //ID = Guid.NewGuid().ToString()
-                ID = "73794880-d275-4703-a74d-fd32a338b372",
-                SchoolId = "73794880-d275-4703-a74d-fd32a338b373"
-
-
-            }
-        };
 
 
         public static IEnumerable<School> Schools = new List<School>
@@ -178,6 +87,95 @@ namespace Avesta.Repository.Test.Src.Storage
 
             }
         };
+
+
+
+
+
+        public static IEnumerable<Student> Students = new List<Student>
+        {
+            new Student
+            {
+                Fullname = "Alireza Nasseri",
+                Age = 24,
+                AnyExteraNote = "My name is Alireza, I'm very excited to be here",
+                Gender = Gender.Man,
+                //ID = Guid.NewGuid().ToString()
+                ID = "73794880-d275-4703-a74d-fd32a338b375",
+                SchoolId = "73794880-d275-4703-a74d-fd32a338b374",
+                School = Schools.Single(s=>s.ID == "73794880-d275-4703-a74d-fd32a338b374")
+            },
+            new Student
+            {
+                Fullname = "Hamed Hamidi",
+                Age = 44,
+                AnyExteraNote = "My name is Hamed, I'm very excited to be here",
+                Gender = Gender.Man,
+                //ID = Guid.NewGuid().ToString()
+                ID = "73794880-d275-4703-a74d-fd32a338b376",
+                SchoolId = "73794880-d275-4703-a74d-fd32a338b374",
+                School = Schools.Single(s=>s.ID == "73794880-d275-4703-a74d-fd32a338b374")
+
+            },
+            new Student
+            {
+                Fullname = "Sahar Ziba",
+                Age = 25,
+                AnyExteraNote = "My name is Sahar, I'm very excited to be here",
+                Gender = Gender.Woman,
+                //ID = Guid.NewGuid().ToString()
+                ID = "73794880-d275-4703-a74d-fd32a338b377",
+                SchoolId = "73794880-d275-4703-a74d-fd32a338b374",
+                School = Schools.Single(s=>s.ID == "73794880-d275-4703-a74d-fd32a338b374")
+            },
+            new Student
+            {
+                Fullname = "Sara Boiler",
+                Age = 26,
+                AnyExteraNote = "My name is Sara, I'm very excited to be here",
+                Gender = Gender.Woman,
+                //ID = Guid.NewGuid().ToString()
+                ID = "73794880-d275-4703-a74d-fd32a338b378",
+                SchoolId = "73794880-d275-4703-a74d-fd32a338b374",
+                School = Schools.Single(s=>s.ID == "73794880-d275-4703-a74d-fd32a338b374")
+            },
+            new Student
+            {
+                Fullname = "Jack Varkat",
+                Age = 27,
+                AnyExteraNote = "My name is Jack, I'm very excited to be here",
+                Gender = Gender.Man,
+                //ID = Guid.NewGuid().ToString()
+                ID = "73794880-d275-4703-a74d-fd32a338b379",
+                SchoolId = "73794880-d275-4703-a74d-fd32a338b374",
+                School = Schools.Single(s=>s.ID == "73794880-d275-4703-a74d-fd32a338b374")
+
+            },
+            new Student
+            {
+                Fullname = "Biden Boiler",
+                Age = 28,
+                AnyExteraNote = "My name is Biden, I'm very excited to be here",
+                Gender = Gender.Man,
+                //ID = Guid.NewGuid().ToString()
+                ID = "73794880-d275-4703-a74d-fd32a338b371",
+                SchoolId = "73794880-d275-4703-a74d-fd32a338b373",
+                School = Schools.Single(s=>s.ID == "73794880-d275-4703-a74d-fd32a338b373")
+            },
+            new Student
+            {
+                Fullname = "Reza Asqari",
+                Age = 23,
+                AnyExteraNote = "My name is Reza, I'm very excited to be here",
+                Gender = Gender.Man,
+                //ID = Guid.NewGuid().ToString()
+                ID = "73794880-d275-4703-a74d-fd32a338b372",
+                SchoolId = "73794880-d275-4703-a74d-fd32a338b373",
+                School = Schools.Single(s=>s.ID == "73794880-d275-4703-a74d-fd32a338b373")
+            }
+        };
+
+
 
 
         public static IEnumerable<Teacher> Teachers = new List<Teacher>

@@ -44,18 +44,18 @@ namespace Avesta.Repository.Test.Src
             dbContext.Database.Migrate();
 
 
-            //init student
-            foreach (var student in SeedStorage.Students)
-            {
-                dbContext.Students.Add(student);
-            }
-
-
             //init school
             foreach (var school in SeedStorage.Schools)
             {
                 dbContext.Schools.Add(school);
             }
+
+            //init student
+            foreach (var student in SeedStorage.Students)
+            {
+                dbContext.Students.Add(student);
+            }
+           
 
             //init teacher
             foreach (var teacher in SeedStorage.Teachers)

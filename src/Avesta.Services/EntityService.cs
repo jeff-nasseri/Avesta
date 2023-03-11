@@ -37,8 +37,9 @@ namespace Avesta.Services
         }
         public virtual async Task<IEnumerable<TModel>> GetAllEntitiesWithAllChildren(int skip, int take)
         {
-            var result = await _repository.GetAllIncludeAllChildren(skip, take);
-            return result.OrderByDescending(i => i.CreatedDate);
+            throw new NotImplementedException();
+            //var result = await _repository.GetAllIncludeAllChildren(skip, take);
+            //return result.OrderByDescending(i => i.CreatedDate);
         }
 
         public virtual async Task<IEnumerable<TModel>> GetAllEntitiesWithSpecificChildren(string navigationPropertyPath)
