@@ -1,0 +1,81 @@
+﻿using Avesta.Data.Context;
+using Avesta.Data.Model;
+using Avesta.Repository.EntityRepositoryRepository;
+using Avesta.Share.Utilities;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Linq.Dynamic.Core;
+
+namespace Avesta.Repository.EntityRepository.Qraph
+{
+    public class BaseGraphRepository<TContext> : BaseRepo<TContext>
+        where TContext : AvestaDbContext
+    {
+
+
+
+        public BaseGraphRepository(TContext context) : base(context)
+        {
+        }
+
+
+
+
+        public async Task<IEnumerable<TEntity>> QraphQuery<TEntity, TId>(string navigationPropertyPath
+            , string where
+            , string select
+            , string orderBy
+            , int? page = null
+            , int perPage = 7
+            , bool track = false)
+            where TId : class
+            where TEntity : BaseEntity<TId>
+                => await QraphQuery<TEntity, TId>(base.IncludeByPath<TEntity, TId>(navigationPropertyPath), where, select, orderBy, page, perPage, track);
+
+
+        public async Task<IEnumerable<TEntity>> QraphQuery<TEntity, TId>(bool includeAllPath
+            , string select
+            , string orderBy
+            , string where
+            , int? page = null
+            , int perPage = 7
+            , bool track = false)
+            where TId : class
+            where TEntity : BaseEntity<TId>
+                => includeAllPath ? await QraphQuery<TEntity, TId>(base.IncludeAll<TEntity, TId>(), where, select, orderBy, page, perPage, track) :
+                        await QraphQuery<TEntity, TId>(base.Query<TEntity, TId>(), where, select, orderBy, page, perPage, track);
+
+
+        public async Task<IEnumerable<TEntity>> QraphQuery<TEntity, TId>(IQueryable<TEntity> entities
+            , string where
+            , string select
+            , string orderBy
+            , int? page = null
+            , int perPage = 7
+            , bool track = false)
+            where TId : class
+            where TEntity : BaseEntity<TId>
+        {
+
+            if (!track)
+                entities = entities.AsNoTracking();
+
+            var data = entities.Where(where);
+
+            if (page != null)
+            {
+                PaginationUtils.Paginate(out int skip, perPage, page);
+                data = data.Skip(skip).Take(perPage);
+            }
+
+            var result = await data.OrderBy(orderBy).Select(select).ToDynamicListAsync<TEntity>();
+
+            return result;
+        }
+
+
+
+    }
+}

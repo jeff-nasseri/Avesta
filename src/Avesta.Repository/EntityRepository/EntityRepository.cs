@@ -1,5 +1,11 @@
-﻿using Avesta.Data.Model;
+﻿using Avesta.Data.Context;
+using Avesta.Data.Model;
 using Avesta.Repository.EntityRepository;
+using Avesta.Repository.EntityRepository.Avability;
+using Avesta.Repository.EntityRepository.Create;
+using Avesta.Repository.EntityRepository.Delete;
+using Avesta.Repository.EntityRepository.Read;
+using Avesta.Repository.EntityRepository.Update;
 using Avesta.Share.Model;
 using Microsoft.EntityFrameworkCore;
 using MoreLinq;
@@ -12,281 +18,268 @@ using System.Threading.Tasks;
 namespace Avesta.Repository.EntityRepositoryRepository
 {
 
-    public class EntityRepository<TEntity, TContext, TIdType> : BaseRepository<TContext, TIdType>, IRepository<TEntity>
-        where TIdType : class
-        where TEntity : BaseEntity<TIdType>
-        where TContext : DbContext
+    public class EntityRepository<TEntity, TContext, TId> : IRepository<TEntity, TId>
+        where TId : class
+        where TEntity : BaseEntity<TId>
+        where TContext : AvestaDbContext
     {
-        readonly TContext _context;
-        public EntityRepository(TContext context) : base(context)
-        {
-            _context = context;
-        }
+        readonly IReadRepository<TEntity, TId> _readRepository;
+        readonly ICreateRepository<TEntity, TId> _createRepository;
+        readonly IDeleteRepository<TEntity, TId> _deleteRepository;
+        readonly IAvailabilityRepository<TEntity, TId> _availabilityRepository;
+        readonly IUpdateRepository<TEntity, TId> _updateRepository;
 
-        #region entity state
-        public async Task DetachEntity(TEntity entity)
-        {
-            await base.DetachEntity<TEntity>(entity);
-        }
-        #endregion
 
-        #region [- Read -]
-        public async Task<TEntity> GetById(object key, bool track = true, bool exceptionRaiseIfNotExist = false)
+        public EntityRepository(IReadRepository<TEntity, TId> readRepository
+            , ICreateRepository<TEntity, TId> createRepository
+            , IDeleteRepository<TEntity, TId> deleteRepository
+            , IAvailabilityRepository<TEntity, TId> availabilityRepository
+            , IUpdateRepository<TEntity, TId> updateRepository
+            , TContext context)
         {
-            return await base.GetById<TEntity>(key, track, exceptionRaiseIfNotExist);
+            _readRepository = readRepository;
+            _createRepository = createRepository;
+            _deleteRepository = deleteRepository;
+            _availabilityRepository = availabilityRepository;
+            _updateRepository = updateRepository;
         }
-        public async Task<TEntity> GetEntity(Expression<Func<TEntity, bool>> predicate, bool track = true, bool exceptionRaiseIfNotExist = false)
-        {
-            return await base.GetEntity<TEntity>(predicate, track, exceptionRaiseIfNotExist);
-        }
-        public async Task<TEntity> GetEntity(string navigationPropertyPath, Expression<Func<TEntity, bool>> predicate, bool track = true, bool exceptionRaiseIfNotExist = false)
-        {
-            return await base.GetEntity<TEntity>(navigationPropertyPath, predicate, track, exceptionRaiseIfNotExist);
-        }
-        public async Task<TEntity> FirstOrDefault(bool track = true, bool exceptionRaiseIfNotExist = false)
-        {
-            return await base.FirstOrDefault<TEntity>(track: track, exceptionRaiseIfNotExist: exceptionRaiseIfNotExist);
-        }
-        public async Task<TEntity> FirstOrDefault(Expression<Func<TEntity, bool>> search, bool track = true, bool exceptionRaiseIfNotExist = false)
-        {
-            return await base.FirstOrDefault<TEntity>(search, track: track, exceptionRaiseIfNotExist: exceptionRaiseIfNotExist);
-        }
-
-        public async Task<TEntity> SingleOrDefault(string navigationPropertyPath, Expression<Func<TEntity, bool>> search, bool track = true, bool exceptionRaiseIfNotExist = false)
-        {
-            return await base.SingleOrDefault<TEntity>(navigationPropertyPath, search, track: track, exceptionRaiseIfNotExist: exceptionRaiseIfNotExist);
-        }
-        public async Task<TEntity> SingleOrDefault(Expression<Func<TEntity, bool>> search, bool track = true, bool exceptionRaiseIfNotExist = false)
-        {
-            return await base.SingleOrDefault<TEntity>(search, track: track, exceptionRaiseIfNotExist: exceptionRaiseIfNotExist);
-        }
-
-        public virtual async Task<IEnumerable<TEntity>> GetByIdsAsync(IEnumerable<int> ids)
-        {
-            return await base.GetByIds<TEntity>(ids);
-        }
-
-        public async Task<IEnumerable<TEntity>> GetAllIncludeAllChildren(bool track = true)
-        {
-            return await base.GetAllIncludeAllChildren<TEntity>(track);
-        }
-        public async Task<IEnumerable<TEntity>> GetAllIncludeAllChildren<TKey>(int skip, int take, Expression<Func<TEntity, TKey>> orderBy = null, OrderByDirection orderbyDirection = OrderByDirection.Ascending, bool track = false)
-        {
-            return await base.GetAllIncludeAllChildren<TEntity, TKey>(skip, take, orderBy, orderbyDirection, track);
-
-        }
-        public async Task<TEntity> GetIncludeAllChildren(string id, bool track = false)
-        {
-            return await base.GetIncludeAllChildren<TEntity>(id, track);
-        }
-
-        public virtual async Task<IEnumerable<TEntity>> GetAllAsync()
-        {
-            return await base.GetAll<TEntity>();
-        }
-        public virtual async Task<IEnumerable<TEntity>> GetAllAsync(int skip, int take)
-        {
-            return await base.GetAll<TEntity>(skip, take);
-        }
-        public async Task<IEnumerable<TEntity>> GetAllAsync(bool track = false)
-        {
-            return await base.GetAllAsync<TEntity>(track);
-        }
-        public virtual async Task<IEnumerable<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> predicate, bool track = true)
-        {
-            return await base.GetAll<TEntity>(predicate, track);
-        }
-        public async Task<IEnumerable<TEntity>> GetAllByInclude(string navigationPropertyPath)
-        {
-            return await base.GetAllByInclude<TEntity>(navigationPropertyPath);
-        }
-        public async Task<IEnumerable<TEntity>> GetAllByInclude(string navigationPropertyPath, int skip, int take)
-        {
-            return await base.GetAllByInclude<TEntity>(navigationPropertyPath, skip, take);
-        }
-
-        public async Task<IEnumerable<TEntity>> GetAllAsync<TKey>(string navigationPropertyPath = null, Func<TEntity, TKey> descendingOrder = null)
-        {
-            return await base.GetAll<TEntity, TKey>(navigationPropertyPath, descendingOrder);
-        }
-
-        #endregion
 
 
 
-        #region availability
-        public virtual async Task CheckAvailability(Expression<Func<TEntity, bool>> any)
+        #region [- Availability -]
+        public async Task<bool> Any(Expression<Func<TEntity, bool>> any, string navigationPropertyPath = null)
         {
-            await base.CheckAvailability<TEntity>(any);
+            var result = await _availabilityRepository.Any(any, navigationPropertyPath);
+            return result;
+        }
+
+        public async Task CheckAvailability(Expression<Func<TEntity, bool>> any, string navigationPropertyPath = null)
+        {
+            await _availabilityRepository.CheckAvailability(any, navigationPropertyPath);
         }
         #endregion
 
 
 
-        #region insert or update
-        public virtual async Task InsertAsync(TEntity entity)
+        #region [- Create -]
+        public async Task ClearAllEntitiesThenAddRange(IEnumerable<TEntity> insertEntities)
         {
-            await base.InsertAsync<TEntity>(entity);
-        }
-        public async Task InsertRange(IEnumerable<TEntity> entities)
-        {
-            await base.InsertRange<TEntity>(entities);
+            await _createRepository.ClearAllEntitiesThenAddRange(insertEntities);
         }
         public async Task ReCreate(Expression<Func<TEntity, bool>> deleteCondition, IEnumerable<TEntity> insertEntities)
         {
-            await base.ReCreate<TEntity>(deleteCondition, insertEntities);
+            await _createRepository.ReCreate(deleteCondition, insertEntities);
         }
-        public async Task ReCreate(string navigationPropertyPath, Expression<Func<TEntity, bool>> deleteCondition, IEnumerable<TEntity> insertEntities)
+        public async Task ClearRemoveListThenAddRange(IEnumerable<TEntity> removeList, IEnumerable<TEntity> insertEntities)
         {
-            await base.ReCreate<TEntity>(navigationPropertyPath, deleteCondition, insertEntities);
+            await _createRepository.ClearRemoveListThenAddRange(removeList, insertEntities);
         }
-
-        public async Task ClearAllTEntityInDbThenAddRange(IEnumerable<TEntity> insertEntities)
+        public async Task Insert(TEntity entity)
         {
-            await base.ClearAllTEntityInDbThenAddRange<TEntity>(insertEntities);
-        }
-        public async Task ClearAllTEntityInDbThenAddRange(IEnumerable<TEntity> removeEntities, IEnumerable<TEntity> insertEntities)
-        {
-            await base.ClearAllTEntityInDbThenAddRange<TEntity>(removeEntities, insertEntities);
+            await _createRepository.Insert(entity);
         }
 
-        public virtual async Task UpdateAsync(TEntity entity)
+        public async Task InsertRange(IEnumerable<TEntity> entities)
         {
-            await base.UpdateAsync<TEntity>(entity);
+            await _createRepository.InsertRange(entities);
         }
-        public virtual async Task<TEntity> UpdateOrInsert(TEntity entity)
+
+        #endregion
+
+
+
+        #region [- Delete -]
+        public async Task Delete(TEntity entity, bool exceptionRaiseIfNotExist = false)
         {
-            var result = await base.UpdateOrInsert<TEntity>(entity);
+            await _deleteRepository.Delete(entity, exceptionRaiseIfNotExist);
+        }
+
+
+        public async Task SoftDelete(string id, bool exceptionRaiseIfNotExist = false)
+        {
+            await _deleteRepository.SoftDelete(id, exceptionRaiseIfNotExist);
+        }
+
+        public async Task Delete(object id, bool exceptionRaiseIfNotExist = false)
+        {
+            await _deleteRepository.Delete(id, exceptionRaiseIfNotExist);
+        }
+
+        public async Task DeleteRange(IEnumerable<TEntity> entities)
+        {
+            await _deleteRepository.DeleteRange(entities);
+        }
+
+        public async Task DeleteWithAllChildren(string id, bool exceptionRaiseIfNotExist = false)
+        {
+            await _deleteRepository.DeleteWithAllChildren(id, exceptionRaiseIfNotExist);
+        }
+        #endregion
+
+        
+
+        #region [- Read -]
+        public async Task<TEntity> FirstOrDefault(string navigationPropertyPath = null
+            , bool includeAllPath = false
+            , bool track = true
+            , bool exceptionRaiseIfNotExist = false)
+        {
+            var result = await _readRepository.FirstOrDefault(navigationPropertyPath, includeAllPath, track, exceptionRaiseIfNotExist);
             return result;
         }
+
+        public async Task<TEntity> FirstOrDefault(Expression<Func<TEntity, bool>> search
+            , string navigationPropertyPath = null
+            , bool includeAllPath = false
+            , bool track = true
+            , bool exceptionRaiseIfNotExist = false)
+        {
+            var result = await _readRepository.FirstOrDefault(search, navigationPropertyPath, includeAllPath, track, exceptionRaiseIfNotExist);
+            return result;
+        }
+
+        public async Task<TEntity> Get(object key
+            , string navigationPropertyPath = null
+            , bool includeAllPath = false
+            , bool track = true
+            , bool exceptionRaiseIfNotExist = false)
+        {
+            var result = await _readRepository.Get(key, navigationPropertyPath, includeAllPath, track, exceptionRaiseIfNotExist);
+            return result;
+        }
+
+        public async Task<TEntity> Get(Expression<Func<TEntity, bool>> predicate
+            , string navigationPropertyPath = null
+            , bool includeAllPath = false
+            , bool track = true
+            , bool exceptionRaiseIfNotExist = false)
+        {
+            var result = await _readRepository.Get(predicate, navigationPropertyPath, includeAllPath, track, exceptionRaiseIfNotExist);
+            return result;
+        }
+
+        public async Task<IEnumerable<TEntity>> GetAll<TKey>(int? page = null
+            , int perPage = 7
+            , string navigationPropertyPath = null
+            , bool includeAllPath = false
+            , Expression<Func<TEntity, TKey>> orderBy = null
+            , OrderByDirection orderbyDirection = OrderByDirection.Ascending
+            , bool track = false)
+        {
+            var result = await _readRepository.GetAll<TKey>(page, perPage, navigationPropertyPath, includeAllPath, orderBy, orderbyDirection, track);
+            return result;
+        }
+
+        public async Task<IEnumerable<TEntity>> GetAll(int? page = null
+            , int perPage = 7
+            , string navigationPropertyPath = null
+            , bool includeAllPath = false
+            , Expression<Func<TEntity, object>> orderBy = null
+            , OrderByDirection orderbyDirection = OrderByDirection.Ascending
+            , bool track = false)
+        {
+            var result = await _readRepository.GetAll(page, perPage, navigationPropertyPath, includeAllPath, orderBy, orderbyDirection, track);
+            return result;
+        }
+
+        public async Task<IEnumerable<TEntity>> GetByIds<TKey>(IEnumerable<int> ids
+            , int? page = null
+            , int perPage = 7
+            , string navigationPropertyPath = null
+            , bool includeAllPath = false
+            , Expression<Func<TEntity, TKey>> orderBy = null
+            , OrderByDirection orderbyDirection = OrderByDirection.Ascending
+            , bool track = false)
+        {
+            var result = await _readRepository.GetByIds<TKey>(ids, page, perPage, navigationPropertyPath, includeAllPath, orderBy, orderbyDirection, track);
+            return result;
+        }
+
+        public async Task<IEnumerable<TEntity>> GetByIds(IEnumerable<int> ids
+            , int? page = null
+            , int perPage = 7
+            , string navigationPropertyPath = null
+            , bool includeAllPath = false
+            , Expression<Func<TEntity, object>> orderBy = null
+            , OrderByDirection orderbyDirection = OrderByDirection.Ascending
+            , bool track = false)
+        {
+            var result = await _readRepository.GetByIds(ids, page, perPage, navigationPropertyPath, includeAllPath, orderBy, orderbyDirection, track);
+            return result;
+        }
+
+        public async Task<IEnumerable<TEntity>> Where(Expression<Func<TEntity, bool>> search
+           , int? page = null
+           , int perPage = 7
+           , string navigationPropertyPath = null
+           , bool includeAllPath = false
+           , Expression<Func<TEntity, object>> orderBy = null
+            , OrderByDirection orderbyDirection = OrderByDirection.Ascending, bool track = false)
+        {
+            var result = await _readRepository.Where(search, page, perPage, navigationPropertyPath, includeAllPath, orderBy, orderbyDirection, track);
+            return result;
+        }
+
+        public async Task<IEnumerable<TEntity>> Where(string dynamicQuery
+            , int? page = null
+            , int perPage = 7
+            , string navigationPropertyPath = null
+            , bool includeAllPath = false
+            , Expression<Func<TEntity, object>> orderBy = null
+            , OrderByDirection orderbyDirection = OrderByDirection.Ascending
+            , bool track = false)
+        {
+            var result = await _readRepository.Where(dynamicQuery, page, perPage, navigationPropertyPath, includeAllPath, orderBy, orderbyDirection, track);
+            return result;
+        }
+        public async Task<TEntity> SingleOrDefault(Expression<Func<TEntity, bool>> search
+       , string navigationPropertyPath = null
+       , bool includeAllPath = false
+       , bool track = true
+       , bool exceptionRaiseIfNotExist = false)
+        {
+            var result = await _readRepository.SingleOrDefault(search, navigationPropertyPath, includeAllPath, track, exceptionRaiseIfNotExist);
+            return result;
+        }
+
+        #endregion
+
+        
+        #region [- Update -]
+        public async Task Update(TEntity entity, bool exceptionRaiseIfNotExist = false)
+        {
+            await _updateRepository.Update(entity, exceptionRaiseIfNotExist);
+        }
         #endregion
 
 
 
-        #region delete
-        public virtual async Task DeleteAsync(TEntity entity)
+        public Task<IQueryable<TEntity>> Include(string navigationPropertyPath)
         {
-            await base.DeleteAsync<TEntity>(entity);
-        }
-        public async Task DeleteAsyncById(object id)
-        {
-            await base.DeleteAsyncById<TEntity>(id);
-        }
-        public async Task DeleteRangeAsync(IEnumerable<TEntity> entities)
-        {
-            await base.DeleteRangeAsync<TEntity>(entities);
-        }
-
-        public async Task DeleteWithAllChildren(string id)
-        {
-            await base.DeleteWithAllChildren<TEntity>(id);
-        }
-
-        public async Task SoftDelete(string id, bool exceptionRaiseIfNotExist)
-        {
-            await base.SoftDelete<TEntity>(id, exceptionRaiseIfNotExist);
+            throw new NotImplementedException();
         }
 
 
-
-        #endregion
-
-
-        #region where
-        public async Task<IEnumerable<TEntity>> WhereByInclude(string navigationPropertyPath, Expression<Func<TEntity, bool>> search)
+        public Task<IEnumerable<TResult>> QraphQuery<TResult>(string where, string select, string orderBy, string navigationPropertyPath = null, bool includeAllPath = false, int? page = null, int perPage = 7, bool track = false) where TResult : class
         {
-            return await base.WhereByInclude<TEntity>(navigationPropertyPath, search);
-        }
-        public async Task<IEnumerable<TEntity>> WhereByInclude(string navigationPropertyPath, string dynamicQuery, int skip, int take)
-        {
-            return await base.WhereByInclude<TEntity>(navigationPropertyPath, dynamicQuery, skip: skip, take: take);
+            throw new NotImplementedException();
         }
 
-        public async Task<IEnumerable<TResult>> DynamicQuery<TResult>(string navigationPropertyPath, string where, string select, string orderBy, int skip, int take)
-            where TResult : class
+        public Task<IQueryable<TEntity>> Query(bool eager = false)
         {
-            return await base.DynamicQuery<TEntity, TResult>(navigationPropertyPath, where, select, orderBy: orderBy, skip: skip, take: take);
+            throw new NotImplementedException();
+        }
+        public Task<int> Count(Expression<Func<TEntity, bool>> where, string navigationPropertyPath = null)
+        {
+            throw new NotImplementedException();
         }
 
-        public async Task<IEnumerable<TResult>> DynamicQuery<TResult>(string navigationPropertyPath, string where, string select, string orderBy, int? takeFromLast)
-            where TResult : class
+        public Task<int> Count()
         {
-            return await base.DynamicQuery<TEntity, TResult>(navigationPropertyPath, where, select, orderBy, takeFromLast);
+            throw new NotImplementedException();
         }
 
 
-        public async Task<IEnumerable<TEntity>> WhereByInclude(string navigationPropertyPath, string dynamicQuery)
-        {
-            return await base.WhereByInclude<TEntity>(navigationPropertyPath, dynamicQuery);
-        }
-
-        public async Task<IEnumerable<TEntity>> GetAllByPropertyInfo(PropertyInformation info)
-        {
-            return await base.GetAllByPropertyInfo<TEntity>(info);
-        }
-
-        #endregion
-
-
-
-
-
-        #region include
-        /// <summary>
-        /// include dbset dynamiclly at runtime
-        /// </summary>
-        /// <param name="navigationPropertyPath">split props by ; like (entity;entity.sub)</param>
-        /// <returns>IQueryable<TEntity></returns>
-        public async Task<IQueryable<TEntity>> Include(string navigationPropertyPath)
-        {
-            return await base.Include<TEntity>(navigationPropertyPath);
-        }
-
-        public async Task<int> Count()
-        {
-            return await base.Count<TEntity>();
-        }
-
-        public async Task<bool> AnyByInclude(string navigationPropertyPath, Expression<Func<TEntity, bool>> any)
-        {
-            return await base.AnyByInclude<TEntity>(navigationPropertyPath, any);
-        }
-
-        public async Task<bool> Any(Expression<Func<TEntity, bool>> any)
-        {
-            return await base.Any(any);
-        }
-
-
-
-
-        public virtual async Task<IQueryable<TEntity>> Query(bool eager = false)
-        {
-            return await base.Query<TEntity>(eager);
-        }
-
-        public async Task<int> Count(string navigationPropertyPath, string where)
-        {
-            return await base.Count<TEntity>(navigationPropertyPath, where);
-        }
-
-        #endregion
-
-
-
-
-
-        #region Properties
-
-        public IQueryable<TEntity> Table
-        {
-            get
-            {
-                return _context.Set<TEntity>();
-            }
-        }
-
-        #endregion
     }
 
 }
