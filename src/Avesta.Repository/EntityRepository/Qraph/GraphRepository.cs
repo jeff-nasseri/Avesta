@@ -22,34 +22,34 @@ namespace Avesta.Repository.EntityRepository.Qraph
         }
 
 
-        public async Task<IEnumerable<TEntity>> QraphQuery(string navigationPropertyPath
+        public async Task<IEnumerable<TEntity>> GraphQuery(string navigationPropertyPath
             , string where
             , string select
             , string orderBy
             , int? page = null
-            , int perPage = 7
+            , int perPage = Pagination.PerPage
         , bool track = false)
-                => await base.QraphQuery<TEntity, TId>(navigationPropertyPath, where, select, orderBy, page, perPage, track);
+                => await base.GraphQuery<TEntity, TId>(navigationPropertyPath, where, select, orderBy, page, perPage, track);
 
 
-        public async Task<IEnumerable<TEntity>> QraphQuery(string includeAllPath
+        public async Task<IEnumerable<TEntity>> GraphQuery(string includeAllPath
             , bool where
             , string select
             , string orderBy
             , int? page = null
-            , int perPage = 7
+            , int perPage = Pagination.PerPage
         , bool track = false)
-                => await base.QraphQuery<TEntity, TId>(where, select, orderBy, includeAllPath, page, perPage, track);
+                => await base.GraphQuery<TEntity, TId>(where, select, orderBy, includeAllPath, page, perPage, track);
 
 
-        public async Task<IEnumerable<TEntity>> QraphQuery(IQueryable<TEntity> entities
+        public async Task<IEnumerable<TEntity>> GraphQuery(IQueryable<TEntity> entities
             , string where
             , string select
             , string orderBy
             , int? page = null
-            , int perPage = 7
+            , int perPage = Pagination.PerPage
         , bool track = false)
-                => await base.QraphQuery<TEntity, TId>(entities, where, select, orderBy, page, perPage, track);
+                => await base.GraphQuery<TEntity, TId>(entities, where, select, orderBy, page, perPage, track);
 
 
     }

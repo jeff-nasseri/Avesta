@@ -23,37 +23,37 @@ namespace Avesta.Repository.EntityRepository.Qraph
 
 
 
-        public async Task<IEnumerable<TEntity>> QraphQuery<TEntity, TId>(string navigationPropertyPath
+        public async Task<IEnumerable<TEntity>> GraphQuery<TEntity, TId>(string navigationPropertyPath
             , string where
             , string select
             , string orderBy
             , int? page = null
-            , int perPage = 7
+            , int perPage = Pagination.PerPage
             , bool track = false)
             where TId : class
             where TEntity : BaseEntity<TId>
-                => await QraphQuery<TEntity, TId>(base.IncludeByPath<TEntity, TId>(navigationPropertyPath), where, select, orderBy, page, perPage, track);
+                => await GraphQuery<TEntity, TId>(base.IncludeByPath<TEntity, TId>(navigationPropertyPath), where, select, orderBy, page, perPage, track);
 
 
-        public async Task<IEnumerable<TEntity>> QraphQuery<TEntity, TId>(bool includeAllPath
+        public async Task<IEnumerable<TEntity>> GraphQuery<TEntity, TId>(bool includeAllPath
             , string select
             , string orderBy
             , string where
             , int? page = null
-            , int perPage = 7
+            , int perPage = Pagination.PerPage
             , bool track = false)
             where TId : class
             where TEntity : BaseEntity<TId>
-                => includeAllPath ? await QraphQuery<TEntity, TId>(base.IncludeAll<TEntity, TId>(), where, select, orderBy, page, perPage, track) :
-                        await QraphQuery<TEntity, TId>(base.Query<TEntity, TId>(), where, select, orderBy, page, perPage, track);
+                => includeAllPath ? await GraphQuery<TEntity, TId>(base.IncludeAll<TEntity, TId>(), where, select, orderBy, page, perPage, track) :
+                        await GraphQuery<TEntity, TId>(base.Query<TEntity, TId>(), where, select, orderBy, page, perPage, track);
 
 
-        public async Task<IEnumerable<TEntity>> QraphQuery<TEntity, TId>(IQueryable<TEntity> entities
+        public async Task<IEnumerable<TEntity>> GraphQuery<TEntity, TId>(IQueryable<TEntity> entities
             , string where
             , string select
             , string orderBy
             , int? page = null
-            , int perPage = 7
+            , int perPage = Pagination.PerPage
             , bool track = false)
             where TId : class
             where TEntity : BaseEntity<TId>

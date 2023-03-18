@@ -217,7 +217,7 @@ namespace Avesta.Repository.EntityRepository.Read
 
         public async Task<IEnumerable<TEntity>> GetAll<TEntity, TId, TKey>(string navigationPropertyPath
             , int? page = null
-            , int perPage = 7
+            , int perPage = Pagination.PerPage
             , Func<TEntity, TKey> orderBy = null
             , OrderByDirection orderbyDirection = OrderByDirection.Ascending
             , bool track = false)
@@ -228,7 +228,7 @@ namespace Avesta.Repository.EntityRepository.Read
 
         public async Task<IEnumerable<TEntity>> GetAll<TEntity, TId, TKey>(bool includeAllPath
             , int? page = null
-            , int perPage = 7
+            , int perPage = Pagination.PerPage
             , Func<TEntity, TKey> orderBy = null
             , OrderByDirection orderbyDirection = OrderByDirection.Ascending
             , bool track = false)
@@ -240,7 +240,7 @@ namespace Avesta.Repository.EntityRepository.Read
 
         public async Task<IEnumerable<TEntity>> GetAll<TEntity, TId, TKey>(IQueryable<TEntity> entities
             , int? page = null
-            , int perPage = 7
+            , int perPage = Pagination.PerPage
             , Func<TEntity, TKey> orderBy = null
             , OrderByDirection orderbyDirection = OrderByDirection.Ascending
             , bool track = false)
@@ -284,7 +284,7 @@ namespace Avesta.Repository.EntityRepository.Read
         public async Task<IEnumerable<TEntity>> GetByIds<TEntity, TId, TKey>(IEnumerable<TId> ids
             , string navigationPropertyPath
             , int? page = null
-            , int perPage = 7
+            , int perPage = Pagination.PerPage
             , Func<TEntity, TKey> orderBy = null
             , OrderByDirection orderbyDirection = OrderByDirection.Ascending
             , bool track = false)
@@ -295,7 +295,7 @@ namespace Avesta.Repository.EntityRepository.Read
         public async Task<IEnumerable<TEntity>> GetByIds<TEntity, TId, TKey>(IEnumerable<TId> ids
             , bool includeAllPath
             , int? page = null
-            , int perPage = 7
+            , int perPage = Pagination.PerPage
             , Func<TEntity, TKey> orderBy = null
             , OrderByDirection orderbyDirection = OrderByDirection.Ascending
             , bool track = false)
@@ -309,7 +309,7 @@ namespace Avesta.Repository.EntityRepository.Read
         public async Task<IEnumerable<TEntity>> GetByIds<TEntity, TId, TKey>(IQueryable<TEntity> entities
             , IEnumerable<TId> ids
             , int? page = null
-            , int perPage = 7
+            , int perPage = Pagination.PerPage
             , Func<TEntity, TKey> orderBy = null
             , OrderByDirection orderbyDirection = OrderByDirection.Ascending
             , bool track = false)

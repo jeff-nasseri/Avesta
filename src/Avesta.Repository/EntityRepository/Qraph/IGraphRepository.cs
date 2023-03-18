@@ -12,30 +12,30 @@ namespace Avesta.Repository.EntityRepository.Qraph
         where TId : class
         where TEntity : BaseEntity<TId>
     {
-        Task<IEnumerable<TEntity>> QraphQuery(string navigationPropertyPath
+        Task<IEnumerable<TEntity>> GraphQuery(string navigationPropertyPath
             , string where
             , string select
             , string orderBy
             , int? page = null
-            , int perPage = 7
+            , int perPage = Pagination.PerPage
             , bool track = false);
 
 
-        Task<IEnumerable<TEntity>> QraphQuery(string includeAllPath
+        Task<IEnumerable<TEntity>> GraphQuery(string includeAllPath
             , bool where
             , string select
             , string orderBy
             , int? page = null
-            , int perPage = 7
+            , int perPage = Pagination.PerPage
             , bool track = false);
 
 
-        Task<IEnumerable<TEntity>> QraphQuery(IQueryable<TEntity> entities
+        Task<IEnumerable<TEntity>> GraphQuery(IQueryable<TEntity> entities
             , string where
             , string select
             , string orderBy
             , int? page = null
-            , int perPage = 7
+            , int perPage = Pagination.PerPage
             , bool track = false);
 
 
