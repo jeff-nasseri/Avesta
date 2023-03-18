@@ -10,7 +10,7 @@ using System.Linq.Dynamic.Core;
 
 namespace Avesta.Repository.EntityRepository.Qraph
 {
-    public class BaseGraphRepository<TContext> : BaseRepo<TContext>
+    public class BaseGraphRepository<TContext> : BaseRepository<TContext>
         where TContext : AvestaDbContext
     {
 

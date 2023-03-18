@@ -26,20 +26,20 @@ namespace Avesta.Repository.EntityRepository.Read
 
 
 
-        public async Task<TEntity> FirstOrDefault(string navigationPropertyPath
+        public async Task<TEntity> First(string navigationPropertyPath
             , bool track = true
             , bool exceptionRaiseIfNotExist = false)
-                => await base.FirstOrDefault<TEntity, TId>(navigationPropertyPath, track, exceptionRaiseIfNotExist);
+                => await base.First<TEntity, TId>(navigationPropertyPath, track, exceptionRaiseIfNotExist);
 
-        public async Task<TEntity> FirstOrDefault(bool includeAllPath = false
+        public async Task<TEntity> First(bool includeAllPath = false
             , bool track = true
             , bool exceptionRaiseIfNotExist = false)
-                => await base.FirstOrDefault<TEntity, TId>(includeAllPath, track, exceptionRaiseIfNotExist);
+                => await base.First<TEntity, TId>(includeAllPath, track, exceptionRaiseIfNotExist);
 
-        public async Task<TEntity> FirstOrDefault(IQueryable<TEntity> entities
+        public async Task<TEntity> First(IQueryable<TEntity> entities
             , bool track = true
             , bool exceptionRaiseIfNotExist = false)
-                => await FirstOrDefault(entities, track, exceptionRaiseIfNotExist);
+                => await First(entities, track, exceptionRaiseIfNotExist);
 
 
 
@@ -48,23 +48,23 @@ namespace Avesta.Repository.EntityRepository.Read
 
 
 
-        public async Task<TEntity> FirstOrDefault(Expression<Func<TEntity, bool>> search
+        public async Task<TEntity> First(Expression<Func<TEntity, bool>> search
             , string navigationPropertyPath
             , bool track = true
             , bool exceptionRaiseIfNotExist = false)
-                => await FirstOrDefault<TEntity, TId>(search, navigationPropertyPath, track, exceptionRaiseIfNotExist);
+                => await First<TEntity, TId>(search, navigationPropertyPath, track, exceptionRaiseIfNotExist);
 
-        public async Task<TEntity> FirstOrDefault(Expression<Func<TEntity, bool>> search
+        public async Task<TEntity> First(Expression<Func<TEntity, bool>> search
             , bool includeAllPath = false
             , bool track = true
             , bool exceptionRaiseIfNotExist = false)
-                => await FirstOrDefault<TEntity, TId>(search, includeAllPath, track, exceptionRaiseIfNotExist);
+                => await First<TEntity, TId>(search, includeAllPath, track, exceptionRaiseIfNotExist);
 
-        public async Task<TEntity> FirstOrDefault(IQueryable<TEntity> entities
+        public async Task<TEntity> First(IQueryable<TEntity> entities
             , Expression<Func<TEntity, bool>> search
             , bool track = true
             , bool exceptionRaiseIfNotExist = false)
-                => await FirstOrDefault<TEntity, TId>(entities, search, track, exceptionRaiseIfNotExist);
+                => await First<TEntity, TId>(entities, search, track, exceptionRaiseIfNotExist);
 
 
 
@@ -89,6 +89,41 @@ namespace Avesta.Repository.EntityRepository.Read
              , bool track = true
              , bool exceptionRaiseIfNotExist = false)
                 => await base.Get<TEntity, TId>(entities, key, track, exceptionRaiseIfNotExist);
+
+
+
+
+
+
+
+
+
+
+        public async Task<TEntity> Get(Expression<Func<TEntity, bool>> predicate
+            , string navigationPropertyPath
+            , bool track = true
+            , bool exceptionRaiseIfNotExist = false)
+                => await base.Get<TEntity, TId>(predicate, navigationPropertyPath, track, exceptionRaiseIfNotExist);
+
+        public async Task<TEntity> Get(Expression<Func<TEntity, bool>> predicate
+            , bool includeAllPath
+            , bool track = true
+            , bool exceptionRaiseIfNotExist = false)
+                => await base.Get<TEntity, TId>(predicate, includeAllPath, track, exceptionRaiseIfNotExist);
+
+
+
+        public async Task<TEntity> Get(IQueryable<TEntity> entities
+            , Expression<Func<TEntity, bool>> predicate
+            , bool track = true
+            , bool exceptionRaiseIfNotExist = false)
+                => await base.Get<TEntity, TId>(entities, predicate, track, exceptionRaiseIfNotExist);
+
+
+
+
+
+
 
 
 

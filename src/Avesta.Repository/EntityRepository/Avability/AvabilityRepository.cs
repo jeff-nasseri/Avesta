@@ -18,16 +18,31 @@ namespace Avesta.Repository.EntityRepository.Avability
         {
         }
 
-        public async Task<bool> Any(Expression<Func<TEntity, bool>> any, string navigationPropertyPath = null)
-        {
-            var result = await base.Any<TEntity, TId>(any, navigationPropertyPath);
-            return result;
-        }
 
-        public async Task CheckAvailability(Expression<Func<TEntity, bool>> any, string navigationPropertyPath = null)
-        {
-            await base.CheckAvailability<TEntity, TId>(any, navigationPropertyPath);
-        }
+
+
+
+        public async Task<bool> Any(Expression<Func<TEntity, bool>> any, string navigationPropertyPath)
+             => await base.Any<TEntity, TId>(any, navigationPropertyPath);
+
+        public async Task<bool> Any(Expression<Func<TEntity, bool>> any)
+             => await base.Any<TEntity, TId>(any);
+
+        public async Task<bool> Any(IQueryable<TEntity> entities, Expression<Func<TEntity, bool>> any)
+             => await base.Any<TEntity, TId>(entities, any);
+
+
+
+
+
+        public async Task CheckAvailability(Expression<Func<TEntity, bool>> any, string navigationPropertyPath)
+             => await base.CheckAvailability<TEntity, TId>(any, navigationPropertyPath);
+
+        public async Task CheckAvailability(Expression<Func<TEntity, bool>> any)
+             => await base.CheckAvailability<TEntity, TId>(any);
+
+        public async Task CheckAvailability(IQueryable<TEntity> entities, Expression<Func<TEntity, bool>> any)
+             => await base.CheckAvailability<TEntity, TId>(entities, any);
     }
 
 }

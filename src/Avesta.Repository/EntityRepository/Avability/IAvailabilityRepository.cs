@@ -12,8 +12,23 @@ namespace Avesta.Repository.EntityRepository.Avability
         where TId : class
         where TEntity : BaseEntity<TId>
     {
-        Task CheckAvailability(Expression<Func<TEntity, bool>> any, string navigationPropertyPath = null);
-        Task<bool> Any(Expression<Func<TEntity, bool>> any, string navigationPropertyPath = null);
+
+
+        Task<bool> Any(Expression<Func<TEntity, bool>> any, string navigationPropertyPath);
+
+        Task<bool> Any(Expression<Func<TEntity, bool>> any);
+
+        Task<bool> Any(IQueryable<TEntity> entities, Expression<Func<TEntity, bool>> any);
+
+
+
+
+
+        Task CheckAvailability(Expression<Func<TEntity, bool>> any, string navigationPropertyPath);
+
+        Task CheckAvailability(Expression<Func<TEntity, bool>> any);
+
+        Task CheckAvailability(IQueryable<TEntity> entities, Expression<Func<TEntity, bool>> any);
     }
 
 }

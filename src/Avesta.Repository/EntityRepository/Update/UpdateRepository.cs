@@ -8,10 +8,7 @@ using System.Threading.Tasks;
 
 namespace Avesta.Repository.EntityRepository.Update
 {
-    internal class UpdateRepository
-    {
-    }
-    public class UpdateRepository<TEntity, TId, TContext> : BaseUpdateRepository<TEntity, TId, TContext>, IUpdateRepository<TEntity, TId>
+    public class UpdateRepository<TEntity, TId, TContext> : BaseUpdateRepository<TContext>, IUpdateRepository<TEntity, TId>
         where TId : class
         where TContext : AvestaDbContext
         where TEntity : BaseEntity<TId>
@@ -20,10 +17,9 @@ namespace Avesta.Repository.EntityRepository.Update
         {
         }
 
-        public Task Update(TEntity entity, bool exceptionRaiseIfNotExist = false)
-        {
-            throw new NotImplementedException();
-        }
+        public async Task Update(TEntity entity, bool exceptionRaiseIfNotExist = false)
+            => await base.Update<TEntity, TId>(entity, exceptionRaiseIfNotExist);
+
     }
 
 }

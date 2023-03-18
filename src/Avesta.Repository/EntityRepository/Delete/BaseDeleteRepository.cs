@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace Avesta.Repository.EntityRepository.Delete
 {
-    public class BaseDeleteRepository<TContext> : BaseRepo<TContext>
+    public class BaseDeleteRepository<TContext> : BaseRepository<TContext>
         where TContext : AvestaDbContext
     {
         public BaseDeleteRepository(TContext context) : base(context)

@@ -2,14 +2,17 @@
 using Avesta.Data.Model;
 using Avesta.Exceptions.Entity;
 using Avesta.Repository.EntityRepositoryRepository;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Linq;
+using System.Linq.Dynamic.Core.Tokenizer;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace Avesta.Repository.EntityRepository.Avability
 {
-    public class BaseAvailabilityRepository<TContext> : BaseRepo<TContext>
+    public class BaseAvailabilityRepository<TContext> : BaseRepository<TContext>
         where TContext : AvestaDbContext, new()
     {
         readonly TContext _context;
@@ -19,32 +22,49 @@ namespace Avesta.Repository.EntityRepository.Avability
         }
 
 
-        public async Task<bool> Any<TEntity, TId>(Expression<Func<TEntity, bool>> any, string navigationPropertyPath = null)
+        public async Task<bool> Any<TEntity, TId>(Expression<Func<TEntity, bool>> any, string navigationPropertyPath)
+         where TId : class
+         where TEntity : BaseEntity<TId>
+            => await Any<TEntity, TId>(base.IncludeByPath<TEntity, TId>(navigationPropertyPath), any);
+
+
+
+        public async Task<bool> Any<TEntity, TId>(Expression<Func<TEntity, bool>> any)
+            where TId : class
+            where TEntity : BaseEntity<TId>
+                => await Any<TEntity, TId>(base.Query<TEntity, TId>(), any);
+
+
+
+
+        public async Task<bool> Any<TEntity, TId>(IQueryable<TEntity> entities, Expression<Func<TEntity, bool>> any)
             where TId : class
             where TEntity : BaseEntity<TId>
         {
-            var result = false;
-
-            if (string.IsNullOrEmpty(navigationPropertyPath))
-                result = await base.Table<TEntity, TId>().AnyAsync(any);
-            else
-                result = await base.IncludeByPath<TEntity, TId>(navigationPropertyPath).AnyAsync(any);
-
+            var result = await entities.AnyAsync(any);
             return result;
         }
 
 
-        public async Task CheckAvailability<TEntity, TId>(Expression<Func<TEntity, bool>> any, string navigationPropertyPath = null)
-            where TId : class
-            where TEntity : BaseEntity<TId>
+
+
+        public async Task CheckAvailability<TEntity, TId>(Expression<Func<TEntity, bool>> any, string navigationPropertyPath)
+           where TId : class
+           where TEntity : BaseEntity<TId>
+                => await CheckAvailability<TEntity, TId>(base.IncludeByPath<TEntity, TId>(navigationPropertyPath), any);
+
+
+        public async Task CheckAvailability<TEntity, TId>(Expression<Func<TEntity, bool>> any)
+           where TId : class
+           where TEntity : BaseEntity<TId>
+                => await CheckAvailability<TEntity, TId>(base.Query<TEntity, TId>(), any);
+
+
+        public async Task CheckAvailability<TEntity, TId>(IQueryable<TEntity> entities, Expression<Func<TEntity, bool>> any)
+           where TId : class
+           where TEntity : BaseEntity<TId>
         {
-            var result = false;
-
-            if (string.IsNullOrEmpty(navigationPropertyPath))
-                result = await base.Table<TEntity, TId>().AnyAsync(any);
-            else
-                result = await base.IncludeByPath<TEntity, TId>(navigationPropertyPath).AnyAsync(any);
-
+            var result = await entities.AnyAsync(any);
 
             if (!result)
                 throw new CanNotFoundEntityException(any.ToString());

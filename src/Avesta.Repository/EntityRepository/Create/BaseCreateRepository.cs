@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Avesta.Repository.EntityRepository.Create
 {
-    public class BaseCreateRepository<TContext> : BaseRepo<TContext>
+    public class BaseCreateRepository<TContext> : BaseRepository<TContext>
         where TContext : AvestaDbContext
     {
         readonly TContext _context;

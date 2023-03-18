@@ -17,15 +17,15 @@ namespace Avesta.Repository.EntityRepository.Read
 
 
 
-        Task<TEntity> FirstOrDefault(string navigationPropertyPath
+        Task<TEntity> First(string navigationPropertyPath
             , bool track = true
             , bool exceptionRaiseIfNotExist = false);
 
-        Task<TEntity> FirstOrDefault(bool includeAllPath = false
+        Task<TEntity> First(bool includeAllPath = false
             , bool track = true
             , bool exceptionRaiseIfNotExist = false);
 
-        Task<TEntity> FirstOrDefault(IQueryable<TEntity> entities
+        Task<TEntity> First(IQueryable<TEntity> entities
             , bool track = true
             , bool exceptionRaiseIfNotExist = false);
 
@@ -35,17 +35,17 @@ namespace Avesta.Repository.EntityRepository.Read
 
 
 
-        Task<TEntity> FirstOrDefault(Expression<Func<TEntity, bool>> search
+        Task<TEntity> First(Expression<Func<TEntity, bool>> search
             , string navigationPropertyPath
             , bool track = true
             , bool exceptionRaiseIfNotExist = false);
 
-        Task<TEntity> FirstOrDefault(Expression<Func<TEntity, bool>> search
+        Task<TEntity> First(Expression<Func<TEntity, bool>> search
             , bool includeAllPath = false
             , bool track = true
             , bool exceptionRaiseIfNotExist = false);
 
-        Task<TEntity> FirstOrDefault(IQueryable<TEntity> entities
+        Task<TEntity> First(IQueryable<TEntity> entities
             , Expression<Func<TEntity, bool>> search
             , bool track = true
             , bool exceptionRaiseIfNotExist = false);
@@ -70,6 +70,31 @@ namespace Avesta.Repository.EntityRepository.Read
              , TId key
              , bool track = true
              , bool exceptionRaiseIfNotExist = false);
+
+
+
+
+
+
+
+
+        Task<TEntity> Get(Expression<Func<TEntity, bool>> predicate
+            , string navigationPropertyPath
+            , bool track = true
+            , bool exceptionRaiseIfNotExist = false);
+
+        Task<TEntity> Get(Expression<Func<TEntity, bool>> predicate
+            , bool includeAllPath
+            , bool track = true
+            , bool exceptionRaiseIfNotExist = false);
+
+
+
+        Task<TEntity> Get(IQueryable<TEntity> entities
+            , Expression<Func<TEntity, bool>> predicate
+            , bool track = true
+            , bool exceptionRaiseIfNotExist = false);
+
 
 
 

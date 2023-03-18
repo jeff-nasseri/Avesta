@@ -18,7 +18,7 @@ using System.Threading.Tasks;
 
 namespace Avesta.Repository.EntityRepository.Read
 {
-    public class BaseReadRepository<TContext> : BaseRepo<TContext>
+    public class BaseReadRepository<TContext> : BaseRepository<TContext>
         where TContext : AvestaDbContext
     {
 
@@ -27,24 +27,24 @@ namespace Avesta.Repository.EntityRepository.Read
         }
 
 
-        public async Task<TEntity> FirstOrDefault<TEntity, TId>(string navigationPropertyPath
+        public async Task<TEntity> First<TEntity, TId>(string navigationPropertyPath
             , bool track = true
             , bool exceptionRaiseIfNotExist = false)
             where TId : class
             where TEntity : BaseEntity<TId>
-                => await FirstOrDefault<TEntity, TId>(base.IncludeByPath<TEntity, TId>(navigationPropertyPath), track, exceptionRaiseIfNotExist);
+                => await First<TEntity, TId>(base.IncludeByPath<TEntity, TId>(navigationPropertyPath), track, exceptionRaiseIfNotExist);
 
 
-        public async Task<TEntity> FirstOrDefault<TEntity, TId>(bool includeAllPath = false
+        public async Task<TEntity> First<TEntity, TId>(bool includeAllPath = false
             , bool track = true
             , bool exceptionRaiseIfNotExist = false)
             where TId : class
             where TEntity : BaseEntity<TId>
-                => includeAllPath ? await FirstOrDefault<TEntity, TId>(base.IncludeAll<TEntity, TId>(), track, exceptionRaiseIfNotExist) :
-                    await FirstOrDefault<TEntity, TId>(base.Query<TEntity, TId>(), track, exceptionRaiseIfNotExist);
+                => includeAllPath ? await First<TEntity, TId>(base.IncludeAll<TEntity, TId>(), track, exceptionRaiseIfNotExist) :
+                    await First<TEntity, TId>(base.Query<TEntity, TId>(), track, exceptionRaiseIfNotExist);
 
 
-        public async Task<TEntity> FirstOrDefault<TEntity, TId>(IQueryable<TEntity> entities
+        public async Task<TEntity> First<TEntity, TId>(IQueryable<TEntity> entities
             , bool track = true
             , bool exceptionRaiseIfNotExist = false)
             where TId : class
@@ -71,26 +71,26 @@ namespace Avesta.Repository.EntityRepository.Read
 
 
 
-        public async Task<TEntity> FirstOrDefault<TEntity, TId>(Expression<Func<TEntity, bool>> search
+        public async Task<TEntity> First<TEntity, TId>(Expression<Func<TEntity, bool>> search
             , string navigationPropertyPath
             , bool track = true
             , bool exceptionRaiseIfNotExist = false)
             where TId : class
             where TEntity : BaseEntity<TId>
-                => await FirstOrDefault<TEntity, TId>(base.IncludeByPath<TEntity, TId>(navigationPropertyPath), search, track, exceptionRaiseIfNotExist);
+                => await First<TEntity, TId>(base.IncludeByPath<TEntity, TId>(navigationPropertyPath), search, track, exceptionRaiseIfNotExist);
 
 
-        public async Task<TEntity> FirstOrDefault<TEntity, TId>(Expression<Func<TEntity, bool>> search
+        public async Task<TEntity> First<TEntity, TId>(Expression<Func<TEntity, bool>> search
             , bool includeAllPath = false
             , bool track = true
             , bool exceptionRaiseIfNotExist = false)
             where TId : class
             where TEntity : BaseEntity<TId>
-                => includeAllPath ? await FirstOrDefault<TEntity, TId>(base.IncludeAll<TEntity, TId>(), search, track, exceptionRaiseIfNotExist) :
-                    await FirstOrDefault<TEntity, TId>(base.Query<TEntity, TId>(), search, track, exceptionRaiseIfNotExist);
+                => includeAllPath ? await First<TEntity, TId>(base.IncludeAll<TEntity, TId>(), search, track, exceptionRaiseIfNotExist) :
+                    await First<TEntity, TId>(base.Query<TEntity, TId>(), search, track, exceptionRaiseIfNotExist);
 
 
-        public async Task<TEntity> FirstOrDefault<TEntity, TId>(IQueryable<TEntity> entities
+        public async Task<TEntity> First<TEntity, TId>(IQueryable<TEntity> entities
             , Expression<Func<TEntity, bool>> search
             , bool track = true
             , bool exceptionRaiseIfNotExist = false)
