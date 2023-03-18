@@ -52,30 +52,6 @@ namespace Avesta.Repository.EntityRepositoryRepository
 
 
 
-        public Task<int> Count(Expression<Func<TEntity, bool>> where, string navigationPropertyPath = null)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<int> Count(Expression<Func<TEntity, bool>> where)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<int> Count()
-        {
-            throw new NotImplementedException();
-        }
-
-
-
-
-
-
-
-
-
-
         #region [- Graph -]
         public async Task<IEnumerable<TEntity>> GraphQuery(string navigationPropertyPath
             , string where
@@ -288,12 +264,28 @@ namespace Avesta.Repository.EntityRepositoryRepository
             , bool track = false)
                 => await _readRepository.GetByIds(entities, ids, page, perPage, orderBy, orderbyDirection, track);
 
+
+        public async Task Update(TEntity entity, bool exceptionRaiseIfNotExist = false)
+            => await _updateRepository.Update(entity, exceptionRaiseIfNotExist);
+
+        public async Task<int> Count(Expression<Func<TEntity, bool>> where, string navigationPropertyPath = null)
+            => await _readRepository.Count(where, navigationPropertyPath);
+
+        public async Task<int> Count(Expression<Func<TEntity, bool>> where)
+            => await _readRepository.Count(where);
+
+        public async Task<int> Count()
+            => await _readRepository.Count();
+
         #endregion
 
 
         #region [- Update -]
-        public async Task Update(TEntity entity, bool exceptionRaiseIfNotExist = false)
-            => await _updateRepository.Update(entity, exceptionRaiseIfNotExist);
+
+        public Task<int> Count(IQueryable<TEntity> entities, Expression<Func<TEntity, bool>> where)
+        {
+            throw new NotImplementedException();
+        }
         #endregion
 
 

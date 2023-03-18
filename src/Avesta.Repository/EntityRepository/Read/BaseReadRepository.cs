@@ -396,7 +396,7 @@ namespace Avesta.Repository.EntityRepository.Read
             if (orderBy != null)
                 data = entities.OrderBy(orderBy, orderbyDirection);
 
-            if(page != null)
+            if (page != null)
             {
                 PaginationUtils.Paginate(out int skip, perPage, page);
                 data = data.Skip(skip).Take(perPage).ToList();
@@ -404,6 +404,37 @@ namespace Avesta.Repository.EntityRepository.Read
 
             return data.ToList();
 
+        }
+
+
+
+
+
+
+        public async Task<int> Count<TEntity, TId>(Expression<Func<TEntity, bool>> where, string navigationPropertyPath)
+            where TId : class
+            where TEntity : BaseEntity<TId>
+                => await Count<TEntity, TId>(base.IncludeByPath<TEntity, TId>(navigationPropertyPath), where);
+
+        public async Task<int> Count<TEntity, TId>(Expression<Func<TEntity, bool>> where)
+            where TId : class
+            where TEntity : BaseEntity<TId>
+                => await Count<TEntity, TId>(base.Query<TEntity, TId>(), where);
+
+
+        public async Task<int> Count<TEntity, TId>(IQueryable<TEntity> entities, Expression<Func<TEntity, bool>> where)
+            where TId : class
+            where TEntity : BaseEntity<TId>
+        {
+            var result = await entities.Where(where).CountAsync();
+            return result;
+        }
+        public async Task<int> Count<TEntity, TId>()
+            where TId : class
+            where TEntity : BaseEntity<TId>
+        {
+            var result = await base.Query<TEntity, TId>().CountAsync();
+            return result;
         }
 
 

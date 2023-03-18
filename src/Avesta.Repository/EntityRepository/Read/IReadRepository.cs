@@ -195,6 +195,20 @@ namespace Avesta.Repository.EntityRepository.Read
 
 
 
+
+
+        Task<int> Count(Expression<Func<TEntity, bool>> where, string navigationPropertyPath);
+        Task<int> Count(Expression<Func<TEntity, bool>> where);
+        Task<int> Count(IQueryable<TEntity> entities, Expression<Func<TEntity, bool>> where);
+        Task<int> Count();
+
+
+
+
+
+
+
+
     }
 
 }

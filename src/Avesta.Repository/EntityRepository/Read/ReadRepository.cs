@@ -229,6 +229,18 @@ namespace Avesta.Repository.EntityRepository.Read
                 => await Where<TEntity, TId, TKey>(entities, search, page, perPage, orderBy, orderbyDirection, track);
 
 
+        public async Task<int> Count(Expression<Func<TEntity, bool>> where, string navigationPropertyPath)
+            => await Count<TEntity, TId>(where, navigationPropertyPath);
+
+        public async Task<int> Count(Expression<Func<TEntity, bool>> where)
+            => await Count<TEntity, TId>(where);
+
+
+        public async Task<int> Count(IQueryable<TEntity> entities, Expression<Func<TEntity, bool>> where)
+            => await Count<TEntity, TId>(entities, where);
+        public async Task<int> Count()
+            => await Count<TEntity, TId>();
+
     }
 
 }
