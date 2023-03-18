@@ -24,10 +24,6 @@ namespace Avesta.Repository.EntityRepository
         where TId : class
         where TEntity : BaseEntity<TId>
     {
-        Task<int> Count(Expression<Func<TEntity, bool>> where, string navigationPropertyPath = null);
-        Task<int> Count(Expression<Func<TEntity, bool>> where);
-        Task<int> Count();
-
     }
 
 

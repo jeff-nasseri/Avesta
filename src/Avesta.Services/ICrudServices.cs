@@ -16,7 +16,7 @@ namespace Avesta.Services
 
     }
 
-
+     
 
 
     public interface IBaseCrudService<TModel, TViewModel, TEditViewModel, TCreateViewModel>

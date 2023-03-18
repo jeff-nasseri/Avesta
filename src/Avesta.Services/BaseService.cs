@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
+using Avesta.Data.Model;
+using Avesta.Repository.EntityRepository;
+using Avesta.Share.Model;
 using Avesta.Share.Model.Controller;
 using Avesta.Storage.Constant;
 
@@ -37,7 +41,7 @@ namespace Avesta.Services
             , int? page = null
             , int? perpage = Pagination.PerPage);
 
-       
+
 
 
     }
@@ -62,5 +66,82 @@ namespace Avesta.Services
             , DateTime? endDate = null);
 
     }
+
+
+
+
+
+
+
+    public interface IEntityReadService<TId, TEntity, TModel>
+        where TId : class
+        where TEntity : BaseEntity<TId>
+        where TModel : BaseModel<TId>
+    {
+    }
+
+
+    public interface IEntityReadService<TId, TEntity, TModel, TCreateModel, TEditModel> : IEntityReadService<TId, TEntity, TModel>
+        where TId : class
+        where TEntity : BaseEntity<TId>
+        where TModel : BaseModel<TId>
+        where TCreateModel : TModel
+        where TEditModel : TModel
+    {
+    }
+
+
+
+    public interface IEntityService<TId, TEntity, TModel> : IEntityReadService<TId, TEntity, TModel>
+        where TId : class
+        where TEntity : BaseEntity<TId>
+        where TModel : BaseModel<TId>
+    {
+    }
+
+
+    public interface IEntityService<TId, TEntity, TModel, TCreateModel, TEditModel> : IEntityService<TId, TEntity, TModel>
+        where TId : class
+        where TEntity : BaseEntity<TId>
+        where TModel : BaseModel<TId>
+        where TCreateModel : TModel
+        where TEditModel : TModel
+    { }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

@@ -34,7 +34,7 @@ namespace Avesta.Repository
                  && (TheType.IsSubclassOf(typeof(BaseEntity)) || TheType.IsSubclassOf(typeof(TAvestaUser)))
                  && (TheType.BaseType == typeof(BaseEntity) || TheType.BaseType == typeof(TAvestaUser))
                  );
-            var ripo = typeof(IRepository<>);
+            var ripo = typeof(IRepository<,>);
             foreach (var entity in entityTypes ?? Enumerable.Empty<Type>())
             {
                 var ripoType = ripo.MakeGenericType(entity);
@@ -71,7 +71,7 @@ namespace Avesta.Repository
                  && (TheType.IsSubclassOf(typeof(BaseEntity)))
                  && (TheType.BaseType == typeof(BaseEntity))
                  ).ToList();
-            var ripo = typeof(IRepository<>);
+            var ripo = typeof(IRepository<,>);
             foreach (var entity in entityTypes ?? Enumerable.Empty<Type>())
             {
                 var ripoType = ripo.MakeGenericType(entity);
@@ -104,7 +104,7 @@ namespace Avesta.Repository
                  && (TheType.IsSubclassOf(typeof(BaseEntity)))
                  && (TheType.BaseType == typeof(BaseEntity))
                  ).ToList();
-            var ripo = typeof(IRepository<>);
+            var ripo = typeof(IRepository<,>);
             foreach (var entity in entityTypes ?? Enumerable.Empty<Type>())
             {
                 var ripoType = ripo.MakeGenericType(entity);

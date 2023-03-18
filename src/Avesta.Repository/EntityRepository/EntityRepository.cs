@@ -265,9 +265,7 @@ namespace Avesta.Repository.EntityRepositoryRepository
                 => await _readRepository.GetByIds(entities, ids, page, perPage, orderBy, orderbyDirection, track);
 
 
-        public async Task Update(TEntity entity, bool exceptionRaiseIfNotExist = false)
-            => await _updateRepository.Update(entity, exceptionRaiseIfNotExist);
-
+   
         public async Task<int> Count(Expression<Func<TEntity, bool>> where, string navigationPropertyPath = null)
             => await _readRepository.Count(where, navigationPropertyPath);
 
@@ -276,16 +274,17 @@ namespace Avesta.Repository.EntityRepositoryRepository
 
         public async Task<int> Count()
             => await _readRepository.Count();
+        public async Task<int> Count(IQueryable<TEntity> entities, Expression<Func<TEntity, bool>> where)
+            => await _readRepository.Count(entities, where);
 
         #endregion
 
 
         #region [- Update -]
 
-        public Task<int> Count(IQueryable<TEntity> entities, Expression<Func<TEntity, bool>> where)
-        {
-            throw new NotImplementedException();
-        }
+        public async Task Update(TEntity entity, bool exceptionRaiseIfNotExist = false)
+           => await _updateRepository.Update(entity, exceptionRaiseIfNotExist);
+
         #endregion
 
 

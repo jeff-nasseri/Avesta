@@ -11,13 +11,19 @@ namespace Avesta.Share.Model
     }
 
     public class BaseModel<T> : Model
+        where T : class
     {
         /// <summary>
         /// current model or entity id with type of 'T'
         /// </summary>
         public virtual T? ID { get; set; }
-        public DateTime CreatedTime { get; set; }
-    }   
+        public DateTime? ModifiedDate { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public DateTime? DeletedDate { get; set; }
+
+        public bool IsLock { get; set; } = false;
+
+    }
 
 
     public abstract class Model
