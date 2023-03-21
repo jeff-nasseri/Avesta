@@ -320,7 +320,7 @@ namespace Avesta.Services.Read
         public async Task<int> Count(IQueryable<TEntity> entities, Expression<Func<TEntity, bool>> where)
             => await _readRepository.Count(entities, where);
         public async Task<int> Count()
-            => await _readRepository.Count();
+            => await _readRepository.Count(); 
 
 
     }
