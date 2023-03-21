@@ -10,7 +10,7 @@ using System.Linq.Dynamic.Core.Tokenizer;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace Avesta.Repository.EntityRepository.Avability
+namespace Avesta.Repository.EntityRepository.Availability
 {
     public class BaseAvailabilityRepository<TContext> : BaseRepository<TContext>
         where TContext : AvestaDbContext, new()

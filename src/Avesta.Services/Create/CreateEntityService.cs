@@ -13,11 +13,10 @@ namespace Avesta.Services.Create
 {
 
 
-    public class CreateEntityService<TId, TEntity, TModel, TCreateModel> : BaseEntityService, ICreateEntityService<TId, TEntity, TModel, TCreateModel>
+    public class CreateEntityService<TId, TEntity, TModel> : BaseEntityService, ICreateEntityService<TId, TEntity, TModel>
         where TId : class
         where TEntity : BaseEntity<TId>
         where TModel : BaseModel<TId>
-        where TCreateModel : TModel
     {
 
         readonly ICreateRepository<TEntity, TId> _createRepository;
@@ -61,5 +60,51 @@ namespace Avesta.Services.Create
             await _createRepository.ReCreate(deleteCondition, insertEntities);
         }
     }
+
+
+
+
+
+
+
+
+
+
+    public class CreateEntityService<TId, TEntity, TModel, TCreateModel> : CreateEntityService<TId, TEntity, TModel>, ICreateEntityService<TId, TEntity, TModel, TCreateModel>
+       where TId : class
+       where TEntity : BaseEntity<TId>
+       where TModel : BaseModel<TId>
+       where TCreateModel : TModel
+    {
+
+        public CreateEntityService(ICreateRepository<TEntity, TId> createRepository, IMapper mapper) : base(createRepository, mapper)
+        {
+        }
+
+
+        public async Task ClearAllEntitiesThenAddRange(IEnumerable<TCreateModel> insertModels)
+            => await base.ClearAllEntitiesThenAddRange(insertModels);
+
+        public async Task ClearRemoveListThenAddRange(IEnumerable<TModel> removeList, IEnumerable<TCreateModel> insertModels)
+            => await base.ClearRemoveListThenAddRange(removeList, insertModels);
+
+        public async Task Insert(TCreateModel model)
+            => await base.Insert(model);
+
+        public async Task InsertRange(IEnumerable<TCreateModel> models)
+            => await base.InsertRange(models);
+
+        public async Task ReCreate(Expression<Func<TEntity, bool>> deleteCondition, IEnumerable<TCreateModel> insertModels)
+            => await base.ReCreate(deleteCondition, insertModels);
+
+
+
+    }
+
+
+
+
+
+
 
 }

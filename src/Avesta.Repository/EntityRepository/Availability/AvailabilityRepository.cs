@@ -7,7 +7,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Avesta.Repository.EntityRepository.Avability
+namespace Avesta.Repository.EntityRepository.Availability
 {
     public class AvailabilityRepository<TEntity, TId, TContext> : BaseAvailabilityRepository<TContext>, IAvailabilityRepository<TEntity, TId>
         where TId : class

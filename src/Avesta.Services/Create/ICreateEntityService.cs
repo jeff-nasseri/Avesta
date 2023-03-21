@@ -11,11 +11,10 @@ using System.Threading.Tasks;
 
 namespace Avesta.Services.Create
 {
-    public interface ICreateEntityService<TId, TEntity, TModel, TCreateModel>
+    public interface ICreateEntityService<TId, TEntity, TModel>
         where TId : class
         where TEntity : BaseEntity<TId>
         where TModel : BaseModel<TId>
-        where TCreateModel : TModel
     {
 
         Task ClearAllEntitiesThenAddRange(IEnumerable<TModel> insertModels);
@@ -27,6 +26,21 @@ namespace Avesta.Services.Create
 
     }
 
+    public interface ICreateEntityService<TId, TEntity, TModel, TCreateModel> : ICreateEntityService<TId, TEntity, TModel>
+        where TId : class
+        where TEntity : BaseEntity<TId>
+        where TModel : BaseModel<TId>
+        where TCreateModel : TModel
+    {
+
+        Task ClearAllEntitiesThenAddRange(IEnumerable<TCreateModel> insertModels);
+        Task ClearRemoveListThenAddRange(IEnumerable<TModel> removeList, IEnumerable<TCreateModel> insertModels);
+        Task Insert(TCreateModel model);
+        Task InsertRange(IEnumerable<TCreateModel> models);
+        Task ReCreate(Expression<Func<TEntity, bool>> deleteCondition, IEnumerable<TCreateModel> insertModels);
+
+
+    }
 
 
 

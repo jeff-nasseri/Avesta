@@ -1,6 +1,6 @@
 ﻿using Avesta.Data.Context;
 using Avesta.Data.Model;
-using Avesta.Repository.EntityRepository.Avability;
+using Avesta.Repository.EntityRepository.Availability;
 using Avesta.Repository.EntityRepository.Create;
 using Avesta.Repository.EntityRepository.Delete;
 using Avesta.Repository.EntityRepository.Qraph;
