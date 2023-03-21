@@ -15,11 +15,11 @@ namespace Avesta.Data.Model
         }
 
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int Counter { get; set; }
+        public virtual int Counter { get; set; }
     }
 
 
-    public class BaseEntity<T> where T : class
+    public abstract class BaseEntity<T> where T : class
     {
         public BaseEntity()
         {
@@ -28,14 +28,14 @@ namespace Avesta.Data.Model
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public T ID { get; set; }
+        public virtual T ID { get; set; }
 
 
-        public bool IsLock { get; set; } = false;
+        public virtual bool IsLock { get; set; } = false;
 
 
-        public DateTime? ModifiedDate { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public DateTime? DeletedDate { get; set; }
+        public virtual DateTime? ModifiedDate { get; set; }
+        public virtual DateTime CreatedDate { get; set; }
+        public virtual DateTime? DeletedDate { get; set; }
     }
 }

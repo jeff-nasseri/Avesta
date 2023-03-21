@@ -68,27 +68,15 @@ namespace Avesta.Services
     }
 
 
-
-
-
-
-
-    public interface IEntityReadService<TId, TEntity, TModel>
-        where TId : class
-        where TEntity : BaseEntity<TId>
-        where TModel : BaseModel<TId>
+    public abstract class EntityBaseService
     {
     }
 
 
-    public interface IEntityReadService<TId, TEntity, TModel, TCreateModel, TEditModel> : IEntityReadService<TId, TEntity, TModel>
-        where TId : class
-        where TEntity : BaseEntity<TId>
-        where TModel : BaseModel<TId>
-        where TCreateModel : TModel
-        where TEditModel : TModel
-    {
-    }
+
+
+
+   
 
 
 
