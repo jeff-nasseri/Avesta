@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Avesta.Services.Delete
 {
-    public interface IEntityDeleteService<TId, TEntity, TModel>
+    public interface IDeleteEntityService<TId, TEntity, TModel>
         where TId : class
         where TEntity : BaseEntity<TId>
         where TModel : BaseModel<TId>

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Avesta.Services.Update
 {
-    public class EntityUpdateService<TId, TEntity, TModel> : EntityBaseService, IEntityUpdateService<TId, TEntity, TModel>
+    public class UpdateEntityService<TId, TEntity, TModel> : BaseEntityService, IUpdateEntityService<TId, TEntity, TModel>
        where TId : class
        where TEntity : BaseEntity<TId>
        where TModel : BaseModel<TId>
@@ -18,7 +18,7 @@ namespace Avesta.Services.Update
 
         readonly IUpdateRepository<TEntity, TId> _updateRepository;
         readonly IMapper _mapper;
-        public EntityUpdateService(IUpdateRepository<TEntity, TId> updateRepository, IMapper mapper)
+        public UpdateEntityService(IUpdateRepository<TEntity, TId> updateRepository, IMapper mapper)
         {
             _updateRepository = updateRepository;
             _mapper = mapper;
@@ -35,14 +35,14 @@ namespace Avesta.Services.Update
     }
 
 
-    public class EntityUpdateService<TId, TEntity, TModel, TEditModel> : EntityUpdateService<TId, TEntity, TModel>, IEntityUpdateService<TId, TEntity, TModel, TEditModel>
+    public class UpdateEntityService<TId, TEntity, TModel, TEditModel> : UpdateEntityService<TId, TEntity, TModel>, IUpdateEntityService<TId, TEntity, TModel, TEditModel>
        where TId : class
        where TEntity : BaseEntity<TId>
        where TModel : BaseModel<TId>
        where TEditModel : TModel
     {
 
-        public EntityUpdateService(IUpdateRepository<TEntity, TId> updateRepository, IMapper mapper) : base(updateRepository, mapper)
+        public UpdateEntityService(IUpdateRepository<TEntity, TId> updateRepository, IMapper mapper) : base(updateRepository, mapper)
         {
         }
 

@@ -68,8 +68,19 @@ namespace Avesta.Services
     }
 
 
-    public abstract class EntityBaseService
+    public abstract class BaseEntityService
     {
+        readonly protected DateTime InitTime;
+
+        public BaseEntityService()
+        {
+            InitTime = DateTime.Now;
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 
 

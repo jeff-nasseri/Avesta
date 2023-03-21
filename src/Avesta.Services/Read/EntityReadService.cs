@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace Avesta.Services.Read
 {
-    public class EntityReadService<TId, TEntity, TModel> : EntityBaseService, IEntityReadService<TId, TEntity, TModel>
+    public class ReadEntityService<TId, TEntity, TModel> : BaseEntityService, IReadEntityService<TId, TEntity, TModel>
         where TId : class
         where TEntity : BaseEntity<TId>
         where TModel : BaseModel<TId>
@@ -24,7 +24,7 @@ namespace Avesta.Services.Read
 
         readonly IReadRepository<TEntity, TId> _readRepository;
         readonly IMapper _mapper;
-        public EntityReadService(IReadRepository<TEntity, TId> readRepository, IMapper mapper)
+        public ReadEntityService(IReadRepository<TEntity, TId> readRepository, IMapper mapper)
         {
             _readRepository = readRepository;
             _mapper = mapper;

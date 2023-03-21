@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Avesta.Services.Read
 {
-    public interface IEntityReadService<TId, TEntity, TModel>
+    public interface IReadEntityService<TId, TEntity, TModel>
            where TId : class
            where TEntity : BaseEntity<TId>
            where TModel : BaseModel<TId>

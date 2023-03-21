@@ -11,14 +11,14 @@ using System.Threading.Tasks;
 
 namespace Avesta.Services.Delete
 {
-    public class EntityDeleteService<TId, TEntity, TModel> : EntityBaseService, IEntityDeleteService<TId, TEntity, TModel>
+    public class DeleteEntityService<TId, TEntity, TModel> : BaseEntityService, IDeleteEntityService<TId, TEntity, TModel>
          where TId : class
          where TEntity : BaseEntity<TId>
          where TModel : BaseModel<TId>
     {
         readonly IDeleteRepository<TEntity, TId> _deleteRepository;
         readonly IMapper _mapper;
-        public EntityDeleteService(IDeleteRepository<TEntity, TId> deleteRepository, IMapper mapper)
+        public DeleteEntityService(IDeleteRepository<TEntity, TId> deleteRepository, IMapper mapper)
         {
             _deleteRepository = deleteRepository;
             _mapper = mapper;

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Avesta.Services.Update
 {
-    public interface IEntityUpdateService<TId, TEntity, TModel>
+    public interface IUpdateEntityService<TId, TEntity, TModel>
        where TId : class
        where TEntity : BaseEntity<TId>
        where TModel : BaseModel<TId>
@@ -21,7 +21,7 @@ namespace Avesta.Services.Update
     }
 
 
-    public interface IEntityUpdateService<TId, TEntity, TModel, TEditModel> : IEntityUpdateService<TId, TEntity, TModel>
+    public interface IUpdateEntityService<TId, TEntity, TModel, TEditModel> : IUpdateEntityService<TId, TEntity, TModel>
         where TId : class
         where TEntity : BaseEntity<TId>
         where TModel : BaseModel<TId>
