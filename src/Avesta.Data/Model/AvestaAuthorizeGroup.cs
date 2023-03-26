@@ -8,31 +8,38 @@ using System.Threading.Tasks;
 
 namespace Avesta.Data.Model
 {
-    public class AvestaAuthorizeGroup<TAvestaUserGroup> : BaseEntity
-        where TAvestaUserGroup : AvestaUserAuthorizeGroup
+    public class AvestaAuthorizeGroup<TId, TAvestaUserGroup> : BaseEntity<TId>
+        where TId : class
+        where TAvestaUserGroup : AvestaUserAuthorizeGroup<TId>
     {
         public virtual string GroupName { get; set; }
 
-        public virtual string? FeaturesStr { get; set; }
+        public virtual string? AccessStr { get; set; }
 
         [NotMapped]
-        public virtual List<string>? Features
+        public virtual List<string>? Access
         {
             get
             {
-                if (string.IsNullOrEmpty(FeaturesStr))
+                if (string.IsNullOrEmpty(AccessStr))
                     return new List<string>();
-                var result = JsonConvert.DeserializeObject<List<string>>(FeaturesStr);
+                var result = JsonConvert.DeserializeObject<List<string>>(AccessStr);
                 return result;
             }
             set
             {
                 var json = JsonConvert.SerializeObject(value);
-                FeaturesStr = json;
+                AccessStr = json;
             }
         }
 
         public virtual ICollection<TAvestaUserGroup>? UserAuthorizeGroups { get; set; }
+    }
+
+
+    public class AvestaAuthorizeGroup<TAvestaUserGroup> : AvestaAuthorizeGroup<string, TAvestaUserGroup>
+        where TAvestaUserGroup : AvestaUserAuthorizeGroup<string>
+    {
     }
 
 }

@@ -5,16 +5,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Avesta.Attribute.Qraph
+namespace Avesta.Attribute.Graph
 {
 
-    public class AvestaQraphAttribute : HttpMethodAttribute
+    public class AvestaGraphAttribute : HttpMethodAttribute
     {
-        public AvestaQraphAttribute() : base(new List<string> { "GET" })
+        public AvestaGraphAttribute() : base(new List<string> { "GET" })
         {
         }
 
-        public AvestaQraphAttribute(string template) : base(new List<string> { "GET" }, template)
+        public AvestaGraphAttribute(string template) : base(new List<string> { "GET" }, template)
         {
         }
     }

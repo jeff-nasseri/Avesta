@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 
 namespace Avesta.Data.Model
 {
-    public class AvestaUserAuthorizeGroup : BaseEntity
+    public class AvestaUserAuthorizeGroup<TId> : BaseEntity<TId>
+        where TId : class
     {
-        public virtual string GroupId { get; set; }
+        public virtual TId GroupId { get; set; }
 
-        public virtual string UserId { get; set; }
+        public virtual TId UserId { get; set; }
 
     }
 }

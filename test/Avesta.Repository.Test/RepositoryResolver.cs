@@ -17,9 +17,9 @@ namespace Avesta.Repository.Test
 
         public TContext Context { get => Builder.GetRequiredService<TContext>(); }
 
-        public IRepository<TEntity> ResolveRepository()
+        public IEntityRepository<TEntity> ResolveRepository()
         {
-            var repository = Builder.GetRequiredService<IRepository<TEntity>>();
+            var repository = Builder.GetRequiredService<IEntityRepository<TEntity>>();
             return repository;
         }
 

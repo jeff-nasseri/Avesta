@@ -44,8 +44,9 @@ namespace Avesta.Data.Model
 
 
     }
-    public class AvestaUser<TAvestaUserGroup> : AvestaUser
-    where TAvestaUserGroup : AvestaUserAuthorizeGroup
+    public class AvestaUser<TId, TAvestaUserGroup> : AvestaUser
+        where TId : class
+        where TAvestaUserGroup : AvestaUserAuthorizeGroup<TId>
     {
         public virtual ICollection<TAvestaUserGroup>? UserAuthorizeGroups { get; set; }
 

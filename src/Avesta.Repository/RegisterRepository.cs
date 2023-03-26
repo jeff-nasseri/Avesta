@@ -1,7 +1,14 @@
 ﻿using Avesta.Data.Context;
 using Avesta.Data.Model;
 using Avesta.Repository.EntityRepository;
+using Avesta.Repository.EntityRepository.Availability;
+using Avesta.Repository.EntityRepository.Create;
+using Avesta.Repository.EntityRepository.Delete;
+using Avesta.Repository.EntityRepository.Graph;
+using Avesta.Repository.EntityRepository.Read;
+using Avesta.Repository.EntityRepository.Update;
 using Avesta.Repository.EntityRepositoryRepository;
+using Avesta.Share.Model;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -15,6 +22,8 @@ namespace Avesta.Repository
 {
     public static class RepositoryExtension
     {
+
+        [Obsolete]
         public static IServiceCollection RegisterRepository<TAvestaUser, TAvestaContext>(this IServiceCollection services)
     where TAvestaUser : AvestaUser
     where TAvestaContext : AvestaDbContext
@@ -34,7 +43,7 @@ namespace Avesta.Repository
                  && (TheType.IsSubclassOf(typeof(BaseEntity)) || TheType.IsSubclassOf(typeof(TAvestaUser)))
                  && (TheType.BaseType == typeof(BaseEntity) || TheType.BaseType == typeof(TAvestaUser))
                  );
-            var ripo = typeof(IRepository<,>);
+            var ripo = typeof(IEntityRepository<,>);
             foreach (var entity in entityTypes ?? Enumerable.Empty<Type>())
             {
                 var ripoType = ripo.MakeGenericType(entity);
@@ -51,6 +60,7 @@ namespace Avesta.Repository
 
 
 
+        [Obsolete]
         public static IServiceCollection RegisterRepository<TAvestaContext>(this IServiceCollection services)
     where TAvestaContext : AvestaDbContext
         {
@@ -71,7 +81,7 @@ namespace Avesta.Repository
                  && (TheType.IsSubclassOf(typeof(BaseEntity)))
                  && (TheType.BaseType == typeof(BaseEntity))
                  ).ToList();
-            var ripo = typeof(IRepository<,>);
+            var ripo = typeof(IEntityRepository<,>);
             foreach (var entity in entityTypes ?? Enumerable.Empty<Type>())
             {
                 var ripoType = ripo.MakeGenericType(entity);
@@ -89,7 +99,8 @@ namespace Avesta.Repository
 
 
 
-        public static IServiceCollection RegisterRepository<TAvestaContext>(this IServiceCollection services,string dllFullname)
+        [Obsolete]
+        public static IServiceCollection RegisterRepository<TAvestaContext>(this IServiceCollection services, string dllFullname)
             where TAvestaContext : AvestaDbContext
         {
 
@@ -104,7 +115,7 @@ namespace Avesta.Repository
                  && (TheType.IsSubclassOf(typeof(BaseEntity)))
                  && (TheType.BaseType == typeof(BaseEntity))
                  ).ToList();
-            var ripo = typeof(IRepository<,>);
+            var ripo = typeof(IEntityRepository<,>);
             foreach (var entity in entityTypes ?? Enumerable.Empty<Type>())
             {
                 var ripoType = ripo.MakeGenericType(entity);
@@ -117,6 +128,27 @@ namespace Avesta.Repository
             return services;
 
         }
+
+
+
+
+        public static IServiceCollection RegisterRepositories<TId, TEntity, TAvestaContext>(this IServiceCollection services)
+            where TId : class
+            where TEntity : BaseEntity<TId>
+            where TAvestaContext : AvestaDbContext
+        {
+
+            services.AddScoped<IReadRepository<TEntity, TId>, ReadRepository<TEntity, TId, TAvestaContext>>();
+            services.AddScoped<IUpdateRepository<TEntity, TId>, UpdateRepository<TEntity, TId, TAvestaContext>>();
+            services.AddScoped<ICreateRepository<TEntity, TId>, CreateRepository<TEntity, TId, TAvestaContext>>();
+            services.AddScoped<IDeleteRepository<TEntity, TId>, DeleteRepository<TEntity, TId, TAvestaContext>>();
+            services.AddScoped<IGraphRepository<TEntity, TId>, GraphRepository<TEntity, TId, TAvestaContext>>();
+            services.AddScoped<IAvailabilityRepository<TEntity, TId>, AvailabilityRepository<TEntity, TId, TAvestaContext>>();
+            services.AddScoped<IEntityRepository<TEntity, TId>, EntityRepository<TEntity, TAvestaContext, TId>>();
+
+            return services;
+        }
+
 
 
 

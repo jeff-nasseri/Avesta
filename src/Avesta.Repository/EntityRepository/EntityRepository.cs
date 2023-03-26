@@ -4,7 +4,7 @@ using Avesta.Repository.EntityRepository;
 using Avesta.Repository.EntityRepository.Availability;
 using Avesta.Repository.EntityRepository.Create;
 using Avesta.Repository.EntityRepository.Delete;
-using Avesta.Repository.EntityRepository.Qraph;
+using Avesta.Repository.EntityRepository.Graph;
 using Avesta.Repository.EntityRepository.Read;
 using Avesta.Repository.EntityRepository.Update;
 using Avesta.Share.Model;
@@ -21,9 +21,10 @@ using System.Threading.Tasks;
 namespace Avesta.Repository.EntityRepositoryRepository
 {
 
-    public class EntityRepository<TEntity, TContext, TId> : IRepository<TEntity, TId>
+    public class EntityRepository<TEntity, TContext, TId> : IEntityRepository<TEntity, TId>
         where TId : class
         where TEntity : BaseEntity<TId>
+        where TContext : AvestaDbContext
     {
         readonly IReadRepository<TEntity, TId> _readRepository;
         readonly ICreateRepository<TEntity, TId> _createRepository;

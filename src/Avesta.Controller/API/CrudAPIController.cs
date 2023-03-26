@@ -1,4 +1,4 @@
-﻿using Avesta.Attribute.Qraph;
+﻿using Avesta.Attribute.Graph;
 using Avesta.Data.Model;
 using Avesta.Services;
 using Avesta.Share.Model;
@@ -41,7 +41,7 @@ namespace Avesta.Controller.API
         }
 
 
-        [AvestaQraph]
+        [AvestaGraph]
         [Route(CrudEndPointController.Query)]
         public virtual async Task<IActionResult> Query(
             string? navigationPropertyPath = null

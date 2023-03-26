@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Avesta.Repository.EntityRepository.Qraph
+namespace Avesta.Repository.EntityRepository.Graph
 {
     public interface IGraphRepository<TEntity, TId>
         where TId : class

@@ -3,9 +3,10 @@
 namespace Avesta.Auth.Authorize.Model.UserAuthorizeGroup
 {
 
-    public class AvestaUserAuthorizeGroupModel : BaseModel
+    public class AvestaUserAuthorizeGroupModel<TId> : BaseModel<TId>
+        where TId : class
     {
-        public virtual string UserId { get; set; }
-        public virtual string GroupId { get; set; }
+        public virtual TId UserId { get; set; }
+        public virtual TId GroupId { get; set; }
     }
 }

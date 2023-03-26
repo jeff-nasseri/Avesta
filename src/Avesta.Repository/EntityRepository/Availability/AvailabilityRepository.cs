@@ -11,7 +11,7 @@ namespace Avesta.Repository.EntityRepository.Availability
 {
     public class AvailabilityRepository<TEntity, TId, TContext> : BaseAvailabilityRepository<TContext>, IAvailabilityRepository<TEntity, TId>
         where TId : class
-        where TContext : AvestaDbContext, new()
+        where TContext : AvestaDbContext
         where TEntity : BaseEntity<TId>
     {
         public AvailabilityRepository(TContext context) : base(context)

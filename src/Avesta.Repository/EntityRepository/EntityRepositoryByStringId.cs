@@ -3,7 +3,7 @@ using Avesta.Data.Model;
 using Avesta.Repository.EntityRepository.Availability;
 using Avesta.Repository.EntityRepository.Create;
 using Avesta.Repository.EntityRepository.Delete;
-using Avesta.Repository.EntityRepository.Qraph;
+using Avesta.Repository.EntityRepository.Graph;
 using Avesta.Repository.EntityRepository.Read;
 using Avesta.Repository.EntityRepository.Update;
 

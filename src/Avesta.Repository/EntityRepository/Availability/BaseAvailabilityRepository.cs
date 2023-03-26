@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Avesta.Repository.EntityRepository.Availability
 {
     public class BaseAvailabilityRepository<TContext> : BaseRepository<TContext>
-        where TContext : AvestaDbContext, new()
+        where TContext : AvestaDbContext
     {
         readonly TContext _context;
         public BaseAvailabilityRepository(TContext context) : base(context)

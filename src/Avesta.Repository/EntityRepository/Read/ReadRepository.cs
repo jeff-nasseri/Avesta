@@ -16,7 +16,7 @@ namespace Avesta.Repository.EntityRepository.Read
 {
     public class ReadRepository<TEntity, TId, TContext> : BaseReadRepository<TContext>, IReadRepository<TEntity, TId>
         where TId : class
-        where TContext : AvestaDbContext, new()
+        where TContext : AvestaDbContext
         where TEntity : BaseEntity<TId>
     {
         public ReadRepository(TContext context) : base(context)

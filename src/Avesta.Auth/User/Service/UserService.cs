@@ -60,7 +60,6 @@ namespace Avesta.Auth.User.Service
 
             await _identityRepository.UpdateUser(updatedUser);
             return mappedUser;
-
         }
 
         public async Task<IEnumerable<TAvestaUser>> GetAll()

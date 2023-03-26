@@ -14,6 +14,27 @@ using System.Threading.Tasks;
 namespace Avesta.Services
 {
 
+    public interface IEntityService<TEntity, TModel> : IReadEntityService<string, TEntity, TModel>
+    , IDeleteEntityService<string, TEntity, TModel>
+    , IUpdateEntityService<string, TEntity, TModel>
+    , ICreateEntityService<string, TEntity, TModel>
+    , IEntityGraphService<string, TEntity, TModel>
+    where TEntity : BaseEntity<string>
+    where TModel : BaseModel<string>
+    {
+    }
+
+    public interface IEntityService<TEntity, TModel, TCreateModel, TEditModel> : IEntityService<string, TEntity, TModel>
+    , IUpdateEntityService<string, TEntity, TModel, TEditModel>
+    , ICreateEntityService<string, TEntity, TModel, TCreateModel>
+    where TEntity : BaseEntity<string>
+    where TModel : BaseModel<string>
+    where TCreateModel : TModel
+    where TEditModel : TModel
+    { }
+
+
+
     public interface IEntityService<TId, TEntity, TModel> : IReadEntityService<TId, TEntity, TModel>
         , IDeleteEntityService<TId, TEntity, TModel>
         , IUpdateEntityService<TId, TEntity, TModel>

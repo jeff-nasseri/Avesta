@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Linq.Dynamic.Core;
 using Avesta.Storage.Constant;
 
-namespace Avesta.Repository.EntityRepository.Qraph
+namespace Avesta.Repository.EntityRepository.Graph
 {
     public class BaseGraphRepository<TContext> : BaseRepository<TContext>
         where TContext : AvestaDbContext

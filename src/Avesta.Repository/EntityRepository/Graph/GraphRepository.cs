@@ -9,7 +9,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Avesta.Repository.EntityRepository.Qraph
+namespace Avesta.Repository.EntityRepository.Graph
 {
     public class GraphRepository<TEntity, TId, TContext> : BaseGraphRepository<TContext>, IGraphRepository<TEntity, TId>
         where TId : class

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Avesta.Data.Model;
-using Avesta.Repository.EntityRepository.Qraph;
+using Avesta.Repository.EntityRepository.Graph;
 using Avesta.Share.Model;
 using Avesta.Storage.Constant;
 using System;

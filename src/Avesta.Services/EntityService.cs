@@ -23,9 +23,53 @@ using Avesta.Services.Graph;
 using Avesta.Services.Read;
 using Avesta.Services.Update;
 using MoreLinq;
-
+using System.Security.Cryptography;
 namespace Avesta.Services
 {
+
+    public class EntityService<TEntity, TModel, TCreateModel, TEditModel> : EntityService<string, TEntity, TModel, TCreateModel, TEditModel>
+       where TEntity : BaseEntity<string>
+       where TModel : BaseModel<string>
+       where TCreateModel : TModel
+       where TEditModel : TModel
+    {
+        public EntityService(IReadEntityService<string, TEntity, TModel> readEntityService
+            , IUpdateEntityService<string, TEntity, TModel, TEditModel> updateEntityService
+            , IDeleteEntityService<string, TEntity, TModel> deleteEntityService
+            , IEntityGraphService<string, TEntity, TModel> entityGraphService
+            , ICreateEntityService<string, TEntity, TModel, TCreateModel> createEntityService) : base(readEntityService
+                , updateEntityService, deleteEntityService, entityGraphService, createEntityService)
+        {
+        }
+    }
+    public class EntityService<TEntity, TModel> : EntityService<string, TEntity, TModel>
+    where TEntity : BaseEntity<string>
+    where TModel : BaseModel<string>
+    {
+        public EntityService(IReadEntityService<string, TEntity, TModel> readEntityService
+            , IUpdateEntityService<string, TEntity, TModel> updateEntityService
+            , IDeleteEntityService<string, TEntity, TModel> deleteEntityService
+            , IEntityGraphService<string, TEntity, TModel> entityGraphService
+            , ICreateEntityService<string, TEntity, TModel> createEntityService) : base(readEntityService
+                , updateEntityService, deleteEntityService, entityGraphService, createEntityService)
+        {
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public class EntityService<TId, TEntity, TModel, TCreateModel, TEditModel> : EntityService<TId, TEntity, TModel>, IEntityService<TId, TEntity, TModel, TCreateModel, TEditModel>
        where TId : class
        where TEntity : BaseEntity<TId>
@@ -53,7 +97,7 @@ namespace Avesta.Services
         }
 
         public async Task ClearAllEntitiesThenAddRange(IEnumerable<TCreateModel> insertModels)
-            => await _createEntityService.ClearAllEntitiesThenAddRange(insertModels);
+                 => await _createEntityService.ClearAllEntitiesThenAddRange(insertModels);
 
         public async Task ClearRemoveListThenAddRange(IEnumerable<TModel> removeList, IEnumerable<TCreateModel> insertModels)
             => await _createEntityService.ClearRemoveListThenAddRange(removeList, insertModels);

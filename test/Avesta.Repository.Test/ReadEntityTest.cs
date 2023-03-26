@@ -28,7 +28,7 @@ namespace Avesta.Repository.Test
         where TContext : AvestaDbContext
     {
 
-        readonly IRepository<TEntity> _repository;
+        readonly IEntityRepository<TEntity> _repository;
         readonly TContext _context;
         public ReadEntityTest()
         {
