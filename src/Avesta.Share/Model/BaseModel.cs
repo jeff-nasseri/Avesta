@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,12 @@ namespace Avesta.Share.Model
 
         public bool IsLock { get; set; } = false;
 
+
+        public override string ToString()
+        {
+            var result = JsonConvert.SerializeObject(this);
+            return result;
+        }
     }
 
 

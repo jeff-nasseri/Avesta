@@ -5,8 +5,10 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.ObjectPool;
 using MoreLinq;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Diagnostics.Contracts;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -32,9 +34,9 @@ namespace Avesta.Share.Extensions
                 Console.WriteLine($"{prop.Name} : {prop.GetValue(obj)}");
             }
             return obj;
-           
+
         }
-        public static void SeperateLogInConsole(this object obj,string title)
+        public static void SeperateLogInConsole(this object obj, string title)
         {
             Console.WriteLine($"\n-------{title}-------\n");
         }
@@ -75,13 +77,30 @@ namespace Avesta.Share.Extensions
             url = url.Replace("/", "");
             return url;
         }
+
+
+        public static IEnumerable<T> JoinEach<T, G>(this IEnumerable<G> data, Func<G, G, T> make)
+        {
+            var result = new List<T>();
+
+            foreach (var item in data)
+            {
+                foreach (var item2 in data)
+                {
+                    result.Add(make(item, item2));
+                }
+            }
+
+            return result;
+        }
+
+
         public static void ForEach<T>(this IEnumerable<T> data, Action<T> action)
         {
             foreach (var item in data)
             {
                 action(item);
             }
-
         }
         public static void ForEach(this int num, Action f)
         {
@@ -90,6 +109,7 @@ namespace Avesta.Share.Extensions
                 f.Invoke();
             }
         }
+
 
         public static string ToEnglish(this string persianStr)
         {
