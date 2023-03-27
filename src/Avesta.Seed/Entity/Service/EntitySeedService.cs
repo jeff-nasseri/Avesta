@@ -7,9 +7,11 @@ using Avesta.Services;
 using Avesta.Share.Extensions;
 using Avesta.Share.Model;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
@@ -84,14 +86,14 @@ namespace Avesta.Seed.Entity.Service
 
         public async Task<SeedResultModel> SeedEntity(int number = 100)
         {
-            //TODO : try to write catcher extension for lambda experesion 
-            var action = () =>
+            number.ForEach(Extension.Catcher(() =>
             {
                 var instance = CreateInstance<TEntity>(_dataGenerator);
                 _entityRepository.Insert(instance);
-            };
+            }, (e) => Console.WriteLine(e.Message)));
 
-            number.ForEach((action).Catcher());
+
+            throw new NotImplementedException();
         }
 
 
@@ -125,11 +127,74 @@ namespace Avesta.Seed.Entity.Service
             return value;
         }
 
-        public static void Catcher(this Action action, Action catcher)
-        {
-            throw new NotImplementedException();
-        }
+
+
+
+
     }
+
+
+
+
+    public class Try
+    {
+
+        //TODO : use logger for built in log in Try and dont forget to consider log severity as well
+
+        readonly ILogger _logger;
+
+        public Try(ILogger logger)
+        {
+            _logger = logger;
+        }
+
+
+
+        public static Action Catcher(Action tryAction, Action<Exception>? catchAction = null)
+              => Catcher<Exception>(tryAction, catchAction);
+
+
+        public static Action Catcher<TException>(Action tryAction, Action<TException>? catchAction = null)
+            where TException : Exception
+            => Catcher<TException>(tryAction, catchAction);
+
+
+        public static Action Catcher<TException>(Action tryAction, Action<TException>? catchAction = null, Action? final = null)
+            where TException : Exception
+            => delegate
+            {
+                try
+                {
+                    tryAction();
+                }
+                catch (TException exception)
+                {
+                    catchAction?.Invoke(exception);
+                }
+                finally
+                {
+                    final?.Invoke();
+                }
+            };
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     public interface ISeedDataGenerator
