@@ -9,10 +9,6 @@ using System.Threading.Tasks;
 namespace Avesta.Share.Utilities
 {
 
-
-
-
-
     public static class EntityUtilites
     {
         public static async Task<IEnumerable<T>> Search<T>(this IEnumerable<T> entityList, string keyword)

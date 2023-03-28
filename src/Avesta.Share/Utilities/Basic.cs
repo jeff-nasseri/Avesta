@@ -46,7 +46,8 @@ namespace Avesta.Share.Utilities
 
         }
 
-        public static IEnumerable<string> GetChangedPropertyNames<T>(T original, T changedObj, string[] excludes = null) where T : class => GetChangedPropertyNames<T, T>(original, changedObj, excludes);
+        public static IEnumerable<string> GetChangedPropertyNames<T>(T original, T changedObj, string[] excludes = null) 
+            where T : class => GetChangedPropertyNames<T, T>(original, changedObj, excludes);
 
     }
 }

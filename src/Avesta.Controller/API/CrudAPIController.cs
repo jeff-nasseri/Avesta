@@ -13,6 +13,159 @@ using CrudEndPointController = Avesta.Constant.EndPoints.CrudController;
 
 namespace Avesta.Controller.API
 {
+
+
+    public class CrudController<TId, TEntity, TModel> : AvestaAPIController, ICrudController<TId, TEntity, TModel>
+        where TId : class
+        where TEntity : BaseEntity<TId>
+        where TModel : BaseModel<TId>
+    {
+
+        readonly IEntityService<TId,TEntity, TModel> _entityService;
+        public CrudController(IEntityService<TId, TEntity, TModel> entityService)
+        {
+            _entityService = entityService;
+        }
+
+
+        public Task<IActionResult> Create(TModel model)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IActionResult> Delete(TId id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IActionResult> Get(TId id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IActionResult> GetAll(int? page = null, int? perPage = 7, string[] keyword = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IActionResult> Update(TModel model)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+
+
+
+
+    public interface ICrudController<TId, TEntity, TModel> : IReadController<TId, TEntity, TModel>
+        , ICreateController<TId, TEntity, TModel>
+        , IUpdateController<TId, TEntity, TModel>
+        , IDeleteController<TId, TEntity, TModel>
+        where TId : class
+        where TEntity : BaseEntity<TId>
+        where TModel : BaseModel<TId>
+    {
+    }
+
+
+    public interface ICrudController<TId, TEntity, TModel, TCreateModel, TEditModel> : ICrudController<TId, TEntity, TModel>
+        , IUpdateController<TId, TEntity, TModel, TEditModel>
+        , ICreateController<TId, TEntity, TModel, TCreateModel>
+        where TId : class
+        where TEntity : BaseEntity<TId>
+        where TModel : BaseModel<TId>
+        where TEditModel : TModel
+        where TCreateModel : TModel
+    {
+    }
+
+
+    public interface IReadController<TId, TEntity, TModel>
+        where TId : class
+        where TEntity : BaseEntity<TId>
+        where TModel : BaseModel<TId>
+    {
+
+        Task<IActionResult> Get(TId id);
+        Task<IActionResult> GetAll(int? page = null, int? perPage = Pagination.PerPage, string[] keyword = null);
+    }
+
+
+
+
+    public interface ICreateController<TId, TEntity, TModel>
+        where TId : class
+        where TEntity : BaseEntity<TId>
+        where TModel : BaseModel<TId>
+    {
+        Task<IActionResult> Create(TModel model);
+    }
+    public interface ICreateController<TId, TEntity, TModel, TCreateModel> : ICreateController<TId, TEntity, TModel>
+        where TId : class
+        where TEntity : BaseEntity<TId>
+        where TModel : BaseModel<TId>
+        where TCreateModel : TModel
+    {
+        Task<IActionResult> Create(TCreateModel model);
+    }
+
+
+
+
+    public interface IUpdateController<TId, TEntity, TModel>
+        where TId : class
+        where TEntity : BaseEntity<TId>
+        where TModel : BaseModel<TId>
+    {
+        Task<IActionResult> Update(TModel model);
+    }
+    public interface IUpdateController<TId, TEntity, TModel, TEditModel> : IUpdateController<TId, TEntity, TModel>
+        where TId : class
+        where TEntity : BaseEntity<TId>
+        where TModel : BaseModel<TId>
+        where TEditModel : TModel
+    {
+        Task<IActionResult> Update(TEditModel model);
+    }
+
+
+
+
+    public interface IDeleteController<TId, TEntity, TModel>
+        where TId : class
+        where TEntity : BaseEntity<TId>
+        where TModel : BaseModel<TId>
+    {
+        Task<IActionResult> Delete(TId id);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public class CrudController : AvestaAPIController
+    {
+
+    }
+
+    public class AvestaAPIController : AvestaController
+    {
+
+    }
+
+
+
+
     public interface ICrudAPIController<TViewModel, TCreateViewModel, TEditViewModel>
         where TCreateViewModel : TViewModel
         where TEditViewModel : TViewModel

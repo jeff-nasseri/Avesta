@@ -8,14 +8,17 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using Avesta.Share.Signature;
 
 namespace Avesta.Services.Read
 {
-    public interface IReadEntityService<TId, TEntity, TModel>
+
+    public interface IReadEntityService<TId, TEntity, TModel> : ISearchable<IEnumerable<TModel>>
            where TId : class
            where TEntity : BaseEntity<TId>
            where TModel : BaseModel<TId>
     {
+
 
         Task<TModel> First(string navigationPropertyPath
            , bool track = true
