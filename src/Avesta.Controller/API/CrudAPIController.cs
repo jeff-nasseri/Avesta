@@ -14,41 +14,105 @@ using CrudEndPointController = Avesta.Constant.EndPoints.CrudController;
 namespace Avesta.Controller.API
 {
 
+    [AttributeUsage(AttributeTargets.Class)]
+    public class AvestaAPIControllerAttribute : ApiControllerAttribute
+    {
+    }
 
+    [AvestaAPIController]
+    public class CrudController<TId, TEntity, TModel, TCreateModel, TEditModel> : CrudController<TId, TEntity, TModel>
+        , ICrudController<TId, TEntity, TModel, TCreateModel, TEditModel>
+        where TId : class
+        where TEntity : BaseEntity<TId>
+        where TModel : BaseModel<TId>
+        where TCreateModel : TModel
+        where TEditModel : TModel
+    {
+        readonly IEntityService<TId, TEntity, TModel, TCreateModel, TEditModel> _entityService;
+        public CrudController(IEntityService<TId, TEntity, TModel, TCreateModel, TEditModel> entityService
+            , IEntityService<TId, TEntity, TModel> entityService_) : base(entityService_)
+        {
+            _entityService = entityService;
+        }
+
+        [HttpPut]
+        public virtual async Task<IActionResult> Create(TCreateModel model)
+        {
+            await _entityService.Insert(model);
+            return base.Ok(model);
+        }
+
+        [HttpPost]
+        public virtual async Task<IActionResult> Update(TEditModel model)
+        {
+            await _entityService.Update(model);
+            return base.Ok(model);
+        }
+
+        [HttpPost]
+        public Task<IActionResult> UpdateOrCreate(TEditModel model)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+
+    [AvestaAPIController]
     public class CrudController<TId, TEntity, TModel> : AvestaAPIController, ICrudController<TId, TEntity, TModel>
         where TId : class
         where TEntity : BaseEntity<TId>
         where TModel : BaseModel<TId>
     {
 
-        readonly IEntityService<TId,TEntity, TModel> _entityService;
+        readonly IEntityService<TId, TEntity, TModel> _entityService;
         public CrudController(IEntityService<TId, TEntity, TModel> entityService)
         {
             _entityService = entityService;
         }
 
+        [HttpPut]
+        public virtual async Task<IActionResult> Create(TModel model)
+        {
+            await _entityService.Insert(model);
+            return base.Ok(model);
+        }
 
-        public Task<IActionResult> Create(TModel model)
+        [HttpDelete]
+        public virtual async Task<IActionResult> Delete(TId id)
+        {
+            await _entityService.Delete(id);
+            return base.Ok(id);
+        }
+
+        [HttpDelete]
+        public virtual async Task<IActionResult> SoftDelete(TId id)
+        {
+            await _entityService.SoftDelete(id);
+            return base.Ok(id);
+        }
+
+        [HttpGet]
+        public virtual async Task<IActionResult> Get(TId id)
+        {
+            var result = await _entityService.Get(id, includeAllPath: false, track: false, exceptionRaiseIfNotExist: true);
+            return base.Ok(result);
+        }
+
+        [HttpGet]
+        public virtual Task<IActionResult> GetAll(int? page = null, int? perPage = 7, string[] keyword = null)
         {
             throw new NotImplementedException();
         }
 
-        public Task<IActionResult> Delete(TId id)
+        [HttpPost]
+        public virtual async Task<IActionResult> Update(TModel model)
         {
-            throw new NotImplementedException();
+            await _entityService.Update(model, exceptionRaiseIfNotExist: true);
+            return base.Ok(model);
         }
 
-        public Task<IActionResult> Get(TId id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<IActionResult> GetAll(int? page = null, int? perPage = 7, string[] keyword = null)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<IActionResult> Update(TModel model)
+        [HttpPost]
+        public Task<IActionResult> UpdateOrCreate(TModel model)
         {
             throw new NotImplementedException();
         }
@@ -119,6 +183,7 @@ namespace Avesta.Controller.API
         where TModel : BaseModel<TId>
     {
         Task<IActionResult> Update(TModel model);
+        Task<IActionResult> UpdateOrCreate(TModel model);
     }
     public interface IUpdateController<TId, TEntity, TModel, TEditModel> : IUpdateController<TId, TEntity, TModel>
         where TId : class
@@ -127,6 +192,7 @@ namespace Avesta.Controller.API
         where TEditModel : TModel
     {
         Task<IActionResult> Update(TEditModel model);
+        Task<IActionResult> UpdateOrCreate(TEditModel model);
     }
 
 
@@ -138,6 +204,7 @@ namespace Avesta.Controller.API
         where TModel : BaseModel<TId>
     {
         Task<IActionResult> Delete(TId id);
+        Task<IActionResult> SoftDelete(TId id);
     }
 
 

@@ -10,8 +10,5 @@ namespace Avesta.Controller.API
         where TViewModel : BaseModel
         where TUser : IdentityUser
     {
-
-
-
     }
 }
