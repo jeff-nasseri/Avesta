@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Avesta.Storage.Constant
+namespace Avesta.Constant
 {
     //from 100000 to 150000
     public class MessageKey

@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Avesta.Storage.Constant
+namespace Avesta.Constant.EndPoints
 {
-    public class Pagination
+    public class BaseRoute
     {
-        public const int PerPage = 7;
+        public const string AccessDenied = "/AccessDenied";
     }
 }

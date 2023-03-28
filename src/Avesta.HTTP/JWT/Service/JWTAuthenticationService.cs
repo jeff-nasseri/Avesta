@@ -2,7 +2,7 @@
 using Avesta.Exceptions.Identity;
 using Avesta.HTTP.JWT.Model;
 using Avesta.Repository.Identity;
-using Avesta.Storage.Constant;
+using Avesta.Constant;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;

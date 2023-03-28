@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Avesta.Seed
+namespace Avesta.Constant
 {
-    public interface IAvestaSeedService
+    public class Pagination
     {
-        Task SeedAll(int n);
+        public const int PerPage = 7;
     }
 }

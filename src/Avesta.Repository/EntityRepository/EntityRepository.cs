@@ -8,7 +8,7 @@ using Avesta.Repository.EntityRepository.Graph;
 using Avesta.Repository.EntityRepository.Read;
 using Avesta.Repository.EntityRepository.Update;
 using Avesta.Share.Model;
-using Avesta.Storage.Constant;
+using Avesta.Constant;
 using Microsoft.EntityFrameworkCore;
 using MoreLinq;
 using MoreLinq.Experimental;

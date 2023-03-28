@@ -15,7 +15,7 @@ namespace Avesta.Exceptions.Security
 
     public class TooManyRequestException : SecurityException
     {
-        public TooManyRequestException() : base(Storage.Constant.ExceptionConstant.TooManyRequestException)
+        public TooManyRequestException() : base(Constant.ExceptionConstant.TooManyRequestException)
         {
         }
     }

@@ -16,4 +16,8 @@
     <Version>1.0.2.30</Version>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Avesta.Share\Avesta.Share.csproj" />
+  </ItemGroup>
+
 </Project>

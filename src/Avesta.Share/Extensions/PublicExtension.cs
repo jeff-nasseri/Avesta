@@ -102,7 +102,7 @@ namespace Avesta.Share.Extensions
                 action(item);
             }
         }
-        public static void ForEach(this int num, Action f)
+        public static void For(this int num, Action f)
         {
             for (int i = 0; i < num; i++)
             {
@@ -218,5 +218,21 @@ namespace Avesta.Share.Extensions
             var result = TimeSpan.FromSeconds(days * 24 * 3600);
             return result.TotalSeconds;
         }
+
+
+
+        public static T RandomChoose<T>(this IEnumerable<T> list, int length = 1)
+        {
+            if (list == null)
+                return Activator.CreateInstance<T>();
+
+            var random = new Random();
+            var num = random.Next(0, list.Count() - 1);
+            return list.ToList()[num];
+        }
+
+
+
+
     }
 }

@@ -53,7 +53,7 @@ namespace Avesta.Controller
 
             await Task.CompletedTask;
             const int _1 = 1;
-            return Redirect($"{contoller}/{Storage.Constant.BaseController.Paginate}/{_1}/{keyword}");
+            return Redirect($"{contoller}/{Constant.BaseController.Paginate}/{_1}/{keyword}");
         }
 
 
@@ -68,7 +68,7 @@ namespace Avesta.Controller
 
             await Task.CompletedTask;
             const int _1 = 1;
-            return RedirectToAction(Storage.Constant.BaseController.Paginate, new { page = _1, keyword = keyword });
+            return RedirectToAction(Constant.BaseController.Paginate, new { page = _1, keyword = keyword });
         }
 
 

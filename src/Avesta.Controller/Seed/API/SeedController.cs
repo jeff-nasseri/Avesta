@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SeedEndPointController = Avesta.Storage.Constant.EndPoints.SeedController;
+using SeedEndPointController = Avesta.Constant.EndPoints.SeedController;
 
 namespace Avesta.Controller.Seed.API
 {

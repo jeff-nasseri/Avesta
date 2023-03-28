@@ -23,8 +23,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Avesta.Constant\Avesta.Constant.csproj" />
     <ProjectReference Include="..\Avesta.Global\Avesta.Global.csproj" />
-    <ProjectReference Include="..\Avesta.Storage\Avesta.Storage.csproj" />
   </ItemGroup>
 
 </Project>

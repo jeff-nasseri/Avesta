@@ -22,10 +22,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Avesta.Attribute\Avesta.Attribute.csproj" />
+    <ProjectReference Include="..\Avesta.Constant\Avesta.Constant.csproj" />
     <ProjectReference Include="..\Avesta.Exceptions\Avesta.Exceptions.csproj" />
     <ProjectReference Include="..\Avesta.Model\Avesta.Model.csproj" />
     <ProjectReference Include="..\Avesta.Share\Avesta.Share.csproj" />
-    <ProjectReference Include="..\Avesta.Storage\Avesta.Storage.csproj" />
   </ItemGroup>
 
 </Project>

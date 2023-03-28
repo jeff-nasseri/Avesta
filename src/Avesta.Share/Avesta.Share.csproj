@@ -31,7 +31,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Avesta.Storage\Avesta.Storage.csproj" />
+    <ProjectReference Include="..\Avesta.Constant\Avesta.Constant.csproj" />
   </ItemGroup>
 
 </Project>

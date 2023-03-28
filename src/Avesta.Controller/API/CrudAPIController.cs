@@ -2,14 +2,14 @@
 using Avesta.Data.Model;
 using Avesta.Services;
 using Avesta.Share.Model;
-using Avesta.Storage.Constant;
+using Avesta.Constant;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Routing;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using CrudEndPointController = Avesta.Storage.Constant.EndPoints.CrudController;
+using CrudEndPointController = Avesta.Constant.EndPoints.CrudController;
 
 namespace Avesta.Controller.API
 {

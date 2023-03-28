@@ -13,7 +13,7 @@ using Avesta.Services.Update;
 using Avesta.Share.Extensions;
 using Avesta.Share.Model;
 using Avesta.Share.Model.Controller;
-using Avesta.Storage.Constant;
+using Avesta.Constant;
 using MoreLinq;
 using MoreLinq.Extensions;
 

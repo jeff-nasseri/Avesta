@@ -2,9 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
-using CrudEndPointController = Avesta.Storage.Constant.EndPoints.CrudController;
+using CrudEndPointController = Avesta.Constant.EndPoints.CrudController;
 using Avesta.Exceptions;
-using Avesta.Storage.Constant;
+using Avesta.Constant;
 using SystemException = Avesta.Exceptions.SystemException;
 using Avesta.Language;
 using Avesta.Data.Model;

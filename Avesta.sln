@@ -64,9 +64,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{F84365A6-1B0C-4A92-8FAE-9E819605C654}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avesta.Repository.Test", "test\Avesta.Repository.Test\Avesta.Repository.Test.csproj", "{09E6971D-CC17-478B-A8DE-B5CF8EEB6423}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avesta.Repository.Test", "test\Avesta.Repository.Test\Avesta.Repository.Test.csproj", "{09E6971D-CC17-478B-A8DE-B5CF8EEB6423}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avesta.Repository.Test.Src", "test\Avesta.Repository.Test.Src\Avesta.Repository.Test.Src.csproj", "{B2530F7E-12B0-45AC-841D-2F3F5DD57633}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avesta.Repository.Test.Src", "test\Avesta.Repository.Test.Src\Avesta.Repository.Test.Src.csproj", "{B2530F7E-12B0-45AC-841D-2F3F5DD57633}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avesta.Constant", "src\Avesta.Constant\Avesta.Constant.csproj", "{8D245F92-FDE3-4D30-BBFE-30DA589ACE68}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -166,6 +168,10 @@ Global
 		{B2530F7E-12B0-45AC-841D-2F3F5DD57633}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2530F7E-12B0-45AC-841D-2F3F5DD57633}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2530F7E-12B0-45AC-841D-2F3F5DD57633}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D245F92-FDE3-4D30-BBFE-30DA589ACE68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D245F92-FDE3-4D30-BBFE-30DA589ACE68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D245F92-FDE3-4D30-BBFE-30DA589ACE68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D245F92-FDE3-4D30-BBFE-30DA589ACE68}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

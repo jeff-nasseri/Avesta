@@ -6,7 +6,7 @@ using Avesta.Data.Model;
 using Avesta.Repository.Identity;
 using Avesta.Auth.Authentication.ViewModel;
 using Avesta.Exceptions.Identity;
-using Avesta.Storage.Constant;
+using Avesta.Constant;
 using Avesta.Share.Extensions;
 using Avesta.Share.Model.Identity;
 using Avesta.HTTP.JWT.Model;

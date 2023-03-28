@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Avesta.Storage.Constant.Auth.JWT
+namespace Avesta.Constant.Auth.JWT
 {
     public class ClaimKeys
     {

@@ -3,7 +3,7 @@ using Avesta.Data.Model;
 using Avesta.Share.Model.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using UserManagerEndPointController = Avesta.Storage.Constant.EndPoints.User.UserManagerController;
+using UserManagerEndPointController = Avesta.Constant.EndPoints.User.UserManagerController;
 
 namespace Avesta.Controller.API.User
 {

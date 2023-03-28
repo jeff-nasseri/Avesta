@@ -8,7 +8,7 @@ using Avesta.HTTP.Auth.Service;
 using Microsoft.AspNetCore.Identity;
 using Avesta.Share.Enum;
 using Avesta.HTTP.JWT.Service;
-using Avesta.Storage.Constant.Auth.JWT;
+using Avesta.Constant.Auth.JWT;
 using Newtonsoft.Json;
 using System.Text.RegularExpressions;
 using Avesta.Exceptions.Identity;

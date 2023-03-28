@@ -1,7 +1,7 @@
 ﻿using Avesta.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using Avesta.Storage.Constant;
+using Avesta.Constant;
 using System;
 
 namespace Avesta.Controller

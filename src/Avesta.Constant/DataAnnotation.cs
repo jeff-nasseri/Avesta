@@ -9,7 +9,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace Avesta.Storage.Constant
+namespace Avesta.Constant
 {
 
  

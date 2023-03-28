@@ -19,7 +19,7 @@ using Avesta.Data.Context;
 using Avesta.Repository.EntityRepository.Read;
 using Avesta.Repository.EntityRepository.Delete;
 using System.Threading;
-using Avesta.Storage.Constant;
+using Avesta.Constant;
 using Avesta.Share.Utilities;
 
 namespace Avesta.Repository.EntityRepositoryRepository

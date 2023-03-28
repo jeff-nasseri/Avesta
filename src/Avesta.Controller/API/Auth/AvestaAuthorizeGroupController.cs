@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AuthorizeGroupEndPointController = Avesta.Storage.Constant.EndPoints.Auth.AuthorizeGroupController;
+using AuthorizeGroupEndPointController = Avesta.Constant.EndPoints.Auth.AuthorizeGroupController;
 using RouteAttribute = Microsoft.AspNetCore.Mvc.RouteAttribute;
 
 namespace Avesta.Controller.API.Auth

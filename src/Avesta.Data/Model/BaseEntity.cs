@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace Avesta.Data.Model
 {
@@ -37,5 +38,15 @@ namespace Avesta.Data.Model
         public virtual DateTime? ModifiedDate { get; set; }
         public virtual DateTime CreatedDate { get; set; }
         public virtual DateTime? DeletedDate { get; set; }
+
+
+
+        public override string ToString()
+        {
+            var json = JsonConvert.SerializeObject(this);
+            return json;
+        }
+
+
     }
 }

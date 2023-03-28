@@ -1,5 +1,5 @@
 ﻿using Avesta.Share.Model;
-using Avesta.Storage.Constant;
+using Avesta.Constant;
 using System.ComponentModel.DataAnnotations;
 
 namespace Avesta.Auth.Authentication.ViewModel
