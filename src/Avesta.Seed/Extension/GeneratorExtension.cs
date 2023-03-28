@@ -1,4 +1,5 @@
 ﻿using Avesta.Seed.Entity.Service;
+using Avesta.Share.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
