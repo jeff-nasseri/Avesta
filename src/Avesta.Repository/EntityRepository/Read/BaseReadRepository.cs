@@ -15,9 +15,11 @@ using System.Linq;
 using System.Linq.Dynamic.Core.Tokenizer;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using System.Reflection;
 
 namespace Avesta.Repository.EntityRepository.Read
 {
+
     public class BaseReadRepository<TContext> : BaseRepository<TContext>
         where TContext : AvestaDbContext
     {

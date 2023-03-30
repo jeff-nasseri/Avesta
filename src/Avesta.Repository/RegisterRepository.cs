@@ -23,82 +23,6 @@ namespace Avesta.Repository
     public static class RepositoryExtension
     {
 
-        [Obsolete]
-        public static IServiceCollection RegisterRepository<TAvestaUser, TAvestaContext>(this IServiceCollection services)
-    where TAvestaUser : AvestaUser
-    where TAvestaContext : AvestaDbContext
-        {
-
-
-            List<Assembly> assemblies = new List<Assembly>();
-            string assemblyFolder = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            foreach (var path in Directory.GetFiles(assemblyFolder, "*.dll"))
-            {
-                assemblies.Add(Assembly.LoadFrom(path));
-            }
-
-            var entityTypes = Assembly.GetAssembly(typeof(BaseEntity<>))?.GetTypes()
-                 .Where(TheType => TheType.IsClass
-                 && !TheType.IsAbstract
-                 && (TheType.IsSubclassOf(typeof(BaseEntity)) || TheType.IsSubclassOf(typeof(TAvestaUser)))
-                 && (TheType.BaseType == typeof(BaseEntity) || TheType.BaseType == typeof(TAvestaUser))
-                 );
-            var ripo = typeof(IEntityRepository<,>);
-            foreach (var entity in entityTypes ?? Enumerable.Empty<Type>())
-            {
-                var ripoType = ripo.MakeGenericType(entity);
-                var entityRipo = typeof(EntityRepository<,>);
-                var entityRipoType = entityRipo.MakeGenericType(entity, typeof(TAvestaContext));
-                services.AddScoped(ripoType, entityRipoType);
-            }
-
-
-            return services;
-
-        }
-
-
-
-
-        [Obsolete]
-        public static IServiceCollection RegisterRepository<TAvestaContext>(this IServiceCollection services)
-    where TAvestaContext : AvestaDbContext
-        {
-
-
-            List<Assembly> assemblies = new List<Assembly>();
-            string assemblyFolder = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            foreach (var path in Directory.GetFiles(assemblyFolder, "*.dll"))
-            {
-                assemblies.Add(Assembly.LoadFrom(path));
-            }
-
-            var listOfTypes = assemblies.Select(a => a.GetTypes());
-
-            var entityTypes = (from types in listOfTypes from type in types select type)
-                 .Where(TheType => TheType.IsClass
-                 && !TheType.IsAbstract
-                 && (TheType.IsSubclassOf(typeof(BaseEntity)))
-                 && (TheType.BaseType == typeof(BaseEntity))
-                 ).ToList();
-            var ripo = typeof(IEntityRepository<,>);
-            foreach (var entity in entityTypes ?? Enumerable.Empty<Type>())
-            {
-                var ripoType = ripo.MakeGenericType(entity);
-                var entityRipo = typeof(EntityRepository<,>);
-                var entityRipoType = entityRipo.MakeGenericType(entity, typeof(TAvestaContext));
-                services.AddScoped(ripoType, entityRipoType);
-            }
-
-
-            return services;
-
-        }
-
-
-
-
-
 
 
         public static IServiceCollection RegisterRepositories<TId, TEntity, TAvestaContext>(this IServiceCollection services)
@@ -114,6 +38,15 @@ namespace Avesta.Repository
             services.AddScoped<IGraphRepository<TEntity, TId>, GraphRepository<TEntity, TId, TAvestaContext>>();
             services.AddScoped<IAvailabilityRepository<TEntity, TId>, AvailabilityRepository<TEntity, TId, TAvestaContext>>();
             services.AddScoped<IEntityRepository<TEntity, TId>, EntityRepository<TEntity, TAvestaContext, TId>>();
+
+            return services;
+        }
+
+        public static IServiceCollection RegisterRepositoriesByReflection(this IServiceCollection services, Type id, Type entity, Type context)
+        {
+            var methodInfo = typeof(RepositoryExtension).GetMethods().First(m => m.Name == nameof(RegisterRepositories));
+            var method = methodInfo.MakeGenericMethod(id, entity, context);
+            var result = method.Invoke(null, new object[] { services });
 
             return services;
         }
@@ -135,18 +68,13 @@ namespace Avesta.Repository
                  && (TheType.IsSubclassOf(typeof(BaseEntity)))
                  && (TheType.BaseType == typeof(BaseEntity))
                  ).ToList();
-            var ripo = typeof(IEntityRepository<,>);
             foreach (var entity in entityTypes ?? Enumerable.Empty<Type>())
             {
-                var ripoType = ripo.MakeGenericType(entity);
-                var entityRipo = typeof(EntityRepository<,,>);
-                var entityRipoType = entityRipo.MakeGenericType(entity, typeof(TAvestaContext), typeof(TId));
-                services.AddScoped(ripoType, entityRipoType);
+                services.RegisterRepositoriesByReflection(typeof(TId), entity, typeof(TAvestaContext));
             }
 
 
             return services;
-
         }
 
 
