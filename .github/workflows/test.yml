@@ -1,5 +1,5 @@
-﻿name: Build
-run-name: Build Avesta Framework
+﻿name: Test
+run-name: Test Avesta Framework
 on: [push]
 jobs:
   build-dotnet-windows:
@@ -9,7 +9,7 @@ jobs:
 
      - name: Setup .NET Core SDK
        uses: actions/setup-dotnet@v3.0.3
-     - run: dotnet build
+     - run: dotnet test
         
   build-dotnet-ubuntu:
     runs-on: ubuntu-latest
@@ -18,7 +18,8 @@ jobs:
 
      - name: Setup .NET Core SDK
        uses: actions/setup-dotnet@v3.0.3
-     - run: dotnet build
+     - run: dotnet test
+
 
 
   build-dotnet-mac:
@@ -28,4 +29,5 @@ jobs:
 
      - name: Setup .NET Core SDK
        uses: actions/setup-dotnet@v3.0.3
-     - run: dotnet build
+     - run: dotnet test
+
