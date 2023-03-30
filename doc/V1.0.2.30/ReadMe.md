@@ -9,11 +9,6 @@ Avesta made top of the some popular libraries and framework in C# like .NET and 
 
 Beside of the functionality of Avesta framework, if you are looking for an articheture for your application, Avesta give you a clean and reuseable structure for developing your application.
 
-
-## Avesta Articheture !
-Actually Avesta is a 'Artichecture', So if you are a developer from another language like java, I really preasiate you to help me for transferring Avesta artichecture to another language and create more and more useable codes.
-
-
 [Avesta Documantation - V1.0.2.30](./doc/V1.0.2.30/Installation.md)
 
 [Avesta Documantation - V1.0.3 - UNDER THE DEVELOPMENT](./doc/)
