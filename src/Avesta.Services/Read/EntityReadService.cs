@@ -12,6 +12,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using Avesta.Share.Utilities;
 
 namespace Avesta.Services.Read
 {
@@ -188,9 +189,11 @@ namespace Avesta.Services.Read
             , int perPage = Pagination.PerPage
             , Func<TEntity, TKey> orderBy = null
             , OrderByDirection orderbyDirection = OrderByDirection.Ascending
-            , bool track = false)
+            , bool track = false
+            , object[] keywords = null)
         {
             var entities = await _readRepository.GetAll(navigationPropertyPath, page, perPage, orderBy, orderbyDirection, track);
+            entities = await entities.Search<TEntity>(keywords);
             var result = _mapper.Map<IEnumerable<TModel>>(entities);
             return result;
         }
@@ -201,21 +204,36 @@ namespace Avesta.Services.Read
             , int perPage = Pagination.PerPage
             , Func<TEntity, TKey> orderBy = null
             , OrderByDirection orderbyDirection = OrderByDirection.Ascending
-            , bool track = false)
+            , bool track = false
+            , object[] keywords = null)
         {
             var entities = await _readRepository.GetAll(includeAllPath, page, perPage, orderBy, orderbyDirection, track);
+            entities = await entities.Search<TEntity>(keywords);
             var result = _mapper.Map<IEnumerable<TModel>>(entities);
             return result;
         }
+
+
+        public async Task<IEnumerable<TModel>> GetAll(
+             bool includeAllPath
+            , int? page = null
+            , int perPage = Pagination.PerPage
+            , bool track = false
+            , object[] keywords = null)
+                => await GetAll<object>(includeAllPath: includeAllPath, page: page, perPage: perPage, track: track, keywords: keywords);
+
+
 
         public async Task<IEnumerable<TModel>> GetAll<TKey>(IQueryable<TEntity> entities
             , int? page = null
             , int perPage = Pagination.PerPage
             , Func<TEntity, TKey> orderBy = null
             , OrderByDirection orderbyDirection = OrderByDirection.Ascending
-            , bool track = false)
+            , bool track = false
+            , object[] keywords = null)
         {
             var data = await _readRepository.GetAll(entities, page, perPage, orderBy, orderbyDirection, track);
+            data = await entities.Search<TEntity>(keywords);
             var result = _mapper.Map<IEnumerable<TModel>>(data);
             return result;
         }

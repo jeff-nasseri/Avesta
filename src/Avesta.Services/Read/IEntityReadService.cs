@@ -104,7 +104,8 @@ namespace Avesta.Services.Read
             , int perPage = Pagination.PerPage
             , Func<TEntity, TKey> orderBy = null
             , OrderByDirection orderbyDirection = OrderByDirection.Ascending
-            , bool track = false);
+            , bool track = false
+            , object[] keywords = null);
 
         Task<IEnumerable<TModel>> GetAll<TKey>(
              bool includeAllPath
@@ -112,14 +113,24 @@ namespace Avesta.Services.Read
             , int perPage = Pagination.PerPage
             , Func<TEntity, TKey> orderBy = null
             , OrderByDirection orderbyDirection = OrderByDirection.Ascending
-            , bool track = false);
+            , bool track = false
+            , object[] keywords = null);
+
+        Task<IEnumerable<TModel>> GetAll(
+             bool includeAllPath
+            , int? page = null
+            , int perPage = Pagination.PerPage
+            , bool track = false
+            , object[] keywords = null);
+
 
         Task<IEnumerable<TModel>> GetAll<TKey>(IQueryable<TEntity> entities
             , int? page = null
             , int perPage = Pagination.PerPage
             , Func<TEntity, TKey> orderBy = null
             , OrderByDirection orderbyDirection = OrderByDirection.Ascending
-            , bool track = false);
+            , bool track = false
+            , object[] keywords = null);
 
 
 

@@ -7,7 +7,7 @@ using UserManagerEndPointController = Avesta.Constant.EndPoints.User.UserManager
 
 namespace Avesta.Controller.API.User
 {
-    public class UserManagerController<TAvestaUser, TUserViewModel> : AvestaController
+    public class UserManagerController<TAvestaUser, TUserViewModel> : AvestaBaseController
         where TAvestaUser : AvestaUser
         where TUserViewModel : UserBaseModel
     {

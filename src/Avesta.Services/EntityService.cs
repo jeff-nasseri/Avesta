@@ -24,6 +24,8 @@ using Avesta.Services.Read;
 using Avesta.Services.Update;
 using MoreLinq;
 using System.Security.Cryptography;
+using Avesta.Services.Availability;
+
 namespace Avesta.Services
 {
 
@@ -127,18 +129,21 @@ namespace Avesta.Services
         readonly IDeleteEntityService<TId, TEntity, TModel> _deleteEntityService;
         readonly IEntityGraphService<TId, TEntity, TModel> _entityGraphService;
         readonly ICreateEntityService<TId, TEntity, TModel> _createEntityService;
+        readonly IAvailabilityService<TId, TEntity, TModel> _availabilityService;
 
         public EntityService(IReadEntityService<TId, TEntity, TModel> readEntityService
             , IUpdateEntityService<TId, TEntity, TModel> updateEntityService
             , IDeleteEntityService<TId, TEntity, TModel> deleteEntityService
             , IEntityGraphService<TId, TEntity, TModel> entityGraphService
-            , ICreateEntityService<TId, TEntity, TModel> createEntityService)
+            , ICreateEntityService<TId, TEntity, TModel> createEntityService
+            , IAvailabilityService<TId, TEntity, TModel> availabilityService)
         {
             _readEntityService = readEntityService;
             _updateEntityService = updateEntityService;
             _deleteEntityService = deleteEntityService;
             _entityGraphService = entityGraphService;
             _createEntityService = createEntityService;
+            _availabilityService = availabilityService;
         }
 
 
@@ -382,6 +387,36 @@ namespace Avesta.Services
         #region [- Update -]
         public async Task Update(TModel model, bool exceptionRaiseIfNotExist = false)
             => await _updateEntityService.Update(model, exceptionRaiseIfNotExist);
+        #endregion
+
+        public async Task<IEnumerable<TModel>> Search(params Expression[] expressions)
+            => throw new NotImplementedException();
+        public Task<IEnumerable<TModel>> Search(params object[] keywords)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        #region [- Availability -]
+
+
+        public async Task<bool> Any(TModel model, string navigationPropertyPath = null)
+            => await _availabilityService.Any(model, navigationPropertyPath);
+
+        public async Task<bool> Any(TId id, string navigationPropertyPath = null)
+            => await _availabilityService.Any(id, navigationPropertyPath);
+
+        public async Task<bool> Any(Expression<Func<TEntity, bool>> expression, string navigationPropertyPath = null)
+            => await _availabilityService.Any(expression, navigationPropertyPath);
+
+        public async Task CheckAvailability(TModel model, string navigationPropertyPath = null)
+            => await _availabilityService.CheckAvailability(model, navigationPropertyPath);
+
+        public async Task CheckAvailability(TId id, string navigationPropertyPath = null)
+            => await _availabilityService.CheckAvailability(id, navigationPropertyPath);
+
+        public async Task CheckAvailability(Expression<Func<TEntity, bool>> expression, string navigationPropertyPath = null)
+            => await _availabilityService.CheckAvailability(expression, navigationPropertyPath);
         #endregion
 
     }

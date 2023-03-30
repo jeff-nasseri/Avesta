@@ -8,7 +8,7 @@ namespace Avesta.Controller
 
 
 
-    public class AvestaController : Microsoft.AspNetCore.Mvc.Controller
+    public class AvestaBaseController : Microsoft.AspNetCore.Mvc.Controller
     {
 
         [ApiExplorerSettings(IgnoreApi = true)]
@@ -17,6 +17,7 @@ namespace Avesta.Controller
             var response = new ResponseModel().Success(data);
             return base.Ok(response);
         }
+
 
         [ApiExplorerSettings(IgnoreApi = true)]
         public override BadRequestObjectResult BadRequest([ActionResultObjectValue] object error)

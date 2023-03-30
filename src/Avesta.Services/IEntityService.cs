@@ -1,4 +1,5 @@
 ﻿using Avesta.Data.Model;
+using Avesta.Services.Availability;
 using Avesta.Services.Create;
 using Avesta.Services.Delete;
 using Avesta.Services.Graph;
@@ -8,6 +9,7 @@ using Avesta.Share.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,6 +21,7 @@ namespace Avesta.Services
     , IUpdateEntityService<string, TEntity, TModel>
     , ICreateEntityService<string, TEntity, TModel>
     , IEntityGraphService<string, TEntity, TModel>
+    , IAvailabilityService<string, TEntity, TModel>
     where TEntity : BaseEntity<string>
     where TModel : BaseModel<string>
     {
@@ -40,6 +43,7 @@ namespace Avesta.Services
         , IUpdateEntityService<TId, TEntity, TModel>
         , ICreateEntityService<TId, TEntity, TModel>
         , IEntityGraphService<TId, TEntity, TModel>
+        , IAvailabilityService<TId, TEntity, TModel>
         where TId : class
         where TEntity : BaseEntity<TId>
         where TModel : BaseModel<TId>
