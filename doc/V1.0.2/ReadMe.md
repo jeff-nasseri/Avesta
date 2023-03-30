@@ -9,13 +9,8 @@ Avesta made top of the some popular libraries and framework in C# like .NET and 
 
 Beside of the functionality of Avesta framework, if you are looking for an articheture for your application, Avesta give you a clean and reuseable structure for developing your application.
 
-<<<<<<< HEAD:doc/V1.0.2/ReadMe.md
-
 
 [Avesta Documantation - V1.0.2](./doc/V1.0.2/Installation.md)
-=======
-[Avesta Documantation - V1.0.2.30](./doc/V1.0.2.30/Installation.md)
->>>>>>> 32560d27d0bbb77a6278ba5dd6aa3a4f97d83d2f:doc/V1.0.2.30/ReadMe.md
 
 [Avesta Documantation - V1.0.3 - UNDER THE DEVELOPMENT](./doc/)
  
