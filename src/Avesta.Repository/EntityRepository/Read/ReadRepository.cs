@@ -150,6 +150,13 @@ namespace Avesta.Repository.EntityRepository.Read
             , bool track = false)
                 => await base.GetAll<TEntity, TId, TKey>(includeAllPath, page, perPage, orderBy, orderbyDirection, track);
 
+        public async Task<IEnumerable<TEntity>> GetAll(
+             bool includeAllPath = false
+            , int? page = null
+            , int perPage = Pagination.PerPage
+            , bool track = false)
+                => await GetAll<object>(includeAllPath: includeAllPath, page: page, perPage: perPage, track: track);
+
 
         public async Task<IEnumerable<TEntity>> GetAll<TKey>(IQueryable<TEntity> entities
             , int? page = null

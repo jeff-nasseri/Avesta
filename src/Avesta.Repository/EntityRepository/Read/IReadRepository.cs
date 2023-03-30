@@ -62,7 +62,7 @@ namespace Avesta.Repository.EntityRepository.Read
            , bool exceptionRaiseIfNotExist = false);
 
         Task<TEntity> Get(TId key
-             , bool includeAllPath
+             , bool includeAllPath = false
              , bool track = true
              , bool exceptionRaiseIfNotExist = false);
 
@@ -84,7 +84,7 @@ namespace Avesta.Repository.EntityRepository.Read
             , bool exceptionRaiseIfNotExist = false);
 
         Task<TEntity> Get(Expression<Func<TEntity, bool>> predicate
-            , bool includeAllPath
+            , bool includeAllPath = false
             , bool track = true
             , bool exceptionRaiseIfNotExist = false);
 
@@ -112,12 +112,19 @@ namespace Avesta.Repository.EntityRepository.Read
 
 
         Task<IEnumerable<TEntity>> GetAll<TKey>(
-             bool includeAllPath
+             bool includeAllPath = false
             , int? page = null
             , int perPage = Pagination.PerPage
             , Func<TEntity, TKey> orderBy = null
             , OrderByDirection orderbyDirection = OrderByDirection.Ascending
             , bool track = false);
+
+        Task<IEnumerable<TEntity>> GetAll(
+             bool includeAllPath = false
+            , int? page = null
+            , int perPage = Pagination.PerPage
+            , bool track = false);
+
 
 
         Task<IEnumerable<TEntity>> GetAll<TKey>(IQueryable<TEntity> entities

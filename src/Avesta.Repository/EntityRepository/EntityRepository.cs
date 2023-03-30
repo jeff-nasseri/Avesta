@@ -181,7 +181,7 @@ namespace Avesta.Repository.EntityRepositoryRepository
         public async Task<TEntity> Get(TId key, string navigationPropertyPath, bool track = true, bool exceptionRaiseIfNotExist = false)
             => await _readRepository.Get(key, navigationPropertyPath, track, exceptionRaiseIfNotExist);
 
-        public async Task<TEntity> Get(TId key, bool includeAllPath, bool track = true, bool exceptionRaiseIfNotExist = false)
+        public async Task<TEntity> Get(TId key, bool includeAllPath = false, bool track = true, bool exceptionRaiseIfNotExist = false)
             => await _readRepository.Get(key, includeAllPath, track, exceptionRaiseIfNotExist);
 
         public async Task<TEntity> Get(IQueryable<TEntity> entities, TId key, bool track = true, bool exceptionRaiseIfNotExist = false)
@@ -190,7 +190,7 @@ namespace Avesta.Repository.EntityRepositoryRepository
         public async Task<TEntity> Get(Expression<Func<TEntity, bool>> predicate, string navigationPropertyPath, bool track = true, bool exceptionRaiseIfNotExist = false)
             => await _readRepository.Get(predicate, navigationPropertyPath, track, exceptionRaiseIfNotExist);
 
-        public async Task<TEntity> Get(Expression<Func<TEntity, bool>> predicate, bool includeAllPath, bool track = true, bool exceptionRaiseIfNotExist = false)
+        public async Task<TEntity> Get(Expression<Func<TEntity, bool>> predicate, bool includeAllPath = false, bool track = true, bool exceptionRaiseIfNotExist = false)
             => await _readRepository.Get(predicate, includeAllPath, track, exceptionRaiseIfNotExist);
 
         public async Task<TEntity> Get(IQueryable<TEntity> entities, Expression<Func<TEntity, bool>> predicate, bool track = true, bool exceptionRaiseIfNotExist = false)
@@ -222,13 +222,22 @@ namespace Avesta.Repository.EntityRepositoryRepository
             , bool track = false)
                 => await _readRepository.GetAll(navigationPropertyPath, page, perPage, orderBy, orderbyDirection, track);
 
-        public async Task<IEnumerable<TEntity>> GetAll<TKey>(bool includeAllPath
+        public async Task<IEnumerable<TEntity>> GetAll<TKey>(bool includeAllPath = false
             , int? page = null
             , int perPage = Pagination.PerPage
             , Func<TEntity, TKey> orderBy = null
             , OrderByDirection orderbyDirection = OrderByDirection.Ascending
             , bool track = false)
                 => await _readRepository.GetAll(includeAllPath, page, perPage, orderBy, orderbyDirection, track);
+
+
+        public async Task<IEnumerable<TEntity>> GetAll(bool includeAllPath = false
+            , int? page = null
+            , int perPage = Pagination.PerPage
+            , bool track = false)
+        => await _readRepository.GetAll(includeAllPath: includeAllPath, page: page, perPage: perPage, track: track);
+
+
 
         public async Task<IEnumerable<TEntity>> GetAll<TKey>(IQueryable<TEntity> entities
             , int? page = null
@@ -266,7 +275,7 @@ namespace Avesta.Repository.EntityRepositoryRepository
                 => await _readRepository.GetByIds(entities, ids, page, perPage, orderBy, orderbyDirection, track);
 
 
-   
+
         public async Task<int> Count(Expression<Func<TEntity, bool>> where, string navigationPropertyPath = null)
             => await _readRepository.Count(where, navigationPropertyPath);
 

@@ -4,6 +4,17 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <AssemblyName>Avesta.Constant</AssemblyName>
+    <BaseOutputPath>..\..\nuget</BaseOutputPath>
+    <GenerateDocumentationFile>False</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>Avesta CLI Component</Title>
+    <Authors>alireza-nasseri</Authors>
+    <Description>Constant Component For Avesta</Description>
+    <Copyright>MIT LICENSE</Copyright>
+    <PackageProjectUrl></PackageProjectUrl>
+    <RepositoryUrl>https://github.com/alireza-nasseri/Avesta</RepositoryUrl>
+    <PackageTags>Avesta;Avesta.Constant;Avesta.Framework</PackageTags>
+    <Version>1.0.325</Version>
   </PropertyGroup>
-
 </Project>
