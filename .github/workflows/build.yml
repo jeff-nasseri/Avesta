@@ -2,7 +2,7 @@
 run-name: Build Avesta Framework
 on: [push]
 jobs:
-  build-dotnet-windows:
+  build-avesta-windows:
     runs-on: windows-latest
     steps:
      - uses: actions/checkout@v3
@@ -11,7 +11,7 @@ jobs:
        uses: actions/setup-dotnet@v3.0.3
      - run: dotnet build
         
-  build-dotnet-ubuntu:
+  build-avesta-ubuntu:
     runs-on: ubuntu-latest
     steps:
      - uses: actions/checkout@v3
@@ -21,7 +21,7 @@ jobs:
      - run: dotnet build
 
 
-  build-dotnet-mac:
+  build-avesta-mac:
     runs-on: macos-latest
     steps:
      - uses: actions/checkout@v3
