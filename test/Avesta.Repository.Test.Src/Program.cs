@@ -18,10 +18,6 @@ using static System.Net.Mime.MediaTypeNames;
 namespace Avesta.Repository.Test.Src
 {
 
-
-
-
-
     public class Program
     {
 
@@ -34,7 +30,7 @@ namespace Avesta.Repository.Test.Src
 
             Builder = new ServiceCollection()
                  .AddDbContext<ApplicationDbContext>()
-                 .RegisterRepository<ApplicationDbContext>(Assembly.GetExecutingAssembly().ManifestModule.Name)
+                 .RegisterRepository<string, ApplicationDbContext>(Assembly.GetExecutingAssembly().ManifestModule.Name)
                  .BuildServiceProvider();
 
 
@@ -55,7 +51,7 @@ namespace Avesta.Repository.Test.Src
             {
                 dbContext.Students.Add(student);
             }
-           
+
 
             //init teacher
             foreach (var teacher in SeedStorage.Teachers)
