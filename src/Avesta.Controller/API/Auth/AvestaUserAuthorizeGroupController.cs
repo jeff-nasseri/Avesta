@@ -15,13 +15,14 @@ namespace Avesta.Controller.API.Auth
 {
 
 
-    public class AvestaUserAuthorizeGroupController<TAvestaUser, TAvestaAuthorizeGroup, TAvestaUserAuthorizeGroup>
-        : CrudAPIController<TAvestaUserAuthorizeGroup, AvestaUserAuthorizeGroupModel, EditAvestaUserAuthorizeGroupModel, CreateAvestaUserAuthorizeGroupModel>
-        where TAvestaAuthorizeGroup : AvestaAuthorizeGroup<TAvestaUserAuthorizeGroup>
-        where TAvestaUser : AvestaUser<TAvestaUserAuthorizeGroup>
-        where TAvestaUserAuthorizeGroup : AvestaUserAuthorizeGroup
+    public class AvestaUserAuthorizeGroupController<TId, TAvestaUser, TAvestaAuthorizeGroup, TAvestaUserAuthorizeGroup>
+        : Avesta.Controller.API.Crud.CrudController<TId, TAvestaUserAuthorizeGroup, AvestaUserAuthorizeGroupModel<TId>, CreateAvestaUserAuthorizeGroupModel<TId>, EditAvestaUserAuthorizeGroupModel<TId>>
+        where TId : class
+        where TAvestaAuthorizeGroup : AvestaAuthorizeGroup<TId, TAvestaUserAuthorizeGroup>
+        where TAvestaUser : AvestaUser<TId, TAvestaUserAuthorizeGroup>
+        where TAvestaUserAuthorizeGroup : AvestaUserAuthorizeGroup<TId>
     {
-        public AvestaUserAuthorizeGroupController(IAvestaUserAuthorizeGroupService<TAvestaUser, TAvestaAuthorizeGroup, TAvestaUserAuthorizeGroup> avestaUserAuthorizeGroupService)
+        public AvestaUserAuthorizeGroupController(IAvestaUserAuthorizeGroupService<TId, TAvestaUser, TAvestaAuthorizeGroup, TAvestaUserAuthorizeGroup> avestaUserAuthorizeGroupService)
             : base(avestaUserAuthorizeGroupService)
         {
         }

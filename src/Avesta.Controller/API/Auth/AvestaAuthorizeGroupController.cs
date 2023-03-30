@@ -1,30 +1,24 @@
 ﻿using Avesta.Auth.Authorize.Model.AuthorizeGroup;
 using Avesta.Auth.Authorize.Service;
+using Avesta.Controller.MVCController;
 using Avesta.Data.Model;
-using Avesta.Services;
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AuthorizeGroupEndPointController = Avesta.Constant.EndPoints.Auth.AuthorizeGroupController;
-using RouteAttribute = Microsoft.AspNetCore.Mvc.RouteAttribute;
 
 namespace Avesta.Controller.API.Auth
 {
 
 
-    public class AvestaAuthorizeGroupController<TAvestaUser, TAvestaAuthorizeGroup, TAvestaUserAuthorizeGroup>
-        : CrudAPIController<TAvestaAuthorizeGroup, AvestaAuthorizeGroupModel, EditAvestaAuthorizeGroupModel, CreateAvestaAuthorizeGroupModel>
-        where TAvestaAuthorizeGroup : AvestaAuthorizeGroup<TAvestaUserAuthorizeGroup>
-        where TAvestaUser : AvestaUser<TAvestaUserAuthorizeGroup>
-        where TAvestaUserAuthorizeGroup : AvestaUserAuthorizeGroup
+    public class AvestaAuthorizeGroupController<TId, TAvestaUser, TAvestaAuthorizeGroup, TAvestaUserAuthorizeGroup>
+        : Avesta.Controller.API.Crud.CrudController<TId, TAvestaAuthorizeGroup, AvestaAuthorizeGroupModel<TId>, CreateAvestaAuthorizeGroupModel<TId>, EditAvestaAuthorizeGroupModel<TId>>
+        where TId : class
+        where TAvestaAuthorizeGroup : AvestaAuthorizeGroup<TId, TAvestaUserAuthorizeGroup>
+        where TAvestaUser : AvestaUser<TId, TAvestaUserAuthorizeGroup>
+        where TAvestaUserAuthorizeGroup : AvestaUserAuthorizeGroup<TId>
     {
-        public AvestaAuthorizeGroupController(IAuthorizeGroupService<TAvestaUser, TAvestaAuthorizeGroup, TAvestaUserAuthorizeGroup> authorizeGroupService) : base(authorizeGroupService)
+        public AvestaAuthorizeGroupController(IAuthorizeGroupService<TId, TAvestaUser, TAvestaAuthorizeGroup, TAvestaUserAuthorizeGroup> authorizeGroupService)
+            : base(authorizeGroupService)
         {
         }
+
     }
 
 

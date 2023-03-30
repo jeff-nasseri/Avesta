@@ -88,7 +88,7 @@ namespace Avesta.MiddleWare
                 {
                     Data = error,
                     Message = error.Message,
-                    Status = 500,
+                    StatusNumber = ResponseModel.Status.Fail,
                     Successfull = false
                 };
 

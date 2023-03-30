@@ -37,9 +37,4 @@ namespace Avesta.Data.Model
     }
 
 
-    public class AvestaAuthorizeGroup<TAvestaUserGroup> : AvestaAuthorizeGroup<string, TAvestaUserGroup>
-        where TAvestaUserGroup : AvestaUserAuthorizeGroup<string>
-    {
-    }
-
 }

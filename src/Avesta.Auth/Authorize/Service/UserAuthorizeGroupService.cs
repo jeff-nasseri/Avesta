@@ -3,6 +3,7 @@ using Avesta.Auth.Authorize.Model.UserAuthorizeGroup;
 using Avesta.Data.Model;
 using Avesta.Repository.EntityRepository;
 using Avesta.Services;
+using Avesta.Services.Availability;
 using Avesta.Services.Create;
 using Avesta.Services.Delete;
 using Avesta.Services.Graph;
@@ -32,11 +33,13 @@ namespace Avesta.Auth.Authorize.Service
         where TUserAuthorizeGroup : AvestaUserAuthorizeGroup<TId>
     {
         public AvestaUserAuthorizeGroupService(IReadEntityService<TId, TUserAuthorizeGroup, AvestaUserAuthorizeGroupModel<TId>> readEntityService
-            , IUpdateEntityService<TId, TUserAuthorizeGroup, AvestaUserAuthorizeGroupModel<TId>, EditAvestaUserAuthorizeGroupModel<TId>> updateEntityService
+            , IUpdateEntityService<TId, TUserAuthorizeGroup, AvestaUserAuthorizeGroupModel<TId>
+                , EditAvestaUserAuthorizeGroupModel<TId>> updateEntityService
             , IDeleteEntityService<TId, TUserAuthorizeGroup, AvestaUserAuthorizeGroupModel<TId>> deleteEntityService
             , IEntityGraphService<TId, TUserAuthorizeGroup, AvestaUserAuthorizeGroupModel<TId>> entityGraphService
+            , IAvailabilityService<TId, TUserAuthorizeGroup, AvestaUserAuthorizeGroupModel<TId>> availabilityService
             , ICreateEntityService<TId, TUserAuthorizeGroup, AvestaUserAuthorizeGroupModel<TId>, CreateAvestaUserAuthorizeGroupModel<TId>> createEntityService) 
-                : base(readEntityService, updateEntityService, deleteEntityService, entityGraphService, createEntityService)
+                : base(readEntityService, updateEntityService, deleteEntityService, entityGraphService, availabilityService, createEntityService)
         {
         }
     }

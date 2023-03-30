@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace Avesta.Auth.User.Service
 {
-    public interface IUserService<TAvestaUser> : IBaseService<TAvestaUser>
+    public interface IUserService<TAvestaUser>
         where TAvestaUser : AvestaUser
     {
         Task<TAvestaUser> GetUserByEmail(string email, bool exceptionRaiseIfNotExist = false);

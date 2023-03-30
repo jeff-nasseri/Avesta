@@ -39,21 +39,23 @@ namespace Avesta.Services
             , IUpdateEntityService<string, TEntity, TModel, TEditModel> updateEntityService
             , IDeleteEntityService<string, TEntity, TModel> deleteEntityService
             , IEntityGraphService<string, TEntity, TModel> entityGraphService
-            , ICreateEntityService<string, TEntity, TModel, TCreateModel> createEntityService) : base(readEntityService
-                , updateEntityService, deleteEntityService, entityGraphService, createEntityService)
+            , IAvailabilityService<string, TEntity, TModel> availabilityService
+            , ICreateEntityService<string, TEntity, TModel, TCreateModel> createEntityService) 
+                : base(readEntityService, updateEntityService, deleteEntityService, entityGraphService, availabilityService, createEntityService)
         {
         }
     }
     public class EntityService<TEntity, TModel> : EntityService<string, TEntity, TModel>
-    where TEntity : BaseEntity<string>
-    where TModel : BaseModel<string>
+        where TEntity : BaseEntity<string>
+        where TModel : BaseModel<string>
     {
         public EntityService(IReadEntityService<string, TEntity, TModel> readEntityService
             , IUpdateEntityService<string, TEntity, TModel> updateEntityService
             , IDeleteEntityService<string, TEntity, TModel> deleteEntityService
             , IEntityGraphService<string, TEntity, TModel> entityGraphService
-            , ICreateEntityService<string, TEntity, TModel> createEntityService) : base(readEntityService
-                , updateEntityService, deleteEntityService, entityGraphService, createEntityService)
+            , ICreateEntityService<string, TEntity, TModel> createEntityService
+            , IAvailabilityService<string, TEntity, TModel> availabilityService) :
+                base(readEntityService, updateEntityService, deleteEntityService, entityGraphService, createEntityService, availabilityService)
         {
         }
     }
@@ -87,12 +89,14 @@ namespace Avesta.Services
             , IUpdateEntityService<TId, TEntity, TModel, TEditModel> updateEntityService
             , IDeleteEntityService<TId, TEntity, TModel> deleteEntityService
             , IEntityGraphService<TId, TEntity, TModel> entityGraphService
+            , IAvailabilityService<TId, TEntity, TModel> availabilityService
             , ICreateEntityService<TId, TEntity, TModel, TCreateModel> createEntityService)
             : base(readEntityService
                 , updateEntityService
                 , deleteEntityService
                 , entityGraphService
-                , createEntityService)
+                , createEntityService
+                , availabilityService)
         {
             _createEntityService = createEntityService;
             _updateEntityService = updateEntityService;
@@ -222,24 +226,38 @@ namespace Avesta.Services
             , int perPage = Pagination.PerPage
             , Func<TEntity, TKey> orderBy = null
             , OrderByDirection orderbyDirection = OrderByDirection.Ascending
-            , bool track = false)
-            => await _readEntityService.GetAll(navigationPropertyPath, page, perPage, orderBy, orderbyDirection, track);
+            , bool track = false
+            , object[] keywords = null)
+            => await _readEntityService.GetAll(navigationPropertyPath, page, perPage, orderBy, orderbyDirection, track, keywords);
 
         public async Task<IEnumerable<TModel>> GetAll<TKey>(bool includeAllPath
             , int? page = null
             , int perPage = Pagination.PerPage
             , Func<TEntity, TKey> orderBy = null
             , OrderByDirection orderbyDirection = OrderByDirection.Ascending
-            , bool track = false)
-            => await _readEntityService.GetAll(includeAllPath, page, perPage, orderBy, orderbyDirection, track);
+            , bool track = false
+            , object[] keywords = null)
+            => await _readEntityService.GetAll(includeAllPath, page, perPage, orderBy, orderbyDirection, track, keywords);
 
         public async Task<IEnumerable<TModel>> GetAll<TKey>(IQueryable<TEntity> entities
             , int? page = null
             , int perPage = Pagination.PerPage
             , Func<TEntity, TKey> orderBy = null
             , OrderByDirection orderbyDirection = OrderByDirection.Ascending
-            , bool track = false)
-            => await _readEntityService.GetAll(entities, page, perPage, orderBy, orderbyDirection, track);
+            , bool track = false
+            , object[] keywords = null)
+            => await _readEntityService.GetAll(entities, page, perPage, orderBy, orderbyDirection, track, keywords);
+
+        public async Task<IEnumerable<TModel>> GetAll(bool includeAllPath
+            , int? page = null
+            , int perPage = Pagination.PerPage
+            , bool track = false
+            , object[] keywords = null)
+            => await _readEntityService.GetAll(includeAllPath, page, perPage, track, keywords);
+
+
+
+
 
         public async Task<IEnumerable<TModel>> GetByIds<TKey>(IEnumerable<TId> ids
             , string navigationPropertyPath
@@ -417,6 +435,8 @@ namespace Avesta.Services
 
         public async Task CheckAvailability(Expression<Func<TEntity, bool>> expression, string navigationPropertyPath = null)
             => await _availabilityService.CheckAvailability(expression, navigationPropertyPath);
+
+
         #endregion
 
     }

@@ -8,8 +8,9 @@ using System.Threading.Tasks;
 namespace Avesta.Attribute.Controller
 {
 
+
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false, Inherited = true)]
-    public class AvestaAPIControllerAttribute : ApiControllerAttribute
+    public class AvestaMVCControllerAttribute : ControllerAttribute
     {
     }
 

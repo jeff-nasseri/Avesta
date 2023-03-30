@@ -23,8 +23,7 @@ namespace Avesta.Controller.API.Crud
         where TEditModel : TModel
     {
         readonly IEntityService<TId, TEntity, TModel, TCreateModel, TEditModel> _entityService;
-        public CrudController(IEntityService<TId, TEntity, TModel, TCreateModel, TEditModel> entityService
-            , IEntityService<TId, TEntity, TModel> entityService_) : base(entityService_)
+        public CrudController(IEntityService<TId, TEntity, TModel, TCreateModel, TEditModel> entityService) : base(entityService)
         {
             _entityService = entityService;
         }
