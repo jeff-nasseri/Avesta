@@ -6,8 +6,9 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Avesta.Repository.Test
 {
-    public class RepositoryResolver<TEntity, TContext> : Program
-        where TEntity : BaseEntity
+    public class RepositoryResolver<TId, TEntity, TContext> : Program
+        where TId : class
+        where TEntity : BaseEntity<TId>
         where TContext : AvestaDbContext
     {
 
@@ -17,9 +18,9 @@ namespace Avesta.Repository.Test
 
         public TContext Context { get => Builder.GetRequiredService<TContext>(); }
 
-        public IEntityRepository<TEntity> ResolveRepository()
+        public IEntityRepository<TEntity, TId> ResolveRepository()
         {
-            var repository = Builder.GetRequiredService<IEntityRepository<TEntity>>();
+            var repository = Builder.GetRequiredService<IEntityRepository<TEntity, TId>>();
             return repository;
         }
 

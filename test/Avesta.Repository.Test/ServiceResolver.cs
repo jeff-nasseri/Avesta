@@ -8,8 +8,9 @@ using System.Threading.Tasks;
 
 namespace Avesta.Repository.Test
 {
-    public class ServiceResolver<TEntity, TContext> : RepositoryResolver<TEntity, TContext>
-        where TEntity : BaseEntity
+    public class ServiceResolver<TId, TEntity, TContext> : RepositoryResolver<TId, TEntity, TContext>
+        where TId : class
+        where TEntity : BaseEntity<TId>
         where TContext : AvestaDbContext
     {
 
