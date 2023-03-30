@@ -1,4 +1,8 @@
-﻿using Avesta.Data.Model;
+﻿using Avesta.Controller.API.Crud.Create;
+using Avesta.Controller.API.Crud.Delete;
+using Avesta.Controller.API.Crud.Read;
+using Avesta.Controller.API.Crud.Update;
+using Avesta.Data.Model;
 using Avesta.Share.Model;
 using System;
 using System.Collections.Generic;
