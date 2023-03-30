@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![version](https://img.shields.io/badge/version-1.0.325-blue)
 
 ## What is the Avesta Framework ?
-Avesta is a framework based on .NET for who or whoes looking for create Web, CLI, and windows application (cross-platform) with more reuseability and readability.
+Avesta is a framework based on .NET for who or whoes looking for create web, CLI, and Windows applications (cross-platform) with more reuseability and readability.
 
 Avesta made top of the some popular libraries and framework in C# like .NET and EFCore.
 
