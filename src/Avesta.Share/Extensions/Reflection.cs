@@ -44,14 +44,8 @@ namespace Avesta.Share.Extensions
 
 
 
-        /// <summary>
-        /// Search all properties in list of TEntity type and make sure there is no value null in property type of PropEntity
-        /// </summary>
-        /// <typeparam name="TEntity">The type of object</typeparam>
-        /// <typeparam name="PropEntity">The type of property</typeparam>
-        /// <param name="list">List of TEntity objects</param>
-        /// <returns>return true if there is not found any PropEntity property with value null, otherwise false</returns>
-        public static bool CheckTheValueOfEntity<TEntity, PropEntity>(this IEnumerable<TEntity> list)
+   
+        public static bool ValidateIncludeAllChildren<TEntity, PropEntity>(this IEnumerable<TEntity> list)
             where TEntity : class
             where PropEntity : class
         {
