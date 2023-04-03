@@ -13,8 +13,4 @@
     <ProjectReference Include="..\Avesta.Share\Avesta.Share.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Middleware\" />
-  </ItemGroup>
-
 </Project>
