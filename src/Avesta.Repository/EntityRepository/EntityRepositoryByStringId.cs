@@ -18,9 +18,8 @@ namespace Avesta.Repository.EntityRepositoryRepository
             , ICreateRepository<TEntity, string> createRepository
             , IDeleteRepository<TEntity, string> deleteRepository
             , IAvailabilityRepository<TEntity, string> availabilityRepository
-            , IGraphRepository<TEntity, string> graphRepository
             , IUpdateRepository<TEntity, string> updateRepository) 
-            : base(readRepository, createRepository, deleteRepository, availabilityRepository, graphRepository, updateRepository)
+            : base(readRepository, createRepository, deleteRepository, availabilityRepository, updateRepository)
         {
         }
     }

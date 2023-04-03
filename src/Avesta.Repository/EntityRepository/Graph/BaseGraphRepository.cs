@@ -24,7 +24,7 @@ namespace Avesta.Repository.EntityRepository.Graph
 
 
 
-        public async Task<IEnumerable<TEntity>> GraphQuery<TEntity, TId>(string navigationPropertyPath
+        public async Task<IEnumerable<dynamic>> GraphQuery<TEntity, TId>(string navigationPropertyPath
             , string where
             , string select
             , string orderBy
@@ -36,7 +36,7 @@ namespace Avesta.Repository.EntityRepository.Graph
                 => await GraphQuery<TEntity, TId>(base.IncludeByPath<TEntity, TId>(navigationPropertyPath), where, select, orderBy, page, perPage, track);
 
 
-        public async Task<IEnumerable<TEntity>> GraphQuery<TEntity, TId>(bool includeAllPath
+        public async Task<IEnumerable<dynamic>> GraphQuery<TEntity, TId>(bool includeAllPath
             , string select
             , string orderBy
             , string where
@@ -49,7 +49,7 @@ namespace Avesta.Repository.EntityRepository.Graph
                         await GraphQuery<TEntity, TId>(base.Query<TEntity, TId>(), where, select, orderBy, page, perPage, track);
 
 
-        public async Task<IEnumerable<TEntity>> GraphQuery<TEntity, TId>(IQueryable<TEntity> entities
+        public async Task<IEnumerable<dynamic>> GraphQuery<TEntity, TId>(IQueryable<TEntity> entities
             , string where
             , string select
             , string orderBy
@@ -71,7 +71,7 @@ namespace Avesta.Repository.EntityRepository.Graph
                 data = data.Skip(skip).Take(perPage);
             }
 
-            var result = await data.OrderBy(orderBy).Select(select).ToDynamicListAsync<TEntity>();
+            var result = await data.OrderBy(orderBy).Select(select).ToDynamicListAsync();
 
             return result;
         }

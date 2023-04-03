@@ -12,7 +12,7 @@ namespace Avesta.Repository.EntityRepository.Graph
         where TId : class
         where TEntity : BaseEntity<TId>
     {
-        Task<IEnumerable<TEntity>> GraphQuery(string navigationPropertyPath
+        Task<IEnumerable<dynamic>> GraphQuery(string navigationPropertyPath
             , string where
             , string select
             , string orderBy
@@ -21,8 +21,8 @@ namespace Avesta.Repository.EntityRepository.Graph
             , bool track = false);
 
 
-        Task<IEnumerable<TEntity>> GraphQuery(string includeAllPath
-            , bool where
+        Task<IEnumerable<dynamic>> GraphQuery(bool includeAllPath
+            , string where
             , string select
             , string orderBy
             , int? page = null
@@ -30,7 +30,7 @@ namespace Avesta.Repository.EntityRepository.Graph
             , bool track = false);
 
 
-        Task<IEnumerable<TEntity>> GraphQuery(IQueryable<TEntity> entities
+        Task<IEnumerable<dynamic>> GraphQuery(IQueryable<TEntity> entities
             , string where
             , string select
             , string orderBy

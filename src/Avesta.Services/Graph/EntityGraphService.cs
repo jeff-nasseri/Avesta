@@ -12,25 +12,21 @@ using System.Threading.Tasks;
 namespace Avesta.Services.Graph
 {
 
-    public class EntityGraphService<TId, TEntity, TModel> : BaseEntityService, IEntityGraphService<TId, TEntity, TModel>
+    public class EntityGraphService<TId, TEntity> : BaseEntityService, IEntityGraphService<TId, TEntity>
         where TId : class
         where TEntity : BaseEntity<TId>
-        where TModel : BaseModel<TId>
     {
 
         readonly IGraphRepository<TEntity, TId> _graphRepository;
-        readonly IMapper _mapper;
-
-        public EntityGraphService(IGraphRepository<TEntity, TId> graphRepository, IMapper mapper)
+        public EntityGraphService(IGraphRepository<TEntity, TId> graphRepository)
         {
             _graphRepository = graphRepository;
-            _mapper = mapper;
         }
 
 
 
 
-        public async Task<IEnumerable<TModel>> GraphQuery(string navigationPropertyPath
+        public async Task<IEnumerable<dynamic>> GraphQuery(string navigationPropertyPath
            , string where
            , string select
            , string orderBy
@@ -38,26 +34,12 @@ namespace Avesta.Services.Graph
            , int perPage = Pagination.PerPage
        , bool track = false)
         {
-            var entities = await _graphRepository.GraphQuery(navigationPropertyPath, where, select, orderBy, page, perPage, track);
-            var result = _mapper.Map<IEnumerable<TModel>>(entities);
+            var result = await _graphRepository.GraphQuery(navigationPropertyPath, where, select, orderBy, page, perPage, track);
             return result;
         }
 
 
-        public async Task<IEnumerable<TModel>> GraphQuery(string includeAllPath
-            , bool where
-            , string select
-            , string orderBy
-            , int? page = null
-            , int perPage = Pagination.PerPage
-        , bool track = false)
-        {
-            var entities = await _graphRepository.GraphQuery(includeAllPath, where, select, orderBy, page, perPage, track);
-            var result = _mapper.Map<IEnumerable<TModel>>(entities);
-            return result;
-        }
-
-        public async Task<IEnumerable<TModel>> GraphQuery(IQueryable<TEntity> entities
+        public async Task<IEnumerable<dynamic>> GraphQuery(bool includeAllPath
             , string where
             , string select
             , string orderBy
@@ -65,8 +47,19 @@ namespace Avesta.Services.Graph
             , int perPage = Pagination.PerPage
         , bool track = false)
         {
-            var data = await _graphRepository.GraphQuery(entities, where, select, orderBy, page, perPage, track);
-            var result = _mapper.Map<IEnumerable<TModel>>(data);
+            var result = await _graphRepository.GraphQuery(includeAllPath, where, select, orderBy, page, perPage, track);
+            return result;
+        }
+
+        public async Task<IEnumerable<dynamic>> GraphQuery(IQueryable<TEntity> entities
+            , string where
+            , string select
+            , string orderBy
+            , int? page = null
+            , int perPage = Pagination.PerPage
+        , bool track = false)
+        {
+            var result = await _graphRepository.GraphQuery(entities, where, select, orderBy, page, perPage, track);
             return result;
         }
 

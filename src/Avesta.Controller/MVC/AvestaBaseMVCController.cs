@@ -7,9 +7,7 @@ using System.Threading.Tasks;
 namespace Avesta.Controller.MVC
 {
 
-
-
-    public class AvestaBaseMVCController : AvestaBaseController
+    public abstract class AvestaBaseMVCController : AvestaBaseController
     {
     }
 

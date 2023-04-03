@@ -20,7 +20,6 @@ namespace Avesta.Services
     , IDeleteEntityService<string, TEntity, TModel>
     , IUpdateEntityService<string, TEntity, TModel>
     , ICreateEntityService<string, TEntity, TModel>
-    , IEntityGraphService<string, TEntity, TModel>
     , IAvailabilityService<string, TEntity, TModel>
     where TEntity : BaseEntity<string>
     where TModel : BaseModel<string>
@@ -42,7 +41,6 @@ namespace Avesta.Services
         , IDeleteEntityService<TId, TEntity, TModel>
         , IUpdateEntityService<TId, TEntity, TModel>
         , ICreateEntityService<TId, TEntity, TModel>
-        , IEntityGraphService<TId, TEntity, TModel>
         , IAvailabilityService<TId, TEntity, TModel>
         where TId : class
         where TEntity : BaseEntity<TId>

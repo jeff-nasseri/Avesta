@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Avesta.Constant\Avesta.Constant.csproj" />
+    <ProjectReference Include="..\Avesta.Controller\Avesta.Controller.csproj" />
+    <ProjectReference Include="..\Avesta.Services\Avesta.Services.csproj" />
+    <ProjectReference Include="..\Avesta.Share\Avesta.Share.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Middleware\" />
+  </ItemGroup>
+
+</Project>

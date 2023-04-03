@@ -69,6 +69,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avesta.Repository.Test.Src"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avesta.Constant", "src\Avesta.Constant\Avesta.Constant.csproj", "{8D245F92-FDE3-4D30-BBFE-30DA589ACE68}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avesta.Graph", "src\Avesta.Graph\Avesta.Graph.csproj", "{FAA43CF5-C5FD-4A16-80C9-611F9E3EF5A2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -171,6 +173,10 @@ Global
 		{8D245F92-FDE3-4D30-BBFE-30DA589ACE68}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D245F92-FDE3-4D30-BBFE-30DA589ACE68}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D245F92-FDE3-4D30-BBFE-30DA589ACE68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAA43CF5-C5FD-4A16-80C9-611F9E3EF5A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAA43CF5-C5FD-4A16-80C9-611F9E3EF5A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAA43CF5-C5FD-4A16-80C9-611F9E3EF5A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAA43CF5-C5FD-4A16-80C9-611F9E3EF5A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

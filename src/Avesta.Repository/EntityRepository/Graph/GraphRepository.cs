@@ -23,7 +23,7 @@ namespace Avesta.Repository.EntityRepository.Graph
         }
 
 
-        public async Task<IEnumerable<TEntity>> GraphQuery(string navigationPropertyPath
+        public async Task<IEnumerable<dynamic>> GraphQuery(string navigationPropertyPath
             , string where
             , string select
             , string orderBy
@@ -33,17 +33,17 @@ namespace Avesta.Repository.EntityRepository.Graph
                 => await base.GraphQuery<TEntity, TId>(navigationPropertyPath, where, select, orderBy, page, perPage, track);
 
 
-        public async Task<IEnumerable<TEntity>> GraphQuery(string includeAllPath
-            , bool where
+        public async Task<IEnumerable<dynamic>> GraphQuery(bool includeAllPath
+            , string where
             , string select
             , string orderBy
             , int? page = null
             , int perPage = Pagination.PerPage
         , bool track = false)
-                => await base.GraphQuery<TEntity, TId>(where, select, orderBy, includeAllPath, page, perPage, track);
+                => await base.GraphQuery<TEntity, TId>(includeAllPath, select, orderBy, where, page, perPage, track);
 
 
-        public async Task<IEnumerable<TEntity>> GraphQuery(IQueryable<TEntity> entities
+        public async Task<IEnumerable<dynamic>> GraphQuery(IQueryable<TEntity> entities
             , string where
             , string select
             , string orderBy

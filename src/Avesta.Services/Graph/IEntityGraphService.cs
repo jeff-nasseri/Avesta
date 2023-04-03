@@ -9,14 +9,13 @@ using System.Threading.Tasks;
 
 namespace Avesta.Services.Graph
 {
-    public interface IEntityGraphService<TId, TEntity, TModel>
+    public interface IEntityGraphService<TId, TEntity>
         where TId : class
         where TEntity : BaseEntity<TId>
-        where TModel : BaseModel<TId>
     {
 
 
-        Task<IEnumerable<TModel>> GraphQuery(string navigationPropertyPath
+        Task<IEnumerable<dynamic>> GraphQuery(string navigationPropertyPath
            , string where
            , string select
            , string orderBy
@@ -25,15 +24,15 @@ namespace Avesta.Services.Graph
        , bool track = false);
 
 
-        Task<IEnumerable<TModel>> GraphQuery(string includeAllPath
-            , bool where
+        Task<IEnumerable<dynamic>> GraphQuery(bool includeAllPath
+            , string where
             , string select
             , string orderBy
             , int? page = null
             , int perPage = Pagination.PerPage
         , bool track = false);
 
-        Task<IEnumerable<TModel>> GraphQuery(IQueryable<TEntity> entities
+        Task<IEnumerable<dynamic>> GraphQuery(IQueryable<TEntity> entities
             , string where
             , string select
             , string orderBy

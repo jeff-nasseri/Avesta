@@ -30,7 +30,6 @@ namespace Avesta.Repository.EntityRepositoryRepository
         readonly ICreateRepository<TEntity, TId> _createRepository;
         readonly IDeleteRepository<TEntity, TId> _deleteRepository;
         readonly IAvailabilityRepository<TEntity, TId> _availabilityRepository;
-        readonly IGraphRepository<TEntity, TId> _graphRepository;
         readonly IUpdateRepository<TEntity, TId> _updateRepository;
 
 
@@ -38,49 +37,17 @@ namespace Avesta.Repository.EntityRepositoryRepository
             , ICreateRepository<TEntity, TId> createRepository
             , IDeleteRepository<TEntity, TId> deleteRepository
             , IAvailabilityRepository<TEntity, TId> availabilityRepository
-            , IGraphRepository<TEntity, TId> graphRepository
             , IUpdateRepository<TEntity, TId> updateRepository)
         {
             _readRepository = readRepository;
             _createRepository = createRepository;
             _deleteRepository = deleteRepository;
             _availabilityRepository = availabilityRepository;
-            _graphRepository = graphRepository;
             _updateRepository = updateRepository;
         }
 
 
 
-
-
-        #region [- Graph -]
-        public async Task<IEnumerable<TEntity>> GraphQuery(string navigationPropertyPath
-            , string where
-            , string select
-            , string orderBy
-            , int? page = null
-            , int perPage = Pagination.PerPage
-            , bool track = false)
-                => await _graphRepository.GraphQuery(navigationPropertyPath, where, select, orderBy, page, perPage, track);
-
-        public async Task<IEnumerable<TEntity>> GraphQuery(string includeAllPath
-            , bool where
-            , string select
-            , string orderBy
-            , int? page = null
-            , int perPage = Pagination.PerPage
-            , bool track = false)
-                => await _graphRepository.GraphQuery(includeAllPath, where, select, orderBy, page, perPage, track);
-
-        public async Task<IEnumerable<TEntity>> GraphQuery(IQueryable<TEntity> entities
-            , string where
-            , string select
-            , string orderBy
-            , int? page = null
-            , int perPage = Pagination.PerPage
-            , bool track = false)
-                => await _graphRepository.GraphQuery(entities, where, select, orderBy, page, perPage, track);
-        #endregion
 
 
 

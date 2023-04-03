@@ -44,7 +44,7 @@ namespace Avesta.Share.Extensions
 
 
 
-   
+
         public static bool ValidateIncludeAllChildren<TEntity, PropEntity>(this IEnumerable<TEntity> list)
             where TEntity : class
             where PropEntity : class
@@ -81,6 +81,15 @@ namespace Avesta.Share.Extensions
             return list;
         }
 
+        public static IEnumerable<Type> GetAllDrivenTypes<TEntity>(this Assembly assembly)
+        {
+
+            var types = assembly.GetTypes().Where(t => !t.IsAbstract
+                            && t.IsSubclassOf(typeof(TEntity))
+                            && t.BaseType == typeof(TEntity)).ToList();
+
+            return types;
+        }
 
 
 

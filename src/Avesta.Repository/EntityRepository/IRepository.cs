@@ -20,7 +20,6 @@ namespace Avesta.Repository.EntityRepository
         , IDeleteRepository<TEntity, TId>
         , IUpdateRepository<TEntity, TId>
         , IAvailabilityRepository<TEntity, TId>
-        , IGraphRepository<TEntity, TId>
         where TId : class
         where TEntity : BaseEntity<TId>
     {

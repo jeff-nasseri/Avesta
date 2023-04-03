@@ -35,10 +35,9 @@ namespace Avesta.Auth.Authorize.Service
         public AuthorizeGroupService(IReadEntityService<TId, TAvestaAuthorizeGroup, AvestaAuthorizeGroupModel<TId>> readEntityService
             , IUpdateEntityService<TId, TAvestaAuthorizeGroup, AvestaAuthorizeGroupModel<TId>, EditAvestaAuthorizeGroupModel<TId>> updateEntityService
             , IDeleteEntityService<TId, TAvestaAuthorizeGroup, AvestaAuthorizeGroupModel<TId>> deleteEntityService
-            , IEntityGraphService<TId, TAvestaAuthorizeGroup, AvestaAuthorizeGroupModel<TId>> entityGraphService
             , IAvailabilityService<TId, TAvestaAuthorizeGroup, AvestaAuthorizeGroupModel<TId>> availabilityService
             , ICreateEntityService<TId, TAvestaAuthorizeGroup, AvestaAuthorizeGroupModel<TId>, CreateAvestaAuthorizeGroupModel<TId>> createEntityService) 
-                : base(readEntityService, updateEntityService, deleteEntityService, entityGraphService, availabilityService, createEntityService)
+                : base(readEntityService, updateEntityService, deleteEntityService, availabilityService, createEntityService)
         {
         }
 

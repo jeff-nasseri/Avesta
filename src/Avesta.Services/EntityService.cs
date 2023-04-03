@@ -38,10 +38,9 @@ namespace Avesta.Services
         public EntityService(IReadEntityService<string, TEntity, TModel> readEntityService
             , IUpdateEntityService<string, TEntity, TModel, TEditModel> updateEntityService
             , IDeleteEntityService<string, TEntity, TModel> deleteEntityService
-            , IEntityGraphService<string, TEntity, TModel> entityGraphService
             , IAvailabilityService<string, TEntity, TModel> availabilityService
             , ICreateEntityService<string, TEntity, TModel, TCreateModel> createEntityService) 
-                : base(readEntityService, updateEntityService, deleteEntityService, entityGraphService, availabilityService, createEntityService)
+                : base(readEntityService, updateEntityService, deleteEntityService, availabilityService, createEntityService)
         {
         }
     }
@@ -52,10 +51,9 @@ namespace Avesta.Services
         public EntityService(IReadEntityService<string, TEntity, TModel> readEntityService
             , IUpdateEntityService<string, TEntity, TModel> updateEntityService
             , IDeleteEntityService<string, TEntity, TModel> deleteEntityService
-            , IEntityGraphService<string, TEntity, TModel> entityGraphService
             , ICreateEntityService<string, TEntity, TModel> createEntityService
             , IAvailabilityService<string, TEntity, TModel> availabilityService) :
-                base(readEntityService, updateEntityService, deleteEntityService, entityGraphService, createEntityService, availabilityService)
+                base(readEntityService, updateEntityService, deleteEntityService, createEntityService, availabilityService)
         {
         }
     }
@@ -88,13 +86,11 @@ namespace Avesta.Services
         public EntityService(IReadEntityService<TId, TEntity, TModel> readEntityService
             , IUpdateEntityService<TId, TEntity, TModel, TEditModel> updateEntityService
             , IDeleteEntityService<TId, TEntity, TModel> deleteEntityService
-            , IEntityGraphService<TId, TEntity, TModel> entityGraphService
             , IAvailabilityService<TId, TEntity, TModel> availabilityService
             , ICreateEntityService<TId, TEntity, TModel, TCreateModel> createEntityService)
             : base(readEntityService
                 , updateEntityService
                 , deleteEntityService
-                , entityGraphService
                 , createEntityService
                 , availabilityService)
         {
@@ -131,21 +127,18 @@ namespace Avesta.Services
         readonly IReadEntityService<TId, TEntity, TModel> _readEntityService;
         readonly IUpdateEntityService<TId, TEntity, TModel> _updateEntityService;
         readonly IDeleteEntityService<TId, TEntity, TModel> _deleteEntityService;
-        readonly IEntityGraphService<TId, TEntity, TModel> _entityGraphService;
         readonly ICreateEntityService<TId, TEntity, TModel> _createEntityService;
         readonly IAvailabilityService<TId, TEntity, TModel> _availabilityService;
 
         public EntityService(IReadEntityService<TId, TEntity, TModel> readEntityService
             , IUpdateEntityService<TId, TEntity, TModel> updateEntityService
             , IDeleteEntityService<TId, TEntity, TModel> deleteEntityService
-            , IEntityGraphService<TId, TEntity, TModel> entityGraphService
             , ICreateEntityService<TId, TEntity, TModel> createEntityService
             , IAvailabilityService<TId, TEntity, TModel> availabilityService)
         {
             _readEntityService = readEntityService;
             _updateEntityService = updateEntityService;
             _deleteEntityService = deleteEntityService;
-            _entityGraphService = entityGraphService;
             _createEntityService = createEntityService;
             _availabilityService = availabilityService;
         }
@@ -371,35 +364,6 @@ namespace Avesta.Services
 
         #endregion
 
-
-        #region [- Graph -]
-        public async Task<IEnumerable<TModel>> GraphQuery(string navigationPropertyPath
-            , string where
-            , string select
-            , string orderBy
-            , int? page = null
-            , int perPage = Pagination.PerPage
-            , bool track = false)
-            => await _entityGraphService.GraphQuery(navigationPropertyPath, where, select, orderBy, page, perPage);
-
-        public async Task<IEnumerable<TModel>> GraphQuery(string includeAllPath
-            , bool where
-            , string select
-            , string orderBy
-            , int? page = null
-            , int perPage = Pagination.PerPage
-            , bool track = false)
-            => await _entityGraphService.GraphQuery(includeAllPath, where, select, orderBy, page, perPage);
-
-        public async Task<IEnumerable<TModel>> GraphQuery(IQueryable<TEntity> entities
-            , string where
-            , string select
-            , string orderBy
-            , int? page = null
-            , int perPage = Pagination.PerPage
-            , bool track = false)
-            => await _entityGraphService.GraphQuery(entities, where, select, orderBy, page, perPage);
-        #endregion
 
 
         #region [- Update -]
