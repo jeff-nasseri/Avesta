@@ -15,4 +15,8 @@
     <ProjectReference Include="..\..\src\Avesta.Share\Avesta.Share.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
 </Project>
