@@ -71,6 +71,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avesta.Constant", "src\Aves
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avesta.Graph", "src\Avesta.Graph\Avesta.Graph.csproj", "{FAA43CF5-C5FD-4A16-80C9-611F9E3EF5A2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avesta.Graph.Test.Src", "test\Avesta.Graph.Test.Src\Avesta.Graph.Test.Src.csproj", "{7A1345BA-5A1F-4AC2-9DD9-F0CBBF3E4BF5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -177,6 +179,10 @@ Global
 		{FAA43CF5-C5FD-4A16-80C9-611F9E3EF5A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FAA43CF5-C5FD-4A16-80C9-611F9E3EF5A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FAA43CF5-C5FD-4A16-80C9-611F9E3EF5A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A1345BA-5A1F-4AC2-9DD9-F0CBBF3E4BF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A1345BA-5A1F-4AC2-9DD9-F0CBBF3E4BF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A1345BA-5A1F-4AC2-9DD9-F0CBBF3E4BF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A1345BA-5A1F-4AC2-9DD9-F0CBBF3E4BF5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -185,6 +191,7 @@ Global
 		{B45124D0-BFD9-4A92-8DAB-2CD5FECA2E6B} = {9EB69684-42E1-48E7-8D15-AE807D496C5B}
 		{09E6971D-CC17-478B-A8DE-B5CF8EEB6423} = {F84365A6-1B0C-4A92-8FAE-9E819605C654}
 		{B2530F7E-12B0-45AC-841D-2F3F5DD57633} = {F84365A6-1B0C-4A92-8FAE-9E819605C654}
+		{7A1345BA-5A1F-4AC2-9DD9-F0CBBF3E4BF5} = {F84365A6-1B0C-4A92-8FAE-9E819605C654}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8259D7C8-8DB5-4A11-B128-83667EF52388}

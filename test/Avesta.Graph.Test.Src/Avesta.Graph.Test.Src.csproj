@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Avesta.Constant\Avesta.Constant.csproj" />
+    <ProjectReference Include="..\..\src\Avesta.Graph\Avesta.Graph.csproj" />
+    <ProjectReference Include="..\..\src\Avesta.Repository\Avesta.Repository.csproj" />
+    <ProjectReference Include="..\..\src\Avesta.Seed\Avesta.Seed.csproj" />
+    <ProjectReference Include="..\..\src\Avesta.Services\Avesta.Services.csproj" />
+    <ProjectReference Include="..\..\src\Avesta.Share\Avesta.Share.csproj" />
+  </ItemGroup>
+
+</Project>

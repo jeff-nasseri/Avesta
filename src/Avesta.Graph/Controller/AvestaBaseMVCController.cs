@@ -11,13 +11,12 @@ using System.Threading.Tasks;
 namespace Avesta.Graph.Controller
 {
 
-
-
     [AvestaMVCController]
-    public class AvestaBaseMVCController : AvestaBaseController
+    [Route("/Avesta/Graph")]
+    public class AvestaGraphMVCController : AvestaBaseController
     {
         readonly IGraphHierarchySrevice _graphHierarchySrevice;
-        public AvestaBaseMVCController(IGraphHierarchySrevice graphHierarchySrevice)
+        public AvestaGraphMVCController(IGraphHierarchySrevice graphHierarchySrevice)
         {
             _graphHierarchySrevice = graphHierarchySrevice;
         }
