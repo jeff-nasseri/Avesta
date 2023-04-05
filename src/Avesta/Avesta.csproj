@@ -24,12 +24,15 @@
   <ItemGroup>
     <ProjectReference Include="..\Avesta.Attribute\Avesta.Attribute.csproj" />
     <ProjectReference Include="..\Avesta.Auth\Avesta.Auth.csproj" />
+    <ProjectReference Include="..\Avesta.BlockChain\Avesta.BlockChain.csproj" />
     <ProjectReference Include="..\Avesta.CLI\Avesta.CLI.csproj" />
+    <ProjectReference Include="..\Avesta.Constant\Avesta.Constant.csproj" />
     <ProjectReference Include="..\Avesta.Controller\Avesta.Controller.csproj" />
     <ProjectReference Include="..\Avesta.Data\Avesta.Data.csproj" />
     <ProjectReference Include="..\Avesta.DependencyInjection\Avesta.DependencyInjection.csproj" />
     <ProjectReference Include="..\Avesta.Exceptions\Avesta.Exceptions.csproj" />
     <ProjectReference Include="..\Avesta.Global\Avesta.Global.csproj" />
+    <ProjectReference Include="..\Avesta.Graph\Avesta.Graph.csproj" />
     <ProjectReference Include="..\Avesta.HTTP\Avesta.HTTP.csproj" />
     <ProjectReference Include="..\Avesta.Language\Avesta.Language.csproj" />
     <ProjectReference Include="..\Avesta.Logging\Avesta.Logging.csproj" />

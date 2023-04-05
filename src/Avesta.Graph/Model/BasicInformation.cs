@@ -11,7 +11,7 @@ namespace Avesta.Graph.Model
     {
         public string? Name { get; set; }
         public string? FullName { get; set; }
-        public Type? Type { get; set; }
+        public string? Type { get; set; }
     }
 
 }

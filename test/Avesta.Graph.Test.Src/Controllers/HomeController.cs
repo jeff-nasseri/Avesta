@@ -5,21 +5,14 @@ namespace Avesta.Graph.Test.Src.Controllers;
 
 public class HomeController : Microsoft.AspNetCore.Mvc.Controller
 {
-    private readonly ILogger<HomeController> _logger;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController()
     {
-        _logger = logger;
     }
 
     public IActionResult Index()
     {
-        return View();
-    }
-
-    public IActionResult Privacy()
-    {
-        return View();
+        return Content("Click <a href = '/avesta/graph'>here</a> to test the avesta graph functionality ! <a href='/avesta/graph/graph.json'>json</a>", "text/html; charset=UTF-8");
     }
 
  

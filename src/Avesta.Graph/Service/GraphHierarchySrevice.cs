@@ -26,7 +26,7 @@ namespace Avesta.Graph.Service
 
             var entities = new List<EntityInformation>();
 
-            var types = Assembly.GetExecutingAssembly().GetAllDrivenTypes<BaseEntity>();
+            var types = Assembly.GetEntryAssembly().GetAllDrivenTypes<BaseEntity>();
 
             foreach (var type in types)
             {
@@ -38,19 +38,18 @@ namespace Avesta.Graph.Service
                 var properties = type.GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.Static)?.Select(p => new PropertyInformation
                 {
                     Name = p.Name,
-                    Type = p.GetType(),
+                    Type = p.PropertyType.ToString(),
                     FullName = p.Name
                 }).ToList();
-                var entityInfo = new EntityInformation(properties);
 
                 var entity = new EntityInformation(properties)
                 {
                     Name = type.Name,
                     FullName = type.FullName,
-                    Type = type
+                    Type = type.ToString()
                 };
 
-                entities.Add(entityInfo);
+                entities.Add(entity);
             }
 
 

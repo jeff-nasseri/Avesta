@@ -2,11 +2,7 @@
 using Avesta.Controller;
 using Avesta.Graph.Service;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace Avesta.Graph.Controller
 {
@@ -25,10 +21,23 @@ namespace Avesta.Graph.Controller
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            var result = await _graphHierarchySrevice.GetHierarchyOfCurrentExecuteableApplication();
-            return View(result);
+            await Task.CompletedTask;
+            return Content("<h1>hello</h1>", "text/html; charset=UTF-8");
         }
+
+
+
+        [Route("graph.json")]
+        [HttpGet]
+        public async Task<string> GetGraphEntities()
+        {
+            var data = await _graphHierarchySrevice.GetHierarchyOfCurrentExecuteableApplication();
+            var result = JsonConvert.SerializeObject(data);
+            return result;
+        }
+
     }
+
 
 
 }

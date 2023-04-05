@@ -7,6 +7,8 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.RegisterAvestaGraph();
 
+builder.Services.RegisterAvestaGraph();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -7,16 +7,30 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Avesta.Constant\Avesta.Constant.csproj" />
-    <ProjectReference Include="..\..\src\Avesta.Graph\Avesta.Graph.csproj" />
-    <ProjectReference Include="..\..\src\Avesta.Repository\Avesta.Repository.csproj" />
-    <ProjectReference Include="..\..\src\Avesta.Seed\Avesta.Seed.csproj" />
-    <ProjectReference Include="..\..\src\Avesta.Services\Avesta.Services.csproj" />
-    <ProjectReference Include="..\..\src\Avesta.Share\Avesta.Share.csproj" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.Design" Version="1.1.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.9">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.9">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
+
+
 
   <ItemGroup>
     <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Avesta\Avesta.csproj" />
   </ItemGroup>
 
 </Project>
