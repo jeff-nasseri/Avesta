@@ -38,15 +38,17 @@ namespace Avesta.Graph.Service
                 var properties = type.GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.Static)?.Select(p => new PropertyInformation
                 {
                     Name = p.Name,
-                    Type = p.PropertyType.ToString(),
-                    FullName = p.Name
+                    TypeShowName = p.PropertyType.GetTypeShowName(),
+                    FullName = p.Name,
+                    TypeFullName = type.FullName,
                 }).ToList();
 
                 var entity = new EntityInformation(properties)
                 {
                     Name = type.Name,
                     FullName = type.FullName,
-                    Type = type.ToString()
+                    TypeShowName = type.GetTypeShowName(),
+                    TypeFullName = type.FullName
                 };
 
                 entities.Add(entity);
@@ -56,6 +58,26 @@ namespace Avesta.Graph.Service
             var result = new DataHierarchy(entities);
             return result;
 
+        }
+
+
+
+
+
+
+
+
+    }
+
+
+    public static class EX
+    {
+        public static string GetTypeShowName(this Type type)
+        {
+            var name = type.Name.Replace("`1", "");
+            var firstArg = type.GenericTypeArguments.FirstOrDefault()?.Name;
+            var result = string.IsNullOrEmpty(firstArg) ? $"{name}" : $"{name}({firstArg})";
+            return result;
         }
     }
 
