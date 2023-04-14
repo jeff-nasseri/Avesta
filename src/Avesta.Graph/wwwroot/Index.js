@@ -87,6 +87,14 @@ jsonViewer.showJSON(jsonObj);
 
 
 
+
+
+
+
+
+
+
+
 // set EVERY 'state' here so will undo ALL layout changes
 // used by the 'Reset State' button: myLayout.loadState( stateResetSettings )
 var stateResetSettings = {
@@ -172,6 +180,25 @@ $(document).ready(function () {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 class PropertyQuery {
     Query;
     QueryHTML;
@@ -246,25 +273,33 @@ function getQueryChooseSelectBox(name) {
 }
 
 
-function toggleOperator(elm){
+function toggleOperator(elm) {
     var value = $(elm).text()
-    if(value == "OR")
+    if (value == "OR")
         $(elm).text("AND")
-    if(value == "AND")
+    if (value == "AND")
         $(elm).text("OR")
 }
 
 function refreshMonitor(newQuery) {
     var id = $('#q-monitor-container').attr("current-query-id")
-    var q = `${newQuery} <a href='#' onclick='toggleOperator(this)'>OR</a> `
+    var q = `${newQuery} <a href='#' style='margin:20px' onclick='toggleOperator(this)'>OR</a> `
     var pQuery = getQueryById(id)
     pQuery.QueryHTML += q;
     var result = `${pQuery.QueryHTML} ${getQueryChooseSelectBox(pQuery.PropertyInformation.Name)}`
     $('#q-monitor-container').html(result)
 }
 
+
+function changeLinqValue(query, id) {
+    var value = $(`#input-${id}`).val()
+    $(`#span-${id}`).attr("linq-value", `${query} ${value}`)
+}
+
+
 let generateEqualQueryHTML = (name) => {
-    var body = `<span class="mt-3">${name} = <input /></span>`
+    var id = uuidv4();
+    var body = `<span id='span-${id}' linq-value='' class="mt-3">${name} = <input id='input-${id}' onkeyup="changeLinqValue('i.${name} = ', '${id}')" /></span>`
     refreshMonitor(body);
 }
 let generateContainsQueryHTML = (name) => {
@@ -289,8 +324,9 @@ let generateLowerThanOrEqualQueryHTML = (name) => {
 }
 
 
+function translateHTMLQueryToLinq(queryHTML) {
 
-
+}
 
 
 class BaseModel {
