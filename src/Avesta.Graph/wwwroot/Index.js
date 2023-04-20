@@ -237,6 +237,10 @@ let initNewQuery = (propertyInformation, id) => {
     })
     propertiesQuery.push(pq)
 }
+let updateQuery = (query, id) => {
+    q = getQueryById(id);
+    q.Query = query;
+}
 
 function showQueryManagerModal(id) {
     $(".bd-example-modal-lg").modal("show")
@@ -245,7 +249,6 @@ function showQueryManagerModal(id) {
 
 function monitoringQueryInfo(id) {
     var pQuery = getQueryById(id)
-    console.log(pQuery)
     var result = `${pQuery.QueryHTML} ${getQueryChooseSelectBox(pQuery.PropertyInformation.Name)}`
     $('#q-monitor-container').html(result)
     $('#q-monitor-container').attr("current-query-id", pQuery.Id)
@@ -275,15 +278,19 @@ function getQueryChooseSelectBox(name) {
 
 function toggleOperator(elm) {
     var value = $(elm).text()
-    if (value == "OR")
+    if (value == "OR") {
         $(elm).text("AND")
-    if (value == "AND")
+        $(elm).attr("linq-query", "&&")
+    }
+    if (value == "AND") {
         $(elm).text("OR")
+        $(elm).attr("linq-query", "||")
+    }
 }
 
-function refreshMonitor(newQuery) {
+function refreshMonitor(newQuery, operatorId) {
     var id = $('#q-monitor-container').attr("current-query-id")
-    var q = `${newQuery} <a href='#' style='margin:20px' onclick='toggleOperator(this)'>OR</a> `
+    var q = `${newQuery} <a id='operate-${operatorId}' href='#' style='margin:20px' linq-query='||' onclick='toggleOperator(this)'>OR</a> `
     var pQuery = getQueryById(id)
     pQuery.QueryHTML += q;
     var result = `${pQuery.QueryHTML} ${getQueryChooseSelectBox(pQuery.PropertyInformation.Name)}`
@@ -293,40 +300,61 @@ function refreshMonitor(newQuery) {
 
 function changeLinqValue(query, id) {
     var value = $(`#input-${id}`).val()
-    $(`#span-${id}`).attr("linq-value", `${query} ${value}`)
+    $(`#span-${id}`).attr("linq-value", query.replace("$TARGET", value))
+    initializeQueryForSpecificPropertyById()
+}
+
+
+function initializeQueryForSpecificPropertyById() {
+    var all_query = ''
+    var spans = $("[linq-value]")
+    Array.from(spans).forEach(s => {
+        var query = $(s).attr("linq-value")
+
+        var id = $(s).attr("id").replace("span-", "")
+
+        var operand = $(`#operate-${id}`).attr("linq-query")
+        all_query += ` ${query} ${operand}`
+    })
+
+    var id = $('#q-monitor-container').attr("current-query-id")
+    var pQuery = getQueryById(id)
+    pQuery.Query = all_query;
 }
 
 
 let generateEqualQueryHTML = (name) => {
     var id = uuidv4();
-    var body = `<span id='span-${id}' linq-value='' class="mt-3">${name} = <input id='input-${id}' onkeyup="changeLinqValue('i.${name} = ', '${id}')" /></span>`
-    refreshMonitor(body);
+    var body = `<span id='span-${id}' linq-value='' class="mt-3">${name} = <input id='input-${id}' onkeyup="changeLinqValue('i.${name} == $TARGET', '${id}')" /></span>`
+    refreshMonitor(body, id);
 }
 let generateContainsQueryHTML = (name) => {
-    var body = `<span class="mt-3">${name}.contains(<input />)</span>`
-    refreshMonitor(body);
+    var id = uuidv4();
+    var body = `<span id='span-${id}' linq-value='' class="mt-3">${name}.contains(<input id='input-${id}' onkeyup="changeLinqValue('i.${name}.Contains($TARGET) ', '${id}')" />)</span>`
+    refreshMonitor(body, id);
 }
 let generateGreaterThanQueryHTML = (name) => {
-    var body = `<span class="mt-3">${name} > <input /></span>`
-    refreshMonitor(body);
+    var id = uuidv4();
+    var body = `<span id='span-${id}' linq-value='' class="mt-3">${name} > <input id='input-${id}' onkeyup="changeLinqValue('i.${name} > $TARGET', '${id}')" /></span>`
+    refreshMonitor(body, id);
 }
 let generateLowerThanQueryHTML = (name) => {
-    var body = `<span class="mt-3">${name} < <input /></span>`
-    refreshMonitor(body);
+    var id = uuidv4();
+    var body = `<span id='span-${id}' linq-value='' class="mt-3">${name} < <input id='input-${id}' onkeyup="changeLinqValue('i.${name} < $TARGET ', '${id}')" /></span>`
+    refreshMonitor(body, id);
 }
 let generateGreaterThanOrEqualQueryHTML = (name) => {
-    var body = `<span class="mt-3">${name} >= <input /></span>`
-    refreshMonitor(body);
+    var id = uuidv4();
+    var body = `<span id='span-${id}' linq-value='' class="mt-3">${name} >= <input id='input-${id}' onkeyup="changeLinqValue('i.${name} >= $TARGET', '${id}')" /></span>`
+    refreshMonitor(body, id);
 }
 let generateLowerThanOrEqualQueryHTML = (name) => {
-    var body = `<span class="mt-3">${name} <= <input /></span>`
-    refreshMonitor(body);
+    var id = uuidv4();
+    var body = `<span id='span-${id}' linq-value='' class="mt-3">${name} <= <input id='input-${id}' onkeyup="changeLinqValue('i.${name} <= $TARGET ', '${id}')" /></span>`
+    refreshMonitor(body, id);
 }
 
 
-function translateHTMLQueryToLinq(queryHTML) {
-
-}
 
 
 class BaseModel {
@@ -441,7 +469,6 @@ function toggle() {
 function getConfig() {
     $.ajax('http://localhost:7194/avesta/graph/graph.json').done((response) => {
         var hierarchy = new DataHierarchy(JSON.parse(response));
-        console.log(hierarchy)
         var result = initHierarchy(hierarchy);
         $("#hierarchy-container").html(result)
         toggle();
@@ -498,3 +525,37 @@ function uuidv4() {
 }
 
 getConfig()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function removeLastInstance(badtext, str) {
+    var charpos = str.lastIndexOf(badtext);
+    if (charpos < 0) return str;
+    ptone = str.substring(0, charpos);
+    pttwo = str.substring(charpos + (badtext.length));
+    return (ptone + pttwo);
+}
