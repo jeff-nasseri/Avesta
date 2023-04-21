@@ -41,7 +41,7 @@
 
   <div class="ui-layout-center">
     <nav class="navbar navbar-expand-lg navbar-primary bg-light">
-      <button onclick="" class="btn btn-success m-3">Send Query</button>
+      <button onclick="sendQuery()" class="btn btn-success m-3">Send Query</button>
       <button onclick="toggleTypes()" class="btn btn-primary m-2">Toggle</button>
       <button onclick="" class="btn btn-info m-1">Query</button>
       <button onclick="" class="btn btn-danger m-1">Clear</button>
@@ -66,7 +66,7 @@
           </span>
 
         </div>
-        <div class="modal-footer" id="q-translator-container">
+        <div class="p-3" style="background-color: black;color: white;" id="q-translator-container" >
         </div>
       </div>
    
@@ -83,28 +83,6 @@
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
   </script>
   <script src="index.js"></script>
-
-
-
-  <script>
-    let queryData = `i=> i.Name == "Ali" && i.Age > 12 && (i.Person.Name.Contains("Reza") || i.Person.Age > 78) && i.Name == "Ali" &&
-      i.Age > 12 && (i.Person.Name.Contains("Reza") || i.Person.Age > 78) && i.Name == "Ali" && i.Age > 12 &&
-      (i.Person.Name.Contains("Reza") || i.Person.Age > 78) || i.Name == "Ali" && i.Age > 12 &&
-      (i.Person.Name.Contains("Reza") || i.Person.Age > 78)`
-
-
-    function colorize(data) {
-      data = data.replaceAll("==", "<span style='color:blue'>==</span>")
-      data = data.replaceAll("\"", "<span style='color:red'>\"</span>")
-      data = data.replaceAll("&&", "<span style='color:green'>&&</span>")
-      data = data.replaceAll("||", "<span style='color:pink'>||</span>")
-      return data;
-    }
-
-
-
-    $('#query-container').html(colorize(queryData))
-  </script>
 
 
 

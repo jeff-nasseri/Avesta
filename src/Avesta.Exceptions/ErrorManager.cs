@@ -37,6 +37,20 @@ namespace Avesta.Exceptions
 
         }
 
+
+        public static void LogExceptionToFile(string exceptionMsg, string exceptionStack, LogSeverity severity = LogSeverity.Verbose)
+        {
+            var code = -1;
+            var stack = (exceptionStack ?? "");
+            var message = (exceptionMsg ?? "");
+            var now = DateTime.UtcNow.ToString("yyyy/MM/dd HH:mm:ss");
+
+            var logMessage = $"[code : {code}] \n [message : {message}] \n stack trace : {stack}";
+
+            LogManager.ApplicationLogger.Log(logMessage, severity);
+
+        }
+
         /// <summary>
         /// use pattern error.code.{code}
         /// </summary>

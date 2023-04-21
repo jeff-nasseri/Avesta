@@ -18,14 +18,6 @@ namespace Avesta.Graph.Controller
         }
 
 
-        [HttpGet]
-        public async Task<IActionResult> Index()
-        {
-            await Task.CompletedTask;
-            return Content("<h1>hello</h1>", "text/html; charset=UTF-8");
-        }
-
-
 
         [Route("graph.json")]
         [HttpGet]

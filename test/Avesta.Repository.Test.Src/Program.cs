@@ -5,6 +5,7 @@ using Avesta.Repository.EntityRepository;
 using Avesta.Repository.Test.Src.Data.Context;
 using Avesta.Repository.Test.Src.Data.Model;
 using Avesta.Repository.Test.Src.Storage;
+using Avesta.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.EntityFrameworkCore.Migrations;

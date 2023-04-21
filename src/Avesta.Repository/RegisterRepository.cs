@@ -60,7 +60,7 @@ namespace Avesta.Repository
 
             List<Assembly> assemblies = new List<Assembly>();
             string assemblyFolder = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            var target = Assembly.LoadFrom(dllFullname);
+            var target = Assembly.LoadFrom(Path.Combine(assemblyFolder, dllFullname));
 
             var entityTypes = target.GetTypes()
                  .Where(TheType => TheType.IsClass

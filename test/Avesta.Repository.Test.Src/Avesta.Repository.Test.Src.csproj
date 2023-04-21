@@ -10,6 +10,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\src\Avesta.Data\Avesta.Data.csproj" />
     <ProjectReference Include="..\..\src\Avesta.Repository\Avesta.Repository.csproj" />
+    <ProjectReference Include="..\..\src\Avesta.Services\Avesta.Services.csproj" />
   </ItemGroup>
   
   <ItemGroup>
