@@ -2,8 +2,18 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+    <AssemblyName>Avesta.Graph</AssemblyName>
+    <BaseOutputPath>..\..\nuget</BaseOutputPath>
+    <GenerateDocumentationFile>False</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>Avesta Graph Component</Title>
+    <Authors>alireza-nasseri</Authors>
+    <Description>Graph Types And Low Level Classes For Avesta</Description>
+    <Copyright>MIT LICENSE</Copyright>
+    <PackageProjectUrl></PackageProjectUrl>
+    <RepositoryUrl>https://github.com/alireza-nasseri/Avesta</RepositoryUrl>
+    <PackageTags>Avesta;Avesta.Graph;Avesta.Framework</PackageTags>
+    <Version>1.0.325</Version>
   </PropertyGroup>
 
   <ItemGroup>
