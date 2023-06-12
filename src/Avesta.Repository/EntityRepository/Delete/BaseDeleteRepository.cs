@@ -93,7 +93,7 @@ namespace Avesta.Repository.EntityRepository.Delete
             if (exceptionRaiseIfNotExist && entity == null)
                 throw new CanNotFoundEntityException(id);
 
-            entity.DeletedDate = DateTime.UtcNow;
+            entity.SoftDelete();
             entity.ModifiedDate = DateTime.UtcNow;
 
             await base.SaveChanges();

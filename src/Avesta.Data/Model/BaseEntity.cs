@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using Microsoft.EntityFrameworkCore;
 
 namespace Avesta.Data.Model
 {
@@ -36,12 +37,16 @@ namespace Avesta.Data.Model
 
 
         public virtual DateTime? ModifiedDate { get; set; }
-        public virtual DateTime CreatedDate { get; set; }
-        public virtual DateTime? DeletedDate { get; set; }
+        public virtual DateTime CreatedDate { get; private set; }
+        public virtual DateTime? DeletedDate { get; private set; }
 
 
 
-        public override string ToString()
+
+        public virtual void SoftDelete() => DeletedDate = DateTime.UtcNow;
+
+
+        public virtual string Report()
         {
             var json = JsonConvert.SerializeObject(this);
             return json;
