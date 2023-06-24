@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\Avesta.Security.AES\Avesta.Security.AES.csproj" />
+    <ProjectReference Include="..\Avesta.Security.Attribute\Avesta.Security.Attribute.csproj" />
+    <ProjectReference Include="..\Avesta.Security.Model\Avesta.Security.Model.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+</Project>

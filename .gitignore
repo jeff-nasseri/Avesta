@@ -14,7 +14,8 @@
 .\TODO
 TODO
 .\TODO\*
-
+.\src\Avesta.Security
+.\src\Avesta.Security\*
 
 .\nuget\deploy.ps1
 nuget/*

@@ -10,7 +10,7 @@ namespace Avesta.Share.Model
 {
     public class BaseModel : BaseModel<string>
     {
-        public BaseModel()
+        public BaseModel() : base(Guid.NewGuid().ToString())
         {
         }
 
@@ -30,17 +30,21 @@ namespace Avesta.Share.Model
         {
             CreatedDate = createdDate;
         }
+        public BaseModel(T? id) : this(DateTime.UtcNow)
+        {
+            ID = id;
+        }
 
 
         /// <summary>
         /// current model or entity id with type of 'T'
         /// </summary>
         public virtual T? ID { get; set; }
-        public DateTime? ModifiedDate { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public DateTime? DeletedDate { get; set; }
+        public virtual DateTime? ModifiedDate { get; set; }
+        public virtual DateTime CreatedDate { get; set; }
+        public virtual DateTime? DeletedDate { get; set; }
 
-        public bool IsLock { get; set; } = false;
+        public virtual bool IsLock { get; set; } = false;
 
 
         public override string ToString()
@@ -54,6 +58,6 @@ namespace Avesta.Share.Model
     public abstract class Model
     {
     }
-  
-    
+
+
 }

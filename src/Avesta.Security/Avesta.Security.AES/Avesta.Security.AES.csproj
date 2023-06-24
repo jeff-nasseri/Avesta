@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Avesta.Share\Avesta.Share.csproj" />
+    <ProjectReference Include="..\Avesta.Security.Model\Avesta.Security.Model.csproj" />
+  </ItemGroup>
+
+</Project>
