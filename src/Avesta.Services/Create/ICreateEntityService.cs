@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Avesta.Data.Entity.Model;
-using Avesta.Repository.EntityRepository.Create;
 using Avesta.Share.Model;
 using System;
 using System.Collections.Generic;

@@ -28,6 +28,7 @@
     <ProjectReference Include="..\Avesta.CLI\Avesta.CLI.csproj" />
     <ProjectReference Include="..\Avesta.Constant\Avesta.Constant.csproj" />
     <ProjectReference Include="..\Avesta.Controller\Avesta.Controller.csproj" />
+    <ProjectReference Include="..\Avesta.Data\Avesta.Data.Entity\Avesta.Data.Entity.csproj" />
     <ProjectReference Include="..\Avesta.Data\Avesta.Data.IdentityCore\Avesta.Data.IdentityCore.csproj" />
     <ProjectReference Include="..\Avesta.Data\Avesta.Data.Identity\Avesta.Data.Identity.csproj" />
     <ProjectReference Include="..\Avesta.DependencyInjection\Avesta.DependencyInjection.csproj" />
@@ -40,7 +41,9 @@
     <ProjectReference Include="..\Avesta.Mapper\Avesta.Mapper.csproj" />
     <ProjectReference Include="..\Avesta.MiddleWare\Avesta.MiddleWare.csproj" />
     <ProjectReference Include="..\Avesta.Model\Avesta.Model.csproj" />
-    <ProjectReference Include="..\Avesta.Repository\Avesta.Repository.csproj" />
+    <ProjectReference Include="..\Avesta.Repository\Avesta.Repository.Entity\Avesta.Repository.Entity.csproj" />
+    <ProjectReference Include="..\Avesta.Repository\Avesta.Repository.IdentityCore\Avesta.Repository.IdentityCore.csproj" />
+    <ProjectReference Include="..\Avesta.Repository\Avesta.Repository.Identity\Avesta.Repository.Identity.csproj" />
     <ProjectReference Include="..\Avesta.Seed\Avesta.Seed.csproj" />
     <ProjectReference Include="..\Avesta.Services\Avesta.Services.csproj" />
     <ProjectReference Include="..\Avesta.Share\Avesta.Share.csproj" />

@@ -1,26 +1,11 @@
-﻿using Avesta.Data.Context;
+﻿
 using Avesta.Data.Entity.Context;
 using Avesta.Data.Entity.Model;
 using Avesta.Exceptions;
 using Avesta.Repository.EntityRepository;
-using Avesta.Repository.EntityRepositoryRepository;
-using Avesta.Repository.Identity;
 using Avesta.Seed.Extension;
 using Avesta.Seed.Model;
-using Avesta.Services;
 using Avesta.Share.Extensions;
-using Avesta.Share.Model;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Query.Internal;
-using Microsoft.Extensions.Logging;
-using MoreLinq.Extensions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Avesta.Seed.Entity.Service
 {

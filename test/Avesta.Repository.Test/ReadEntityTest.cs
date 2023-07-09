@@ -1,12 +1,9 @@
-﻿using Avesta.Data.Context;
-using Avesta.Data.Entity.Model;
-using Avesta.Repository.EntityRepository;
+﻿using Avesta.Data.Entity.Model;
 using Avesta.Repository.Test.Src.Data.Context;
 using Avesta.Repository.Test.Src.Data.Model;
 using Avesta.Repository.Test.Src.Storage;
 using NUnit.Framework.Internal;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel;
-using Avesta.Exceptions.Entity;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json.Bson;
 using System.Reflection;
@@ -15,6 +12,8 @@ using Microsoft.EntityFrameworkCore.Diagnostics;
 using Avesta.Share.Extensions;
 using Newtonsoft.Json;
 using Avesta.Data.Entity.Context;
+using Avesta.Repository.EntityRepository;
+using Avesta.Exceptions.Entity;
 
 namespace Avesta.Repository.Test
 {

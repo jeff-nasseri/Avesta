@@ -1,13 +1,13 @@
 ﻿using Avesta.Data.IdentityCore.Model;
 using Avesta.Data.Entity.Model;
 using Avesta.HTTP.JWT.Service;
-using Avesta.Repository.Identity;
 using Avesta.Share.Extensions;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using System.Linq.Expressions;
 using System.Security.Claims;
+using Avesta.Repository.IdentityCore;
 
 namespace Avesta.HTTP.Auth.Service
 {

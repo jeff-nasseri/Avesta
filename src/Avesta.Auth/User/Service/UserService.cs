@@ -2,11 +2,11 @@
 using Avesta.Data.IdentityCore.Model;
 using Avesta.Data.Entity.Model;
 using Avesta.Exceptions.Identity;
-using Avesta.Repository.Identity;
 using Avesta.Services;
 using Avesta.Share.Extensions;
 using Avesta.Share.Model.Identity;
 using Microsoft.AspNetCore.Identity;
+using Avesta.Repository.IdentityCore;
 
 namespace Avesta.Auth.User.Service
 {

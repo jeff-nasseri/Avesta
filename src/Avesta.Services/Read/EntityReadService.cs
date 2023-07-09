@@ -1,7 +1,5 @@
 ﻿using AutoMapper;
 using Avesta.Data.Entity.Model;
-using Avesta.Repository.EntityRepository.Read;
-using Avesta.Repository.Identity.Model;
 using Avesta.Share.Model;
 using Avesta.Constant;
 using MoreLinq;
@@ -13,6 +11,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using Avesta.Share.Utilities;
+using Avesta.Repository.EntityRepository.Read;
 
 namespace Avesta.Services.Read
 {

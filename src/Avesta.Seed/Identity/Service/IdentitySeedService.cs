@@ -1,6 +1,5 @@
 ﻿using Avesta.Data.IdentityCore.Model;
 using Avesta.Data.Entity.Model;
-using Avesta.Repository.Identity;
 using Avesta.Seed.Identity.Model;
 using Microsoft.AspNetCore.Identity;
 using System;
@@ -8,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Avesta.Repository.IdentityCore;
 
 namespace Avesta.Seed.Identity.Service
 {

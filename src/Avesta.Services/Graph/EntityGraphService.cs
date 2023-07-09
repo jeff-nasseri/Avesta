@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Avesta.Data.Entity.Model;
-using Avesta.Repository.EntityRepository.Graph;
 using Avesta.Share.Model;
 using Avesta.Constant;
 using System;
@@ -9,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Avesta.Services;
+using Avesta.Repository.EntityRepository.Graph;
 
 namespace Avesta.Services.Graph
 {

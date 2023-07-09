@@ -2,8 +2,6 @@
 using AutoMapper;
 using Microsoft.Extensions.Configuration;
 using System.Security.Claims;
-using Avesta.Data.IdentityCore;
-using Avesta.Repository.Identity;
 using Avesta.Auth.Authentication.ViewModel;
 using Avesta.Exceptions.Identity;
 using Avesta.Constant;
@@ -12,6 +10,7 @@ using Avesta.Share.Model.Identity;
 using Avesta.HTTP.JWT.Model;
 using Avesta.HTTP.JWT.Service;
 using Avesta.Data.IdentityCore.Model;
+using Avesta.Repository.IdentityCore;
 
 namespace Avesta.Auth.Authentication.Service
 {

@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Avesta.Data\Avesta.Data.Entity\Avesta.Data.Entity.csproj" />
+    <ProjectReference Include="..\..\Avesta.Share\Avesta.Share.csproj" />
+    <ProjectReference Include="..\..\Avesta.Exceptions\Avesta.Exceptions.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.DynamicLinq" Version="6.2.22" />
+    <PackageReference Include="System.Linq.Dynamic.Core" Version="1.2.22" />
+    <PackageReference Include="Z.EntityFramework.Classic.DynamicLinq" Version="1.2.22" />
+
+  </ItemGroup>
+
+
+</Project>

@@ -29,7 +29,7 @@ namespace Avesta.Repository.Test.Src
 
             Builder = new ServiceCollection()
                  .AddDbContext<ApplicationDbContext>()
-                 .RegisterRepository<string, ApplicationDbContext>(Assembly.GetExecutingAssembly().ManifestModule.Name)
+                 //.RegisterRepository<string, ApplicationDbContext>(Assembly.GetExecutingAssembly().ManifestModule.Name)
                  .BuildServiceProvider();
 
 

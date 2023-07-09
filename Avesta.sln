@@ -11,8 +11,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avesta.Services", "src\Aves
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avesta.Seed", "src\Avesta.Seed\Avesta.Seed.csproj", "{61D86D29-7F0F-49D5-95F9-FA2B8235A3EC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avesta.Repository", "src\Avesta.Repository\Avesta.Repository.csproj", "{E646841C-72DF-4F0F-BCB1-B1D321CA35BC}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avesta.Model", "src\Avesta.Model\Avesta.Model.csproj", "{1AC36A5A-8CCA-4E8A-AB64-7C7F9D68EBCB}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avesta.MiddleWare", "src\Avesta.MiddleWare\Avesta.MiddleWare.csproj", "{AB823F6A-BEC7-40A4-A8A9-E082C1033F37}"
@@ -91,6 +89,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avesta.Data.Identity", "src
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avesta.Data.Entity", "src\Avesta.Data\Avesta.Data.Entity\Avesta.Data.Entity.csproj", "{623DCC62-5E5B-438D-A420-56E815685132}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Avesta.Repository", "Avesta.Repository", "{7926E684-2814-4BA2-B30F-B552FA5C5E44}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avesta.Repository.IdentityCore", "src\Avesta.Repository\Avesta.Repository.IdentityCore\Avesta.Repository.IdentityCore.csproj", "{93AC58EE-3D08-4D85-90A8-75B4602BD06E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avesta.Repository.Identity", "src\Avesta.Repository\Avesta.Repository.Identity\Avesta.Repository.Identity.csproj", "{998FC0EC-3A58-4A81-89CA-500CD0FEEA14}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avesta.Repository.Entity", "src\Avesta.Repository\Avesta.Repository.Entity\Avesta.Repository.Entity.csproj", "{8323DABD-D671-4060-A425-8BF388244261}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -113,10 +119,6 @@ Global
 		{61D86D29-7F0F-49D5-95F9-FA2B8235A3EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61D86D29-7F0F-49D5-95F9-FA2B8235A3EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61D86D29-7F0F-49D5-95F9-FA2B8235A3EC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E646841C-72DF-4F0F-BCB1-B1D321CA35BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E646841C-72DF-4F0F-BCB1-B1D321CA35BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E646841C-72DF-4F0F-BCB1-B1D321CA35BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E646841C-72DF-4F0F-BCB1-B1D321CA35BC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1AC36A5A-8CCA-4E8A-AB64-7C7F9D68EBCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1AC36A5A-8CCA-4E8A-AB64-7C7F9D68EBCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1AC36A5A-8CCA-4E8A-AB64-7C7F9D68EBCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -229,6 +231,18 @@ Global
 		{623DCC62-5E5B-438D-A420-56E815685132}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{623DCC62-5E5B-438D-A420-56E815685132}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{623DCC62-5E5B-438D-A420-56E815685132}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93AC58EE-3D08-4D85-90A8-75B4602BD06E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93AC58EE-3D08-4D85-90A8-75B4602BD06E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93AC58EE-3D08-4D85-90A8-75B4602BD06E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93AC58EE-3D08-4D85-90A8-75B4602BD06E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{998FC0EC-3A58-4A81-89CA-500CD0FEEA14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{998FC0EC-3A58-4A81-89CA-500CD0FEEA14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{998FC0EC-3A58-4A81-89CA-500CD0FEEA14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{998FC0EC-3A58-4A81-89CA-500CD0FEEA14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8323DABD-D671-4060-A425-8BF388244261}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8323DABD-D671-4060-A425-8BF388244261}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8323DABD-D671-4060-A425-8BF388244261}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8323DABD-D671-4060-A425-8BF388244261}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -246,6 +260,9 @@ Global
 		{25D6FFA4-001B-4B16-8F3A-D38276199B5D} = {295A1A72-46B6-4B5D-B5B7-A21A4E5BC8B8}
 		{ACBBB2E5-6985-4C52-8648-6823908695A6} = {295A1A72-46B6-4B5D-B5B7-A21A4E5BC8B8}
 		{623DCC62-5E5B-438D-A420-56E815685132} = {295A1A72-46B6-4B5D-B5B7-A21A4E5BC8B8}
+		{93AC58EE-3D08-4D85-90A8-75B4602BD06E} = {7926E684-2814-4BA2-B30F-B552FA5C5E44}
+		{998FC0EC-3A58-4A81-89CA-500CD0FEEA14} = {7926E684-2814-4BA2-B30F-B552FA5C5E44}
+		{8323DABD-D671-4060-A425-8BF388244261} = {7926E684-2814-4BA2-B30F-B552FA5C5E44}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8259D7C8-8DB5-4A11-B128-83667EF52388}

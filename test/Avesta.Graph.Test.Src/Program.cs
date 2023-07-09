@@ -24,9 +24,9 @@ namespace Avesta.Graph.Test.Src
             builder.Services.AddControllersWithViews();
             builder.Services.RegisterAvestaGraph();
             builder.Services.AddDbContext<ApplicationDbContext>();
-            builder.Services.RegisterRepository<string, ApplicationDbContext>(Assembly.GetExecutingAssembly().ManifestModule.Name);
+            //builder.Services.RegisterRepository<string, ApplicationDbContext>(Assembly.GetExecutingAssembly().ManifestModule.Name);
             builder.Services.RegisterService<string>(Assembly.GetExecutingAssembly().ManifestModule.Name);
-            builder.Services.RegisterRepository<string, ApplicationDbContext>(Assembly.GetExecutingAssembly().ManifestModule.Name);
+            //builder.Services.RegisterRepository<string, ApplicationDbContext>(Assembly.GetExecutingAssembly().ManifestModule.Name);
 
 
 

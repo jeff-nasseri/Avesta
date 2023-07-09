@@ -1,7 +1,5 @@
 ﻿using Avesta.Data.Entity.Model;
-using Avesta.Exceptions.Identity;
 using Avesta.HTTP.JWT.Model;
-using Avesta.Repository.Identity;
 using Avesta.Constant;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
@@ -11,6 +9,8 @@ using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using Avesta.Data.IdentityCore.Model;
+using Avesta.Repository.IdentityCore;
+using Avesta.Exceptions.Identity;
 
 namespace Avesta.HTTP.JWT.Service
 {

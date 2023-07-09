@@ -1,22 +1,11 @@
-﻿using Avesta.Data.Context;
+﻿
 using Avesta.Data.Entity.Model;
-using Avesta.Repository.EntityRepository.Availability;
-using Avesta.Repository.EntityRepository.Create;
-using Avesta.Repository.EntityRepository.Delete;
-using Avesta.Repository.EntityRepository.Graph;
-using Avesta.Repository.EntityRepository.Read;
-using Avesta.Repository.EntityRepository.Update;
-using Avesta.Repository.EntityRepository;
-using Avesta.Repository.EntityRepositoryRepository;
-using Avesta.Repository;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using Avesta.Services.Graph;
 
 namespace Avesta.Services

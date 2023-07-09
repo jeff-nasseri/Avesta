@@ -2,20 +2,16 @@
 using Avesta.Auth.Authentication.Service;
 using Avesta.Auth.Authorize.Service;
 using Avesta.Auth.User.Service;
-using Avesta.Data.Context;
 using Avesta.Data.Identity.Model;
 using Avesta.Data.IdentityCore.Model;
-using Avesta.Data.Entity.Model;
 using Avesta.HTTP.Auth.Service;
 using Avesta.HTTP.JWT.Model;
 using Avesta.HTTP.JWT.Service;
-using Avesta.Repository;
-using Avesta.Repository.EntityRepository;
-using Avesta.Repository.EntityRepositoryRepository;
-using Avesta.Repository.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using Avesta.Data.Entity.Context;
+using Avesta.Repository.IdentityCore;
+using Avesta.Repository.Entity;
 
 namespace Avesta.Auth
 {
