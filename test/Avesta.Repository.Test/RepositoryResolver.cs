@@ -1,5 +1,6 @@
 ﻿using Avesta.Data.Context;
-using Avesta.Data.Model;
+using Avesta.Data.Entity.Context;
+using Avesta.Data.Entity.Model;
 using Avesta.Repository.EntityRepository;
 using Avesta.Repository.Test.Src;
 using Microsoft.Extensions.DependencyInjection;

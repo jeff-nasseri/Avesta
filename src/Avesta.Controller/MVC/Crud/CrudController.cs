@@ -1,6 +1,6 @@
 ﻿using Avesta.Attribute.Controller;
 using Avesta.Constant;
-using Avesta.Data.Model;
+using Avesta.Data.Entity.Model;
 using Avesta.Exceptions;
 using Avesta.Services;
 using Avesta.Share.Model;

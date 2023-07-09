@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Avesta.Data.Model;
+using Avesta.Data.Entity.Model;
 using Avesta.Share.Model;
 using Microsoft.Extensions.DependencyInjection;
 

@@ -1,5 +1,6 @@
 ﻿using Avesta.Data.Context;
-using Avesta.Data.Model;
+using Avesta.Data.Entity.Context;
+using Avesta.Data.Entity.Model;
 using Avesta.Exceptions.Entity;
 using Avesta.Repository.EntityRepositoryRepository;
 using System;

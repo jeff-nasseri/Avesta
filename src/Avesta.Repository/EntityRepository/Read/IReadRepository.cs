@@ -1,4 +1,4 @@
-﻿using Avesta.Data.Model;
+﻿using Avesta.Data.Entity.Model;
 using Avesta.Constant;
 using MoreLinq;
 using System;

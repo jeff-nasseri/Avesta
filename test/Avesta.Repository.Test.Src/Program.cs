@@ -1,6 +1,4 @@
-﻿using Avesta.Data.Context;
-using Avesta.Data.Model;
-using Avesta.Repository;
+﻿using Avesta.Repository;
 using Avesta.Repository.EntityRepository;
 using Avesta.Repository.Test.Src.Data.Context;
 using Avesta.Repository.Test.Src.Data.Model;

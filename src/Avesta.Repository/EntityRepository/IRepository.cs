@@ -1,4 +1,4 @@
-﻿using Avesta.Data.Model;
+﻿using Avesta.Data.Entity.Model;
 using Avesta.Repository.EntityRepository.Availability;
 using Avesta.Repository.EntityRepository.Create;
 using Avesta.Repository.EntityRepository.Delete;

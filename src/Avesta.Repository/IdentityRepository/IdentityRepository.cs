@@ -10,8 +10,9 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
-using Avesta.Data.Model;
+using Avesta.Data.Entity.Model;
 using Avesta.Share.Model.Identity;
+using Avesta.Data.IdentityCore.Model;
 
 namespace Avesta.Repository.Identity
 {

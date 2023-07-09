@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using Avesta.Auth.Authorize.Model.UserAuthorizeGroup;
-using Avesta.Data.Model;
+using Avesta.Data.Identity.Model;
+using Avesta.Data.IdentityCore.Model;
+using Avesta.Data.Entity.Model;
 using Avesta.Repository.EntityRepository;
 using Avesta.Services;
 using Avesta.Services.Availability;

@@ -1,7 +1,7 @@
 ﻿using Avesta.Auth.Authorize.Model.AuthorizeGroup;
 using Avesta.Auth.Authorize.Model.UserAuthorizeGroup;
 using Avesta.Auth.Authorize.Service;
-using Avesta.Data.Model;
+using Avesta.Data.Entity.Model;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -10,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using UserAuthorizeGroupEndPointController = Avesta.Constant.EndPoints.Auth.UserAuthorizeGroupController;
 using RouteAttribute = Microsoft.AspNetCore.Mvc.RouteAttribute;
+using Avesta.Data.Identity.Model;
+using Avesta.Data.IdentityCore.Model;
 
 namespace Avesta.Controller.API.Auth
 {

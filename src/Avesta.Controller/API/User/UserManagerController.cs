@@ -1,5 +1,6 @@
 ﻿using Avesta.Auth.User.Service;
-using Avesta.Data.Model;
+using Avesta.Data.IdentityCore.Model;
+using Avesta.Data.Entity.Model;
 using Avesta.Share.Model.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;

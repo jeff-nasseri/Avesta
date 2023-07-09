@@ -1,5 +1,6 @@
 ﻿using Avesta.Auth.Authentication.ViewModel;
-using Avesta.Data.Model;
+using Avesta.Data.IdentityCore.Model;
+using Avesta.Data.Entity.Model;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Avesta.Auth.Authentication.Config

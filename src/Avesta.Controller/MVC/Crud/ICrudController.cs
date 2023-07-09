@@ -2,7 +2,7 @@
 using Avesta.Controller.MVC.Crud.Delete;
 using Avesta.Controller.MVC.Crud.Read;
 using Avesta.Controller.MVC.Crud.Update;
-using Avesta.Data.Model;
+using Avesta.Data.Entity.Model;
 using Avesta.Share.Model;
 
 namespace Avesta.Controller.MVC.Crud

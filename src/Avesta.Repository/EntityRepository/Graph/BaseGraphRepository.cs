@@ -1,5 +1,5 @@
 ﻿using Avesta.Data.Context;
-using Avesta.Data.Model;
+using Avesta.Data.Entity.Model;
 using Avesta.Repository.EntityRepositoryRepository;
 using Avesta.Share.Utilities;
 using Microsoft.EntityFrameworkCore;
@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Linq.Dynamic.Core;
 using Avesta.Constant;
+using Avesta.Data.Entity.Context;
 
 namespace Avesta.Repository.EntityRepository.Graph
 {

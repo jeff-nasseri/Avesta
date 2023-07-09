@@ -5,7 +5,7 @@ using Avesta.Constant;
 using Avesta.Controller;
 using Avesta.Controller.API;
 using Avesta.Controller.MVC;
-using Avesta.Data.Model;
+using Avesta.Data.Entity.Model;
 using Avesta.Exceptions;
 using Avesta.Services.Graph;
 using Avesta.Share.Extensions;

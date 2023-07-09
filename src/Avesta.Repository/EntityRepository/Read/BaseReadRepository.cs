@@ -1,6 +1,6 @@
 ﻿using AutoMapper.Execution;
 using Avesta.Data.Context;
-using Avesta.Data.Model;
+using Avesta.Data.Entity.Model;
 using Avesta.Exceptions.Entity;
 using Avesta.Repository.EntityRepositoryRepository;
 using Avesta.Share.Extensions;
@@ -16,6 +16,7 @@ using System.Linq.Dynamic.Core.Tokenizer;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using System.Reflection;
+using Avesta.Data.Entity.Context;
 
 namespace Avesta.Repository.EntityRepository.Read
 {

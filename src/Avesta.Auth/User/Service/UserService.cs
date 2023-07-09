@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
-using Avesta.Data.Model;
+using Avesta.Data.IdentityCore.Model;
+using Avesta.Data.Entity.Model;
 using Avesta.Exceptions.Identity;
 using Avesta.Repository.Identity;
 using Avesta.Services;

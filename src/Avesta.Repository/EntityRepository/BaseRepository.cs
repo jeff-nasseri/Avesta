@@ -1,4 +1,4 @@
-﻿using Avesta.Data.Model;
+﻿using Avesta.Data.Entity.Model;
 using Avesta.Exceptions.Entity;
 using Avesta.Exceptions.Reflection;
 using Avesta.Share.Extensions;
@@ -21,6 +21,7 @@ using Avesta.Repository.EntityRepository.Delete;
 using System.Threading;
 using Avesta.Constant;
 using Avesta.Share.Utilities;
+using Avesta.Data.Entity.Context;
 
 namespace Avesta.Repository.EntityRepositoryRepository
 {

@@ -1,5 +1,6 @@
 ﻿using Avesta.Data.Context;
-using Avesta.Data.Model;
+using Avesta.Data.Entity.Context;
+using Avesta.Data.Entity.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;

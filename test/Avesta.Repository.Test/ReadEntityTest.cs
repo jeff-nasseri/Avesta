@@ -1,5 +1,5 @@
 ﻿using Avesta.Data.Context;
-using Avesta.Data.Model;
+using Avesta.Data.Entity.Model;
 using Avesta.Repository.EntityRepository;
 using Avesta.Repository.Test.Src.Data.Context;
 using Avesta.Repository.Test.Src.Data.Model;
@@ -14,6 +14,7 @@ using Newtonsoft.Json.Linq;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Avesta.Share.Extensions;
 using Newtonsoft.Json;
+using Avesta.Data.Entity.Context;
 
 namespace Avesta.Repository.Test
 {

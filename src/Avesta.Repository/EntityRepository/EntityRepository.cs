@@ -1,5 +1,5 @@
 ﻿using Avesta.Data.Context;
-using Avesta.Data.Model;
+using Avesta.Data.Entity.Model;
 using Avesta.Repository.EntityRepository;
 using Avesta.Repository.EntityRepository.Availability;
 using Avesta.Repository.EntityRepository.Create;
@@ -17,6 +17,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using Avesta.Data.Entity.Context;
 
 namespace Avesta.Repository.EntityRepositoryRepository
 {

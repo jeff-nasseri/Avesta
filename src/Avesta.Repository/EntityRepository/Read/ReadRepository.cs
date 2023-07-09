@@ -1,5 +1,5 @@
 ﻿using Avesta.Data.Context;
-using Avesta.Data.Model;
+using Avesta.Data.Entity.Model;
 using Avesta.Exceptions.Entity;
 using Avesta.Share.Utilities;
 using Avesta.Constant;
@@ -11,6 +11,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using Avesta.Data.Entity.Context;
 
 namespace Avesta.Repository.EntityRepository.Read
 {

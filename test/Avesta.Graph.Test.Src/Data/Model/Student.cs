@@ -1,4 +1,4 @@
-﻿using Avesta.Data.Model;
+﻿using Avesta.Data.Entity.Model;
 using Avesta.Graph.Test.Src.Share.Enum;
 using System;
 using System.Collections.Generic;

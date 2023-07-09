@@ -1,4 +1,4 @@
-﻿using Avesta.Data.Model;
+﻿using Avesta.Data.Entity.Model;
 using Avesta.Exceptions.Identity;
 using Avesta.HTTP.JWT.Model;
 using Avesta.Repository.Identity;
@@ -10,6 +10,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
+using Avesta.Data.IdentityCore.Model;
 
 namespace Avesta.HTTP.JWT.Service
 {

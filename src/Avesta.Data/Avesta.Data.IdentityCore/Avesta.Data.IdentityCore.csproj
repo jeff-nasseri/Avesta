@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Avesta.Share\Avesta.Share.csproj" />
+    <ProjectReference Include="..\Avesta.Data.Entity\Avesta.Data.Entity.csproj" />
+    <ProjectReference Include="..\Avesta.Data.Identity\Avesta.Data.Identity.csproj" />
+    
+  </ItemGroup>
+
+</Project>

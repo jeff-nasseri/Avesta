@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 using Avesta.Share.Model.Attribute.Authorization;
-using Avesta.Data.Model;
+using Avesta.Data.Entity.Model;
 using Avesta.HTTP.Auth.Service;
 using Microsoft.AspNetCore.Identity;
 using Avesta.Share.Enum;
@@ -12,6 +12,7 @@ using Avesta.Constant.Auth.JWT;
 using Newtonsoft.Json;
 using System.Text.RegularExpressions;
 using Avesta.Exceptions.Identity;
+using Avesta.Data.IdentityCore.Model;
 
 namespace Avesta.Attribute.Authorize
 {

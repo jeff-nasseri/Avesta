@@ -1,11 +1,6 @@
-﻿using Avesta.Data.Context;
-using Avesta.Repository.Test.Src.Data.Model;
+﻿using Avesta.Repository.Test.Src.Data.Model;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Avesta.Data.Entity.Context;
 
 namespace Avesta.Repository.Test.Src.Data.Context
 {

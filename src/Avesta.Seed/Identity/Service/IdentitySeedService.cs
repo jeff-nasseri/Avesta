@@ -1,4 +1,5 @@
-﻿using Avesta.Data.Model;
+﻿using Avesta.Data.IdentityCore.Model;
+using Avesta.Data.Entity.Model;
 using Avesta.Repository.Identity;
 using Avesta.Seed.Identity.Model;
 using Microsoft.AspNetCore.Identity;

@@ -1,6 +1,8 @@
 ﻿using Avesta.Auth.Authorize.Model.AuthorizeGroup;
 using Avesta.Auth.Authorize.Service;
-using Avesta.Data.Model;
+using Avesta.Data.Identity.Model;
+using Avesta.Data.IdentityCore.Model;
+using Avesta.Data.Entity.Model;
 
 namespace Avesta.Controller.API.Auth
 {

@@ -1,5 +1,5 @@
 ﻿using Avesta.Constant;
-using Avesta.Data.Model;
+using Avesta.Data.Entity.Model;
 using Avesta.Share.Model;
 using Microsoft.AspNetCore.Mvc;
 using System;

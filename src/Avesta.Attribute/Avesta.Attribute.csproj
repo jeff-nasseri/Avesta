@@ -30,7 +30,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Avesta.Constant\Avesta.Constant.csproj" />
-    <ProjectReference Include="..\Avesta.Data\Avesta.Data.csproj" />
     <ProjectReference Include="..\Avesta.HTTP\Avesta.HTTP.csproj" />
     <ProjectReference Include="..\Avesta.Language\Avesta.Language.csproj" />
     <ProjectReference Include="..\Avesta.Share\Avesta.Share.csproj" />

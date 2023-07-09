@@ -1,4 +1,4 @@
-﻿using Avesta.Data.Model;
+﻿using Avesta.Data.Entity.Model;
 using Avesta.Repository.Test.Src.Data.Model;
 using Avesta.Repository.Test.Src.Share.Enum;
 using Newtonsoft.Json;

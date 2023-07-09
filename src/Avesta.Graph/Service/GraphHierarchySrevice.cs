@@ -1,4 +1,4 @@
-﻿using Avesta.Data.Model;
+﻿using Avesta.Data.Entity.Model;
 using Avesta.Graph.Controller;
 using Avesta.Graph.Model;
 using Avesta.Share.Extensions;
