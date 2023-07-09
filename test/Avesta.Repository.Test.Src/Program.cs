@@ -1,17 +1,7 @@
-﻿using Avesta.Repository;
-using Avesta.Repository.EntityRepository;
-using Avesta.Repository.Test.Src.Data.Context;
-using Avesta.Repository.Test.Src.Data.Model;
+﻿using Avesta.Repository.Test.Src.Data.Context;
 using Avesta.Repository.Test.Src.Storage;
-using Avesta.Services;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Design;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.Extensions.DependencyInjection;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Entity;
-using System.Reflection;
-using static System.Net.Mime.MediaTypeNames;
 
 
 namespace Avesta.Repository.Test.Src

@@ -11,7 +11,6 @@
     <ProjectReference Include="..\..\src\Avesta.Data\Avesta.Data.Entity\Avesta.Data.Entity.csproj" />
     <ProjectReference Include="..\..\src\Avesta.Repository\Avesta.Repository.Entity\Avesta.Repository.Entity.csproj" />
     <ProjectReference Include="..\..\src\Avesta.Repository\Avesta.Repository.IdentityCore\Avesta.Repository.IdentityCore.csproj" />
-    <ProjectReference Include="..\..\src\Avesta.Services\Avesta.Services.csproj" />
   </ItemGroup>
   
   <ItemGroup>

@@ -37,7 +37,7 @@
     <ProjectReference Include="..\Avesta.HTTP\Avesta.HTTP.csproj" />
     <ProjectReference Include="..\Avesta.Repository\Avesta.Repository.Entity\Avesta.Repository.Entity.csproj" />
     <ProjectReference Include="..\Avesta.Repository\Avesta.Repository.IdentityCore\Avesta.Repository.IdentityCore.csproj" />
-    <ProjectReference Include="..\Avesta.Services\Avesta.Services.csproj" />
+    <ProjectReference Include="..\Avesta.Service\Avesta.Service.Entity\Avesta.Service.Entity.csproj" />
     <ProjectReference Include="..\Avesta.Share\Avesta.Share.csproj" />
   </ItemGroup>
 

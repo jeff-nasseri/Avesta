@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Avesta.Data\Avesta.Data.Entity\Avesta.Data.Entity.csproj" />
+    <ProjectReference Include="..\..\Avesta.Model\Avesta.Model.csproj" />
+    <ProjectReference Include="..\..\Avesta.Repository\Avesta.Repository.Entity\Avesta.Repository.Entity.csproj" />
+    <ProjectReference Include="..\..\Avesta.Share\Avesta.Share.csproj" />
+  </ItemGroup>
+
+
+</Project>

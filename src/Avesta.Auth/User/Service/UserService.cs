@@ -2,7 +2,6 @@
 using Avesta.Data.IdentityCore.Model;
 using Avesta.Data.Entity.Model;
 using Avesta.Exceptions.Identity;
-using Avesta.Services;
 using Avesta.Share.Extensions;
 using Avesta.Share.Model.Identity;
 using Microsoft.AspNetCore.Identity;
@@ -22,7 +21,7 @@ namespace Avesta.Auth.User.Service
     }
 
 
-    public class UserService<TAvestaUser, TRole> : IdentityService<TAvestaUser>, IUserService<TAvestaUser>
+    public class UserService<TAvestaUser, TRole> : IUserService<TAvestaUser>
         where TAvestaUser : AvestaUser
         where TRole : IdentityRole
     {

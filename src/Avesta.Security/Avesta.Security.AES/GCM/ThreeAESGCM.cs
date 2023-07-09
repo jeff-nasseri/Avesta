@@ -127,7 +127,10 @@ namespace Avesta.Security.AES.GCM
 
 
 
-        public static void Show(IEnumerable<TreeAESGCMModel> models)
+        /// <summary>
+        /// get json for create a basic html page
+        /// </summary>
+        public static string Show(IEnumerable<TreeAESGCMModel> models)
         {
             throw new NotImplementedException();
         }

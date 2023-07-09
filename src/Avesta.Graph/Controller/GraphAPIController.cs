@@ -1,16 +1,10 @@
 ﻿using Avesta.Attribute.Controller;
-using Avesta.Attribute.Graph;
 using Avesta.Attribute.Qraph;
 using Avesta.Constant;
-using Avesta.Controller;
 using Avesta.Controller.API;
-using Avesta.Controller.MVC;
 using Avesta.Data.Entity.Model;
 using Avesta.Exceptions;
-using Avesta.Services.Graph;
-using Avesta.Share.Extensions;
-using Avesta.Share.Model;
-using Microsoft.AspNetCore.Http;
+using Avesta.Services.Entity.Graph;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using System;

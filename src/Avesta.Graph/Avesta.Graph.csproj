@@ -26,7 +26,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Avesta.Constant\Avesta.Constant.csproj" />
     <ProjectReference Include="..\Avesta.Controller\Avesta.Controller.csproj" />
-    <ProjectReference Include="..\Avesta.Services\Avesta.Services.csproj" />
     <ProjectReference Include="..\Avesta.Share\Avesta.Share.csproj" />
   </ItemGroup>
 

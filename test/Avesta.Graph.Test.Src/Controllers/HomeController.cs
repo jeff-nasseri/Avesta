@@ -1,8 +1,4 @@
-﻿using Avesta.Graph.Controller;
-using Avesta.Graph.Test.Src.Data.Model;
-using Avesta.Services.Graph;
-using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace Avesta.Graph.Test.Src.Controllers;
 

@@ -19,8 +19,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Avesta.Data\Avesta.Data.IdentityCore\Avesta.Data.IdentityCore.csproj" />
     <ProjectReference Include="..\Avesta.Repository\Avesta.Repository.Entity\Avesta.Repository.Entity.csproj" />
-    <ProjectReference Include="..\Avesta.Services\Avesta.Services.csproj" />
+    <ProjectReference Include="..\Avesta.Repository\Avesta.Repository.IdentityCore\Avesta.Repository.IdentityCore.csproj" />
     <ProjectReference Include="..\Avesta.Share\Avesta.Share.csproj" />
     <ProjectReference Include="..\Avesta.Storage\Avesta.Storage.csproj" />
   </ItemGroup>

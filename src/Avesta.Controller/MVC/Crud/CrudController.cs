@@ -3,6 +3,7 @@ using Avesta.Constant;
 using Avesta.Data.Entity.Model;
 using Avesta.Exceptions;
 using Avesta.Services;
+using Avesta.Services.Entity;
 using Avesta.Share.Model;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;

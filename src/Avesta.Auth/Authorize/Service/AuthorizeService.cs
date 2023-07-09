@@ -3,12 +3,13 @@ using Avesta.Data.Identity.Model;
 using Avesta.Data.IdentityCore.Model;
 using Avesta.Data.Entity.Model;
 using Avesta.Services;
-using Avesta.Services.Availability;
-using Avesta.Services.Create;
-using Avesta.Services.Delete;
-using Avesta.Services.Graph;
-using Avesta.Services.Read;
-using Avesta.Services.Update;
+using Avesta.Services.Entity.Availability;
+using Avesta.Services.Entity.Create;
+using Avesta.Services.Entity.Delete;
+using Avesta.Services.Entity.Graph;
+using Avesta.Services.Entity.Read;
+using Avesta.Services.Entity.Update;
+using Avesta.Services.Entity;
 
 namespace Avesta.Auth.Authorize.Service
 {
