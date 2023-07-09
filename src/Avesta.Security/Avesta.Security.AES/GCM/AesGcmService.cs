@@ -18,7 +18,7 @@ namespace Avesta.Security.AES.GCM
             // Derive key
             // AES key size is 16 bytes
             // We use a fixed salt and small iteration count here; the latter should be increased for weaker passwords
-            byte[] key = new Rfc2898DeriveBytes(password + "My_Fucking_Signature", new byte[8], 1000, HashAlgorithmName.SHA256).GetBytes(16);
+            byte[] key = new Rfc2898DeriveBytes(password + "**********", new byte[8], 1000, HashAlgorithmName.SHA256).GetBytes(16);
 
             // Initialize AES implementation
             _aes = new AesGcm(key);
