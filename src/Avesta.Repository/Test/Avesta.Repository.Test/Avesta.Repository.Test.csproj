@@ -26,8 +26,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Avesta.Data\Avesta.Data.Entity\Avesta.Data.Entity.csproj" />
-    <ProjectReference Include="..\..\src\Avesta.Repository\Avesta.Repository.Entity\Avesta.Repository.Entity.csproj" />
+
+    <ProjectReference Include="..\..\..\Avesta.Data\Avesta.Data.Entity\Avesta.Data.Entity.csproj" />
+
+    <ProjectReference Include="..\..\Avesta.Repository.Entity\Avesta.Repository.Entity.csproj" />
+
     <ProjectReference Include="..\Avesta.Repository.Test.Src\Avesta.Repository.Test.Src.csproj" />
   </ItemGroup>
 

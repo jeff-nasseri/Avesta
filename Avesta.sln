@@ -55,9 +55,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{F84365A6-1B0C-4A92-8FAE-9E819605C654}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avesta.Repository.Test", "test\Avesta.Repository.Test\Avesta.Repository.Test.csproj", "{09E6971D-CC17-478B-A8DE-B5CF8EEB6423}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avesta.Repository.Test", "src\Avesta.Repository\Test\Avesta.Repository.Test\Avesta.Repository.Test.csproj", "{09E6971D-CC17-478B-A8DE-B5CF8EEB6423}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avesta.Repository.Test.Src", "test\Avesta.Repository.Test.Src\Avesta.Repository.Test.Src.csproj", "{B2530F7E-12B0-45AC-841D-2F3F5DD57633}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avesta.Repository.Test.Src", "src\Avesta.Repository\Test\Avesta.Repository.Test.Src\Avesta.Repository.Test.Src.csproj", "{B2530F7E-12B0-45AC-841D-2F3F5DD57633}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avesta.Constant", "src\Avesta.Constant\Avesta.Constant.csproj", "{8D245F92-FDE3-4D30-BBFE-30DA589ACE68}"
 EndProject
@@ -108,6 +108,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avesta.Controller.Entity.Base", "src\Avesta.Controller\Avesta.Controller.Entity\Avesta.Controller.Entity.Base\Avesta.Controller.Entity.Base.csproj", "{B36561F6-B108-454E-B074-FF34104C0156}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avesta.Controller.Entity.API", "src\Avesta.Controller\Avesta.Controller.Entity\Avesta.Controller.Entity.API\Avesta.Controller.Entity.API.csproj", "{24B87257-FA8A-4412-96E3-567B9069821A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{E3B17572-BE31-4E51-8FBE-6D59143EEC57}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -273,8 +275,8 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B45124D0-BFD9-4A92-8DAB-2CD5FECA2E6B} = {9EB69684-42E1-48E7-8D15-AE807D496C5B}
-		{09E6971D-CC17-478B-A8DE-B5CF8EEB6423} = {F84365A6-1B0C-4A92-8FAE-9E819605C654}
-		{B2530F7E-12B0-45AC-841D-2F3F5DD57633} = {F84365A6-1B0C-4A92-8FAE-9E819605C654}
+		{09E6971D-CC17-478B-A8DE-B5CF8EEB6423} = {E3B17572-BE31-4E51-8FBE-6D59143EEC57}
+		{B2530F7E-12B0-45AC-841D-2F3F5DD57633} = {E3B17572-BE31-4E51-8FBE-6D59143EEC57}
 		{7A1345BA-5A1F-4AC2-9DD9-F0CBBF3E4BF5} = {F84365A6-1B0C-4A92-8FAE-9E819605C654}
 		{733FF083-C540-414A-ADF8-D243262B0B75} = {C2677A9C-0B72-48AA-A512-FE875AEABCE2}
 		{35059E38-A22A-41AC-926A-763B28BC03F9} = {C2677A9C-0B72-48AA-A512-FE875AEABCE2}
@@ -293,6 +295,7 @@ Global
 		{FA03424F-01C8-4633-8B55-32FAFF9F8EDE} = {2EB2A152-09A9-4FB7-B0A4-2E102F008E8D}
 		{B36561F6-B108-454E-B074-FF34104C0156} = {2EB2A152-09A9-4FB7-B0A4-2E102F008E8D}
 		{24B87257-FA8A-4412-96E3-567B9069821A} = {2EB2A152-09A9-4FB7-B0A4-2E102F008E8D}
+		{E3B17572-BE31-4E51-8FBE-6D59143EEC57} = {7926E684-2814-4BA2-B30F-B552FA5C5E44}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8259D7C8-8DB5-4A11-B128-83667EF52388}
