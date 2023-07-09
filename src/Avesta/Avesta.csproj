@@ -27,7 +27,6 @@
     <ProjectReference Include="..\Avesta.BlockChain\Avesta.BlockChain.csproj" />
     <ProjectReference Include="..\Avesta.CLI\Avesta.CLI.csproj" />
     <ProjectReference Include="..\Avesta.Constant\Avesta.Constant.csproj" />
-    <ProjectReference Include="..\Avesta.Controller\Avesta.Controller.csproj" />
     <ProjectReference Include="..\Avesta.Data\Avesta.Data.Entity\Avesta.Data.Entity.csproj" />
     <ProjectReference Include="..\Avesta.Data\Avesta.Data.IdentityCore\Avesta.Data.IdentityCore.csproj" />
     <ProjectReference Include="..\Avesta.Data\Avesta.Data.Identity\Avesta.Data.Identity.csproj" />

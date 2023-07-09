@@ -1,7 +1,7 @@
 ﻿using Avesta.Attribute.Controller;
 using Avesta.Attribute.Qraph;
 using Avesta.Constant;
-using Avesta.Controller.API;
+using Avesta.Controller.Entity.API;
 using Avesta.Data.Entity.Model;
 using Avesta.Exceptions;
 using Avesta.Services.Entity.Graph;

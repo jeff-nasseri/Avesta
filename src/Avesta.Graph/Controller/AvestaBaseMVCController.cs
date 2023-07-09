@@ -1,5 +1,6 @@
 ﻿using Avesta.Attribute.Controller;
 using Avesta.Controller;
+using Avesta.Controller.Entity.Base;
 using Avesta.Graph.Service;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
