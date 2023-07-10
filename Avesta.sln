@@ -111,6 +111,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avesta.Controller.Entity.AP
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{E3B17572-BE31-4E51-8FBE-6D59143EEC57}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Avesta.Security.Hash", "src\Avesta.Security\Avesta.Security.Hash\Avesta.Security.Hash.csproj", "{850B1AB2-0D61-4337-A6C0-D02ECA887ED3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -269,6 +271,10 @@ Global
 		{24B87257-FA8A-4412-96E3-567B9069821A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24B87257-FA8A-4412-96E3-567B9069821A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24B87257-FA8A-4412-96E3-567B9069821A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{850B1AB2-0D61-4337-A6C0-D02ECA887ED3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{850B1AB2-0D61-4337-A6C0-D02ECA887ED3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{850B1AB2-0D61-4337-A6C0-D02ECA887ED3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{850B1AB2-0D61-4337-A6C0-D02ECA887ED3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -296,6 +302,7 @@ Global
 		{B36561F6-B108-454E-B074-FF34104C0156} = {2EB2A152-09A9-4FB7-B0A4-2E102F008E8D}
 		{24B87257-FA8A-4412-96E3-567B9069821A} = {2EB2A152-09A9-4FB7-B0A4-2E102F008E8D}
 		{E3B17572-BE31-4E51-8FBE-6D59143EEC57} = {7926E684-2814-4BA2-B30F-B552FA5C5E44}
+		{850B1AB2-0D61-4337-A6C0-D02ECA887ED3} = {C2677A9C-0B72-48AA-A512-FE875AEABCE2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8259D7C8-8DB5-4A11-B128-83667EF52388}

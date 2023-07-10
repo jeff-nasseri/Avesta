@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
+using Avesta.Security.Hash.Extension;
+using System.Security;
 
 namespace Avesta.Data.Entity.Model
 {
@@ -20,6 +22,7 @@ namespace Avesta.Data.Entity.Model
         public BaseEntity()
         {
             CreatedDate = DateTime.UtcNow;
+            Hash = this.MakeItSha256();
         }
 
         [Key]
@@ -47,5 +50,27 @@ namespace Avesta.Data.Entity.Model
         }
 
 
+
+        [NotMapped]
+        public string Hash { get; private set; } = string.Empty;
+
+
+        public virtual void Validate()
+        {
+            var temp = Hash;
+            Hash = string.Empty;
+            var hash = this.MakeItSha256();
+
+            if (hash == temp)
+                Hash = hash;
+            else
+                throw new SecurityException("Anti Hijack Exception Raise !");
+        }
+
+
     }
+
+
 }
+
+

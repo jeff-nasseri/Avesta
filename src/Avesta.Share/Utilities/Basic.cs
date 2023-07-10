@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +22,32 @@ namespace Avesta.Share.Utilities
         }
 
 
+    }
+    public static class StringUtls
+    {
+        public static Stream GenerateStreamFromString(string s)
+        {
+            var stream = new MemoryStream();
+            var writer = new StreamWriter(stream);
+            writer.Write(s);
+            writer.Flush();
+            stream.Position = 0;
+            return stream;
+        }
+    }
+
+    public static class ArrayUtls
+    {
+        public static string ArrayToString(ReadOnlyCollection<byte> arr)
+        {
+            StringBuilder s = new StringBuilder(arr.Count * 2);
+            for (int i = 0; i < arr.Count; ++i)
+            {
+                s.AppendFormat("{0:x2}", arr[i]);
+            }
+
+            return s.ToString();
+        }
     }
 
     public class Compare

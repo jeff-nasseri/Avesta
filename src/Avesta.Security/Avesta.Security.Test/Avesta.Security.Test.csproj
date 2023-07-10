@@ -15,6 +15,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Avesta.Share\Avesta.Share.csproj" />
+    <ProjectReference Include="..\Avesta.Security.Hash\Avesta.Security.Hash.csproj" />
     <ProjectReference Include="..\Avesta.Security\Avesta.Security.csproj" />
   </ItemGroup>
 
