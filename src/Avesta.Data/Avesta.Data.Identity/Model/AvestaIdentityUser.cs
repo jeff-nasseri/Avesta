@@ -7,25 +7,35 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace Avesta.Data.Identity.Model
 {
 
-    public class BaseIdentity<TId> : BaseEntity<TId> where TId : class
-    {
-    }
-    public class BaseIdentity : BaseIdentity<string> { }
-
-
-
-
-    public class AvestaIdentityUser : AvestaIdentityUser<string>
+    public class AvestaUser : AvestaUser<string>
     {
     }
 
-    public partial class AvestaIdentityUser<TId> : BaseIdentity<TId> where TId : class, IEquatable<TId>
+
+    public interface IAvestaUser<TId> : IBaseIdentity<TId> where TId : class
     {
-        public AvestaIdentityUser() : base()
+        string? Username { get; set; }
+        string? NormalizedUserName { get; set; }
+        string? Email { get; set; }
+        bool? EmailConfirmed { get; set; }
+        string NormalizedEmail { get; set; }
+        string PasswordHash { get; set; }
+        string SecuritySalt { get; set; }
+        int AccessFailedCount { get; set; }
+        DateTimeOffset? LockoutEnd { get; set; }
+    }
+
+
+    public class AvestaUser<TId> : BaseIdentity<TId>, IAvestaUser<TId>
+        where TId : class
+    {
+        public AvestaUser() : base()
         {
         }
         public virtual string? Username { get; set; }
@@ -39,6 +49,9 @@ namespace Avesta.Data.Identity.Model
         public virtual DateTimeOffset? LockoutEnd { get; set; }
 
 
+        public ICollection<AvestaUserActivity<TId, IAvestaUser<TId>>> AvestaUserActivities { get; set; }
+        public ICollection<AvestaUserToken<TId, IAvestaUser<TId>>> Tokens { get; set; }
+
 
         public override string ToString()
         {
@@ -48,9 +61,9 @@ namespace Avesta.Data.Identity.Model
 
         public override bool Equals(object? obj)
         {
-            if (obj is AvestaIdentityUser<TId>)
+            if (obj is AvestaUser<TId>)
             {
-                var u1 = obj as AvestaIdentityUser<TId>;
+                var u1 = obj as AvestaUser<TId>;
                 _ = u1 ?? throw new ArgumentNullException(nameof(obj));
                 return (u1.Username == this.Username && u1.NormalizedUserName == this.NormalizedUserName && u1.PasswordHash == this.PasswordHash && u1.Email == this.Email)
                     || u1.ID == this.ID;
@@ -58,7 +71,20 @@ namespace Avesta.Data.Identity.Model
             return false;
         }
 
+        public override int GetHashCode()
+        {
+            throw new NotImplementedException();
+        }
+    }
 
+    public class AvestaUser<TId, TAvestaUserGroup> : AvestaUser<TId>
+      where TId : class
+      where TAvestaUserGroup : AvestaUserAuthorizeGroup<TId>
+    {
+        public virtual ICollection<TAvestaUserGroup>? UserAuthorizeGroups { get; set; }
 
     }
+
+
+
 }

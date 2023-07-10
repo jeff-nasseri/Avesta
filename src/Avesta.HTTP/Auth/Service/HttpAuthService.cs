@@ -21,7 +21,7 @@ namespace Avesta.HTTP.Auth.Service
     }
 
     public class HttpAuthService<TAvestaUser, TRole> : IHttpAuthService<TAvestaUser>
-       where TAvestaUser : AvestaUser
+       where TAvestaUser : AvestaIdentityUser
        where TRole : IdentityRole
     {
         readonly IIdentityRepository<TAvestaUser, TRole> _identityRepository;

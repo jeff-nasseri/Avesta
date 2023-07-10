@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace Avesta.Data.IdentityCore.Model
 {
-    public class AvestaUser : IdentityUser
+    public class AvestaIdentityUser : IdentityUser
     {
-        public AvestaUser()
+        public AvestaIdentityUser()
         {
             RegisterDate = DateTime.UtcNow;
             ModifiedDate = RegisterDate;
@@ -45,7 +45,7 @@ namespace Avesta.Data.IdentityCore.Model
 
 
     }
-    public class AvestaUser<TId, TAvestaUserGroup> : AvestaUser
+    public class AvestaIdentityUser<TId, TAvestaUserGroup> : AvestaIdentityUser
         where TId : class
         where TAvestaUserGroup : AvestaUserAuthorizeGroup<TId>
     {

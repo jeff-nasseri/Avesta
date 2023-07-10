@@ -8,7 +8,7 @@ namespace Avesta.Auth.Authentication.Config
     public static class AutoMapper
     {
         public static IServiceCollection ConfigureMapperForAuthentication<TAvestaUser>(this IServiceCollection services)
-            where TAvestaUser : AvestaUser
+            where TAvestaUser : AvestaIdentityUser
         {
             services.AddAutoMapper(config =>
             {

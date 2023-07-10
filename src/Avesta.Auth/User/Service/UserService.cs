@@ -10,7 +10,7 @@ using Avesta.Repository.IdentityCore;
 namespace Avesta.Auth.User.Service
 {
     public interface IUserService<TAvestaUser>
-        where TAvestaUser : AvestaUser
+        where TAvestaUser : AvestaIdentityUser
     {
         Task<TAvestaUser> GetUserByEmail(string email, bool exceptionRaiseIfNotExist = false);
         Task<TAvestaUser> GetUserById(string id, bool exceptionRaiseIfNotExist = false);
@@ -22,7 +22,7 @@ namespace Avesta.Auth.User.Service
 
 
     public class UserService<TAvestaUser, TRole> : IUserService<TAvestaUser>
-        where TAvestaUser : AvestaUser
+        where TAvestaUser : AvestaIdentityUser
         where TRole : IdentityRole
     {
         readonly IIdentityRepository<TAvestaUser, TRole> _identityRepository;

@@ -21,7 +21,7 @@ namespace Avesta.Auth
         public static IServiceCollection AddAvestaAuthentication<TAvestaUser, TRole>(
             this IServiceCollection service
             , Action<AvestaAuthenticationOption> setupActionForAvestaAuth)
-            where TAvestaUser : AvestaUser
+            where TAvestaUser : AvestaIdentityUser
             where TRole : IdentityRole
         {
 

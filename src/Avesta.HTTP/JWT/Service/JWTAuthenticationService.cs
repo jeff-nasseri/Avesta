@@ -25,7 +25,7 @@ namespace Avesta.HTTP.JWT.Service
 
     }
     public class JWTAuthenticationService<TAvestaUser, TRole> : IJWTAuthenticationService
-        where TAvestaUser : AvestaUser
+        where TAvestaUser : AvestaIdentityUser
         where TRole : IdentityRole
     {
 

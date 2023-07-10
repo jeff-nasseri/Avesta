@@ -19,7 +19,7 @@ namespace Avesta.Attribute.Authorize
 
 
     public class AuthSPARequiredFilter<TAvestaUser, TRole> : IAuthorizationFilter
-        where TAvestaUser : AvestaUser
+        where TAvestaUser : AvestaIdentityUser
         where TRole : IdentityRole
     {
 
@@ -57,7 +57,7 @@ namespace Avesta.Attribute.Authorize
     }
 
     public class AuthorizeAccessAttribute<TAvestaUser, TRole> : TypeFilterAttribute
-        where TAvestaUser : AvestaUser
+        where TAvestaUser : AvestaIdentityUser
         where TRole : IdentityRole
     {
         public AuthorizeAccessAttribute(params object[] features) : base(typeof(AuthSPARequiredFilter<TAvestaUser, TRole>))

@@ -12,13 +12,13 @@ using Avesta.Data.Identity.Model;
 
 namespace Avesta.Data.Context
 {
-    public class AvestaIdentityDbContext<TId, TAvestaUser, TAvestaAuthorizeGroup, TUserAuthorizeGroup> : AvestaIdentityDbContext<TAvestaUser>
+    public class AvestaIdentityCoreDbContext<TId, TAvestaUser, TAvestaAuthorizeGroup, TUserAuthorizeGroup> : AvestaIdentityDbContext<TAvestaUser>
         where TId : class
-        where TAvestaUser : AvestaUser<TId, TUserAuthorizeGroup>
+        where TAvestaUser : AvestaIdentityUser<TId, TUserAuthorizeGroup>
         where TAvestaAuthorizeGroup : AvestaAuthorizeGroup<TId, TUserAuthorizeGroup>
         where TUserAuthorizeGroup : AvestaUserAuthorizeGroup<TId>
     {
-        public AvestaIdentityDbContext(DbContextOptions options)
+        public AvestaIdentityCoreDbContext(DbContextOptions options)
           : base(options)
         {
 
@@ -38,7 +38,7 @@ namespace Avesta.Data.Context
 
 
     public class AvestaIdentityDbContext<TAvestaUser> : IdentityDbContext<TAvestaUser>
-    where TAvestaUser : AvestaUser
+    where TAvestaUser : AvestaIdentityUser
     {
         public AvestaIdentityDbContext(DbContextOptions options)
           : base(options)

@@ -6,6 +6,15 @@ using System.Security;
 
 namespace Avesta.Data.Entity.Model
 {
+    public interface IBaseEntity<TId> where TId : class
+    {
+        TId ID { get; set; }
+        bool IsLock { get; set; }
+        DateTime? ModifiedDate { get; set; }
+        DateTime CreatedDate { get; }
+        DateTime? DeletedDate { get; }
+    }
+
     public class BaseEntity : BaseEntity<string>
     {
         public BaseEntity() : base()
@@ -17,7 +26,8 @@ namespace Avesta.Data.Entity.Model
     }
 
 
-    public abstract class BaseEntity<T> where T : class
+    public abstract class BaseEntity<T> : IBaseEntity<T>
+        where T : class
     {
         public BaseEntity()
         {

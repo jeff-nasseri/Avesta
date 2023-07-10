@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Avesta.Auth.Authentication.ViewModel
 {
-    public class JWTAvestaUser : AvestaUser
+    public class JWTAvestaUser : AvestaIdentityUser
     {
         public string? Token { get; set; }
 

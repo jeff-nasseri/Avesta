@@ -13,7 +13,7 @@ namespace Avesta.Seed.Identity.Service
 {
 
     public interface IIdentitySeedService<TAvestaUser, TRole>
-        where TAvestaUser : AvestaUser
+        where TAvestaUser : AvestaIdentityUser
         where TRole : IdentityRole
     {
         Task<IdentityResult> Seed(AvestaUserSeedModel<TAvestaUser> model);
@@ -25,7 +25,7 @@ namespace Avesta.Seed.Identity.Service
 
 
     public class IdentitySeedService<TAvestaUser, TRole> : IIdentitySeedService<TAvestaUser, TRole>
-        where TAvestaUser : AvestaUser
+        where TAvestaUser : AvestaIdentityUser
         where TRole : IdentityRole
     {
 

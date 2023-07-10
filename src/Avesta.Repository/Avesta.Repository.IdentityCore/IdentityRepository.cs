@@ -17,7 +17,7 @@ namespace Avesta.Repository.IdentityCore
 {
 
     public class IdentityRepository<TUser, TRole> : IIdentityRepository<TUser, TRole>
-        where TUser : AvestaUser
+        where TUser : AvestaIdentityUser
         where TRole : IdentityRole
     {
         readonly UserManager<TUser> _userManager;

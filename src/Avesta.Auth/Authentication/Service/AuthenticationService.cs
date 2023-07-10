@@ -15,7 +15,7 @@ using Avesta.Repository.IdentityCore;
 namespace Avesta.Auth.Authentication.Service
 {
     public interface IAuthenticationService<TAvestaUser>
-        where TAvestaUser : AvestaUser
+        where TAvestaUser : AvestaIdentityUser
     {
         Task<IdentityReturnTemplate> Login<TLoginUserModel>(TLoginUserModel model) where TLoginUserModel : LoginModelBase;
         Task<IdentityReturnTemplate> Register<IRegisterUserViewModel>(IRegisterUserViewModel model) where IRegisterUserViewModel : RegisterUserViewModel;
@@ -35,7 +35,7 @@ namespace Avesta.Auth.Authentication.Service
 
 
     public class AuthenticationService<TAvestaUser, TRole> : IAuthenticationService<TAvestaUser>
-        where TAvestaUser : AvestaUser
+        where TAvestaUser : AvestaIdentityUser
         where TRole : IdentityRole
     {
         readonly IIdentityRepository<TAvestaUser, TRole> _identityRepository;
