@@ -9,14 +9,15 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Avesta.Data.Identity.Model;
+using Avesta.Data.Entity.Context;
 
 namespace Avesta.Data.Identity.Context
 {
 
 
-    public class AvestaIdentityDbContext<TId, TAvestaUser, TAvestaAuthorizeGroup, TUserAuthorizeGroup> : DbContext
+    public abstract class AvestaIdentityDbContext<TId, TAvestaUser, TAvestaAuthorizeGroup, TUserAuthorizeGroup> : AvestaDbContext
         where TId : class
-        where TAvestaUser : AvestaUser<TId>
+        where TAvestaUser : IAvestaUser<TId>
         where TAvestaAuthorizeGroup : AvestaAuthorizeGroup<TId, TUserAuthorizeGroup>
         where TUserAuthorizeGroup : AvestaUserAuthorizeGroup<TId>
     {
@@ -28,14 +29,22 @@ namespace Avesta.Data.Identity.Context
         {
         }
 
-        public DbSet<TAvestaUser> User { get; set; }
+
+        public DbSet<IAvestaUser<TId>> Users { get; set; }
+        public DbSet<AvestaUserActivity<TId, IAvestaUser<TId>>>? UserActivities { get; set; }
+        public DbSet<AvestaUserToken<TId, IAvestaUser<TId>>>? UserTokens { get; set; }
+        public DbSet<AvestaUserClaim<TId, IAvestaUser<TId>>>? UserClaims { get; set; }
         public DbSet<TAvestaAuthorizeGroup>? AuthorizeGroups { get; set; }
         public DbSet<TUserAuthorizeGroup>? UserAuthorizeGroups { get; set; }
-        public DbSet<AvestaUserActivity<TId, TAvestaUser>>? UserActivities { get; set; }
-        public DbSet<AvestaUserToken<TId, TAvestaUser>>? UserTokens { get; set; }
+
+
+
 
 
     }
+
+
+   
 
 
 

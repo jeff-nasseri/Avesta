@@ -8,7 +8,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Avesta.Data\Avesta.Data.Identity\Avesta.Data.Identity.csproj" />
-    <ProjectReference Include="..\Avesta.Repository.Entity\Avesta.Repository.Entity.csproj" />
+    <ProjectReference Include="..\..\Avesta.Repository\Avesta.Repository.Entity\Avesta.Repository.Entity.csproj" />
+    <ProjectReference Include="..\..\Avesta.Share\Avesta.Share.csproj" />
   </ItemGroup>
 
 </Project>

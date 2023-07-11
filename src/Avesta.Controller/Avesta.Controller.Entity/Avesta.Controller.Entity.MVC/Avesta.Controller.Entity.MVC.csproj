@@ -7,6 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Avesta.Attribute\Avesta.Attribute.csproj" />
+    <ProjectReference Include="..\..\..\Avesta.Service\Avesta.Service.Entity\Avesta.Service.Entity.csproj" />
     <ProjectReference Include="..\Avesta.Controller.Entity.Base\Avesta.Controller.Entity.Base.csproj" />
   </ItemGroup>
 

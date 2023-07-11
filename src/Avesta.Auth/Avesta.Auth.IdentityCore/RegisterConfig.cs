@@ -1,7 +1,7 @@
-﻿using Avesta.Auth.Authentication.Config;
-using Avesta.Auth.Authentication.Service;
-using Avesta.Auth.Authorize.Service;
-using Avesta.Auth.User.Service;
+﻿using Avesta.Auth.IdentityCore.Authentication.Config;
+using Avesta.Auth.IdentityCore.Authentication.Service;
+using Avesta.Auth.IdentityCore.Authorize.Service;
+using Avesta.Auth.IdentityCore.User.Service;
 using Avesta.Data.Identity.Model;
 using Avesta.Data.IdentityCore.Model;
 using Avesta.HTTP.Auth.Service;
@@ -12,10 +12,13 @@ using Microsoft.Extensions.DependencyInjection;
 using Avesta.Data.Entity.Context;
 using Avesta.Repository.IdentityCore;
 using Avesta.Repository.Entity;
+using Avesta.Repository.EntityRepository;
+using Avesta.Share.Model;
 
 namespace Avesta.Auth
 {
 
+  
     public static class RegisterConfig
     {
         public static IServiceCollection AddAvestaAuthentication<TAvestaUser, TRole>(

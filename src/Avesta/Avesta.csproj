@@ -23,7 +23,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Avesta.Attribute\Avesta.Attribute.csproj" />
-    <ProjectReference Include="..\Avesta.Auth\Avesta.Auth.csproj" />
     <ProjectReference Include="..\Avesta.BlockChain\Avesta.BlockChain.csproj" />
     <ProjectReference Include="..\Avesta.CLI\Avesta.CLI.csproj" />
     <ProjectReference Include="..\Avesta.Constant\Avesta.Constant.csproj" />

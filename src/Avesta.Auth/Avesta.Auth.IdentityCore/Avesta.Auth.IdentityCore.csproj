@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Avesta.Data\Avesta.Data.IdentityCore\Avesta.Data.IdentityCore.csproj" />
+    <ProjectReference Include="..\..\Avesta.Exceptions\Avesta.Exceptions.csproj" />
+    <ProjectReference Include="..\..\Avesta.HTTP\Avesta.HTTP.csproj" />
+    <ProjectReference Include="..\..\Avesta.Repository\Avesta.Repository.Entity\Avesta.Repository.Entity.csproj" />
+    <ProjectReference Include="..\..\Avesta.Repository\Avesta.Repository.IdentityCore\Avesta.Repository.IdentityCore.csproj" />
+    <ProjectReference Include="..\..\Avesta.Service\Avesta.Service.Entity\Avesta.Service.Entity.csproj" />
+    <ProjectReference Include="..\..\Avesta.Share\Avesta.Share.csproj" />
+  </ItemGroup>
+
+</Project>

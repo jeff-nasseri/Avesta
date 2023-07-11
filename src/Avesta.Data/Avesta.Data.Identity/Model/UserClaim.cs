@@ -8,25 +8,17 @@ using System.Threading.Tasks;
 
 namespace Avesta.Data.Identity.Model
 {
-    public class AvestaUserActivity<TId, TAvestaUser> : BaseEntity<TId>
+    public class AvestaUserClaim<TId, TAvestaUser> : BaseEntity<TId>
         where TId : class
         where TAvestaUser : IAvestaUser<TId>
     {
-        public virtual string IPV4 { get; set; }
-        public virtual string IPV6 { get; set; }
-        public virtual string Agent { get; set; }
-        public virtual string Referer { get; set; }
-        public virtual string Host { get; set; }
-        public virtual string Location { get; set; }
-        public virtual string HitedAddress { get; set; }
         public virtual string Name { get; set; }
+        public virtual string Value { get; set; }
+        public virtual string Provider { get; set; }
 
 
         public TAvestaUser User { get; set; }
         [ForeignKey(nameof(User))]
         public TId UserId { get; set; }
     }
-
-    
-
 }

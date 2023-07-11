@@ -18,6 +18,7 @@ namespace Avesta.Data.Identity.Model
     }
 
 
+
     public interface IAvestaUser<TId> : IBaseIdentity<TId> where TId : class
     {
         string? Username { get; set; }
@@ -51,6 +52,7 @@ namespace Avesta.Data.Identity.Model
 
         public ICollection<AvestaUserActivity<TId, IAvestaUser<TId>>> AvestaUserActivities { get; set; }
         public ICollection<AvestaUserToken<TId, IAvestaUser<TId>>> Tokens { get; set; }
+        public ICollection<AvestaUserClaim<TId, IAvestaUser<TId>>> Claims { get; set; }
 
 
         public override string ToString()
@@ -71,10 +73,6 @@ namespace Avesta.Data.Identity.Model
             return false;
         }
 
-        public override int GetHashCode()
-        {
-            throw new NotImplementedException();
-        }
     }
 
     public class AvestaUser<TId, TAvestaUserGroup> : AvestaUser<TId>

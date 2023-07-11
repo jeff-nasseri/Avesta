@@ -92,7 +92,7 @@ namespace Avesta.Repository.Entity
 
 
 
-        public void ChangeState<TEntity, TId>(TEntity entity, EntityState state)
+        public virtual void ChangeState<TEntity, TId>(TEntity entity, EntityState state)
             where TId : class
             where TEntity : BaseEntity<TId>
                 => _context.Entry(entity).State = state;

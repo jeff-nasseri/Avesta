@@ -20,7 +20,7 @@ namespace Avesta.Controller.Entity.Base
 
 
         [ApiExplorerSettings(IgnoreApi = true)]
-        public override BadRequestObjectResult BadRequest([ActionResultObjectValue] object error)
+        public override BadRequestObjectResult BadRequest(/*[ActionResultObjectValue]*/ object error)
         {
             var response = new ResponseModel().Fail(error);
             return base.BadRequest(response);
