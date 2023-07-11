@@ -13,6 +13,14 @@ using Microsoft.EntityFrameworkCore.Metadata.Internal;
 namespace Avesta.Data.Identity.Model
 {
 
+    public static class Activities
+    {
+        public const string LOGIN = "Login";
+        public const string LOGOUT = "Logout";
+        public const string RESET_PASSWORD = "ResetPassword";
+    }
+
+
     public class AvestaUser : AvestaUser<string>
     {
     }

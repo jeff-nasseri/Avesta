@@ -1,6 +1,8 @@
 ﻿using Avesta.Data.Identity.Model;
 using Avesta.Repository.EntityRepository;
 using Avesta.Share.Model;
+using System.Linq.Expressions;
+using Z.Expressions;
 
 namespace test
 {
@@ -14,13 +16,32 @@ namespace test
     public class AvestaIdentityResult : ReturnTemplate<object>
     {
         public int IdentityStatus { get; set; }
+        public string Message { get; set; }
+
+        public static AvestaIdentityResult Ok(string message)
+        {
+            var newObj = new AvestaIdentityResult();
+            newObj.IdentityStatus = 0;
+            newObj.Succeed = true;
+            newObj.Message = message;
+            return newObj;
+        }
+        public static AvestaIdentityResult NotOk(string message)
+        {
+            var newObj = new AvestaIdentityResult();
+            newObj.IdentityStatus = 500;
+            newObj.Succeed = false;
+            newObj.Message = message;
+            return newObj;
+        }
     }
 
-    public interface IUserManager<TUser, TId> : IUserActivityManager<TUser, TId>, IUserTokenManager<TUser, TId>
+    public interface IUserManager<TUser, TId, TAvestaUserToken> : IUserActivityManager<TUser, TId>, IUserTokenManager<TUser, TId, TAvestaUserToken>
         where TId : class
         where TUser : AvestaUser<TId>
+        where TAvestaUserToken : AvestaUserToken<TId, TUser>
     {
-        Task<IEnumerable<TUser>> Users { get; }
+        IEnumerable<TUser> Users { get; }
         Task<IEnumerable<TUser>> GetUsersByClaims(params Claim[] claims);
         Task<IEnumerable<TUser>> GetUsers(Func<bool, TUser> where);
 
@@ -54,14 +75,15 @@ namespace test
         Task<AvestaIdentityResult> AddNewLogOutActivity(TUser user);
         Task<AvestaIdentityResult> AddNewResetPasswordActivity(TUser user);
     }
-    public interface IUserTokenManager<TUser, TId>
+    public interface IUserTokenManager<TUser, TId, TAvestaUserToken>
         where TId : class
         where TUser : AvestaUser<TId>
+        where TAvestaUserToken : AvestaUserToken<TId, TUser>
     {
         Task<AvestaIdentityResult> SendConfirmationEmailToken(TUser user);
         Task<AvestaIdentityResult> SendConfirmationPhoneCode(TUser user);
 
-        Task<AvestaIdentityResult> AddNewToken(TId userId, string name, string value);
+        Task<AvestaIdentityResult> AddNewToken(TAvestaUserToken avestaUserToken);
     }
     public interface IAuthorizeGroupManager<TUser, TAvestaAuthorizeGroup, TUserAuthorizeGroup, TId> : IUserAuthorizeGroupManager<TUser, TAvestaAuthorizeGroup, TUserAuthorizeGroup, TId>
         where TId : class
@@ -90,7 +112,6 @@ namespace test
         where TAvestaAuthorizeGroup : AvestaAuthorizeGroup<TId, TUserAuthorizeGroup>
         where TUserAuthorizeGroup : AvestaUserAuthorizeGroup<TId>
     {
-        Task<AvestaIdentityResult> AddUserToExistingAuthorizeGroupByGroupName(TUser user, string groupName);
         Task<AvestaIdentityResult> AddUserToExistingAuthorizeGroupByGroupId(TUser user, TId id);
         Task<AvestaIdentityResult> RemoveUserToExistingAuthorizeGroupByGroupName(TUser user, string groupName);
         Task<AvestaIdentityResult> RemoveUserToExistingAuthorizeGroupByGroupId(TUser user, TId id);
@@ -100,11 +121,14 @@ namespace test
     }
 
 
-    public class AvestaUserHandler<TId, TAvestaUser, TAvestaAuthorizeGroup, TUserAuthorizeGroup> : IUserManager<TAvestaUser, TId>, IUserAuthorizeGroupManager<TAvestaUser, TAvestaAuthorizeGroup, TUserAuthorizeGroup, TId>
+    public class AvestaUserHandler<TId, TAvestaUser, TAvestaAuthorizeGroup, TUserAuthorizeGroup, TAvestaUserToken, TAvestaUserActivity> : IUserManager<TAvestaUser, TId>
+        , IUserAuthorizeGroupManager<TAvestaUser, TAvestaAuthorizeGroup, TUserAuthorizeGroup, TId>
        where TId : class
        where TAvestaUser : AvestaUser<TId>
        where TAvestaAuthorizeGroup : AvestaAuthorizeGroup<TId, TUserAuthorizeGroup>
        where TUserAuthorizeGroup : AvestaUserAuthorizeGroup<TId>
+       where TAvestaUserToken : AvestaUserToken<TId, TAvestaUser>
+       where TAvestaUserActivity : AvestaUserActivity<TId, TAvestaUser>
     {
         readonly IEntityRepository<TAvestaUser, TId> _userRepository;
         readonly IEntityRepository<TAvestaAuthorizeGroup, TId> _authorizeGroupRepository;
@@ -125,81 +149,104 @@ namespace test
             _userTokensRepository = userTokensRepository;
         }
 
-        public Task<IEnumerable<TAvestaUser>> Users => throw new NotImplementedException();
+        public IEnumerable<TAvestaUser> Users => _userRepository.GetAll().Result;
 
-        public Task<AvestaIdentityResult> AddNewActivity(TAvestaUser user, string name)
+        public async Task<AvestaIdentityResult> AddNewActivity(TAvestaUser user, string name)
         {
-            throw new NotImplementedException();
+            await _userActivitiesRepository.Insert(new AvestaUserActivity<TId, TAvestaUser>
+            {
+                User = user,
+                Name = name
+            });
+            return AvestaIdentityResult.Ok("[Activity Added]");
         }
 
-        public Task<AvestaIdentityResult> AddNewLoginActivity(TAvestaUser user)
+        public async Task<AvestaIdentityResult> AddNewLoginActivity(TAvestaUser user)
         {
-            throw new NotImplementedException();
+            var resutl = await AddNewActivity(user, name: Activities.LOGIN);
+            return resutl;
         }
 
-        public Task<AvestaIdentityResult> AddNewLogOutActivity(TAvestaUser user)
+        public async Task<AvestaIdentityResult> AddNewLogOutActivity(TAvestaUser user)
         {
-            throw new NotImplementedException();
+            var result = await AddNewActivity(user, name: Activities.LOGOUT);
+            return result;
         }
 
-        public Task<AvestaIdentityResult> AddNewResetPasswordActivity(TAvestaUser user)
+        public async Task<AvestaIdentityResult> AddNewResetPasswordActivity(TAvestaUser user)
         {
-            throw new NotImplementedException();
+            var result = await AddNewActivity(user, name: Activities.RESET_PASSWORD);
+            return result;
         }
 
-        public Task<AvestaIdentityResult> AddNewToken(TId userId, string name, string value)
+        public async Task<AvestaIdentityResult> AddNewToken(TAvestaUserToken avestaUserToken)
         {
-            throw new NotImplementedException();
+            await _userTokensRepository.Insert(avestaUserToken);
+            return AvestaIdentityResult.Ok("[Token Added]");
         }
 
-        public Task<AvestaIdentityResult> AddNewUser(TAvestaUser user)
+        public async Task<AvestaIdentityResult> AddNewUser(TAvestaUser user)
         {
-            throw new NotImplementedException();
+            await _userRepository.Insert(user);
+            return AvestaIdentityResult.Ok("[User Added]");
         }
 
-        public Task<AvestaIdentityResult> AddUserToExistingAuthorizeGroupByGroupId(TAvestaUser user, TId id)
+        public async Task<AvestaIdentityResult> AddNewUserAuthorizeGroup(TUserAuthorizeGroup userAuthorizeGroup)
         {
-            throw new NotImplementedException();
+            await _userAuthorizeGroupRepository.Insert(userAuthorizeGroup);
+            return AvestaIdentityResult.Ok("[UserGroup Added]");
         }
 
-        public Task<AvestaIdentityResult> AddUserToExistingAuthorizeGroupByGroupName(TAvestaUser user, string groupName)
+
+        public async Task<AvestaIdentityResult> BlockUser(TId userId, TimeSpan time)
         {
-            throw new NotImplementedException();
+            var user = await _userRepository.Get(userId, exceptionRaiseIfNotExist: true);
+            user.LockoutEnd = DateTime.UtcNow + time;
+            await _userRepository.Update(user);
+
+            return AvestaIdentityResult.Ok($"[User Blocked Until {user.LockoutEnd?.ToString("yyyy/MM/dd HH:mm:ss")}]");
         }
 
-        public Task<AvestaIdentityResult> BlockUser(TAvestaUser user, TimeSpan time)
+        public async Task<TAvestaUser> Find(Expression<Func<TAvestaUser, bool>> single)
         {
-            throw new NotImplementedException();
+            var result = await _userRepository.Get(predicate: single, exceptionRaiseIfNotExist: true);
+            return result;
         }
 
-        public Task<TAvestaUser> Find(Func<bool, TAvestaUser> single)
+        public async Task<TAvestaUser> FindByClaim(string name)
         {
-            throw new NotImplementedException();
+            var result = await _userRepository.Get(predicate: u => u.Claims.Any(c => c.Name.ToLower() == name.ToLower())
+            , navigationPropertyPath: $"{nameof(Claim)}"
+            , exceptionRaiseIfNotExist: true);
+
+            return result;
         }
 
-        public Task<TAvestaUser> FindByClaim(Claim claim)
+        public async Task<TAvestaUser> FindByEmail(string email)
         {
-            throw new NotImplementedException();
+            var user = await _userRepository.Get(u => u.Email == email, exceptionRaiseIfNotExist: true);
+            return user;
         }
 
-        public Task<TAvestaUser> FindByEmail(string email)
+        public async Task<TAvestaUser> FindById(TId id)
         {
-            throw new NotImplementedException();
+            var user = await _userRepository.Get(u => u.ID == id, exceptionRaiseIfNotExist: true);
+            return user;
         }
 
-        public Task<TAvestaUser> FindById(TId id)
+        public async Task<TAvestaUser> FindByUserName(string username)
         {
-            throw new NotImplementedException();
+            var user = await _userRepository.Get(u => u.Username == username, exceptionRaiseIfNotExist: true);
+            return user;
         }
 
-        public Task<TAvestaUser> FindByUserName(string username)
+        public async Task<IEnumerable<TAvestaUser>> GetUsers(Expression<Func<TAvestaUser, bool>> where)
         {
-            throw new NotImplementedException();
-        }
+            var result = await _userRepository.Where<DateTime>(search: where, includeAllPath: false
+                , orderBy: u => u.CreatedDate
+                , orderbyDirection: MoreLinq.OrderByDirection.Descending);
 
-        public Task<IEnumerable<TAvestaUser>> GetUsers(Func<bool, TAvestaUser> where)
-        {
-            throw new NotImplementedException();
+            return result;
         }
 
         public Task<IEnumerable<TAvestaUser>> GetUsersByClaims(params Claim[] claims)
