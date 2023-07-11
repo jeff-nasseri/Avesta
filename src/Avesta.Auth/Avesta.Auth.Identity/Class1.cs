@@ -249,13 +249,17 @@ namespace test
             return result;
         }
 
-        public Task<IEnumerable<TAvestaUser>> GetUsersByClaims(params Claim[] claims)
+        public async Task<IEnumerable<TAvestaUser>> GetUsersByClaims(params Claim[] claims)
         {
-            throw new NotImplementedException();
+            var result = await _userRepository.Where<DateTime>(search: u => u.Claims.Any(c => claims.Any(cl => cl.Name.ToLower() == c.Name.ToLower()))
+            , navigationPropertyPath: nameof(Claim));
+
+            return result;
         }
 
-        public Task<IEnumerable<TAvestaUser>> GetUsersOfAuthorizeGroupByGroupId(TId id)
+        public async Task<IEnumerable<TAvestaUser>> GetUsersOfAuthorizeGroupByGroupId(TId id)
         {
+            var userAuthorizeGroups = await _userAuthorizeGroupRepository.Where(uag => uag.GroupId == id, navigationPropertyPath: nameof(AvestaUserAuthorizeGroup.UserId));
             throw new NotImplementedException();
         }
 
@@ -284,14 +288,17 @@ namespace test
             throw new NotImplementedException();
         }
 
-        public Task<AvestaIdentityResult> RemoveUserToExistingAuthorizeGroupByGroupId(TAvestaUser user, TId id)
+        public async Task<AvestaIdentityResult> RemoveUserToExistingAuthorizeGroupByGroupId(TAvestaUser user, TId id)
         {
-            throw new NotImplementedException();
+            await _userAuthorizeGroupRepository.Delete(uag => uag.UserId == user.ID && uag.GroupId == id);
+            return AvestaIdentityResult.Ok($"[User Removed From Group {id}]");
         }
 
-        public Task<AvestaIdentityResult> RemoveUserToExistingAuthorizeGroupByGroupName(TAvestaUser user, string groupName)
+        public async Task<AvestaIdentityResult> RemoveUserToExistingAuthorizeGroupByGroupName(TAvestaUser user, string groupName)
         {
-            throw new NotImplementedException();
+            var group = await _authorizeGroupRepository.Get(g => g.GroupName.ToLower() == groupName.ToLower(), exceptionRaiseIfNotExist: true);
+            await _userAuthorizeGroupRepository.Delete(uag => uag.UserId == user.ID && uag.GroupId == group.ID);
+            return AvestaIdentityResult.Ok($"[User Removed From Group {group.GroupName}]");
         }
 
         public Task<AvestaIdentityResult> ResetPassword(TAvestaUser user, string token, string newPassword)
