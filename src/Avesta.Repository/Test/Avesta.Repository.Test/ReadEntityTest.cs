@@ -89,7 +89,7 @@ namespace Avesta.Repository.Test
         [TestCaseSource(nameof(OnlyEntitySource))]
         public async Task GetEntity_MustReturnValidEntity(TId id)
         {
-            var result = await _repository.Get(e => e.ID == id);
+            var result = await _repository.Get(e => e.Id == id);
             Assert.That(result, Is.Not.Null);
         }
 
@@ -100,7 +100,7 @@ namespace Avesta.Repository.Test
         [ExpectedException(typeof(CanNotFoundEntityException))]
         public async Task GetEntityWithUnvalidId_MustThrowCanNotFoundEntityException(TId id)
         {
-            await _repository.Get(e => e.ID == id, exceptionRaiseIfNotExist: true);
+            await _repository.Get(e => e.Id == id, exceptionRaiseIfNotExist: true);
         }
 
 
@@ -108,7 +108,7 @@ namespace Avesta.Repository.Test
         [TestCaseSource(nameof(InvalidIds))]
         public async Task GetEntityWithUnvalidId_WillReturnNull_IfExceptionRaseIsFalse(TId id)
         {
-            var result = await _repository.Get(e => e.ID == id, exceptionRaiseIfNotExist: false);
+            var result = await _repository.Get(e => e.Id == id, exceptionRaiseIfNotExist: false);
             Assert.That(result, Is.Null);
         }
 
@@ -118,7 +118,7 @@ namespace Avesta.Repository.Test
         [TestCaseSource(nameof(OnlyEntitySource))]
         public async Task GetEntity_MustTrackEntity(TId id)
         {
-            var result = await _repository.Get(e => e.ID == id, track: true);
+            var result = await _repository.Get(e => e.Id == id, track: true);
             Assert.That(_context.Entry(result).State, Is.Not.EqualTo(EntityState.Detached));
         }
 
@@ -127,7 +127,7 @@ namespace Avesta.Repository.Test
         [TestCaseSource(nameof(OnlyEntitySource))]
         public async Task GetEntity_MustDetachEntity_IfTrackIsFalse(TId id)
         {
-            var result = await _repository.Get(e => e.ID == id, track: false);
+            var result = await _repository.Get(e => e.Id == id, track: false);
             Assert.That(_context.Entry(result).State, Is.EqualTo(EntityState.Detached));
         }
 
@@ -137,7 +137,7 @@ namespace Avesta.Repository.Test
         [TestCaseSource(nameof(EntitySourceWithIncludePath))]
         public async Task GetEntityWithInclude_MustReturnValidIncludedEntity(TId id, string navigationPropertyPath)
         {
-            var result = await _repository.Get(e => e.ID == id, navigationPropertyPath: navigationPropertyPath);
+            var result = await _repository.Get(e => e.Id == id, navigationPropertyPath: navigationPropertyPath);
             Assert.That(result, Is.Not.Null);
         }
 
@@ -148,7 +148,7 @@ namespace Avesta.Repository.Test
         [ExpectedException(typeof(InvalidOperationException))]
         public async Task GetEntityWithInvalidInclude_MustThrowInvalidOperationException(TId id, string navigationPropertyPath)
         {
-            await _repository.Get(e => e.ID == id, navigationPropertyPath: navigationPropertyPath);
+            await _repository.Get(e => e.Id == id, navigationPropertyPath: navigationPropertyPath);
         }
 
         #endregion
@@ -174,7 +174,7 @@ namespace Avesta.Repository.Test
         [TestCaseSource(nameof(OnlyEntitySource))]
         public async Task FirstWithExpression_MustReturnValidEntity(TId id)
         {
-            var result = await _repository.First(e => e.ID == id);
+            var result = await _repository.First(e => e.Id == id);
             Assert.That(result, Is.Not.Null);
         }
 
@@ -183,14 +183,14 @@ namespace Avesta.Repository.Test
         [ExpectedException(typeof(CanNotFoundEntityException))]
         public async Task FirstWithInvalidExpression_MustThrowCanNotFoundEntityException_IfExceptionRaiseIsTrue(TId id)
         {
-            await _repository.First(e => e.ID == id, exceptionRaiseIfNotExist: true);
+            await _repository.First(e => e.Id == id, exceptionRaiseIfNotExist: true);
         }
 
 
         [TestCaseSource(nameof(OnlyEntitySource))]
         public async Task FirstWithExpression_MustDetachEntity_IfTrackIsFalse(TId id)
         {
-            var result = await _repository.First(e => e.ID == id, track: false);
+            var result = await _repository.First(e => e.Id == id, track: false);
             Assert.That(_context.Entry(result).State, Is.EqualTo(EntityState.Detached));
         }
         #endregion
@@ -201,7 +201,7 @@ namespace Avesta.Repository.Test
         [TestCaseSource(nameof(OnlyEntitySource))]
         public async Task Single_MustTrackEntity(TId id)
         {
-            var result = await _repository.First(e => e.ID == id, track: true);
+            var result = await _repository.First(e => e.Id == id, track: true);
             Assert.That(_context.Entry(result).State, Is.Not.EqualTo(EntityState.Detached));
         }
 
@@ -210,7 +210,7 @@ namespace Avesta.Repository.Test
         [TestCaseSource(nameof(OnlyEntitySource))]
         public async Task Single_MustDetachEntity_IfTrackIsFalse(TId id)
         {
-            var result = await _repository.First(e => e.ID == id, track: false);
+            var result = await _repository.First(e => e.Id == id, track: false);
             Assert.That(_context.Entry(result).State, Is.EqualTo(EntityState.Detached));
         }
 
@@ -220,7 +220,7 @@ namespace Avesta.Repository.Test
         [TestCaseSource(nameof(EntitySourceWithIncludePath))]
         public async Task SingleWithInclude_MustReturnValidIncludedEntity(TId id, string navigationPropertyPath)
         {
-            var result = await _repository.First(e => e.ID == id, navigationPropertyPath: navigationPropertyPath);
+            var result = await _repository.First(e => e.Id == id, navigationPropertyPath: navigationPropertyPath);
             Assert.That(result, Is.Not.Null);
         }
 
@@ -231,7 +231,7 @@ namespace Avesta.Repository.Test
         [ExpectedException(typeof(InvalidOperationException))]
         public async Task SingleWithInvalidInclude_MustThrowInvalidOperationException(TId id, string navigationPropertyPath)
         {
-            await _repository.First(e => e.ID == id, navigationPropertyPath: navigationPropertyPath);
+            await _repository.First(e => e.Id == id, navigationPropertyPath: navigationPropertyPath);
         }
         #endregion
 
@@ -295,7 +295,7 @@ namespace Avesta.Repository.Test
             var result = await _repository.GetAll();
             foreach (var entity in result)
             {
-                Assert.That(entity.ID.ToString(), Does.Match(@"(?im)^[{(]?[0-9A-F]{8}[-]?(?:[0-9A-F]{4}[-]?){3}[0-9A-F]{12}[)}]?$"));
+                Assert.That(entity.Id.ToString(), Does.Match(@"(?im)^[{(]?[0-9A-F]{8}[-]?(?:[0-9A-F]{4}[-]?){3}[0-9A-F]{12}[)}]?$"));
             }
         }
 
