@@ -23,9 +23,14 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Avesta.Attribute\Avesta.Attribute.csproj" />
+    <ProjectReference Include="..\Avesta.Auth\Avesta.Auth.IdentityCore\Avesta.Auth.IdentityCore.csproj" />
+    <ProjectReference Include="..\Avesta.Auth\Avesta.Auth.Identity\Avesta.Auth.Identity.csproj" />
     <ProjectReference Include="..\Avesta.BlockChain\Avesta.BlockChain.csproj" />
     <ProjectReference Include="..\Avesta.CLI\Avesta.CLI.csproj" />
     <ProjectReference Include="..\Avesta.Constant\Avesta.Constant.csproj" />
+    <ProjectReference Include="..\Avesta.Controller\Avesta.Controller.Entity\Avesta.Controller.Entity.API\Avesta.Controller.Entity.API.csproj" />
+    <ProjectReference Include="..\Avesta.Controller\Avesta.Controller.Entity\Avesta.Controller.Entity.Base\Avesta.Controller.Entity.Base.csproj" />
+    <ProjectReference Include="..\Avesta.Controller\Avesta.Controller.Entity\Avesta.Controller.Entity.MVC\Avesta.Controller.Entity.MVC.csproj" />
     <ProjectReference Include="..\Avesta.Data\Avesta.Data.Entity\Avesta.Data.Entity.csproj" />
     <ProjectReference Include="..\Avesta.Data\Avesta.Data.IdentityCore\Avesta.Data.IdentityCore.csproj" />
     <ProjectReference Include="..\Avesta.Data\Avesta.Data.Identity\Avesta.Data.Identity.csproj" />
@@ -42,7 +47,15 @@
     <ProjectReference Include="..\Avesta.Repository\Avesta.Repository.Entity\Avesta.Repository.Entity.csproj" />
     <ProjectReference Include="..\Avesta.Repository\Avesta.Repository.IdentityCore\Avesta.Repository.IdentityCore.csproj" />
     <ProjectReference Include="..\Avesta.Repository\Avesta.Repository.Identity\Avesta.Repository.Identity.csproj" />
+    <ProjectReference Include="..\Avesta.Security\Avesta.Security.AES\Avesta.Security.AES.csproj" />
+    <ProjectReference Include="..\Avesta.Security\Avesta.Security.Attribute\Avesta.Security.Attribute.csproj" />
+    <ProjectReference Include="..\Avesta.Security\Avesta.Security.Hash\Avesta.Security.Hash.csproj" />
+    <ProjectReference Include="..\Avesta.Security\Avesta.Security.Model\Avesta.Security.Model.csproj" />
+    <ProjectReference Include="..\Avesta.Security\Avesta.Security.Test\Avesta.Security.Test.csproj" />
+    <ProjectReference Include="..\Avesta.Security\Avesta.Security\Avesta.Security.csproj" />
     <ProjectReference Include="..\Avesta.Seed\Avesta.Seed.csproj" />
+    <ProjectReference Include="..\Avesta.Service\Avesta.Service.Entity\Avesta.Service.Entity.csproj" />
+    <ProjectReference Include="..\Avesta.Service\Avesta.Service.Identity\Avesta.Service.Identity.csproj" />
     <ProjectReference Include="..\Avesta.Share\Avesta.Share.csproj" />
     <ProjectReference Include="..\Avesta.Storage\Avesta.Storage.csproj" />
   </ItemGroup>

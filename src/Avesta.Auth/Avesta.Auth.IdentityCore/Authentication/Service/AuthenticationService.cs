@@ -14,19 +14,20 @@ using Avesta.Repository.IdentityCore;
 
 namespace Avesta.Auth.IdentityCore.Authentication.Service
 {
-    public interface IAuthenticationService<TAvestaUser>
-        where TAvestaUser : AvestaIdentityUser
+    public interface IAuthenticationService<TId, TAvestaUser>
+        where TId : class, IEquatable<TId>
+        where TAvestaUser : AvestaIdentityUser<TId>
     {
-        Task<IdentityReturnTemplate> Login<TLoginUserModel>(TLoginUserModel model) where TLoginUserModel : LoginModelBase;
-        Task<IdentityReturnTemplate> Register<IRegisterUserViewModel>(IRegisterUserViewModel model) where IRegisterUserViewModel : RegisterUserViewModel;
+        Task<IdentityReturnTemplate> Login<TLoginUserModel>(TLoginUserModel model) where TLoginUserModel : LoginModelBase<TId>;
+        Task<IdentityReturnTemplate> Register<IRegisterUserViewModel>(IRegisterUserViewModel model) where IRegisterUserViewModel : RegisterUserViewModel<TId>;
         Task<IdentityReturnTemplate> ResetPasswordByPhoneNumber(ResetPasswordViewModel viewModel);
         Task<IdentityReturnTemplate> ResetPasswordByEmail(ResetPasswordViewModel viewModel);
-        Task<JWTAvestaUser?> SignInWithJWT<TLoginUserModel>(TLoginUserModel model) where TLoginUserModel : LoginModelBase;
-        Task<JWTAvestaUser?> SignInWithJWT<TLoginUserModel>(TLoginUserModel model, params Claim[] claims) where TLoginUserModel : LoginModelBase;
-        Task<TAvestaUser> GetAuthenticatedUser<TLoginModel>(TLoginModel model) where TLoginModel : LoginModelBase;
+        Task<JWTAvestaUser<TId>?> SignInWithJWT<TLoginUserModel>(TLoginUserModel model) where TLoginUserModel : LoginModelBase<TId>;
+        Task<JWTAvestaUser<TId>?> SignInWithJWT<TLoginUserModel>(TLoginUserModel model, params Claim[] claims) where TLoginUserModel : LoginModelBase<TId>;
+        Task<TAvestaUser> GetAuthenticatedUser<TLoginModel>(TLoginModel model) where TLoginModel : LoginModelBase<TId>;
         Task<JWTTokenIdentityResult> RefreshJWTTokens(JWTTokenIdentityResult model);
         Task<string> GenerateResetPasswordTokenByEmail(string email);
-        Task<JWTAvestaUser?> GetUserByToken(string token);
+        Task<JWTAvestaUser<TId>?> GetUserByToken(string token);
         Task LogOut();
 
     }
@@ -34,16 +35,17 @@ namespace Avesta.Auth.IdentityCore.Authentication.Service
 
 
 
-    public class AuthenticationService<TAvestaUser, TRole> : IAuthenticationService<TAvestaUser>
-        where TAvestaUser : AvestaIdentityUser
+    public class AuthenticationService<TId, TAvestaUser, TRole> : IAuthenticationService<TId,TAvestaUser>
+        where TId : class, IEquatable<TId>
+        where TAvestaUser : AvestaIdentityUser<TId>
         where TRole : IdentityRole
     {
-        readonly IIdentityRepository<TAvestaUser, TRole> _identityRepository;
+        readonly IIdentityRepository<TId,TAvestaUser, TRole> _identityRepository;
         readonly IJWTAuthenticationService _jWTAuthenticationService;
         readonly IConfiguration _configuration;
         readonly IMapper _mapper;
         public AuthenticationService(
-            IIdentityRepository<TAvestaUser, TRole> identityRepository
+            IIdentityRepository<TId, TAvestaUser, TRole> identityRepository
             , IJWTAuthenticationService jWTAuthenticationService
             , IConfiguration configuration
             , IMapper mapper)
@@ -56,11 +58,11 @@ namespace Avesta.Auth.IdentityCore.Authentication.Service
         }
 
 
-        public async Task<JWTAvestaUser?> GetUserByToken(string token)
+        public async Task<JWTAvestaUser<TId>?> GetUserByToken(string token)
         {
             var email = await _jWTAuthenticationService.GetClaimFromToken(token, ClaimTypes.Email);
             var user = await _identityRepository.GetUserByEmail(email);
-            var data = user.Convert<JWTAvestaUser>()?.SetToken(token);
+            var data = user.Convert<JWTAvestaUser<TId>>()?.SetToken(token);
             return data;
         }
 
@@ -106,10 +108,10 @@ namespace Avesta.Auth.IdentityCore.Authentication.Service
 
 
         public async Task<IdentityReturnTemplate> Register<IRegisterUserViewModel>(IRegisterUserViewModel model)
-            where IRegisterUserViewModel : RegisterUserViewModel
+            where IRegisterUserViewModel : RegisterUserViewModel<TId>
         {
             var user = _mapper.Map<TAvestaUser>(model);
-            var result = await _identityRepository.RegisterNewUser(user, model.Password);
+            var result = await _identityRepository.RegisterNewUser(user, model.RepeatPassword);
             return new IdentityReturnTemplate
             {
                 Errors = result.Errors?.Select(e => e.Description).ToArray(),
@@ -117,10 +119,10 @@ namespace Avesta.Auth.IdentityCore.Authentication.Service
             };
         }
 
-        public async Task<IdentityReturnTemplate> Login<TLoginModel>(TLoginModel model) where TLoginModel : LoginModelBase
+        public async Task<IdentityReturnTemplate> Login<TLoginModel>(TLoginModel model) where TLoginModel : LoginModelBase<TId>
         {
             model.ID = await _identityRepository.GetUserIDByEmail(model.Email);
-            var result = await _identityRepository.SignIn<LoginModelBase>(model, isPersistent: model.RememberMe);
+            var result = await _identityRepository.SignIn<LoginModelBase<TId>>(model, isPersistent: model.RememberMe);
             if (!result.Succeed)
                 throw new CanNotFoundAnyUserWithThisUsernameAndPassword($"status of signin result : {result.Succeed}");
             return new IdentityReturnTemplate
@@ -130,13 +132,13 @@ namespace Avesta.Auth.IdentityCore.Authentication.Service
             };
         }
 
-        public async Task<TAvestaUser> GetAuthenticatedUser<TLoginModel>(TLoginModel model) where TLoginModel : LoginModelBase
+        public async Task<TAvestaUser> GetAuthenticatedUser<TLoginModel>(TLoginModel model) where TLoginModel : LoginModelBase<TId>
         {
             var user = await _identityRepository.GetUserByEmail(model.Email);
             if (user == null)
                 throw new UserNotFoundException($"user with email or id : {model.Email} not found !");
             model.ID = user.Id;
-            var result = await _identityRepository.SignIn<LoginModelBase>(model, isPersistent: model.RememberMe);
+            var result = await _identityRepository.SignIn<LoginModelBase<TId>>(model, isPersistent: model.RememberMe);
             if (!result.Succeed)
                 throw new CanNotFoundAnyUserWithThisUsernameAndPassword($"status of signin result : {result.Succeed}");
 
@@ -151,7 +153,7 @@ namespace Avesta.Auth.IdentityCore.Authentication.Service
 
 
 
-        public async Task<JWTAvestaUser?> SignInWithJWT<TLoginUserModel>(TLoginUserModel model) where TLoginUserModel : LoginModelBase
+        public async Task<JWTAvestaUser<TId>?> SignInWithJWT<TLoginUserModel>(TLoginUserModel model) where TLoginUserModel : LoginModelBase<TId>
         {
             var user = await GetAuthenticatedUser(model);
             if (user == null)
@@ -165,12 +167,12 @@ namespace Avesta.Auth.IdentityCore.Authentication.Service
             user.RefreshToken = result.RefreshToken;
             await _identityRepository.UpdateUser(user);
 
-            var data = user.Convert<JWTAvestaUser>()?.SetToken(result.Token);
+            var data = user.Convert<JWTAvestaUser<TId>>()?.SetToken(result.Token);
             return data;
 
         }
 
-        public async Task<JWTAvestaUser?> SignInWithJWT<TLoginUserModel>(TLoginUserModel model, params Claim[] claims) where TLoginUserModel : LoginModelBase
+        public async Task<JWTAvestaUser<TId>?> SignInWithJWT<TLoginUserModel>(TLoginUserModel model, params Claim[] claims) where TLoginUserModel : LoginModelBase<TId>
         {
             var user = await GetAuthenticatedUser(model);
             if (user == null)
@@ -186,7 +188,7 @@ namespace Avesta.Auth.IdentityCore.Authentication.Service
             user.RefreshToken = result.RefreshToken;
             await _identityRepository.UpdateUser(user);
 
-            var data = user.Convert<JWTAvestaUser>()?.SetToken(result.Token);
+            var data = user.Convert<JWTAvestaUser<TId>>()?.SetToken(result.Token);
             return data;
 
         }
@@ -199,7 +201,7 @@ namespace Avesta.Auth.IdentityCore.Authentication.Service
             return result;
         }
 
-        public async Task<IdentityReturnTemplate> RegisterNewUser<TRegisterUserModel>(TRegisterUserModel model) where TRegisterUserModel : RegisterModelBase
+        public async Task<IdentityReturnTemplate> RegisterNewUser<TRegisterUserModel>(TRegisterUserModel model) where TRegisterUserModel : RegisterModelBase<TId>
         {
             //var result = await _identityRepository.RegisterUser(model, Share.Constant.Role.NormalUser);
             var result = await _identityRepository.RegisterUser(model);

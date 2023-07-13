@@ -3,7 +3,8 @@ using Avesta.Share.Model.Identity;
 
 namespace Avesta.Auth.IdentityCore.Authentication.ViewModel
 {
-    public class RegisterUserViewModel : RegisterModelBase
+    public class RegisterUserViewModel<TId> : RegisterModelBase<TId>
+        where TId : class, IEquatable<TId>
     {
         public string? SchoolCode { get; set; }
         public DateTime? BirthDate { get; set; }

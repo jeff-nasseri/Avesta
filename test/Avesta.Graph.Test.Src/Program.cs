@@ -1,9 +1,9 @@
 using Avesta.Graph;
 using Avesta.Graph.Test.Src.Data.Context;
 using Avesta.Graph.Test.Src.Storage;
-using Avesta.Repository;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
+using Avesta.Repository.Entity;
 
 namespace Avesta.Graph.Test.Src
 {
@@ -23,9 +23,9 @@ namespace Avesta.Graph.Test.Src
             builder.Services.AddControllersWithViews();
             builder.Services.RegisterAvestaGraph();
             builder.Services.AddDbContext<ApplicationDbContext>();
-            //builder.Services.RegisterRepository<string, ApplicationDbContext>(Assembly.GetExecutingAssembly().ManifestModule.Name);
+            builder.Services.RegisterRepository<string, ApplicationDbContext>(Assembly.GetExecutingAssembly().ManifestModule.Name);
             //builder.Services.RegisterService<string>(Assembly.GetExecutingAssembly().ManifestModule.Name);
-            //builder.Services.RegisterRepository<string, ApplicationDbContext>(Assembly.GetExecutingAssembly().ManifestModule.Name);
+            builder.Services.RegisterRepository<string, ApplicationDbContext>(Assembly.GetExecutingAssembly().ManifestModule.Name);
 
 
 

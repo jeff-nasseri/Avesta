@@ -6,11 +6,13 @@ using Avesta.Share.Extensions;
 using Avesta.Share.Model.Identity;
 using Microsoft.AspNetCore.Identity;
 using Avesta.Repository.IdentityCore;
+using MoreLinq.Extensions;
 
 namespace Avesta.Auth.IdentityCore.User.Service
 {
-    public interface IUserService<TAvestaUser>
-        where TAvestaUser : AvestaIdentityUser
+    public interface IUserService<TId, TAvestaUser>
+        where TId : class, IEquatable<TId>
+        where TAvestaUser : AvestaIdentityUser<TId>
     {
         Task<TAvestaUser> GetUserByEmail(string email, bool exceptionRaiseIfNotExist = false);
         Task<TAvestaUser> GetUserById(string id, bool exceptionRaiseIfNotExist = false);
@@ -21,14 +23,15 @@ namespace Avesta.Auth.IdentityCore.User.Service
     }
 
 
-    public class UserService<TAvestaUser, TRole> : IUserService<TAvestaUser>
-        where TAvestaUser : AvestaIdentityUser
+    public class UserService<TId, TAvestaUser, TRole> : IUserService<TId, TAvestaUser>
+        where TId : class, IEquatable<TId>
+        where TAvestaUser : AvestaIdentityUser<TId>
         where TRole : IdentityRole
     {
-        readonly IIdentityRepository<TAvestaUser, TRole> _identityRepository;
+        readonly IIdentityRepository<TId, TAvestaUser, TRole> _identityRepository;
         readonly IMapper _mapper;
 
-        public UserService(IIdentityRepository<TAvestaUser, TRole> identityRepository, IMapper mapper)
+        public UserService(IIdentityRepository<TId, TAvestaUser, TRole> identityRepository, IMapper mapper)
         {
             _identityRepository = identityRepository;
             _mapper = mapper;

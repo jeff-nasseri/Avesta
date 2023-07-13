@@ -12,12 +12,14 @@ using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 using Avesta.Share.Model.Identity;
 using Avesta.Data.IdentityCore.Model;
+using System.Security.Cryptography;
 
 namespace Avesta.Repository.IdentityCore
 {
 
-    public class IdentityRepository<TUser, TRole> : IIdentityRepository<TUser, TRole>
-        where TUser : AvestaIdentityUser
+    public class IdentityRepository<TId, TUser, TRole> : IIdentityRepository<TId, TUser, TRole>
+        where TId : class, IEquatable<TId>
+        where TUser : AvestaIdentityUser<TId>
         where TRole : IdentityRole
     {
         readonly UserManager<TUser> _userManager;
@@ -47,10 +49,9 @@ namespace Avesta.Repository.IdentityCore
 
 
         #region register and sign_in_out
-        public async Task<IdentityRegisterUserReturn> RegisterUser<TModel>(TModel model, string role = null) where TModel : RegisterModelBase
+        public async Task<IdentityRegisterUserReturn> RegisterUser<TModel>(TModel model, string role = null) where TModel : RegisterModelBase<TId>
         {
             var user = _mapper.Map<TUser>(model);
-            user.Id = Guid.NewGuid().ToString();
             var result = await _userManager.CreateAsync(user, model.Password);
 
             return new IdentityRegisterUserReturn
@@ -60,9 +61,9 @@ namespace Avesta.Repository.IdentityCore
                 AddToRoleResult = await AddUserToRole(user, role)
             };
         }
-        public async Task<IdentityRepositoryReturn> SignIn<TModel>(TModel model, bool isPersistent = true) where TModel : LoginModelBase
+        public async Task<IdentityRepositoryReturn> SignIn<TModel>(TModel model, bool isPersistent = true) where TModel : LoginModelBase<TId>
         {
-            var user = await _userManager.FindByIdAsync(model.ID);
+            var user = await _userManager.FindByIdAsync("");
             var result = await _signInManager.PasswordSignInAsync(user.UserName, model.Password, isPersistent: isPersistent, lockoutOnFailure: true);
             return new IdentityRepositoryReturn
             {
@@ -99,7 +100,7 @@ namespace Avesta.Repository.IdentityCore
 
 
         #region get user info
-        public async Task<string> GetUserIDByEmail(string email)
+        public async Task<TId> GetUserIDByEmail(string email)
         {
             var user = await _userManager.FindByEmailAsync(email)
                 ?? throw new UserNotFoundException(email);

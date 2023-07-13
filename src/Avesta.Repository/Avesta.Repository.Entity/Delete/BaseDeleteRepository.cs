@@ -29,7 +29,7 @@ namespace Avesta.Repository.EntityRepository.Delete
             var data = await base.Table<TEntity, TId>().FindAsync(entity);
 
             if (exceptionRaiseIfNotExist && data == null)
-                throw new CanNotFoundEntityException(entity.ID);
+                throw new CanNotFoundEntityException(entity.Id);
 
             base.Table<TEntity, TId>().Remove(entity);
             await base.SaveChanges();

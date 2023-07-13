@@ -9,9 +9,10 @@ using System.Threading.Tasks;
 
 namespace Avesta.Data.Identity.Model
 {
-    public class AvestaAuthorizeGroup<TId, TAvestaUserGroup> : BaseEntity<TId>
+    public class AvestaAuthorizeGroup<TId, TAvestaUserGroup, TAvestaUser> : BaseEntity<TId>
         where TId : class
-        where TAvestaUserGroup : AvestaUserAuthorizeGroup<TId>
+        where TAvestaUser : IAvestaUser<TId>
+        where TAvestaUserGroup : AvestaUserAuthorizeGroup<TId, TAvestaUser>
     {
         public virtual string GroupName { get; set; }
 

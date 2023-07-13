@@ -2,9 +2,10 @@
 
 namespace Avesta.Share.Model.Identity
 {
-    public class IdentityModel
+    public class IdentityModel<TId>
+        where TId : class, IEquatable<TId>
     {
-        public virtual string? ID { get; set; }
+        public virtual TId? ID { get; set; }
         public virtual string Password { get; set; }
         public virtual string Email { get; set; }
         public virtual string Username => Email;

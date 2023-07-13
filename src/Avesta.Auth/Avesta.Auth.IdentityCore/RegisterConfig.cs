@@ -15,22 +15,23 @@ using Avesta.Repository.Entity;
 using Avesta.Repository.EntityRepository;
 using Avesta.Share.Model;
 
-namespace Avesta.Auth
+namespace Avesta.Auth.IdentityCore
 {
 
-  
+
     public static class RegisterConfig
     {
-        public static IServiceCollection AddAvestaAuthentication<TAvestaUser, TRole>(
+        public static IServiceCollection AddAvestaAuthentication<TId, TAvestaUser, TRole>(
             this IServiceCollection service
             , Action<AvestaAuthenticationOption> setupActionForAvestaAuth)
-            where TAvestaUser : AvestaIdentityUser
+            where TId : class, IEquatable<TId>
+            where TAvestaUser : AvestaIdentityUser<TId>
             where TRole : IdentityRole
         {
 
             #region [-Register JWTAuth-]
-            service.AddScoped<IJWTAuthenticationService, JWTAuthenticationService<TAvestaUser, TRole>>();
-            service.AddScoped<IIdentityRepository<TAvestaUser, TRole>, IdentityRepository<TAvestaUser, TRole>>();
+            service.AddScoped<IJWTAuthenticationService, JWTAuthenticationService<TId, TAvestaUser, TRole>>();
+            service.AddScoped<IIdentityRepository<TId, TAvestaUser, TRole>, IdentityRepository<TId, TAvestaUser, TRole>>();
             var option = new AvestaAuthenticationOption();
             setupActionForAvestaAuth(option);
             service.AddSingleton(option);
@@ -38,23 +39,23 @@ namespace Avesta.Auth
 
 
             #region [-Register HttpAuth-]
-            service.AddScoped<IHttpAuthService<TAvestaUser>, HttpAuthService<TAvestaUser, TRole>>();
+            service.AddScoped<IHttpAuthService<TAvestaUser>, HttpAuthService<TId, TAvestaUser, TRole>>();
             #endregion
 
 
             #region [-Register Authentication-]
-            service.AddScoped<IAuthenticationService<TAvestaUser>, AuthenticationService<TAvestaUser, TRole>>();
+            service.AddScoped<IAuthenticationService<TId, TAvestaUser>, AuthenticationService<TId, TAvestaUser, TRole>>();
             #endregion
 
 
             #region [-Configure AutoMapper-]
-            service.ConfigureMapperForAuthentication<TAvestaUser>();
+            service.ConfigureMapperForAuthentication<TId, TAvestaUser>();
             #endregion
 
 
 
             #region [-Register User-]
-            service.AddScoped<IUserService<TAvestaUser>, UserService<TAvestaUser, TRole>>();
+            service.AddScoped<IUserService<TId, TAvestaUser>, UserService<TId, TAvestaUser, TRole>>();
             #endregion
 
             return service;
@@ -65,11 +66,11 @@ namespace Avesta.Auth
 
 
         public static IServiceCollection AddAvestaAuthorization<TId, TAvestaUser, TAvestaAuthorizeGroup, TAvestaUserAuthorizeGroup, TAvestaDbContext>(this IServiceCollection service)
-            where TId : class
-            where TAvestaUser : AvestaUser<TId, TAvestaUserAuthorizeGroup>
-            where TAvestaAuthorizeGroup : AvestaAuthorizeGroup<TId, TAvestaUserAuthorizeGroup>
+            where TId : class, IEquatable<TId>
+            where TAvestaUser : IAvestaUser<TId>
+            where TAvestaAuthorizeGroup : AvestaAuthorizeGroup<TId, TAvestaUserAuthorizeGroup, TAvestaUser>
             where TAvestaDbContext : AvestaDbContext
-            where TAvestaUserAuthorizeGroup : AvestaUserAuthorizeGroup<TId>
+            where TAvestaUserAuthorizeGroup : AvestaUserAuthorizeGroup<TId, TAvestaUser>
         {
 
             service.RegisterRepositories<TId, TAvestaAuthorizeGroup, TAvestaDbContext>();

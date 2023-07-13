@@ -13,13 +13,16 @@ using Newtonsoft.Json;
 using System.Text.RegularExpressions;
 using Avesta.Exceptions.Identity;
 using Avesta.Data.IdentityCore.Model;
+using System;
+using MoreLinq.Extensions;
 
 namespace Avesta.Attribute.Authorize
 {
 
 
-    public class AuthSPARequiredFilter<TAvestaUser, TRole> : IAuthorizationFilter
-        where TAvestaUser : AvestaIdentityUser
+    public class AuthSPARequiredFilter<TId, TAvestaUser, TRole> : IAuthorizationFilter
+        where TId : class, IEquatable<TId>
+        where TAvestaUser : AvestaIdentityUser<TId>
         where TRole : IdentityRole
     {
 
@@ -56,11 +59,12 @@ namespace Avesta.Attribute.Authorize
         }
     }
 
-    public class AuthorizeAccessAttribute<TAvestaUser, TRole> : TypeFilterAttribute
-        where TAvestaUser : AvestaIdentityUser
+    public class AuthorizeAccessAttribute<TId, TAvestaUser, TRole> : TypeFilterAttribute
+        where TId : class, IEquatable<TId>
+        where TAvestaUser : AvestaIdentityUser<TId>
         where TRole : IdentityRole
     {
-        public AuthorizeAccessAttribute(params object[] features) : base(typeof(AuthSPARequiredFilter<TAvestaUser, TRole>))
+        public AuthorizeAccessAttribute(params object[] features) : base(typeof(AuthSPARequiredFilter<TId, TAvestaUser, TRole>))
         {
             var result = new List<string>();
             foreach (var item in features)

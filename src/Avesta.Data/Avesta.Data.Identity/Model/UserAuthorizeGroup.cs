@@ -8,12 +8,15 @@ using System.Threading.Tasks;
 
 namespace Avesta.Data.Identity.Model
 {
-    public class AvestaUserAuthorizeGroup<TId> : BaseEntity<TId>
+    public class AvestaUserAuthorizeGroup<TId, TAvestaUser> : BaseEntity<TId>
         where TId : class
+        where TAvestaUser : IAvestaUser<TId>
     {
         public virtual TId GroupId { get; set; }
 
+        [ForeignKey(nameof(User))]
         public virtual TId UserId { get; set; }
+        public TAvestaUser User { get; set; }
 
     }
 }

@@ -12,37 +12,38 @@ using Avesta.Repository.IdentityCore;
 namespace Avesta.Seed.Identity.Service
 {
 
-    public interface IIdentitySeedService<TAvestaUser, TRole>
-        where TAvestaUser : AvestaIdentityUser
+    public interface IIdentitySeedService<TId, TAvestaUser, TRole>
+        where TId : class, IEquatable<TId>
+        where TAvestaUser : AvestaIdentityUser<TId>
         where TRole : IdentityRole
     {
-        Task<IdentityResult> Seed(AvestaUserSeedModel<TAvestaUser> model);
-        Task<IEnumerable<IdentityResult>> SeedRange(IEnumerable<AvestaUserSeedModel<TAvestaUser>> models);
+        Task<IdentityResult> Seed(AvestaUserSeedModel<TId, TAvestaUser> model);
+        Task<IEnumerable<IdentityResult>> SeedRange(IEnumerable<AvestaUserSeedModel<TId, TAvestaUser>> models);
 
 
     }
 
 
-
-    public class IdentitySeedService<TAvestaUser, TRole> : IIdentitySeedService<TAvestaUser, TRole>
-        where TAvestaUser : AvestaIdentityUser
+    public class IdentitySeedService<TId, TAvestaUser, TRole> : IIdentitySeedService<TId, TAvestaUser, TRole>
+        where TId : class, IEquatable<TId>
+        where TAvestaUser : AvestaIdentityUser<TId>
         where TRole : IdentityRole
     {
 
-        readonly IIdentityRepository<TAvestaUser, TRole> _identityRepository;
-        public IdentitySeedService(IIdentityRepository<TAvestaUser, TRole> identityRepository)
+        readonly IIdentityRepository<TId, TAvestaUser, TRole> _identityRepository;
+        public IdentitySeedService(IIdentityRepository<TId, TAvestaUser, TRole> identityRepository)
         {
             _identityRepository = identityRepository;
         }
 
 
-        public async Task<IdentityResult> Seed(AvestaUserSeedModel<TAvestaUser> model)
+        public async Task<IdentityResult> Seed(AvestaUserSeedModel<TId, TAvestaUser> model)
         {
             var result = await _identityRepository.RegisterNewUser(model.User, model.Password);
             return result;
         }
 
-        public async Task<IEnumerable<IdentityResult>> SeedRange(IEnumerable<AvestaUserSeedModel<TAvestaUser>> models)
+        public async Task<IEnumerable<IdentityResult>> SeedRange(IEnumerable<AvestaUserSeedModel<TId, TAvestaUser>> models)
         {
             var list = new List<IdentityResult>();
             foreach (var model in models)

@@ -18,10 +18,10 @@ namespace Avesta.Auth.IdentityCore.Authorize.Service
 
     public interface IAuthorizeGroupService<TId, TAvestaUser, TAvestaAuthorizeGroup, TUserAuthorizeGroup>
             : IEntityService<TId, TAvestaAuthorizeGroup, AvestaAuthorizeGroupModel<TId>, CreateAvestaAuthorizeGroupModel<TId>, EditAvestaAuthorizeGroupModel<TId>>
-        where TId : class
-        where TAvestaAuthorizeGroup : AvestaAuthorizeGroup<TId, TUserAuthorizeGroup>
-        where TUserAuthorizeGroup : AvestaUserAuthorizeGroup<TId>
-        where TAvestaUser : AvestaUser<TId, TUserAuthorizeGroup>
+        where TId : class, IEquatable<TId>
+        where TAvestaAuthorizeGroup : AvestaAuthorizeGroup<TId, TUserAuthorizeGroup, TAvestaUser>
+        where TUserAuthorizeGroup : AvestaUserAuthorizeGroup<TId, TAvestaUser>
+        where TAvestaUser : IAvestaUser<TId>
     {
         Task<string?> GetFeatureStrOfGroup(TId groupId);
     }
@@ -30,10 +30,10 @@ namespace Avesta.Auth.IdentityCore.Authorize.Service
     public class AuthorizeGroupService<TId, TAvestaUser, TAvestaAuthorizeGroup, TUserAuthorizeGroup>
             : EntityService<TId, TAvestaAuthorizeGroup, AvestaAuthorizeGroupModel<TId>, CreateAvestaAuthorizeGroupModel<TId>, EditAvestaAuthorizeGroupModel<TId>>
             , IAuthorizeGroupService<TId, TAvestaUser, TAvestaAuthorizeGroup, TUserAuthorizeGroup>
-        where TId : class
-        where TAvestaAuthorizeGroup : AvestaAuthorizeGroup<TId, TUserAuthorizeGroup>
-        where TUserAuthorizeGroup : AvestaUserAuthorizeGroup<TId>
-        where TAvestaUser : AvestaUser<TId, TUserAuthorizeGroup>
+        where TId : class, IEquatable<TId>
+        where TAvestaAuthorizeGroup : AvestaAuthorizeGroup<TId, TUserAuthorizeGroup, TAvestaUser>
+        where TUserAuthorizeGroup : AvestaUserAuthorizeGroup<TId, TAvestaUser>
+        where TAvestaUser : IAvestaUser<TId>
     {
         public AuthorizeGroupService(IReadEntityService<TId, TAvestaAuthorizeGroup, AvestaAuthorizeGroupModel<TId>> readEntityService
             , IUpdateEntityService<TId, TAvestaAuthorizeGroup, AvestaAuthorizeGroupModel<TId>, EditAvestaAuthorizeGroupModel<TId>> updateEntityService

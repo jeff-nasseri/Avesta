@@ -28,7 +28,7 @@ namespace Avesta.Services.Entity.Availability
         }
 
         public async Task<bool> Any(TId id, string navigationPropertyPath = null)
-            => await _availabilityRepository.Any(e => e.ID == id, navigationPropertyPath);
+            => await _availabilityRepository.Any(e => e.Id == id, navigationPropertyPath);
 
         public async Task<bool> Any(Expression<Func<TEntity, bool>> expression, string navigationPropertyPath = null)
             => await _availabilityRepository.Any(expression, navigationPropertyPath);
@@ -39,7 +39,7 @@ namespace Avesta.Services.Entity.Availability
         }
 
         public async Task CheckAvailability(TId id, string navigationPropertyPath = null)
-            => await _availabilityRepository.CheckAvailability(e => e.ID == id, navigationPropertyPath);
+            => await _availabilityRepository.CheckAvailability(e => e.Id == id, navigationPropertyPath);
 
         public async Task CheckAvailability(Expression<Func<TEntity, bool>> expression, string navigationPropertyPath = null)
             => await _availabilityRepository.Any(expression, navigationPropertyPath);

@@ -76,14 +76,14 @@ namespace Avesta.Graph.Test.Src.Storage
             {
                 Name = "School A",
                 //ID = Guid.NewGuid().ToString()
-                ID = "73794880-d275-4703-a74d-fd32a338b373"
+                Id = "73794880-d275-4703-a74d-fd32a338b373"
 
             },
             new School
             {
                 Name = "School B",
                 //ID = Guid.NewGuid().ToString()
-                ID = "73794880-d275-4703-a74d-fd32a338b374"
+                Id = "73794880-d275-4703-a74d-fd32a338b374"
 
             }
         };
@@ -101,9 +101,9 @@ namespace Avesta.Graph.Test.Src.Storage
                 AnyExteraNote = "My name is Alireza, I'm very excited to be here",
                 Gender = Gender.Man,
                 //ID = Guid.NewGuid().ToString()
-                ID = "73794880-d275-4703-a74d-fd32a338b375",
+                Id = "73794880-d275-4703-a74d-fd32a338b375",
                 SchoolId = "73794880-d275-4703-a74d-fd32a338b374",
-                School = Schools.Single(s=>s.ID == "73794880-d275-4703-a74d-fd32a338b374")
+                School = Schools.Single(s=>s.Id == "73794880-d275-4703-a74d-fd32a338b374")
             },
             new Student
             {
@@ -112,9 +112,9 @@ namespace Avesta.Graph.Test.Src.Storage
                 AnyExteraNote = "My name is Hamed, I'm very excited to be here",
                 Gender = Gender.Man,
                 //ID = Guid.NewGuid().ToString()
-                ID = "73794880-d275-4703-a74d-fd32a338b376",
+                Id = "73794880-d275-4703-a74d-fd32a338b376",
                 SchoolId = "73794880-d275-4703-a74d-fd32a338b374",
-                School = Schools.Single(s=>s.ID == "73794880-d275-4703-a74d-fd32a338b374")
+                School = Schools.Single(s=>s.Id == "73794880-d275-4703-a74d-fd32a338b374")
 
             },
             new Student
@@ -124,9 +124,9 @@ namespace Avesta.Graph.Test.Src.Storage
                 AnyExteraNote = "My name is Sahar, I'm very excited to be here",
                 Gender = Gender.Woman,
                 //ID = Guid.NewGuid().ToString()
-                ID = "73794880-d275-4703-a74d-fd32a338b377",
+                Id = "73794880-d275-4703-a74d-fd32a338b377",
                 SchoolId = "73794880-d275-4703-a74d-fd32a338b374",
-                School = Schools.Single(s=>s.ID == "73794880-d275-4703-a74d-fd32a338b374")
+                School = Schools.Single(s=>s.Id == "73794880-d275-4703-a74d-fd32a338b374")
             },
             new Student
             {
@@ -135,9 +135,9 @@ namespace Avesta.Graph.Test.Src.Storage
                 AnyExteraNote = "My name is Sara, I'm very excited to be here",
                 Gender = Gender.Woman,
                 //ID = Guid.NewGuid().ToString()
-                ID = "73794880-d275-4703-a74d-fd32a338b378",
+                Id = "73794880-d275-4703-a74d-fd32a338b378",
                 SchoolId = "73794880-d275-4703-a74d-fd32a338b374",
-                School = Schools.Single(s=>s.ID == "73794880-d275-4703-a74d-fd32a338b374")
+                School = Schools.Single(s=>s.Id == "73794880-d275-4703-a74d-fd32a338b374")
             },
             new Student
             {
@@ -146,9 +146,9 @@ namespace Avesta.Graph.Test.Src.Storage
                 AnyExteraNote = "My name is Jack, I'm very excited to be here",
                 Gender = Gender.Man,
                 //ID = Guid.NewGuid().ToString()
-                ID = "73794880-d275-4703-a74d-fd32a338b379",
+                Id = "73794880-d275-4703-a74d-fd32a338b379",
                 SchoolId = "73794880-d275-4703-a74d-fd32a338b374",
-                School = Schools.Single(s=>s.ID == "73794880-d275-4703-a74d-fd32a338b374")
+                School = Schools.Single(s=>s.Id == "73794880-d275-4703-a74d-fd32a338b374")
 
             },
             new Student
@@ -158,9 +158,9 @@ namespace Avesta.Graph.Test.Src.Storage
                 AnyExteraNote = "My name is Biden, I'm very excited to be here",
                 Gender = Gender.Man,
                 //ID = Guid.NewGuid().ToString()
-                ID = "73794880-d275-4703-a74d-fd32a338b371",
+                Id = "73794880-d275-4703-a74d-fd32a338b371",
                 SchoolId = "73794880-d275-4703-a74d-fd32a338b373",
-                School = Schools.Single(s=>s.ID == "73794880-d275-4703-a74d-fd32a338b373")
+                School = Schools.Single(s=>s.Id == "73794880-d275-4703-a74d-fd32a338b373")
             },
             new Student
             {
@@ -169,9 +169,9 @@ namespace Avesta.Graph.Test.Src.Storage
                 AnyExteraNote = "My name is Reza, I'm very excited to be here",
                 Gender = Gender.Man,
                 //ID = Guid.NewGuid().ToString()
-                ID = "73794880-d275-4703-a74d-fd32a338b372",
+                Id = "73794880-d275-4703-a74d-fd32a338b372",
                 SchoolId = "73794880-d275-4703-a74d-fd32a338b373",
-                School = Schools.Single(s=>s.ID == "73794880-d275-4703-a74d-fd32a338b373")
+                School = Schools.Single(s=>s.Id == "73794880-d275-4703-a74d-fd32a338b373")
             }
         };
 
@@ -186,7 +186,7 @@ namespace Avesta.Graph.Test.Src.Storage
                 Age = 67,
                 Gender = Gender.Man,
                 //ID = Guid.NewGuid().ToString()
-                ID = "73794880-d275-4703-a74d-fd32a338b369"
+                Id = "73794880-d275-4703-a74d-fd32a338b369"
 
             },
             new Teacher
@@ -195,7 +195,7 @@ namespace Avesta.Graph.Test.Src.Storage
                 Age = 40,
                 Gender = Gender.Woman,
                 //ID = Guid.NewGuid().ToString()
-                ID = "73794880-d275-4703-a74d-fd32a338b368"
+                Id = "73794880-d275-4703-a74d-fd32a338b368"
 
             },
             new Teacher
@@ -204,7 +204,7 @@ namespace Avesta.Graph.Test.Src.Storage
                 Age = 56,
                 Gender = Gender.Man,
                 //ID = Guid.NewGuid().ToString()
-                ID = "73794880-d275-4703-a74d-fd32a338b367"
+                Id = "73794880-d275-4703-a74d-fd32a338b367"
 
             }
         };
@@ -216,19 +216,19 @@ namespace Avesta.Graph.Test.Src.Storage
             {
                 TeacherId = "73794880-d275-4703-a74d-fd32a338b367",
                 SchoolId = "73794880-d275-4703-a74d-fd32a338b373",
-                ID = "13794880-d275-4703-a74d-fd32a338b373"
+                Id = "13794880-d275-4703-a74d-fd32a338b373"
             },
             new Teacher_School
             {
                 TeacherId = "73794880-d275-4703-a74d-fd32a338b368",
                 SchoolId = "73794880-d275-4703-a74d-fd32a338b374",
-                ID = "23794880-d275-4703-a74d-fd32a338b373"
+                Id = "23794880-d275-4703-a74d-fd32a338b373"
             },
             new Teacher_School
             {
                 TeacherId = "73794880-d275-4703-a74d-fd32a338b369",
                 SchoolId = "73794880-d275-4703-a74d-fd32a338b373",
-                ID = "33794880-d275-4703-a74d-fd32a338b373"
+                Id = "33794880-d275-4703-a74d-fd32a338b373"
             }
         };
 

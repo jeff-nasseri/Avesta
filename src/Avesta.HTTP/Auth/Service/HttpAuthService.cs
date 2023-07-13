@@ -20,15 +20,16 @@ namespace Avesta.HTTP.Auth.Service
         Task<string?> GetBearerTokenFromContext();
     }
 
-    public class HttpAuthService<TAvestaUser, TRole> : IHttpAuthService<TAvestaUser>
-       where TAvestaUser : AvestaIdentityUser
-       where TRole : IdentityRole
+    public class HttpAuthService<TId, TAvestaUser, TRole> : IHttpAuthService<TAvestaUser>
+        where TId : class, IEquatable<TId>
+        where TAvestaUser : AvestaIdentityUser<TId>
+        where TRole : IdentityRole
     {
-        readonly IIdentityRepository<TAvestaUser, TRole> _identityRepository;
+        readonly IIdentityRepository<TId, TAvestaUser, TRole> _identityRepository;
         readonly IHttpContextAccessor _httpContextAccessor;
         readonly IJWTAuthenticationService _jWTAuthenticationService;
         public HttpAuthService(IHttpContextAccessor httpContextAccessor
-            , IIdentityRepository<TAvestaUser, TRole> identityRepository
+            , IIdentityRepository<TId, TAvestaUser, TRole> identityRepository
             , IJWTAuthenticationService jWTAuthenticationService)
         {
             _httpContextAccessor = httpContextAccessor;

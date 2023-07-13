@@ -19,9 +19,9 @@ namespace Avesta.Auth.IdentityCore.Authorize.Service
 
     public interface IAvestaUserAuthorizeGroupService<TId, TAvestaUser, TAvestaAuthorizeGroup, TUserAuthorizeGroup>
            : IEntityService<TId, TUserAuthorizeGroup, AvestaUserAuthorizeGroupModel<TId>, CreateAvestaUserAuthorizeGroupModel<TId>, EditAvestaUserAuthorizeGroupModel<TId>>
-        where TId : class
-        where TAvestaUser : AvestaUser<TId, TUserAuthorizeGroup>
-        where TUserAuthorizeGroup : AvestaUserAuthorizeGroup<TId>
+        where TId : class, IEquatable<TId>
+        where TAvestaUser : IAvestaUser<TId>
+        where TUserAuthorizeGroup : AvestaUserAuthorizeGroup<TId, TAvestaUser>
     {
     }
 
@@ -30,10 +30,10 @@ namespace Avesta.Auth.IdentityCore.Authorize.Service
     public class AvestaUserAuthorizeGroupService<TId, TAvestaUser, TAvestaAuthorizeGroup, TUserAuthorizeGroup>
              : EntityService<TId, TUserAuthorizeGroup, AvestaUserAuthorizeGroupModel<TId>, CreateAvestaUserAuthorizeGroupModel<TId>, EditAvestaUserAuthorizeGroupModel<TId>>
          , IAvestaUserAuthorizeGroupService<TId, TAvestaUser, TAvestaAuthorizeGroup, TUserAuthorizeGroup>
-        where TId : class
-        where TAvestaUser : AvestaUser<TId, TUserAuthorizeGroup>
-        where TAvestaAuthorizeGroup : AvestaAuthorizeGroup<TId, TUserAuthorizeGroup>
-        where TUserAuthorizeGroup : AvestaUserAuthorizeGroup<TId>
+        where TId : class, IEquatable<TId>
+        where TAvestaUser : IAvestaUser<TId>
+        where TAvestaAuthorizeGroup : AvestaAuthorizeGroup<TId, TUserAuthorizeGroup,TAvestaUser>
+        where TUserAuthorizeGroup : AvestaUserAuthorizeGroup<TId, TAvestaUser>
     {
         public AvestaUserAuthorizeGroupService(IReadEntityService<TId, TUserAuthorizeGroup, AvestaUserAuthorizeGroupModel<TId>> readEntityService
             , IUpdateEntityService<TId, TUserAuthorizeGroup, AvestaUserAuthorizeGroupModel<TId>

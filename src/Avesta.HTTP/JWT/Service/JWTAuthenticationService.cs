@@ -24,16 +24,17 @@ namespace Avesta.HTTP.JWT.Service
         Task<string?> GetClaimFromToken(string token, string claimName);
 
     }
-    public class JWTAuthenticationService<TAvestaUser, TRole> : IJWTAuthenticationService
-        where TAvestaUser : AvestaIdentityUser
+    public class JWTAuthenticationService<TId, TAvestaUser, TRole> : IJWTAuthenticationService
+        where TId : class, IEquatable<TId>
+        where TAvestaUser : AvestaIdentityUser<TId>
         where TRole : IdentityRole
     {
 
         readonly IConfiguration _configuration;
-        IIdentityRepository<TAvestaUser, TRole> _identityRepository;
+        IIdentityRepository<TId, TAvestaUser, TRole> _identityRepository;
 
         public JWTAuthenticationService(IConfiguration configuration
-            , IIdentityRepository<TAvestaUser, TRole> identityRepository)
+            , IIdentityRepository<TId, TAvestaUser, TRole> identityRepository)
         {
             _configuration = configuration;
             _identityRepository = identityRepository;
@@ -112,7 +113,7 @@ namespace Avesta.HTTP.JWT.Service
         public async Task<ClaimsPrincipal?> GetPrincipalFromToken(string? token)
         {
             await Task.CompletedTask;
-            if(string.IsNullOrEmpty(token))
+            if (string.IsNullOrEmpty(token))
                 return null;
 
             var tokenValidationParameters = new TokenValidationParameters

@@ -5,14 +5,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Linq.Dynamic.Core.Tokenizer;
 
 namespace Avesta.Auth.IdentityCore.Authentication.ViewModel
 {
-    public class JWTAvestaUser : AvestaIdentityUser
+    public class JWTAvestaUser<TId> : AvestaIdentityUser<TId>
+        where TId : class, IEquatable<TId>
     {
         public string? Token { get; set; }
 
-        public JWTAvestaUser? SetToken(string token)
+        public JWTAvestaUser<TId>? SetToken(string token)
         {
             this.Token = token;
             return this;

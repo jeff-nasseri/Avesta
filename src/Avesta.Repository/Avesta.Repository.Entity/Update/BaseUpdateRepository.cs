@@ -26,7 +26,7 @@ namespace Avesta.Repository.EntityRepository.Update
             var data = base.Table<TEntity,TId>().Find(entity);
 
             if (exceptionRaiseIfNotExist && data == null)
-                throw new CanNotFoundEntityException(entity.ID);
+                throw new CanNotFoundEntityException(entity.Id);
 
 
             if(entity != null)

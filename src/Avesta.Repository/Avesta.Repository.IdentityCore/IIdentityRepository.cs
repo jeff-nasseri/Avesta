@@ -9,7 +9,8 @@ using Avesta.Share.Model.Identity;
 
 namespace Avesta.Repository.IdentityCore
 {
-    public interface IIdentityRepository<TUser, TRole>
+    public interface IIdentityRepository<TId ,TUser, TRole>
+        where TId : class, IEquatable<TId>
     {
 
         #region role
@@ -20,8 +21,8 @@ namespace Avesta.Repository.IdentityCore
 
         #region register and sign_in_out
         Task<IdentityResult> RegisterNewUser(TUser user, string password);
-        Task<IdentityRegisterUserReturn> RegisterUser<TModel>(TModel model, string role = null) where TModel : RegisterModelBase;
-        Task<IdentityRepositoryReturn> SignIn<TModel>(TModel model, bool isPersistent = true) where TModel : LoginModelBase;
+        Task<IdentityRegisterUserReturn> RegisterUser<TModel>(TModel model, string role = null) where TModel : RegisterModelBase<TId>;
+        Task<IdentityRepositoryReturn> SignIn<TModel>(TModel model, bool isPersistent = true) where TModel : LoginModelBase<TId>;
         Task Signin(TUser user, bool isPersistent);
         Task SignOut();
         #endregion
@@ -29,7 +30,7 @@ namespace Avesta.Repository.IdentityCore
 
 
         #region get user info
-        Task<string> GetUserIDByEmail(string email);
+        Task<TId> GetUserIDByEmail(string email);
         Task<TUser> GetUser(ClaimsPrincipal claimsPrincipal);
         Task<IEnumerable<TUser>> GetUsers();
         Task<TUser> GetUser(string id);

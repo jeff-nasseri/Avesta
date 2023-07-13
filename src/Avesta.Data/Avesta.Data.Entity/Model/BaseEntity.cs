@@ -8,7 +8,7 @@ namespace Avesta.Data.Entity.Model
 {
     public interface IBaseEntity<TId> where TId : class
     {
-        TId ID { get; set; }
+        TId Id { get; set; }
         bool IsLock { get; set; }
         DateTime? ModifiedDate { get; set; }
         DateTime CreatedDate { get; }
@@ -37,7 +37,7 @@ namespace Avesta.Data.Entity.Model
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public virtual T ID { get; set; }
+        public virtual T Id { get; set; }
 
 
         public virtual bool IsLock { get; set; } = false;

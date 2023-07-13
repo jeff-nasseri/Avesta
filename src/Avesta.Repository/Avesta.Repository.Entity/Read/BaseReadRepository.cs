@@ -151,7 +151,7 @@ namespace Avesta.Repository.EntityRepository.Read
              where TId : class
              where TEntity : BaseEntity<TId>
         {
-            var entity = await entities.SingleOrDefaultAsync(e => e.ID == id);
+            var entity = await entities.SingleOrDefaultAsync(e => e.Id == id);
 
             if (exceptionRaiseIfNotExist && entities == null)
                 throw new CanNotFoundEntityException(id);

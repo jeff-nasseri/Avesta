@@ -12,11 +12,11 @@ using Avesta.Data.Identity.Model;
 
 namespace Avesta.Data.Context
 {
-    public class AvestaIdentityCoreDbContext<TId, TAvestaUser, TAvestaAuthorizeGroup, TUserAuthorizeGroup> : AvestaIdentityDbContext<TAvestaUser>
-        where TId : class
-        where TAvestaUser : AvestaIdentityUser<TId, TUserAuthorizeGroup>
-        where TAvestaAuthorizeGroup : AvestaAuthorizeGroup<TId, TUserAuthorizeGroup>
-        where TUserAuthorizeGroup : AvestaUserAuthorizeGroup<TId>
+    public class AvestaIdentityCoreDbContext<TId, TAvestaUser, TAvestaAuthorizeGroup, TUserAuthorizeGroup> : AvestaIdentityDbContext<TId, TAvestaUser>
+        where TId : class, IEquatable<TId>
+        where TAvestaUser : AvestaIdentityUser<TId>
+        where TAvestaAuthorizeGroup : AvestaAuthorizeGroup<TId, TUserAuthorizeGroup, TAvestaUser>
+        where TUserAuthorizeGroup : AvestaUserAuthorizeGroup<TId, TAvestaUser>
     {
         public AvestaIdentityCoreDbContext(DbContextOptions options)
           : base(options)
@@ -37,8 +37,9 @@ namespace Avesta.Data.Context
 
 
 
-    public class AvestaIdentityDbContext<TAvestaUser> : IdentityDbContext<TAvestaUser>
-    where TAvestaUser : AvestaIdentityUser
+    public class AvestaIdentityDbContext<TId, TAvestaUser> : IdentityDbContext<TAvestaUser, IdentityRole<TId>, TId>
+        where TId : class, IEquatable<TId>
+        where TAvestaUser : AvestaIdentityUser<TId>
     {
         public AvestaIdentityDbContext(DbContextOptions options)
           : base(options)

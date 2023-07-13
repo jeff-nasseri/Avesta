@@ -7,16 +7,17 @@ namespace Avesta.Auth.IdentityCore.Authentication.Config
 {
     public static class AutoMapper
     {
-        public static IServiceCollection ConfigureMapperForAuthentication<TAvestaUser>(this IServiceCollection services)
-            where TAvestaUser : AvestaIdentityUser
+        public static IServiceCollection ConfigureMapperForAuthentication<TId, TAvestaUser>(this IServiceCollection services)
+            where TId : class, IEquatable<TId>
+            where TAvestaUser : AvestaIdentityUser<TId>
         {
             services.AddAutoMapper(config =>
             {
                 #region register view model
 
-                config.CreateMap<RegisterUserViewModel, TAvestaUser>()
+                config.CreateMap<RegisterUserViewModel<TId>, TAvestaUser>()
                 .ReverseMap();
-                
+
                 #endregion
 
 

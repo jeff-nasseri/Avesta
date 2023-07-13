@@ -18,8 +18,8 @@ namespace Avesta.Data.Identity.Context
     public abstract class AvestaIdentityDbContext<TId, TAvestaUser, TAvestaAuthorizeGroup, TUserAuthorizeGroup> : AvestaDbContext
         where TId : class
         where TAvestaUser : IAvestaUser<TId>
-        where TAvestaAuthorizeGroup : AvestaAuthorizeGroup<TId, TUserAuthorizeGroup>
-        where TUserAuthorizeGroup : AvestaUserAuthorizeGroup<TId>
+        where TAvestaAuthorizeGroup : AvestaAuthorizeGroup<TId, TUserAuthorizeGroup, TAvestaUser>
+        where TUserAuthorizeGroup : AvestaUserAuthorizeGroup<TId, TAvestaUser>
     {
         public AvestaIdentityDbContext(DbContextOptions options)
             : base(options)
@@ -44,7 +44,7 @@ namespace Avesta.Data.Identity.Context
     }
 
 
-   
+
 
 
 

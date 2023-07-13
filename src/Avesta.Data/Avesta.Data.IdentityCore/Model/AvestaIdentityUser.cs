@@ -1,4 +1,5 @@
-﻿using Avesta.Data.Identity.Model;
+﻿using Avesta.Data.Entity.Model;
+using Avesta.Data.Identity.Model;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
@@ -9,17 +10,18 @@ using System.Threading.Tasks;
 
 namespace Avesta.Data.IdentityCore.Model
 {
-    public class AvestaIdentityUser : IdentityUser
+    public class AvestaIdentityUser<TId> : IdentityUser<TId>, IAvestaUser<TId>
+        where TId : class, IEquatable<TId>
     {
         public AvestaIdentityUser()
         {
-            RegisterDate = DateTime.UtcNow;
-            ModifiedDate = RegisterDate;
+            CreatedDate = DateTime.UtcNow;
+            ModifiedDate = CreatedDate;
         }
 
-        public virtual DateTime RegisterDate { get; set; }
-        public virtual DateTime ModifiedDate { get; set; }
-        public virtual DateTime? DeleteDate { get; set; }
+        public virtual DateTime CreatedDate { get; set; }
+        public virtual DateTime? ModifiedDate { get; set; }
+        public virtual DateTime? DeletedDate { get; set; }
         public virtual DateTime? DateOfBirth { get; set; }
         public virtual DateTime? VerifiedDate { get; set; }
         public virtual string? ProfileImageUrl { get; set; }
@@ -32,22 +34,21 @@ namespace Avesta.Data.IdentityCore.Model
         public string? FullName => $"{FirstName} {LastName}";
 
         public virtual string? IdentityNumber { get; set; }
-
+        public bool IsLock { get; set; }
 
 
 
         #region [-JWT-]
         public virtual string? RefreshToken { get; set; }
-
         #endregion
 
 
 
 
     }
-    public class AvestaIdentityUser<TId, TAvestaUserGroup> : AvestaIdentityUser
-        where TId : class
-        where TAvestaUserGroup : AvestaUserAuthorizeGroup<TId>
+    public class AvestaIdentityUser<TId, TAvestaUserGroup> : AvestaIdentityUser<TId>
+        where TId : class, IEquatable<TId>
+        where TAvestaUserGroup : AvestaUserAuthorizeGroup<TId, AvestaIdentityUser<TId, TAvestaUserGroup>>
     {
         public virtual ICollection<TAvestaUserGroup>? UserAuthorizeGroups { get; set; }
 
