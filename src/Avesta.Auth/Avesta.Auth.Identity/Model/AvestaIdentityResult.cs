@@ -15,7 +15,7 @@ namespace Avesta.Auth.Identity.Model
         public static AvestaIdentityResult Ok(string message)
         {
             var newObj = new AvestaIdentityResult();
-            newObj.IdentityStatus = 0;
+            newObj.IdentityStatus = 200;
             newObj.Succeed = true;
             newObj.Message = message;
             return newObj;

@@ -14,6 +14,9 @@
 .\TODO
 TODO
 .\TODO\*
+.\BrenchMark
+BrenchMark
+.\BrenchMark\*
 .\src\Avesta.Security
 .\src\Avesta.Security\*
 

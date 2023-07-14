@@ -17,9 +17,9 @@ namespace Avesta.Data.Identity.Model
 
 
 
-        public AvestaUserActivity<TId, TAvestaUser> Activity { get; set; }
+        public AvestaUserActivity<TId, TAvestaUser>? Activity { get; set; }
         [ForeignKey(nameof(Activity))]
-        public TId ActivityId { get; set; }
+        public TId? ActivityId { get; set; }
 
 
         [ForeignKey(nameof(User))]
