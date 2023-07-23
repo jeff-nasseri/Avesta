@@ -40,9 +40,7 @@ namespace Avesta.Share.Model
         /// current model or entity id with type of 'T'
         /// </summary>
         public virtual T? ID { get; set; }
-        public virtual DateTime? ModifiedDate { get; set; }
         public virtual DateTime CreatedDate { get; set; }
-        public virtual DateTime? DeletedDate { get; set; }
 
         public virtual bool IsLock { get; set; } = false;
 
@@ -59,5 +57,11 @@ namespace Avesta.Share.Model
     {
     }
 
+    public abstract class BaseViewModel : BaseModel
+    {
+        public virtual DateTime? DeletedDate { get; set; }
+        public virtual DateTime? ModifiedDate { get; set; }
+
+    }
 
 }

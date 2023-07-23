@@ -15,12 +15,7 @@ namespace Avesta.Security.AES.GCM
 
         public void SetPassword(byte[] password)
         {
-            // Derive key
-            // AES key size is 16 bytes
-            // We use a fixed salt and small iteration count here; the latter should be increased for weaker passwords
             byte[] key = new Rfc2898DeriveBytes(password + "**********", new byte[8], 1000, HashAlgorithmName.SHA256).GetBytes(16);
-
-            // Initialize AES implementation
             _aes = new AesGcm(key);
         }
 
@@ -30,26 +25,21 @@ namespace Avesta.Security.AES.GCM
 
             SetPassword(password);
 
-            // Get parameter sizes
             int nonceSize = AesGcm.NonceByteSizes.MaxSize;
             int tagSize = AesGcm.TagByteSizes.MaxSize;
-            int cipherSize = plainBytes.Length;
 
-            // We write everything into one big array for easier encoding
+            int cipherSize = plainBytes.Length;
             int encryptedDataLength = 4 + nonceSize + 4 + tagSize + cipherSize;
             Span<byte> encryptedData = encryptedDataLength < 1024 ? stackalloc byte[encryptedDataLength] : new byte[encryptedDataLength].AsSpan();
 
-            // Copy parameters
             BinaryPrimitives.WriteInt32LittleEndian(encryptedData.Slice(0, 4), nonceSize);
             BinaryPrimitives.WriteInt32LittleEndian(encryptedData.Slice(4 + nonceSize, 4), tagSize);
             var nonce = encryptedData.Slice(4, nonceSize);
             var tag = encryptedData.Slice(4 + nonceSize + 4, tagSize);
             var cipherBytes = encryptedData.Slice(4 + nonceSize + 4 + tagSize, cipherSize);
 
-            // Generate secure nonce
             RandomNumberGenerator.Fill(nonce);
 
-            // Encrypt
             _aes.Encrypt(nonce, plainBytes.AsSpan(), cipherBytes, tag);
 
             return encryptedData.ToArray();
@@ -61,20 +51,16 @@ namespace Avesta.Security.AES.GCM
         {
             SetPassword(password);
 
-            // Decode
             Span<byte> encryptedData = data.AsSpan();
 
-            // Extract parameter sizes
             int nonceSize = BinaryPrimitives.ReadInt32LittleEndian(encryptedData.Slice(0, 4));
             int tagSize = BinaryPrimitives.ReadInt32LittleEndian(encryptedData.Slice(4 + nonceSize, 4));
             int cipherSize = encryptedData.Length - 4 - nonceSize - 4 - tagSize;
 
-            // Extract parameters
             var nonce = encryptedData.Slice(4, nonceSize);
             var tag = encryptedData.Slice(4 + nonceSize + 4, tagSize);
             var cipherBytes = encryptedData.Slice(4 + nonceSize + 4 + tagSize, cipherSize);
 
-            // Decrypt
             Span<byte> plainBytes = cipherSize < 1024 ? stackalloc byte[cipherSize] : new byte[cipherSize];
             _aes.Decrypt(nonce, cipherBytes, tag, plainBytes);
 
